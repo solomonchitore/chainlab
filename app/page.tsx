@@ -1,69 +1,236 @@
-import Image from "next/image";
+const learningAreas = [
+  {
+    number: "01",
+    title: "BLOCKCHAIN",
+    description:
+      "Understand blocks, transactions, wallets, nodes, consensus, and how decentralized networks work.",
+    link: "#blockchain",
+  },
+  {
+    number: "02",
+    title: "SOLANA",
+    description:
+      "Learn how Solana works, what SOL is, how transactions work, and how the Solana ecosystem fits together.",
+    link: "#solana",
+  },
+  {
+    number: "03",
+    title: "MEME COINS",
+    description:
+      "Explore tokens, tokenomics, liquidity, communities, risks, and how meme coins are created.",
+    link: "#memecoins",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main>
+      {/* Navigation */}
+      <nav className="site-nav">
+        <a href="/" className="logo">
+          [CHAINLAB]
+        </a>
+
+        <div className="nav-links">
+          <a href="#learn">LEARN</a>
+          <a href="#solana">SOLANA</a>
+          <a href="#memecoins">MEME COINS</a>
+          <a href="#security">SECURITY</a>
+        </div>
+
+        <a href="#learn" className="nav-action">
+          START →
+        </a>
+      </nav>
+
+      {/* Hero */}
+      <section className="hero">
+        <div className="hero-grid" />
+
+        <div className="hero-glow hero-glow-one" />
+        <div className="hero-glow hero-glow-two" />
+
+        <div className="hero-content">
+          <p className="eyebrow">[ WEB3 EDUCATION / 001 ]</p>
+
+          <h1>
+            ENTER THE
+            <span>BLOCKCHAIN</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="hero-description">
+            A free educational platform for understanding blockchain,
+            Solana, meme coins, tokenomics, and Web3 security.
+          </p>
+
+          <div className="hero-actions">
+            <a href="#learn" className="primary-button">
+              START LEARNING
+            </a>
+
+            <a href="#about" className="secondary-button">
+              EXPLORE CHAINLAB
+            </a>
+          </div>
+        </div>
+
+        <div className="hero-status">
+          <span className="status-dot" />
+          EDUCATION SYSTEM ONLINE
+        </div>
+
+        <div className="hero-index">[01 / 08]</div>
+      </section>
+
+      {/* Learning Areas */}
+      <section id="learn" className="learning-section">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">[ LEARNING SYSTEM ]</p>
+
+            <h2>
+              WHERE DO YOU
+              <br />
+              WANT TO START?
+            </h2>
+          </div>
+
+          <p className="section-intro">
+            Start with the fundamentals and gradually build your
+            understanding of Web3 technology.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="learning-grid">
+          {learningAreas.map((area) => (
+            <article className="learning-card" key={area.number}>
+              <span className="card-number">[{area.number}]</span>
+
+              <h3>{area.title}</h3>
+
+              <p>{area.description}</p>
+
+              <a href={area.link} className="card-link">
+                EXPLORE TOPIC →
+              </a>
+            </article>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Blockchain */}
+      <section id="blockchain" className="feature-section">
+        <div className="feature-line" />
+
+        <div>
+          <p className="eyebrow">[ 01 / BLOCKCHAIN ]</p>
+
+          <h2>
+            UNDERSTAND.
+            <br />
+            <span>THE FOUNDATION.</span>
+          </h2>
+        </div>
+
+        <p className="feature-text">
+          Learn the fundamentals of blockchain technology, including
+          blocks, transactions, wallets, nodes, consensus, and
+          decentralization.
+        </p>
+      </section>
+
+      {/* Solana */}
+      <section id="solana" className="feature-section">
+        <div className="feature-line" />
+
+        <div>
+          <p className="eyebrow">[ 02 / SOLANA ]</p>
+
+          <h2>
+            FAST.
+            <br />
+            SCALABLE.
+            <br />
+            <span>DECENTRALIZED.</span>
+          </h2>
+        </div>
+
+        <p className="feature-text">
+          Discover why Solana has become one of the most important
+          blockchain ecosystems in Web3. Learn the technology before
+          interacting with it.
+        </p>
+      </section>
+
+      {/* Meme Coins */}
+      <section id="memecoins" className="meme-section">
+        <div className="meme-background">MEME</div>
+
+        <div className="meme-content">
+          <p className="eyebrow">[ 03 / MEME COINS ]</p>
+
+          <h2>
+            NOT JUST
+            <br />
+            <span>HYPE.</span>
+          </h2>
+
+          <p>
+            Learn what happens behind the memes: token supply,
+            liquidity, communities, market capitalization, risks,
+            and tokenomics.
+          </p>
+        </div>
+      </section>
+
+      {/* Security */}
+      <section id="security" className="security-section">
+        <p className="eyebrow">[ SECURITY PROTOCOL ]</p>
+
+        <h2>
+          LEARN BEFORE
+          <br />
+          YOU <span>CONNECT.</span>
+        </h2>
+
+        <p>
+          Your wallet is your responsibility. Learn how to recognize
+          phishing attacks, fake tokens, malicious links, rug pulls,
+          and other Web3 threats.
+        </p>
+
+        <a href="#learn" className="primary-button">
+          LEARN SECURITY →
+        </a>
+      </section>
+
+      {/* About */}
+      <section id="about" className="about-section">
+        <p className="eyebrow">[ ABOUT CHAINLAB ]</p>
+
+        <h2>
+          BLOCKCHAIN
+          <br />
+          <span>WITHOUT THE CONFUSION.</span>
+        </h2>
+
+        <p>
+          CHAINLAB is an educational project created to make complex
+          blockchain and Web3 concepts easier for beginners to
+          understand.
+        </p>
+      </section>
+
+      {/* Footer */}
+      <footer className="site-footer">
+        <div>
+          <strong>[CHAINLAB]</strong>
+
+          <p>Learn. Understand. Explore.</p>
+        </div>
+
+        <p>© 2026 CHAINLAB — EDUCATIONAL PROJECT</p>
+      </footer>
+    </main>
   );
 }
