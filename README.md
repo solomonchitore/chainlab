@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CHAINLAB
 
-## Getting Started
+## Blockchain Education Platform
 
-First, run the development server:
+CHAINLAB is a free educational platform designed to help beginners understand blockchain technology, Solana, meme coins, tokenomics, and Web3 security.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The project focuses on education and awareness. It is not a blockchain network, cryptocurrency exchange, or investment platform.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Project Goal
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The goal of CHAINLAB is to make blockchain and Web3 concepts easier to understand through:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Beginner-friendly lessons
+- Interactive learning experiences
+- Visual explanations
+- Quizzes
+- Structured learning paths
+- Security awareness
+- Practical educational examples
 
-## Learn More
+## 📚 Main Learning Areas
 
-To learn more about Next.js, take a look at the following resources:
+### Blockchain
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Users will learn:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- What blockchain is
+- How blockchain works
+- Blocks and transactions
+- Nodes
+- Consensus
+- Wallets
+- Tokens
+- Smart contracts
+- Blockchain security
 
-## Deploy on Vercel
+### Solana
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Users will learn:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- What Solana is
+- SOL
+- Solana wallets
+- Transactions
+- Transaction fees
+- Programs
+- SPL tokens
+- NFTs
+- DeFi
+- Solana development
+
+### Meme Coins
+
+Users will learn:
+
+- What meme coins are
+- How tokens are created
+- Token supply
+- Tokenomics
+- Liquidity
+- Market capitalization
+- Community
+- Risks
+- Rug pulls
+- Honeypots
+- Fake tokens
+
+### Web3 Security
+
+Users will learn how to protect themselves from:
+
+- Phishing
+- Fake websites
+- Fake airdrops
+- Wallet scams
+- Malicious contracts
+- Fake tokens
+- Rug pulls
+- Private-key and seed-phrase theft
+
+## 🛠️ Technology Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Git
+- GitHub
+
+Additional technologies may be introduced during development where they can be used for free.
+
+## 🗓️ Development Plan
+
+The project is being developed over eight weeks.
+
+| Week | Focus |
+|---|---|
+| Week 1 | Project foundation and development environment |
+| Week 2 | Homepage and visual design |
+| Week 3 | Blockchain Academy |
+| Week 4 | Solana Academy |
+| Week 5 | Meme Coin Academy and Tokenomics Lab |
+| Week 6 | Security education and quizzes |
+| Week 7 | Interactive Solana demonstrations and BM Alpha case study |
+| Week 8 | Testing, optimization, deployment and final documentation |
+
+## 💰 Project Cost
+
+The project is designed to be developed using free and open-source tools and free service tiers.
+
+No paid services are required for the initial development.
+
+## 📁 Documentation
+
+Weekly project documentation is maintained in the `docs` directory.
+
+```text
+docs/
+├── week-1/
+├── week-2/
+├── week-3/
+├── week-4/
+├── week-5/
+├── week-6/
+├── week-7/
+└── week-8/
