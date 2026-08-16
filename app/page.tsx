@@ -4,21 +4,21 @@ const learningAreas = [
     title: "BLOCKCHAIN",
     description:
       "Understand blocks, transactions, wallets, nodes, consensus, and how decentralized networks work.",
-    link: "#blockchain",
+    link: "/learn/blockchain",
   },
   {
     number: "02",
     title: "SOLANA",
     description:
       "Learn how Solana works, what SOL is, how transactions work, and how the Solana ecosystem fits together.",
-    link: "#solana",
+    link: "/learn/solana",
   },
   {
     number: "03",
     title: "MEME COINS",
     description:
       "Explore tokens, tokenomics, liquidity, communities, risks, and how meme coins are created.",
-    link: "#memecoins",
+    link: "/learn/meme-coins",
   },
 ];
 
@@ -33,9 +33,9 @@ export default function Home() {
 
         <div className="nav-links">
           <a href="#learn">LEARN</a>
-          <a href="#solana">SOLANA</a>
-          <a href="#memecoins">MEME COINS</a>
-          <a href="#security">SECURITY</a>
+          <a href="/learn/solana">SOLANA</a>
+          <a href="/learn/meme-coins">MEME COINS</a>
+          <a href="/learn/security">SECURITY</a>
         </div>
 
         <a href="#learn" className="nav-action">
@@ -137,6 +137,10 @@ export default function Home() {
           blocks, transactions, wallets, nodes, consensus, and
           decentralization.
         </p>
+
+        <a href="/learn/blockchain" className="primary-button">
+          ENTER BLOCKCHAIN →
+        </a>
       </section>
 
       {/* Solana */}
@@ -156,10 +160,14 @@ export default function Home() {
         </div>
 
         <p className="feature-text">
-          Discover why Solana has become one of the most important
-          blockchain ecosystems in Web3. Learn the technology before
-          interacting with it.
+          Discover how Solana works, how transactions are processed,
+          what SOL is, and how developers build applications on the
+          network.
         </p>
+
+        <a href="/learn/solana" className="primary-button">
+          ENTER SOLANA →
+        </a>
       </section>
 
       {/* Meme Coins */}
@@ -180,6 +188,10 @@ export default function Home() {
             liquidity, communities, market capitalization, risks,
             and tokenomics.
           </p>
+
+          <a href="/learn/meme-coins" className="primary-button">
+            ENTER MEME COINS →
+          </a>
         </div>
       </section>
 
@@ -199,7 +211,7 @@ export default function Home() {
           and other Web3 threats.
         </p>
 
-        <a href="#learn" className="primary-button">
+        <a href="/learn/security" className="primary-button">
           LEARN SECURITY →
         </a>
       </section>

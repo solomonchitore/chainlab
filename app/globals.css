@@ -436,3 +436,249 @@ a {
     flex-direction: column;
   }
 }
+
+/* ================================
+   LEARNING PAGES
+================================ */
+
+.learning-page {
+  min-height: 100vh;
+  background: #050608;
+  color: #f5f5f0;
+}
+
+/* Learning page hero */
+
+.learning-hero {
+  position: relative;
+  min-height: 75vh;
+  padding: 180px 8vw 120px;
+  border-bottom: 1px solid #202328;
+  overflow: hidden;
+}
+
+.learning-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+.learning-hero::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  right: -150px;
+  top: 80px;
+  border-radius: 50%;
+  background: rgba(0, 170, 255, 0.08);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.learning-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.learning-hero h1 {
+  max-width: 1100px;
+  margin: 40px 0;
+  font-size: clamp(4rem, 10vw, 10rem);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+}
+
+.learning-hero h1 span {
+  color: transparent;
+  -webkit-text-stroke: 1px #888;
+}
+
+.learning-intro {
+  max-width: 650px;
+  color: #9299a5;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+/* Lesson sections */
+
+.lesson-section {
+  padding: 140px 8vw;
+  border-bottom: 1px solid #202328;
+}
+
+.lesson-header {
+  margin-bottom: 70px;
+}
+
+.lesson-header h2 {
+  max-width: 1000px;
+  margin-top: 25px;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+}
+
+.lesson-content {
+  max-width: 850px;
+  margin-left: auto;
+}
+
+.lesson-content p {
+  margin-bottom: 30px;
+  color: #9ba2ae;
+  font-size: 1.25rem;
+  line-height: 1.9;
+}
+
+/* Concept cards */
+
+.concept-section {
+  padding: 140px 8vw;
+  border-bottom: 1px solid #202328;
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 70px;
+  border-top: 1px solid #292d33;
+  border-left: 1px solid #292d33;
+}
+
+.concept-card {
+  min-height: 330px;
+  padding: 40px;
+  border-right: 1px solid #292d33;
+  border-bottom: 1px solid #292d33;
+  transition: background 0.3s ease;
+}
+
+.concept-card:hover {
+  background: #0b0e12;
+}
+
+.concept-card span,
+.step span {
+  color: #3bbcff;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.concept-card h3 {
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.concept-card p {
+  color: #858c98;
+  line-height: 1.7;
+}
+
+/* Steps */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #292d33;
+  border-left: 1px solid #292d33;
+}
+
+.step {
+  min-height: 280px;
+  padding: 35px;
+  border-right: 1px solid #292d33;
+  border-bottom: 1px solid #292d33;
+}
+
+.step h3 {
+  margin-top: 70px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.step p {
+  color: #858c98;
+  line-height: 1.7;
+}
+
+/* Next module */
+
+.next-section {
+  min-height: 70vh;
+  padding: 150px 8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #202328;
+}
+
+.next-section h2 {
+  margin: 40px 0;
+  font-size: clamp(4rem, 9vw, 9rem);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+}
+
+.next-section h2 span {
+  color: transparent;
+  -webkit-text-stroke: 1px #888;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+  .concept-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .learning-hero {
+    padding: 140px 6vw 100px;
+  }
+
+  .lesson-section,
+  .concept-section,
+  .next-section {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+
+  .concept-grid,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-hero h1 {
+    font-size: 4rem;
+  }
+
+  .lesson-header h2 {
+    font-size: 3rem;
+  }
+
+  .concept-card {
+    min-height: 280px;
+  }
+}
