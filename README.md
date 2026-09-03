@@ -13,7 +13,6 @@ The goal of CHAINLAB is to make blockchain and Web3 concepts easier to understan
 - Beginner-friendly lessons
 - Interactive learning experiences
 - Visual explanations
-- Quizzes
 - Structured learning paths
 - Security awareness
 - Practical educational examples
