@@ -1,0 +1,735 @@
+.page {
+  min-height: 100vh;
+  background: #05070d;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* NAVIGATION */
+
+.nav {
+  width: 100%;
+  min-height: 76px;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(5, 7, 13, 0.94);
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navLinks a,
+.homeLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transition: color 0.2s ease;
+}
+
+.navLinks a:hover,
+.navLinks .active,
+.homeLink:hover {
+  color: #ffffff;
+}
+
+.homeLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.homeLink span {
+  color: #22d3ee;
+  font-size: 16px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 760px;
+  padding: 42px 5vw 110px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: -220px;
+  bottom: -230px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.14),
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.heroTop {
+  display: flex;
+  justify-content: space-between;
+  color: #22d3ee;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.heroContent {
+  max-width: 1100px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin-bottom: 28px;
+  color: #22d3ee;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(72px, 14vw, 190px);
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  color: #ffffff;
+}
+
+.heroText {
+  max-width: 700px;
+  margin-top: 60px;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* SHARED */
+
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #22d3ee;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.sectionLabel span:first-child {
+  color: #ffffff;
+}
+
+.introduction,
+.wallet,
+.transactions,
+.threats,
+.contracts,
+.checklist,
+.knowledge,
+.finalCta {
+  padding: 130px 5vw;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* INTRODUCTION */
+
+.introductionContent {
+  max-width: 1100px;
+  margin: 90px auto 0;
+}
+
+.introductionContent h2,
+.walletHeader h2,
+.transactionHeader h2,
+.threatHeader h2,
+.contractHeader h2,
+.checklistHeader h2,
+.knowledge h2 {
+  margin: 0 0 50px;
+  font-size: clamp(50px, 7vw, 105px);
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+}
+
+.introductionContent > p {
+  max-width: 760px;
+  margin: 0 0 28px;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.definitionBox {
+  margin-top: 70px;
+  padding: 35px;
+  border: 1px solid rgba(34, 211, 238, 0.55);
+  background: rgba(34, 211, 238, 0.035);
+}
+
+.definitionBox span {
+  display: block;
+  margin-bottom: 15px;
+  color: #22d3ee;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.definitionBox strong {
+  font-size: clamp(18px, 2.5vw, 30px);
+  letter-spacing: -0.02em;
+}
+
+/* WALLET */
+
+.walletHeader,
+.transactionHeader,
+.threatHeader,
+.contractHeader,
+.checklistHeader {
+  display: grid;
+  grid-template-columns: 1fr 0.65fr;
+  gap: 80px;
+  align-items: end;
+  margin: 80px 0 100px;
+}
+
+.walletHeader h2,
+.transactionHeader h2,
+.threatHeader h2,
+.contractHeader h2,
+.checklistHeader h2 {
+  margin: 0;
+}
+
+.walletHeader p,
+.transactionHeader p,
+.threatHeader p,
+.contractHeader p,
+.checklistHeader p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.walletGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.securityCard {
+  min-height: 310px;
+  padding: 35px;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  transition: background 0.25s ease;
+}
+
+.securityCard:hover {
+  background: rgba(34, 211, 238, 0.035);
+}
+
+.securityCard > span {
+  color: #22d3ee;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.securityCard h3 {
+  margin: 70px 0 20px;
+  font-size: 30px;
+  letter-spacing: -0.03em;
+}
+
+.securityCard p {
+  max-width: 500px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* TRANSACTIONS */
+
+.transactionSteps {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.transactionRow {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 50px;
+  padding: 50px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.number {
+  color: #22d3ee;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.transactionRow h3 {
+  margin: 0 0 18px;
+  font-size: 30px;
+  letter-spacing: -0.03em;
+}
+
+.transactionRow p {
+  max-width: 700px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* THREATS */
+
+.threatGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.threatCard {
+  min-height: 280px;
+  padding: 32px;
+  background: #05070d;
+}
+
+.threatCard > span {
+  color: #22d3ee;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.threatCard h3 {
+  margin: 65px 0 18px;
+  font-size: 24px;
+}
+
+.threatCard p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* CONTRACTS */
+
+.contractGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.contractPoint {
+  min-height: 270px;
+  padding: 35px;
+  background: #05070d;
+}
+
+.contractPoint > span {
+  color: #22d3ee;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.contractPoint h3 {
+  margin: 60px 0 18px;
+  font-size: 24px;
+}
+
+.contractPoint p {
+  max-width: 550px;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.75;
+}
+
+/* CHECKLIST */
+
+.checkList {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.checkItem {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 30px;
+  padding: 38px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.checkItem > span {
+  color: #22d3ee;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.checkItem h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.checkItem p {
+  max-width: 700px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* KNOWLEDGE */
+
+.knowledge {
+  text-align: center;
+}
+
+.knowledge h2 {
+  margin-top: 80px;
+}
+
+.knowledge > p {
+  max-width: 680px;
+  margin: 0 auto 80px;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.questions {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.14);
+  text-align: left;
+}
+
+.questions > div {
+  min-height: 300px;
+  padding: 32px;
+  background: #05070d;
+}
+
+.questions span {
+  color: #22d3ee;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.questions h3 {
+  margin: 55px 0 18px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.questions p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* FINAL CTA */
+
+.finalCta {
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.finalCta::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.1),
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.finalCtaInner {
+  max-width: 950px;
+  position: relative;
+  z-index: 1;
+}
+
+.finalCtaInner .sectionLabel {
+  justify-content: center;
+}
+
+.finalCta h2 {
+  margin: 70px 0 35px;
+  font-size: clamp(65px, 11vw, 150px);
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+}
+
+.finalCta h2 span {
+  color: #ffffff;
+}
+
+.finalCta p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.finalCtaButton {
+  width: fit-content;
+  margin: 45px auto 0;
+  padding: 18px 25px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid #22d3ee;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  transition: all 0.25s ease;
+}
+
+.finalCtaButton span {
+  color: #22d3ee;
+  font-size: 18px;
+}
+
+.finalCtaButton:hover {
+  background: #22d3ee;
+  color: #05070d;
+}
+
+.finalCtaButton:hover span {
+  color: #05070d;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 45px 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footerBrand strong {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.footerBrand span,
+.footer p {
+  color: #ffffff;
+  font-size: 11px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 25px;
+}
+
+.footerLinks a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.footerLinks a:hover {
+  color: #22d3ee;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .navLinks {
+    display: none;
+  }
+
+  .hero {
+    min-height: 650px;
+  }
+
+  .walletHeader,
+  .transactionHeader,
+  .threatHeader,
+  .contractHeader,
+  .checklistHeader {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .walletGrid,
+  .contractGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .threatGrid,
+  .questions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    padding: 0 20px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .homeLink {
+    display: none;
+  }
+
+  .hero,
+  .introduction,
+  .wallet,
+  .transactions,
+  .threats,
+  .contracts,
+  .checklist,
+  .knowledge,
+  .finalCta {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero {
+    min-height: 600px;
+    padding-top: 30px;
+    padding-bottom: 70px;
+  }
+
+  .heroTop {
+    font-size: 8px;
+  }
+
+  .heroText {
+    margin-top: 45px;
+    font-size: 16px;
+  }
+
+  .introductionContent,
+  .walletHeader,
+  .transactionHeader,
+  .threatHeader,
+  .contractHeader,
+  .checklistHeader {
+    margin-top: 60px;
+  }
+
+  .securityCard {
+    min-height: auto;
+    padding: 28px;
+  }
+
+  .securityCard h3 {
+    margin-top: 45px;
+  }
+
+  .transactionRow {
+    grid-template-columns: 45px 1fr;
+    gap: 20px;
+  }
+
+  .threatGrid,
+  .questions {
+    grid-template-columns: 1fr;
+  }
+
+  .contractPoint {
+    min-height: auto;
+  }
+
+  .checkItem {
+    grid-template-columns: 40px 1fr;
+    gap: 15px;
+  }
+
+  .finalCta {
+    min-height: 600px;
+  }
+
+  .footer {
+    padding: 35px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footerLinks {
+    flex-wrap: wrap;
+  }
+}

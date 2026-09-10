@@ -1,0 +1,1502 @@
+/* =========================================================
+   CHAINLAB — MEME COINS
+   Professional Educational Module
+========================================================= */
+
+.page {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      rgba(160, 90, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 200, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    #02050a;
+  background-size: 72px 72px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 200, 255, 0.14);
+  background: rgba(2, 5, 10, 0.94);
+  backdrop-filter: blur(18px);
+}
+
+.navInner {
+  width: min(1450px, calc(100% - 80px));
+  min-height: 86px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav a {
+  position: relative;
+
+  color: #91a1b3;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+
+  transition:
+    color 0.2s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #ffffff;
+}
+
+.nav a.active {
+  color: #00c8ff;
+}
+
+.nav a.active::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -14px;
+
+  height: 2px;
+
+  background: #a467ff;
+  box-shadow:
+    0 0 14px rgba(164, 103, 255, 0.75);
+}
+
+.navButton {
+  min-height: 48px;
+  padding: 0 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border: 1px solid rgba(0, 200, 255, 0.65);
+
+  color: #00c8ff;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navButton span {
+  font-size: 17px;
+}
+
+.navButton:hover {
+  background: #00c8ff;
+  color: #02050a;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   SHARED
+========================================================= */
+
+.sectionLabel {
+  color: #00c8ff;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 780px;
+
+  padding: 95px 0 120px;
+
+  background:
+    radial-gradient(
+      circle at 72% 45%,
+      rgba(145, 70, 255, 0.13),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 30% 50%,
+      rgba(0, 150, 255, 0.06),
+      transparent 30%
+    );
+}
+
+.heroGrid {
+  width: min(1450px, calc(100% - 80px));
+  min-height: 620px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+}
+
+.heroContent .sectionLabel {
+  display: inline-flex;
+
+  padding: 14px 18px;
+
+  border: 1px solid rgba(0, 200, 255, 0.55);
+
+  margin-bottom: 38px;
+}
+
+.heroContent h1 {
+  margin: 0;
+
+  font-size: clamp(76px, 9vw, 145px);
+
+  line-height: 0.82;
+
+  letter-spacing: -8px;
+
+  font-weight: 900;
+}
+
+.heroContent h1 span {
+  color: #a467ff;
+
+  text-shadow:
+    0 0 40px rgba(164, 103, 255, 0.12);
+}
+
+.heroText {
+  max-width: 690px;
+
+  margin: 45px 0 32px;
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  line-height: 1.85;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 60px;
+
+  padding: 0 28px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.primaryButton {
+  background: #a467ff;
+  border: 1px solid #a467ff;
+
+  color: #08030f;
+
+  box-shadow:
+    0 15px 45px rgba(164, 103, 255, 0.12);
+}
+
+.primaryButton span {
+  font-size: 20px;
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+
+  background: #b27aff;
+
+  box-shadow:
+    0 20px 55px rgba(164, 103, 255, 0.25);
+}
+
+.secondaryButton {
+  background: transparent;
+
+  border: 1px solid #00c8ff;
+
+  color: #00c8ff;
+}
+
+.secondaryButton:hover {
+  transform: translateY(-3px);
+
+  background: rgba(0, 200, 255, 0.07);
+
+  box-shadow:
+    0 15px 40px rgba(0, 200, 255, 0.12);
+}
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.heroVisual {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.heroCard {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 530px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(0, 200, 255, 0.3);
+
+  background: #02050a;
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.45),
+    0 0 45px rgba(0, 150, 255, 0.04);
+}
+
+.heroCard::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 5, 10, 0.02),
+      rgba(2, 5, 10, 0.15)
+    );
+}
+
+.heroCardImage {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 530px;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition:
+    transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.heroCard:hover .heroCardImage {
+  transform: scale(1.025);
+}
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.introduction {
+  width: min(1320px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 150px 0;
+
+  border-top: 1px solid rgba(0, 200, 255, 0.12);
+}
+
+.introductionGrid {
+  margin-top: 55px;
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.introductionGrid h2 {
+  margin: 0;
+
+  font-size: clamp(50px, 6vw, 88px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 900;
+}
+
+.introductionGrid h2 span {
+  color: #a467ff;
+}
+
+.introductionContent {
+  max-width: 700px;
+}
+
+.introductionContent > p {
+  margin: 0 0 25px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  line-height: 1.85;
+}
+
+.introductionContent > p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   CORE CONCEPTS
+========================================================= */
+
+.concepts {
+  width: min(1320px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 80px 0 150px;
+}
+
+.sectionHeading {
+  margin: 35px 0 65px;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+
+  font-size: clamp(52px, 6vw, 92px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 900;
+}
+
+.sectionHeading h2 span {
+  color: #a467ff;
+}
+
+.conceptGrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid rgba(0, 200, 255, 0.18);
+
+  border-left: 1px solid rgba(0, 200, 255, 0.18);
+}
+
+.conceptCard {
+  min-height: 280px;
+
+  padding: 32px;
+
+  border-right: 1px solid rgba(0, 200, 255, 0.18);
+
+  border-bottom: 1px solid rgba(0, 200, 255, 0.18);
+
+  background: rgba(3, 10, 17, 0.65);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.conceptCard:hover {
+  background: rgba(164, 103, 255, 0.035);
+
+  border-color: rgba(164, 103, 255, 0.4);
+
+  transform: translateY(-4px);
+}
+
+.conceptCard > span {
+  color: #00c8ff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.conceptCard h3 {
+  margin: 65px 0 15px;
+
+  font-size: 17px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.2px;
+}
+
+.conceptCard p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   MECHANICS
+========================================================= */
+
+.mechanics {
+  width: min(1320px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 100px 0 160px;
+
+  border-top: 1px solid rgba(0, 200, 255, 0.12);
+}
+
+.mechanicsHeader {
+  margin-top: 35px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 0.7fr;
+
+  gap: 100px;
+
+  align-items: end;
+}
+
+.mechanicsHeader h2 {
+  margin: 0;
+
+  font-size: clamp(55px, 6vw, 92px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 900;
+}
+
+.mechanicsHeader h2 span {
+  color: #a467ff;
+}
+
+.processIntro {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.processList {
+  margin-top: 75px;
+
+  border-top: 1px solid rgba(0, 200, 255, 0.18);
+}
+
+.processRow {
+  display: grid;
+
+  grid-template-columns: 90px 230px 1fr;
+
+  gap: 35px;
+
+  min-height: 180px;
+
+  padding: 35px 0;
+
+  align-items: start;
+
+  border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+}
+
+.processNumber {
+  color: #00c8ff;
+
+  font-size: 30px;
+
+  font-weight: 900;
+
+  letter-spacing: -1px;
+}
+
+.processTitle h3 {
+  margin: 0;
+
+  font-size: 16px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+}
+
+.processContent p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   TOKENOMICS
+========================================================= */
+
+.tokenomics {
+  padding: 150px max(40px, calc((100vw - 1320px) / 2));
+
+  border-top: 1px solid rgba(0, 200, 255, 0.12);
+
+  border-bottom: 1px solid rgba(0, 200, 255, 0.12);
+
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(164, 103, 255, 0.08),
+      transparent 30%
+    ),
+    #03070d;
+}
+
+.tokenomicsHeader {
+  margin-top: 35px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 0.8fr;
+
+  gap: 100px;
+
+  align-items: end;
+}
+
+.tokenomicsHeader h2 {
+  margin: 0;
+
+  font-size: clamp(55px, 6vw, 92px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 900;
+}
+
+.tokenomicsHeader h2 span {
+  color: #a467ff;
+}
+
+.tokenomicsHeader > p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.metricsGrid {
+  margin-top: 75px;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid rgba(0, 200, 255, 0.18);
+
+  border-left: 1px solid rgba(0, 200, 255, 0.18);
+}
+
+.metric {
+  min-height: 310px;
+
+  padding: 32px;
+
+  border-right: 1px solid rgba(0, 200, 255, 0.18);
+
+  border-bottom: 1px solid rgba(0, 200, 255, 0.18);
+}
+
+.metric > span {
+  color: #00c8ff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.metric h3 {
+  margin: 70px 0 15px;
+
+  font-size: 15px;
+
+  font-weight: 900;
+}
+
+.metric p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   RISKS
+========================================================= */
+
+.risks {
+  width: min(1320px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 150px 0;
+}
+
+.riskHeader {
+  margin-top: 35px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 0.8fr;
+
+  gap: 100px;
+
+  align-items: end;
+}
+
+.riskHeader h2 {
+  margin: 0;
+
+  font-size: clamp(55px, 6vw, 92px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 900;
+}
+
+.riskHeader h2 span {
+  color: #a467ff;
+}
+
+.riskHeader > p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.riskGrid {
+  margin-top: 75px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.riskCard {
+  min-height: 270px;
+
+  padding: 30px;
+
+  border: 1px solid rgba(0, 200, 255, 0.18);
+
+  background: rgba(3, 10, 17, 0.7);
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.riskCard:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(164, 103, 255, 0.5);
+
+  background: rgba(164, 103, 255, 0.035);
+}
+
+.riskCard > span {
+  color: #00c8ff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+}
+
+.riskCard h3 {
+  margin: 55px 0 15px;
+
+  font-size: 15px;
+
+  font-weight: 900;
+}
+
+.riskCard p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   RESEARCH
+========================================================= */
+
+.research {
+  padding: 100px max(40px, calc((100vw - 1320px) / 2)) 150px;
+}
+
+.researchBox {
+  margin-top: 35px;
+
+  padding: 70px;
+
+  border: 1px solid rgba(164, 103, 255, 0.28);
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(164, 103, 255, 0.08),
+      transparent 35%
+    ),
+    rgba(3, 10, 17, 0.8);
+}
+
+.researchBox > h2 {
+  margin: 0;
+
+  font-size: clamp(52px, 6vw, 88px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 900;
+}
+
+.researchBox > h2 span {
+  color: #a467ff;
+}
+
+.researchBox > p {
+  max-width: 650px;
+
+  margin: 35px 0 0;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.researchGrid {
+  margin-top: 65px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 0;
+
+  border-top: 1px solid rgba(0, 200, 255, 0.16);
+
+  border-left: 1px solid rgba(0, 200, 255, 0.16);
+}
+
+.researchGrid > div {
+  min-height: 230px;
+
+  padding: 30px;
+
+  border-right: 1px solid rgba(0, 200, 255, 0.16);
+
+  border-bottom: 1px solid rgba(0, 200, 255, 0.16);
+}
+
+.researchGrid span {
+  color: #00c8ff;
+
+  font-size: 10px;
+
+  font-weight: 900;
+}
+
+.researchGrid h3 {
+  margin: 45px 0 12px;
+
+  font-size: 14px;
+
+  font-weight: 900;
+}
+
+.researchGrid p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   KNOWLEDGE CHECK
+========================================================= */
+
+.knowledge {
+  width: min(1320px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 100px 0 160px;
+
+  border-top: 1px solid rgba(0, 200, 255, 0.12);
+}
+
+.knowledge h2 {
+  margin: 35px 0 0;
+
+  font-size: clamp(55px, 6vw, 92px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 900;
+}
+
+.knowledge h2 span {
+  color: #a467ff;
+}
+
+.knowledge > p {
+  max-width: 650px;
+
+  margin: 35px 0 0;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.checkList {
+  margin-top: 65px;
+
+  border-top: 1px solid rgba(0, 200, 255, 0.18);
+}
+
+.checkItem {
+  display: grid;
+
+  grid-template-columns: 80px 1fr;
+
+  gap: 30px;
+
+  padding: 35px 0;
+
+  border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+}
+
+.checkItem > span {
+  color: #00c8ff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+}
+
+.checkItem h3 {
+  margin: 0 0 12px;
+
+  font-size: 15px;
+
+  font-weight: 900;
+
+  line-height: 1.5;
+}
+
+.checkItem p {
+  max-width: 750px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   NEXT MODULE
+========================================================= */
+
+.nextModule {
+  padding: 150px 30px;
+
+  border-top: 1px solid rgba(0, 200, 255, 0.15);
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(164, 103, 255, 0.12),
+      transparent 35%
+    ),
+    #02060b;
+}
+
+.nextModule h2 {
+  margin: 35px 0 0;
+
+  font-size: clamp(65px, 9vw, 125px);
+
+  line-height: 0.84;
+
+  letter-spacing: -7px;
+
+  font-weight: 900;
+}
+
+.nextModule h2 span {
+  color: #a467ff;
+}
+
+.nextModule p {
+  max-width: 650px;
+
+  margin: 40px auto;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  width: min(1320px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 55px 0 35px;
+
+  border-top: 1px solid rgba(0, 200, 255, 0.15);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 35px;
+}
+
+.footerBrand {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.footerBrand .logo {
+  font-size: 18px;
+}
+
+.footerBrand span {
+  color: #718296;
+
+  font-size: 10px;
+}
+
+.footerLinks {
+  display: flex;
+
+  gap: 25px;
+}
+
+.footerLinks a {
+  color: #718296;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.7px;
+
+  transition: color 0.2s ease;
+}
+
+.footerLinks a:hover {
+  color: #00c8ff;
+}
+
+.footer > p {
+  margin: 0;
+
+  color: #4f6072;
+
+  font-size: 9px;
+
+  letter-spacing: 0.5px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .navInner,
+  .heroGrid,
+  .introduction,
+  .concepts,
+  .mechanics,
+  .risks,
+  .knowledge,
+  .footer {
+    width: calc(100% - 50px);
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(70px, 8vw, 110px);
+  }
+
+  .heroCard {
+    min-height: 500px;
+  }
+
+  .heroCardImage {
+    min-height: 500px;
+  }
+
+  .conceptGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .riskGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mechanicsHeader,
+  .tokenomicsHeader,
+  .riskHeader {
+    gap: 60px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+  .navInner {
+    width: calc(100% - 30px);
+
+    min-height: 74px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .navButton {
+    min-height: 44px;
+
+    padding: 0 15px;
+
+    font-size: 9px;
+  }
+
+  .hero {
+    padding: 70px 0 90px;
+  }
+
+  .heroGrid {
+    width: calc(100% - 30px);
+
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 65px;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(65px, 17vw, 100px);
+
+    letter-spacing: -5px;
+  }
+
+  .heroText {
+    font-size: 15px;
+
+    line-height: 1.8;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .heroActions a {
+    width: 100%;
+  }
+
+  .heroCard {
+    min-height: 470px;
+  }
+
+  .heroCardImage {
+    min-height: 470px;
+  }
+
+  .introduction,
+  .concepts,
+  .mechanics,
+  .risks,
+  .knowledge {
+    width: calc(100% - 30px);
+
+    padding-top: 90px;
+
+    padding-bottom: 100px;
+  }
+
+  .introductionGrid,
+  .mechanicsHeader,
+  .tokenomicsHeader,
+  .riskHeader {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .introductionGrid h2,
+  .sectionHeading h2,
+  .mechanicsHeader h2,
+  .tokenomicsHeader h2,
+  .riskHeader h2,
+  .knowledge h2 {
+    font-size: 52px;
+
+    letter-spacing: -3px;
+  }
+
+  .conceptGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .conceptCard {
+    min-height: 240px;
+  }
+
+  .conceptCard h3 {
+    margin-top: 45px;
+  }
+
+  .processRow {
+    grid-template-columns: 60px 1fr;
+
+    gap: 20px;
+
+    min-height: auto;
+  }
+
+  .processTitle {
+    grid-column: 2;
+  }
+
+  .processContent {
+    grid-column: 2;
+  }
+
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    min-height: 250px;
+  }
+
+  .riskGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .riskCard {
+    min-height: 240px;
+  }
+
+  .research {
+    padding: 80px 15px 100px;
+  }
+
+  .researchBox {
+    padding: 45px 25px;
+  }
+
+  .researchBox > h2 {
+    font-size: 52px;
+
+    letter-spacing: -3px;
+  }
+
+  .researchGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkItem {
+    grid-template-columns: 50px 1fr;
+
+    gap: 20px;
+  }
+
+  .nextModule {
+    padding: 100px 25px;
+  }
+
+  .nextModule h2 {
+    font-size: 70px;
+
+    letter-spacing: -4px;
+  }
+
+  .footer {
+    width: calc(100% - 30px);
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 50px 0 30px;
+  }
+
+  .footerLinks {
+    flex-wrap: wrap;
+
+    gap: 15px 22px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+  .logo {
+    font-size: 18px;
+  }
+
+  .navButton {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 55px;
+  }
+
+  .heroContent h1 {
+    font-size: 68px;
+
+    letter-spacing: -4px;
+  }
+
+  .heroText {
+    font-size: 14px;
+  }
+
+  .heroCard {
+    min-height: 330px;
+  }
+
+  .heroCardImage {
+    min-height: 330px;
+  }
+
+  .introductionGrid h2,
+  .sectionHeading h2,
+  .mechanicsHeader h2,
+  .tokenomicsHeader h2,
+  .riskHeader h2,
+  .knowledge h2 {
+    font-size: 46px;
+
+    letter-spacing: -3px;
+  }
+
+  .conceptCard {
+    padding: 25px;
+
+    min-height: 220px;
+  }
+
+  .conceptCard h3 {
+    margin-top: 40px;
+  }
+
+  .processRow {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .processTitle,
+  .processContent {
+    grid-column: auto;
+  }
+
+  .processNumber {
+    font-size: 24px;
+  }
+
+  .researchBox > h2 {
+    font-size: 45px;
+  }
+
+  .researchGrid > div {
+    padding: 25px;
+  }
+
+  .nextModule h2 {
+    font-size: 60px;
+
+    letter-spacing: -4px;
+  }
+
+  .nextModule p {
+    font-size: 14px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 55px;
+
+    padding: 0 20px;
+
+    font-size: 10px;
+  }
+}

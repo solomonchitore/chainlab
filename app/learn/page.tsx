@@ -1,223 +1,145 @@
 import Link from "next/link";
+import styles from "./learn.module.css";
+
+const modules = [
+  {
+    number: "01",
+    title: "BLOCKCHAIN",
+    description: "Learn the fundamentals.",
+    href: "/learn/blockchain",
+  },
+  {
+    number: "02",
+    title: "SOLANA",
+    description: "Understand the Solana ecosystem.",
+    href: "/learn/solana",
+  },
+  {
+    number: "03",
+    title: "MEME COINS",
+    description: "Learn about tokens and meme coins.",
+    href: "/learn/meme-coins",
+    featured: true,
+  },
+  {
+    number: "04",
+    title: "SECURITY",
+    description: "Learn how to protect Web3 assets.",
+    href: "/learn/security",
+  },
+];
 
 export default function LearnPage() {
   return (
-    <main className="learn-v2">
-      {/* =====================================================
-          NAVIGATION
-      ===================================================== */}
-      <nav className="site-nav">
-        <Link href="/" className="logo">
-          <span className="logo-mark">◇</span>
-          CHAINLAB
-        </Link>
+    <main className={styles.page}>
+      {/* HEADER */}
+      <header className={styles.header}>
+        <div className={styles.headerInner}>
+          <Link href="/" className={styles.logo}>
+            [CHAINLAB]
+          </Link>
 
-        <div className="nav-links">
-          <Link href="/">HOME</Link>
-          <Link href="/learn">LEARN</Link>
-          <Link href="/learn/blockchain">BLOCKCHAIN</Link>
-          <Link href="/learn/solana">SOLANA</Link>
-          <Link href="/learn/meme-coins">MEME COINS</Link>
-          <Link href="/learn/security">SECURITY</Link>
+          <nav className={styles.nav}>
+            <Link href="/" className={styles.navLink}>
+              HOME
+            </Link>
+
+            <Link
+              href="/learn"
+              className={`${styles.navLink} ${styles.active}`}
+            >
+              LEARN
+            </Link>
+
+            <Link href="/learn/blockchain" className={styles.navLink}>
+              BLOCKCHAIN
+            </Link>
+
+            <Link href="/learn/solana" className={styles.navLink}>
+              SOLANA
+            </Link>
+
+            <Link href="/learn/meme-coins" className={styles.navLink}>
+              MEME COINS
+            </Link>
+
+            <Link href="/learn/security" className={styles.navLink}>
+              SECURITY
+            </Link>
+          </nav>
+
+          <Link href="/learn/blockchain" className={styles.startButton}>
+            START LEARNING
+            <span>→</span>
+          </Link>
         </div>
+      </header>
 
-        <Link href="/learn" className="nav-action">
-          START LEARNING
-        </Link>
-      </nav>
-
-      {/* =====================================================
-          LEARNING HERO
-      ===================================================== */}
-      <section className="learn-v2-hero">
-
-        {/* 3D BACKGROUND */}
-        <div className="learn-v2-scene">
-
-          <div className="learn-v2-grid"></div>
-
-          <div className="learn-v2-orbit orbit-a"></div>
-          <div className="learn-v2-orbit orbit-b"></div>
-
-          <div className="learn-v2-node node-a"></div>
-          <div className="learn-v2-node node-b"></div>
-          <div className="learn-v2-node node-c"></div>
-          <div className="learn-v2-node node-d"></div>
-          <div className="learn-v2-node node-e"></div>
-
-          <div className="learn-v2-line line-a"></div>
-          <div className="learn-v2-line line-b"></div>
-          <div className="learn-v2-line line-c"></div>
-
-          <div className="learn-v2-platform">
-            <div className="platform-glow"></div>
-
-            <div className="learn-v2-cube">
-              <div className="cube-face cube-front"></div>
-              <div className="cube-face cube-right"></div>
-              <div className="cube-face cube-top"></div>
-            </div>
-
-            <div className="cube-core"></div>
-          </div>
-
-          <div className="learn-v2-floating-cube floating-one"></div>
-          <div className="learn-v2-floating-cube floating-two"></div>
-          <div className="learn-v2-floating-cube floating-three"></div>
-          <div className="learn-v2-floating-cube floating-four"></div>
-
-        </div>
-
-        {/* HERO CONTENT */}
-        <div className="learn-v2-content">
-
-          <p className="learn-v2-eyebrow">
+      {/* MAIN CONTENT */}
+      <section className={styles.learningSection}>
+        <div className={styles.introduction}>
+          <div className={styles.breadcrumb}>
             CHAINLAB / LEARNING
-          </p>
+          </div>
 
           <h1>
-            START
-            <br />
-            <span>LEARNING.</span>
+            START LEARNING<span>.</span>
           </h1>
 
-          <div className="learn-v2-line-accent">
-            <span></span>
-          </div>
-
-          <p className="learn-v2-description">
-            Explore blockchain, Solana, meme coins,
-            <br />
-            and Web3 security.
+          <p>
+            Explore blockchain, Solana, meme coins, and Web3 security.
           </p>
+        </div>
 
+        {/* LEARNING MODULES */}
+        <div className={styles.moduleGrid}>
+          {modules.map((module) => (
+            <Link
+              key={module.number}
+              href={module.href}
+              className={`${styles.moduleCard} ${
+                module.featured ? styles.featured : ""
+              }`}
+            >
+              <div className={styles.moduleNumber}>
+                {module.number}
+              </div>
+
+              <div className={styles.moduleContent}>
+                <h2>{module.title}</h2>
+
+                <p>{module.description}</p>
+
+                <div className={styles.explore}>
+                  EXPLORE
+                  <span>→</span>
+                </div>
+              </div>
+
+              {module.featured && (
+                <div className={styles.featureDot}></div>
+              )}
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* =====================================================
-          LEARNING AREAS
-      ===================================================== */}
-      <section className="learn-v2-options">
+      {/* FOOTER */}
+      <footer className={styles.footer}>
+        <div className={styles.footerInner}>
+          <div>
+            <div className={styles.footerLogo}>[CHAINLAB]</div>
 
-        <Link
-          href="/learn/blockchain"
-          className="learn-v2-card"
-        >
-          <div className="learn-v2-card-top">
-            <span>01</span>
-
-            <div className="learn-v2-icon blockchain-icon">
-              <span></span>
-            </div>
-          </div>
-
-          <div className="learn-v2-card-content">
-            <h2>BLOCKCHAIN</h2>
-
-            <p>
-              Learn the fundamentals.
+            <p className={styles.footerTagline}>
+              Learn. Practice. Build. Succeed.
             </p>
           </div>
 
-          <div className="learn-v2-explore">
-            EXPLORE
-            <span>→</span>
-          </div>
-        </Link>
-
-        <Link
-          href="/learn/solana"
-          className="learn-v2-card"
-        >
-          <div className="learn-v2-card-top">
-            <span>02</span>
-
-            <div className="learn-v2-icon solana-icon">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-
-          <div className="learn-v2-card-content">
-            <h2>SOLANA</h2>
-
-            <p>
-              Understand the Solana ecosystem.
-            </p>
-          </div>
-
-          <div className="learn-v2-explore">
-            EXPLORE
-            <span>→</span>
-          </div>
-        </Link>
-
-        <Link
-          href="/learn/meme-coins"
-          className="learn-v2-card"
-        >
-          <div className="learn-v2-card-top">
-            <span>03</span>
-
-            <div className="learn-v2-icon meme-icon">
-              <span>●</span>
-            </div>
-          </div>
-
-          <div className="learn-v2-card-content">
-            <h2>MEME COINS</h2>
-
-            <p>
-              Learn about tokens and meme coins.
-            </p>
-          </div>
-
-          <div className="learn-v2-explore">
-            EXPLORE
-            <span>→</span>
-          </div>
-        </Link>
-
-        <Link
-          href="/learn/security"
-          className="learn-v2-card"
-        >
-          <div className="learn-v2-card-top">
-            <span>04</span>
-
-            <div className="learn-v2-icon security-icon">
-              <span></span>
-            </div>
-          </div>
-
-          <div className="learn-v2-card-content">
-            <h2>SECURITY</h2>
-
-            <p>
-              Learn how to protect Web3 assets.
-            </p>
-          </div>
-
-          <div className="learn-v2-explore">
-            EXPLORE
-            <span>→</span>
-          </div>
-        </Link>
-
-      </section>
-
-      {/* =====================================================
-          MOTIVATION
-      ===================================================== */}
-      <section className="learn-v2-motivation">
-        <span className="motivation-icon">↗</span>
-
-        <p>
-          Every expert was once a beginner.
-          <span> Keep learning, keep building.</span>
-        </p>
-      </section>
+          <p className={styles.copyright}>
+            © 2026 ChainLab. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </main>
   );
 }
