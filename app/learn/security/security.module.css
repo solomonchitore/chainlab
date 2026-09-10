@@ -733,3 +733,259 @@
     flex-wrap: wrap;
   }
 }
+
+/* =========================================================
+   SECURITY — WHITE / BLACK / CREAM EDITORIAL THEME
+   Only visual styling is changed; page content and layout
+   structure remain unchanged.
+========================================================= */
+
+.page {
+  min-height: 100vh !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Full page surfaces */
+.nav,
+.hero,
+.introduction,
+.wallet,
+.transactions,
+.threats,
+.contracts,
+.checklist,
+.knowledge,
+.footer {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Navigation */
+.nav {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10) !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+}
+
+.logo,
+.navLinks a,
+.homeLink,
+.navLinks a:hover,
+.navLinks .active,
+.homeLink:hover {
+  color: #000000 !important;
+}
+
+.homeLink span {
+  color: #000000 !important;
+}
+
+/* All text on the page */
+.page,
+.page *,
+.page h1,
+.page h2,
+.page h3,
+.page h4,
+.page h5,
+.page h6,
+.page p,
+.page span,
+.page strong,
+.page a,
+.page li {
+  color: #000000 !important;
+}
+
+/* Cyan labels/numbers become black */
+.sectionLabel,
+.sectionLabel span:first-child,
+.heroTop,
+.eyebrow,
+.securityCard > span,
+.number,
+.threatCard > span,
+.contractPoint > span,
+.checkItem > span,
+.questions span {
+  color: #000000 !important;
+}
+
+/* Keep the page clean and remove the old cyan glow */
+.hero::after,
+.finalCta::before {
+  display: none !important;
+}
+
+/* Subtle section separators */
+.hero,
+.introduction,
+.wallet,
+.transactions,
+.threats,
+.contracts,
+.checklist,
+.knowledge {
+  border-color: rgba(0, 0, 0, 0.10) !important;
+}
+
+/* ---------------------------------------------------------
+   CREAM INFORMATION BOX
+--------------------------------------------------------- */
+
+.definitionBox {
+  background: #faf6f0 !important;
+  border: none !important;
+  border-radius: 28px !important;
+  color: #000000 !important;
+  padding: 42px !important;
+}
+
+.definitionBox span,
+.definitionBox strong {
+  color: #000000 !important;
+}
+
+/* ---------------------------------------------------------
+   CONTENT CARDS — CREAM
+--------------------------------------------------------- */
+
+.securityCard,
+.threatCard,
+.contractPoint,
+.questions > div {
+  background: #faf6f0 !important;
+  color: #000000 !important;
+  border-color: rgba(0, 0, 0, 0.10) !important;
+}
+
+.securityCard:hover,
+.threatCard:hover {
+  background: #faf6f0 !important;
+}
+
+.walletGrid,
+.threatGrid,
+.contractGrid,
+.questions {
+  background: rgba(0, 0, 0, 0.10) !important;
+}
+
+.securityCard p,
+.threatCard p,
+.contractPoint p,
+.questions p,
+.walletHeader p,
+.transactionHeader p,
+.threatHeader p,
+.contractHeader p,
+.checklistHeader p,
+.introductionContent > p,
+.transactionRow p,
+.checkItem p,
+.knowledge > p,
+.heroText,
+.footerBrand span,
+.footer p {
+  color: #000000 !important;
+}
+
+/* ---------------------------------------------------------
+   FINAL CTA — LARGE CREAM BOX LIKE THE REFERENCE
+--------------------------------------------------------- */
+
+.finalCta {
+  min-height: 760px !important;
+  padding: 80px 5vw !important;
+  background: #ffffff !important;
+  border-bottom: none !important;
+}
+
+.finalCtaInner {
+  width: min(1420px, 100%) !important;
+  max-width: none !important;
+  min-height: 440px !important;
+  padding: 90px 60px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  text-align: center !important;
+
+  background: #faf6f0 !important;
+  border-radius: 30px !important;
+  color: #000000 !important;
+}
+
+.finalCtaInner .sectionLabel {
+  justify-content: center !important;
+  color: #000000 !important;
+}
+
+.finalCtaInner .sectionLabel span {
+  color: #000000 !important;
+}
+
+.finalCta h2,
+.finalCta h2 span {
+  color: #000000 !important;
+}
+
+.finalCta p {
+  color: #000000 !important;
+}
+
+.finalCtaButton {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  border-radius: 14px !important;
+}
+
+.finalCtaButton span {
+  color: #ffffff !important;
+}
+
+.finalCtaButton:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+.finalCtaButton:hover span {
+  color: #ffffff !important;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.10) !important;
+}
+
+.footerBrand strong,
+.footerBrand span,
+.footer p,
+.footerLinks a,
+.footerLinks a:hover {
+  color: #000000 !important;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE — KEEP CREAM CTA CLEAN
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .finalCta {
+    padding: 45px 20px !important;
+    min-height: 520px !important;
+  }
+
+  .finalCtaInner {
+    min-height: 420px !important;
+    padding: 60px 25px !important;
+    border-radius: 24px !important;
+  }
+}

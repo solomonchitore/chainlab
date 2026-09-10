@@ -1,13 +1,25 @@
+/* =========================================================
+   CHAINLAB — BLOCKCHAIN LEARNING PAGE
+   Dark editorial / technical design
+   Cyan accent only — NO YELLOW
+   ========================================================= */
+
 .page {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 80% 20%, rgba(0, 183, 255, 0.08), transparent 28%),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(0, 183, 255, 0.08),
+      transparent 28%
+    ),
     #02070d;
   color: #f4f7fb;
   overflow-x: hidden;
 }
 
-/* NAVIGATION */
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 .nav {
   height: 78px;
@@ -59,26 +71,26 @@
   color: #ffffff;
 }
 
+/* No yellow active underline */
 .navLinks .active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -29px;
-  height: 2px;
-  background: #ffad00;
-  box-shadow: 0 0 12px rgba(255, 173, 0, 0.7);
+  display: none;
+  content: none;
 }
 
+/* BACK TO LEARN BUTTON */
+
 .navButton {
-  border: 1px solid #ffad00;
-  color: #ffad00;
+  border: 1px solid #00d9ff;
+  color: #00d9ff;
   text-decoration: none;
   padding: 14px 20px;
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .navButton span {
@@ -86,11 +98,14 @@
 }
 
 .navButton:hover {
-  background: #ffad00;
-  color: #050505;
+  background: #00d9ff;
+  border-color: #00d9ff;
+  color: #02070d;
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
   width: min(1180px, calc(100% - 80px));
@@ -119,7 +134,7 @@
 }
 
 .hero h1 span {
-  color: #ffad00;
+  color: #00d9ff;
 }
 
 .heroText {
@@ -130,26 +145,35 @@
   line-height: 1.7;
 }
 
+/* =========================================================
+   HERO CARD
+   ========================================================= */
+
 .heroCard {
   min-height: 245px;
+
   border: 1px solid rgba(0, 200, 255, 0.42);
+
   background:
     linear-gradient(
       145deg,
       rgba(0, 200, 255, 0.055),
       rgba(0, 20, 35, 0.35)
     );
+
   padding: 32px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   box-shadow:
     inset 0 0 40px rgba(0, 183, 255, 0.025),
     0 0 45px rgba(0, 183, 255, 0.035);
 }
 
 .heroNumber {
-  color: #ffad00;
+  color: #00d9ff;
   font-size: 22px;
   font-weight: 900;
 }
@@ -169,7 +193,9 @@
   font-size: 15px;
 }
 
-/* LESSONS */
+/* =========================================================
+   LESSONS
+   ========================================================= */
 
 .lessonsSection {
   width: min(1180px, calc(100% - 80px));
@@ -196,7 +222,7 @@
 
 .sectionHeader h2 span,
 .takeaways h2 span {
-  color: #ffad00;
+  color: #00d9ff;
 }
 
 .sectionIntro {
@@ -214,7 +240,9 @@
 
 .lessonCard {
   min-height: 310px;
+
   border: 1px solid rgba(0, 183, 255, 0.2);
+
   background:
     radial-gradient(
       circle at 100% 100%,
@@ -222,9 +250,12 @@
       transparent 35%
     ),
     #030a12;
+
   padding: 30px;
+
   display: flex;
   flex-direction: column;
+
   transition:
     border-color 0.25s ease,
     transform 0.25s ease,
@@ -238,7 +269,7 @@
 }
 
 .lessonTop span {
-  color: #ffad00;
+  color: #00d9ff;
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 1px;
@@ -282,20 +313,24 @@
   margin-left: 13px;
 }
 
-/* CONTENT SECTIONS */
+/* =========================================================
+   CONTENT SECTIONS
+   ========================================================= */
 
 .contentSection {
   width: min(1180px, calc(100% - 80px));
   margin: 0 auto;
   padding: 100px 0;
+
   border-top: 1px solid rgba(0, 183, 255, 0.14);
+
   display: grid;
   grid-template-columns: 110px 1fr;
   gap: 65px;
 }
 
 .contentNumber {
-  color: #ffad00;
+  color: #00d9ff;
   font-size: 18px;
   font-weight: 900;
   padding-top: 5px;
@@ -320,16 +355,23 @@
   margin: 0 0 22px;
 }
 
+/* =========================================================
+   DEFINITION / WARNING BOXES
+   ========================================================= */
+
 .definitionBox,
 .warningBox {
   margin-top: 42px;
+
   border-left: 2px solid #00c8ff;
+
   background: rgba(0, 183, 255, 0.045);
+
   padding: 25px 28px;
 }
 
 .warningBox {
-  border-left-color: #ffad00;
+  border-left-color: #00d9ff;
 }
 
 .definitionBox span,
@@ -341,7 +383,7 @@
 }
 
 .warningBox span {
-  color: #ffad00;
+  color: #00d9ff;
 }
 
 .definitionBox p,
@@ -352,19 +394,25 @@
   line-height: 1.7;
 }
 
-/* STEPS */
+/* =========================================================
+   STEPS
+   ========================================================= */
 
 .steps {
   margin-top: 45px;
+
   border-top: 1px solid rgba(0, 183, 255, 0.2);
   border-left: 1px solid rgba(0, 183, 255, 0.2);
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .steps > div {
   min-height: 180px;
+
   padding: 23px;
+
   border-right: 1px solid rgba(0, 183, 255, 0.2);
   border-bottom: 1px solid rgba(0, 183, 255, 0.2);
 }
@@ -372,7 +420,7 @@
 .steps span,
 .useCases span {
   display: block;
-  color: #ffad00;
+  color: #00d9ff;
   font-size: 12px;
   font-weight: 900;
   margin-bottom: 28px;
@@ -394,30 +442,40 @@
   margin: 10px 0 0;
 }
 
-/* USE CASES */
+/* =========================================================
+   USE CASES
+   ========================================================= */
 
 .useCases {
   margin-top: 42px;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
   border-top: 1px solid rgba(0, 183, 255, 0.2);
   border-left: 1px solid rgba(0, 183, 255, 0.2);
 }
 
 .useCases > div {
   min-height: 170px;
+
   padding: 24px;
+
   border-right: 1px solid rgba(0, 183, 255, 0.2);
   border-bottom: 1px solid rgba(0, 183, 255, 0.2);
 }
 
-/* TAKEAWAYS */
+/* =========================================================
+   TAKEAWAYS
+   ========================================================= */
 
 .takeaways {
   width: min(1180px, calc(100% - 80px));
   margin: 0 auto;
   padding: 115px 0;
+
   border-top: 1px solid rgba(0, 183, 255, 0.14);
+
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 90px;
@@ -430,7 +488,9 @@
 .takeawayList p {
   margin: 0;
   padding: 22px 0;
+
   border-bottom: 1px solid rgba(0, 183, 255, 0.16);
+
   color: #a7b6c9;
   font-size: 15px;
   line-height: 1.6;
@@ -439,32 +499,39 @@
 .takeawayList span {
   display: inline-block;
   width: 48px;
-  color: #ffad00;
+  color: #00d9ff;
   font-weight: 900;
 }
 
-/* NEXT MODULE */
+/* =========================================================
+   NEXT MODULE
+   ========================================================= */
 
 .nextModule {
   width: min(1180px, calc(100% - 80px));
   margin: 0 auto 100px;
-  border: 1px solid #ffad00;
+
+  /* CYAN — NO YELLOW */
+  border: 1px solid rgba(0, 174, 255, 0.35);
+
   padding: 38px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 50px;
+
   background:
     linear-gradient(
       135deg,
-      rgba(255, 173, 0, 0.045),
+      rgba(0, 183, 255, 0.045),
       rgba(0, 183, 255, 0.025)
     );
 }
 
 .nextLabel {
   margin: 0 0 10px;
-  color: #ffad00;
+  color: #00d9ff;
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 1.8px;
@@ -483,16 +550,28 @@
   line-height: 1.7;
 }
 
+/* GO TO SOLANA */
+
 .nextButton {
   flex-shrink: 0;
-  border: 1px solid #ffad00;
-  color: #ffad00;
+
+  /* CYAN — NO YELLOW */
+  border: 1px solid #00d9ff;
+
+  color: #00d9ff;
+
   padding: 17px 25px;
+
   text-decoration: none;
+
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.8px;
-  transition: all 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .nextButton span {
@@ -500,19 +579,26 @@
 }
 
 .nextButton:hover {
-  background: #ffad00;
-  color: #050505;
+  background: #00d9ff;
+  border-color: #00d9ff;
+  color: #02070d;
 }
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 .footer {
   border-top: 1px solid rgba(0, 183, 255, 0.18);
+
   padding: 40px max(40px, calc((100vw - 1180px) / 2));
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 30px;
+
   color: #64768c;
   font-size: 12px;
 }
@@ -528,7 +614,9 @@
   margin: 8px 0 0;
 }
 
-/* RESPONSIVE */
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
 
 @media (max-width: 900px) {
   .nav {
@@ -588,6 +676,10 @@
   }
 }
 
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
 @media (max-width: 600px) {
   .hero h1 {
     font-size: 64px;
@@ -628,4 +720,44 @@
   .nextModule h2 {
     font-size: 28px;
   }
+}
+
+/* =========================================================
+   FINAL COLOR SAFETY OVERRIDES
+   Ensures no yellow/orange remains on this page
+   ========================================================= */
+
+.navButton,
+.nextButton {
+  border-color: #00d9ff !important;
+  color: #00d9ff !important;
+}
+
+.navButton:hover,
+.nextButton:hover {
+  background: #00d9ff !important;
+  border-color: #00d9ff !important;
+  color: #02070d !important;
+}
+
+.navLinks .active::after {
+  display: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.nextModule {
+  border-color: rgba(0, 174, 255, 0.35) !important;
+}
+
+.nextModule .nextLabel {
+  color: #00d9ff !important;
+}
+
+.nextModule h2 {
+  color: #f4f7fb !important;
+}
+
+.nextModule p {
+  color: #8799af !important;
 }

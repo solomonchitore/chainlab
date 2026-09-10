@@ -318,13 +318,11 @@
 
   overflow: hidden;
 
-  border: 1px solid rgba(0, 200, 255, 0.3);
+  border: none;
 
-  background: #02050a;
+  background: #000000;
 
-  box-shadow:
-    0 30px 100px rgba(0, 0, 0, 0.45),
-    0 0 45px rgba(0, 150, 255, 0.04);
+  box-shadow: none;
 }
 
 .heroCard::before {
@@ -1499,4 +1497,143 @@
 
     font-size: 10px;
   }
+}
+
+/* =========================================================
+   MEME COINS — BLACK & WHITE THEME
+   Text and background colour only
+========================================================= */
+
+/* Full page background */
+.page {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Make all page sections black */
+.header,
+.hero,
+.introduction,
+.concepts,
+.mechanics,
+.tokenomics,
+.risks,
+.research,
+.knowledge,
+.nextModule,
+.footer {
+  background: #000000 !important;
+}
+
+/* Every text element white */
+.page,
+.page *,
+.page h1,
+.page h2,
+.page h3,
+.page h4,
+.page h5,
+.page h6,
+.page p,
+.page span,
+.page a,
+.page strong,
+.page em,
+.page small,
+.page li {
+  color: #ffffff !important;
+}
+
+/* Remove coloured heading text */
+.heroContent h1 span,
+.introductionGrid h2 span,
+.sectionHeading h2 span,
+.mechanicsHeader h2 span,
+.tokenomicsHeader h2 span,
+.riskHeader h2 span,
+.researchBox > h2 span,
+.knowledge h2 span,
+.nextModule h2 span {
+  color: #ffffff !important;
+}
+
+/* Remove coloured labels */
+.sectionLabel,
+.conceptCard > span,
+.processNumber,
+.metric > span,
+.riskCard > span,
+.researchGrid span,
+.checkItem > span {
+  color: #ffffff !important;
+}
+
+/* Navigation */
+.nav a,
+.nav a:hover,
+.nav a.active,
+.footerLinks a,
+.footerLinks a:hover,
+.logo {
+  color: #ffffff !important;
+}
+
+/* Buttons — white text */
+.navButton,
+.navButton span,
+.primaryButton,
+.primaryButton span,
+.secondaryButton {
+  color: #ffffff !important;
+}
+
+/* Keep button backgrounds dark */
+.primaryButton {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+.secondaryButton {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+.navButton {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+/* Card backgrounds */
+.heroCard,
+.conceptCard,
+.metric,
+.riskCard,
+.researchBox,
+.researchGrid > div {
+  background: #000000 !important;
+}
+
+/* Remove purple heading glow */
+.heroContent h1 span,
+.introductionGrid h2 span,
+.sectionHeading h2 span,
+.mechanicsHeader h2 span,
+.tokenomicsHeader h2 span,
+.riskHeader h2 span,
+.researchBox > h2 span,
+.knowledge h2 span,
+.nextModule h2 span {
+  text-shadow: none !important;
+}
+
+/* Remove purple hover backgrounds */
+.conceptCard:hover,
+.riskCard:hover {
+  background: #000000 !important;
+}
+
+/* Footer text */
+.footerBrand span,
+.footer > p {
+  color: #ffffff !important;
 }

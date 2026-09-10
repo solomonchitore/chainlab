@@ -1,5 +1,4 @@
 import Link from "next/link";
-import BMConnect3D from "@/components/BMConnect3D";
 
 export default function Home() {
   return (
@@ -31,6 +30,8 @@ export default function Home() {
       ========================== */}
       <section className="hero-section">
         <div className="hero-grid">
+
+          {/* LEFT — HERO CONTENT */}
           <div className="hero-content">
             <div className="eyebrow">
               WEB3 EDUCATION FOR EVERYONE
@@ -54,7 +55,10 @@ export default function Home() {
             </p>
 
             <div className="hero-actions">
-              <Link href="/learn" className="primary-button">
+              <Link
+                href="/learn"
+                className="primary-button"
+              >
                 START LEARNING <span>→</span>
               </Link>
 
@@ -72,11 +76,13 @@ export default function Home() {
             </p>
           </div>
 
-          {/* =========================
-              ROTATING BM CONNECT COIN
-          ========================== */}
+          {/* RIGHT — BM CONNECT HERO IMAGE */}
           <div className="hero-visual">
-            <BMConnect3D />
+            <img
+              src="/images/bm-connect-hero-4k.png"
+              alt="BM Connect blockchain network"
+              className="hero-image"
+            />
           </div>
         </div>
 
@@ -142,13 +148,13 @@ export default function Home() {
         ========================== */}
         <div className="stats-grid">
           <div className="stat">
-            <strong>1000+</strong>
-            <span>LEARNERS</span>
+            <strong>05</strong>
+            <span>CORE TOPICS</span>
           </div>
 
           <div className="stat">
-            <strong>6+</strong>
-            <span>LEARNING MODULES</span>
+            <strong>04</strong>
+            <span>LEARNING PATHS</span>
           </div>
 
           <div className="stat">
@@ -158,7 +164,7 @@ export default function Home() {
 
           <div className="stat">
             <strong>GLOBAL</strong>
-            <span>COMMUNITY</span>
+            <span>LEARNING</span>
           </div>
 
           <div className="stat">
@@ -168,16 +174,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
+      {/* =====================================================
           ABOUT BIRTHDAY MESSAGING
-      ========================== */}
+      ====================================================== */}
       <section className="about-section" id="about">
-        <div className="section-label">
-          [ ABOUT BIRTHDAY MESSAGING ]
-        </div>
+        <div className="company-card">
+          <div className="company-image">
+            <img
+              src="/images/birthday-messaging-hq-4k.png"
+              alt="Birthday Messaging headquarters"
+              className="company-photo"
+            />
 
-        <div className="about-grid">
-          <div className="about-content">
+            <div className="company-image-gradient" />
+            <div className="company-image-vignette" />
+          </div>
+
+          <div className="company-content">
+            <div className="section-label">
+              [ THE COMPANY BEHIND CHAINLAB ]
+            </div>
+
             <h2>
               The Company
               <br />
@@ -204,29 +221,31 @@ export default function Home() {
               moving toward more advanced Web3 topics.
             </p>
 
-            <Link href="/learn" className="primary-button">
+            <Link
+              href="/learn"
+              className="primary-button company-button"
+            >
               EXPLORE CHAINLAB <span>→</span>
             </Link>
           </div>
 
-          <div className="about-visual">
-            <div className="about-image-frame">
-              <img
-                src="/images/birthday-messaging-hq-4k.png"
-                alt="Birthday Messaging headquarters"
-                className="about-image"
-              />
-            </div>
+          <div className="company-label">
+            BIRTHDAY MESSAGING / CHAINLAB
+          </div>
+
+          <div className="company-location">
+            EDUCATION / TECHNOLOGY / WEB3
           </div>
         </div>
 
-        {/* =========================
-            COMPANY VALUES
-        ========================== */}
+        {/* COMPANY VALUES */}
         <div className="about-values">
           {/* INNOVATION */}
           <div>
-            <div className="feature-icon" aria-hidden="true">
+            <div
+              className="feature-icon"
+              aria-hidden="true"
+            >
               <svg
                 width="32"
                 height="32"
@@ -264,7 +283,10 @@ export default function Home() {
 
           {/* EDUCATION */}
           <div>
-            <div className="feature-icon" aria-hidden="true">
+            <div
+              className="feature-icon"
+              aria-hidden="true"
+            >
               <svg
                 width="32"
                 height="32"
@@ -316,7 +338,10 @@ export default function Home() {
 
           {/* ACCESS */}
           <div>
-            <div className="feature-icon" aria-hidden="true">
+            <div
+              className="feature-icon"
+              aria-hidden="true"
+            >
               <svg
                 width="32"
                 height="32"
@@ -367,9 +392,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
+      {/* =====================================================
           WHY CHAINLAB
-      ========================== */}
+      ====================================================== */}
       <section className="mission-section">
         <div className="section-label">
           [ WHY CHAINLAB ]
@@ -437,9 +462,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
+      {/* =====================================================
           LEARNING PATHS
-      ========================== */}
+      ====================================================== */}
       <section
         className="paths-section"
         id="learning-paths"
@@ -457,7 +482,10 @@ export default function Home() {
             </h2>
           </div>
 
-          <Link href="/learn" className="text-link">
+          <Link
+            href="/learn"
+            className="text-link"
+          >
             VIEW ALL MODULES →
           </Link>
         </div>
@@ -487,7 +515,9 @@ export default function Home() {
               and validation.
             </p>
 
-            <strong>START MODULE →</strong>
+            <strong>
+              START MODULE →
+            </strong>
           </Link>
 
           {/* SOLANA */}
@@ -513,7 +543,9 @@ export default function Home() {
               programs, transactions, validators, and ecosystem.
             </p>
 
-            <strong>START MODULE →</strong>
+            <strong>
+              START MODULE →
+            </strong>
           </Link>
 
           {/* MEME COINS */}
@@ -539,7 +571,9 @@ export default function Home() {
               tokenomics, market dynamics, and risk.
             </p>
 
-            <strong>START MODULE →</strong>
+            <strong>
+              START MODULE →
+            </strong>
           </Link>
 
           {/* SECURITY */}
@@ -565,7 +599,9 @@ export default function Home() {
               smart contracts, and user responsibility connect.
             </p>
 
-            <strong>START MODULE →</strong>
+            <strong>
+              START MODULE →
+            </strong>
           </Link>
 
           {/* TOKENOMICS */}
@@ -589,14 +625,16 @@ export default function Home() {
               digital assets.
             </p>
 
-            <strong>COMING SOON →</strong>
+            <strong>
+              COMING SOON →
+            </strong>
           </div>
         </div>
       </section>
 
-      {/* =========================
-          HOW IT WORKS
-      ========================== */}
+      {/* =====================================================
+          HOW CHAINLAB WORKS
+      ====================================================== */}
       <section className="process-section">
         <div className="section-label">
           [ HOW CHAINLAB WORKS ]
@@ -610,18 +648,22 @@ export default function Home() {
 
         <div className="process-grid">
           <div className="process-step">
-            <div className="step-number">01</div>
+            <div className="step-number">
+              01
+            </div>
 
             <h3>CHOOSE A TOPIC</h3>
 
             <p>
-              Pick a subject that interests you and start with the
-              fundamentals.
+              Pick a subject that interests you and start with
+              the fundamentals.
             </p>
           </div>
 
           <div className="process-step">
-            <div className="step-number">02</div>
+            <div className="step-number">
+              02
+            </div>
 
             <h3>FOLLOW THE LESSONS</h3>
 
@@ -632,7 +674,9 @@ export default function Home() {
           </div>
 
           <div className="process-step">
-            <div className="step-number">03</div>
+            <div className="step-number">
+              03
+            </div>
 
             <h3>CONNECT THE CONCEPTS</h3>
 
@@ -643,7 +687,9 @@ export default function Home() {
           </div>
 
           <div className="process-step">
-            <div className="step-number">04</div>
+            <div className="step-number">
+              04
+            </div>
 
             <h3>KEEP EXPLORING</h3>
 
@@ -655,59 +701,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
+      {/* =====================================================
           THE BIGGER PICTURE
-      ========================== */}
+      ====================================================== */}
       <section className="featured-section">
-        <div className="featured-image">
-          <img
-            src="/images/bigger-picture-web3.png.jpg"
-            alt="Astronaut exploring a futuristic Web3 landscape"
-            className="featured-photo"
-          />
+        <div className="featured-card">
+          <div className="featured-image">
+            <img
+              src="/images/bigger-picture-web3.png.jpg"
+              alt="Astronaut exploring a futuristic Web3 landscape"
+              className="featured-photo"
+            />
 
-          <div className="featured-image-overlay" />
+            <div className="featured-image-overlay" />
+            <div className="featured-image-vignette" />
+          </div>
 
-          <div className="featured-image-label">
+          <div className="featured-content">
+            <div className="section-label">
+              [ THE BIGGER PICTURE ]
+            </div>
+
+            <h2>
+              A More
+              <br />
+              Open,
+              <br />
+              <span>Educated</span>
+              <br />
+              <span>Web3</span>
+              <br />
+              <span>Future.</span>
+            </h2>
+
+            <p>
+              We believe people should be able to understand the
+              technologies they interact with.
+            </p>
+
+            <p>
+              Whether you are completely new to blockchain, exploring
+              Solana, researching meme coins, or learning how to
+              protect your digital assets, ChainLab provides a place
+              to build your foundation.
+            </p>
+          </div>
+
+          <div className="featured-label">
             CHAINLAB / THE BIGGER PICTURE
           </div>
-        </div>
 
-        <div className="featured-content">
-          <div className="section-label">
-            [ THE BIGGER PICTURE ]
+          <div className="featured-location">
+            EXPLORE / LEARN / BUILD
           </div>
-
-          <h2>
-            A More Open,
-            <br />
-            <span>Educated Web3 Future.</span>
-          </h2>
-
-          <p>
-            We believe people should be able to understand the
-            technologies they interact with.
-          </p>
-
-          <p>
-            Whether you are completely new to blockchain, exploring
-            Solana, researching meme coins, or learning how to
-            protect your digital assets, ChainLab provides a place
-            to build your foundation.
-          </p>
-
-          <Link
-            href="/learn"
-            className="primary-button"
-          >
-            BEGIN LEARNING <span>→</span>
-          </Link>
         </div>
       </section>
 
       {/* =====================================================
           SECURITY FIRST
-          IMAGE + TEXT
       ====================================================== */}
       <section className="security-section">
         <div className="security-content">
@@ -756,9 +807,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
+      {/* =====================================================
           LEARNING EXPERIENCE
-      ========================== */}
+      ====================================================== */}
       <section className="testimonials-section">
         <div className="section-heading-row">
           <div>
@@ -776,7 +827,9 @@ export default function Home() {
 
         <div className="testimonial-grid">
           <article className="testimonial-card">
-            <div className="quote">“</div>
+            <div className="quote">
+              “
+            </div>
 
             <p>
               ChainLab focuses on explaining the concepts instead
@@ -785,13 +838,20 @@ export default function Home() {
             </p>
 
             <div className="testimonial-author">
-              <strong>THE BEGINNER</strong>
-              <span>Starting the Web3 journey</span>
+              <strong>
+                THE BEGINNER
+              </strong>
+
+              <span>
+                Starting the Web3 journey
+              </span>
             </div>
           </article>
 
           <article className="testimonial-card">
-            <div className="quote">“</div>
+            <div className="quote">
+              “
+            </div>
 
             <p>
               The structured approach makes it easier to connect
@@ -800,13 +860,20 @@ export default function Home() {
             </p>
 
             <div className="testimonial-author">
-              <strong>THE EXPLORER</strong>
-              <span>Going deeper into Web3</span>
+              <strong>
+                THE EXPLORER
+              </strong>
+
+              <span>
+                Going deeper into Web3
+              </span>
             </div>
           </article>
 
           <article className="testimonial-card">
-            <div className="quote">“</div>
+            <div className="quote">
+              “
+            </div>
 
             <p>
               Security is treated as part of the learning journey,
@@ -815,17 +882,25 @@ export default function Home() {
             </p>
 
             <div className="testimonial-author">
-              <strong>THE BUILDER</strong>
-              <span>Learning to think technically</span>
+              <strong>
+                THE BUILDER
+              </strong>
+
+              <span>
+                Learning to think technically
+              </span>
             </div>
           </article>
         </div>
       </section>
 
-      {/* =========================
+      {/* =====================================================
           FAQ
-      ========================== */}
-      <section className="faq-section" id="faq">
+      ====================================================== */}
+      <section
+        className="faq-section"
+        id="faq"
+      >
         <div className="faq-heading">
           <div className="section-label">
             [ FREQUENTLY ASKED QUESTIONS ]
@@ -906,9 +981,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
+      {/* =====================================================
           FINAL CTA
-      ========================== */}
+      ====================================================== */}
       <section className="final-section">
         <div className="final-inner">
           <div className="section-label">
@@ -935,13 +1010,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================
+      {/* =====================================================
           FOOTER
-      ========================== */}
+      ====================================================== */}
       <footer className="site-footer">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link href="/" className="brand">
+            <Link
+              href="/"
+              className="brand"
+            >
               [CHAINLAB]
             </Link>
 
@@ -959,7 +1037,9 @@ export default function Home() {
           <div className="footer-column">
             <h4>LEARNING</h4>
 
-            <Link href="/learn">Learn</Link>
+            <Link href="/learn">
+              Learn
+            </Link>
 
             <Link href="/learn/blockchain">
               Blockchain
@@ -997,11 +1077,17 @@ export default function Home() {
           <div className="footer-column">
             <h4>COMPANY</h4>
 
-            <span>Birthday Messaging</span>
+            <span>
+              Birthday Messaging
+            </span>
 
-            <span>Educational Initiative</span>
+            <span>
+              Educational Initiative
+            </span>
 
-            <span>Web3 Education</span>
+            <span>
+              Web3 Education
+            </span>
           </div>
         </div>
 
@@ -1018,3 +1104,4 @@ export default function Home() {
     </main>
   );
 }
+
