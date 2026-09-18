@@ -7379,3 +7379,274 @@ header .start-learning:hover,
 .site-header .nav-button:hover span {
   color: #02050a !important;
 }
+
+/* =========================================================
+   HERO — REMOVE BM CONNECT IMAGE / IMAGE BOX
+   ========================================================= */
+
+.hero-grid {
+  grid-template-columns: 1fr !important;
+}
+
+.hero-visual {
+  display: none !important;
+}
+/* =========================================================
+   CENTERED LANDING PAGE HERO
+   ========================================================= */
+
+.hero-section {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 100px 6% 90px !important;
+
+  background: #02050a !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  min-height: auto !important;
+}
+
+/* Remove any old decorative hero layers */
+.hero-section::before,
+.hero-section::after {
+  display: none !important;
+}
+
+/* One centered column */
+.hero-grid {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  grid-template-columns: none !important;
+}
+
+/* Hide the old image container completely */
+.hero-visual {
+  display: none !important;
+}
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+  width: 100% !important;
+  max-width: 1050px !important;
+  margin: 0 auto !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  text-align: center !important;
+}
+
+/* Small cyan introduction */
+.hero-content .eyebrow {
+  margin-bottom: 32px !important;
+
+  color: #00d9ff !important;
+
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+
+/* Main headline */
+.hero-content h1 {
+  width: 100% !important;
+  margin: 0 auto !important;
+
+  color: #ffffff !important;
+
+  font-size: clamp(72px, 9vw, 150px) !important;
+  line-height: 0.88 !important;
+  font-weight: 900 !important;
+
+  letter-spacing: -0.065em !important;
+  text-align: center !important;
+}
+
+/* FUTURE. */
+.hero-content h1 span {
+  color: #00d9ff !important;
+}
+
+/* Description */
+.hero-content .hero-description {
+  width: 100% !important;
+  max-width: 720px !important;
+
+  margin: 42px auto 0 !important;
+
+  color: #9aa8bd !important;
+
+  font-size: 18px !important;
+  line-height: 1.75 !important;
+
+  text-align: center !important;
+}
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-content .hero-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+
+  margin-top: 34px !important;
+}
+
+/* Start Learning */
+.hero-content .primary-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 16px 24px !important;
+
+  background: #00d9ff !important;
+  color: #02050a !important;
+
+  border: 1px solid #00d9ff !important;
+  border-radius: 12px !important;
+
+  font-weight: 800 !important;
+  text-decoration: none !important;
+}
+
+/* Arrow */
+.hero-content .primary-button span {
+  color: #02050a !important;
+}
+
+/* Explore Topics */
+.hero-content .secondary-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 16px 24px !important;
+
+  background: transparent !important;
+  color: #ffffff !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 12px !important;
+
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+/* Button hover */
+.hero-content .primary-button:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #02050a !important;
+  transform: translateY(-2px);
+}
+
+.hero-content .secondary-button:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #02050a !important;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   HERO NOTE
+   ========================================================= */
+
+.hero-content .hero-note {
+  max-width: 620px !important;
+
+  margin: 26px auto 0 !important;
+
+  color: rgba(255, 255, 255, 0.45) !important;
+
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+
+  text-align: center !important;
+}
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.hero-features {
+  max-width: 1300px !important;
+  margin: 100px auto 0 !important;
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.stats-grid {
+  max-width: 1300px !important;
+  margin: 70px auto 0 !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 80px 6% 70px !important;
+  }
+
+  .hero-content .eyebrow {
+    font-size: 11px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(56px, 16vw, 90px) !important;
+    line-height: 0.9 !important;
+  }
+
+  .hero-content .hero-description {
+    max-width: 600px !important;
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+    margin-top: 32px !important;
+  }
+
+  .hero-content .hero-actions {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .hero-content .primary-button,
+  .hero-content .secondary-button {
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+
+  .hero-content .hero-note {
+    font-size: 12px !important;
+  }
+
+  .hero-features {
+    margin-top: 70px !important;
+  }
+
+  .stats-grid {
+    margin-top: 50px !important;
+  }
+}

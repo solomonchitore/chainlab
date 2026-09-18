@@ -30,6 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 40px;
 }
 
@@ -48,6 +49,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   gap: 34px;
   flex: 1;
 }
@@ -77,6 +79,7 @@
   color: #ffffff;
 }
 
+/* Active navigation underline — WHITE */
 .navLink.active::after {
   content: "";
 
@@ -89,9 +92,13 @@
 
   transform: translateX(-50%);
 
-  background: #ffad00;
-  box-shadow: 0 0 14px rgba(255, 173, 0, 0.65);
+  background: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
 }
+
+/* =========================
+   START BUTTON
+========================= */
 
 .startButton {
   min-width: 190px;
@@ -100,12 +107,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: 12px;
 
-  border: 1px solid #ffad00;
+  border: 1px solid #ffffff;
   border-radius: 8px;
 
-  color: #ffad00;
+  color: #ffffff;
+  background: transparent;
+
   text-decoration: none;
 
   font-size: 12px;
@@ -122,13 +132,20 @@
 .startButton span {
   font-size: 17px;
   line-height: 1;
+  color: #ffffff;
 }
 
 .startButton:hover {
-  background: #ffad00;
+  background: #ffffff;
   color: #02070d;
-  box-shadow: 0 0 24px rgba(255, 173, 0, 0.2);
+
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.12);
+
   transform: translateY(-1px);
+}
+
+.startButton:hover span {
+  color: #02070d;
 }
 
 /* =========================
@@ -163,13 +180,14 @@
 
   font-size: clamp(42px, 4vw, 58px);
   line-height: 1;
-  font-weight: 800;
 
+  font-weight: 800;
   letter-spacing: -0.045em;
 }
 
+/* START LEARNING period — WHITE */
 .introduction h1 span {
-  color: #ffad00;
+  color: #ffffff;
 }
 
 .introduction p {
@@ -197,7 +215,6 @@
   position: relative;
 
   min-height: 295px;
-
   padding: 40px 38px;
 
   display: flex;
@@ -230,7 +247,6 @@
   content: "";
 
   position: absolute;
-
   left: 0;
   bottom: 0;
 
@@ -276,7 +292,7 @@
 ========================= */
 
 .moduleNumber {
-  color: #ffad00;
+  color: #ffffff;
 
   font-size: 14px;
   line-height: 1;
@@ -302,7 +318,6 @@
   line-height: 1;
 
   font-weight: 800;
-
   letter-spacing: -0.025em;
 }
 
@@ -317,16 +332,17 @@
   line-height: 1.6;
 }
 
+/* EXPLORE remains CYAN */
 .explore {
   display: inline-flex;
   align-items: center;
+
   gap: 9px;
 
   color: #00bfff;
 
   font-size: 11px;
   font-weight: 800;
-
   letter-spacing: 0.12em;
 
   transition:
@@ -337,11 +353,16 @@
 .explore span {
   font-size: 16px;
   line-height: 1;
+  color: #00bfff;
 }
 
 .moduleCard:hover .explore {
   color: #55d5ff;
   gap: 13px;
+}
+
+.moduleCard:hover .explore span {
+  color: #55d5ff;
 }
 
 /* =========================
@@ -363,6 +384,10 @@
 .featured:hover {
   border-color: #00bfff;
 }
+
+/* =========================
+   FEATURED DOT
+========================= */
 
 .featureDot {
   position: absolute;
@@ -403,6 +428,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 30px;
 }
 
@@ -411,7 +437,6 @@
 
   font-size: 15px;
   font-weight: 800;
-
   letter-spacing: 0.01em;
 }
 
@@ -462,6 +487,7 @@
     padding: 20px 0;
 
     flex-wrap: wrap;
+
     gap: 20px;
   }
 
@@ -546,6 +572,7 @@
     padding: 30px 0;
 
     flex-direction: column;
+
     align-items: flex-start;
   }
 }
@@ -572,4 +599,40 @@
   .moduleContent p {
     font-size: 14px;
   }
+}
+
+/* =========================================================
+   FINAL COLOR SAFETY OVERRIDES
+   Remove all yellow from the Learn page
+========================================================= */
+
+.page .navLink.active::after {
+  background: #ffffff !important;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35) !important;
+}
+
+.page .startButton {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.page .startButton span {
+  color: #ffffff !important;
+}
+
+.page .startButton:hover {
+  background: #ffffff !important;
+  color: #02070d !important;
+}
+
+.page .startButton:hover span {
+  color: #02070d !important;
+}
+
+.page .introduction h1 span {
+  color: #ffffff !important;
+}
+
+.page .moduleNumber {
+  color: #ffffff !important;
 }

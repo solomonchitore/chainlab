@@ -30,7 +30,6 @@ export default function Home() {
       ========================== */}
       <section className="hero-section">
         <div className="hero-grid">
-
           {/* LEFT — HERO CONTENT */}
           <div className="hero-content">
             <div className="eyebrow">
@@ -74,15 +73,6 @@ export default function Home() {
               An educational resource created by Birthday Messaging,
               built to make Web3 knowledge more accessible.
             </p>
-          </div>
-
-          {/* RIGHT — BM CONNECT HERO IMAGE */}
-          <div className="hero-visual">
-            <img
-              src="/images/bm-connect-hero-4k.png"
-              alt="BM Connect blockchain network"
-              className="hero-image"
-            />
           </div>
         </div>
 
@@ -1104,4 +1094,3 @@ export default function Home() {
     </main>
   );
 }
-
