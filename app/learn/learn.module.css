@@ -1,0 +1,638 @@
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 70% 40%,
+      rgba(0, 102, 153, 0.08),
+      transparent 35%
+    ),
+    #02070d;
+  color: #f4f7fb;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 191, 255, 0.16);
+  background: rgba(2, 7, 13, 0.96);
+  position: relative;
+  z-index: 20;
+}
+
+.headerInner {
+  width: min(1280px, calc(100% - 64px));
+  min-height: 78px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.logo {
+  color: #f4f7fb;
+  text-decoration: none;
+
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 34px;
+  flex: 1;
+}
+
+.navLink {
+  position: relative;
+
+  color: #a7b3c2;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+
+  padding: 30px 0 26px;
+
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.navLink:hover {
+  color: #ffffff;
+}
+
+.navLink.active {
+  color: #ffffff;
+}
+
+/* Active navigation underline — WHITE */
+.navLink.active::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+
+  width: 30px;
+  height: 3px;
+
+  transform: translateX(-50%);
+
+  background: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
+}
+
+/* =========================
+   START BUTTON
+========================= */
+
+.startButton {
+  min-width: 190px;
+  height: 46px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+
+  color: #ffffff;
+  background: transparent;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.startButton span {
+  font-size: 17px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.startButton:hover {
+  background: #ffffff;
+  color: #02070d;
+
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.12);
+
+  transform: translateY(-1px);
+}
+
+.startButton:hover span {
+  color: #02070d;
+}
+
+/* =========================
+   LEARNING SECTION
+========================= */
+
+.learningSection {
+  width: min(1280px, calc(100% - 64px));
+  margin: 0 auto;
+
+  padding: 62px 0 78px;
+}
+
+.introduction {
+  margin-bottom: 36px;
+}
+
+.breadcrumb {
+  margin-bottom: 12px;
+
+  color: #7c9bb6;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.introduction h1 {
+  margin: 0;
+
+  color: #f4f7fb;
+
+  font-size: clamp(42px, 4vw, 58px);
+  line-height: 1;
+
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+/* START LEARNING period — WHITE */
+.introduction h1 span {
+  color: #ffffff;
+}
+
+.introduction p {
+  margin: 14px 0 0;
+
+  color: #86a4bf;
+
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* =========================
+   MODULE GRID
+========================= */
+
+.moduleGrid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+.moduleCard {
+  position: relative;
+
+  min-height: 295px;
+  padding: 40px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(0, 153, 220, 0.22);
+  border-radius: 2px;
+
+  background:
+    radial-gradient(
+      circle at 85% 100%,
+      rgba(0, 157, 226, 0.08),
+      transparent 32%
+    ),
+    #030910;
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.moduleCard::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 191, 255, 0.22),
+    transparent
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.25s ease;
+}
+
+.moduleCard:hover {
+  border-color: rgba(0, 191, 255, 0.55);
+
+  background:
+    radial-gradient(
+      circle at 85% 100%,
+      rgba(0, 157, 226, 0.13),
+      transparent 35%
+    ),
+    #040c14;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(0, 157, 226, 0.04);
+}
+
+.moduleCard:hover::before {
+  opacity: 1;
+}
+
+/* =========================
+   MODULE NUMBER
+========================= */
+
+.moduleNumber {
+  color: #ffffff;
+
+  font-size: 14px;
+  line-height: 1;
+
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+/* =========================
+   MODULE CONTENT
+========================= */
+
+.moduleContent {
+  margin-top: auto;
+}
+
+.moduleContent h2 {
+  margin: 0 0 12px;
+
+  color: #f4f7fb;
+
+  font-size: clamp(27px, 2.4vw, 35px);
+  line-height: 1;
+
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.moduleContent p {
+  max-width: 520px;
+
+  margin: 0 0 42px;
+
+  color: #83a0ba;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* EXPLORE remains CYAN */
+.explore {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #00bfff;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.explore span {
+  font-size: 16px;
+  line-height: 1;
+  color: #00bfff;
+}
+
+.moduleCard:hover .explore {
+  color: #55d5ff;
+  gap: 13px;
+}
+
+.moduleCard:hover .explore span {
+  color: #55d5ff;
+}
+
+/* =========================
+   FEATURED CARD
+========================= */
+
+.featured {
+  border-color: rgba(0, 191, 255, 0.48);
+
+  background:
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(0, 157, 226, 0.12),
+      transparent 35%
+    ),
+    #030910;
+}
+
+.featured:hover {
+  border-color: #00bfff;
+}
+
+/* =========================
+   FEATURED DOT
+========================= */
+
+.featureDot {
+  position: absolute;
+
+  top: 25px;
+  right: 23px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.7),
+    0 0 18px rgba(0, 191, 255, 0.25);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  width: 100%;
+
+  border-top: 1px solid rgba(0, 191, 255, 0.15);
+
+  background: #02070d;
+}
+
+.footerInner {
+  width: min(1280px, calc(100% - 64px));
+  min-height: 118px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.footerLogo {
+  color: #f4f7fb;
+
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.footerTagline {
+  margin: 7px 0 0;
+
+  color: #718ba3;
+
+  font-size: 13px;
+}
+
+.copyright {
+  margin: 0;
+
+  color: #718ba3;
+
+  font-size: 13px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1050px) {
+  .nav {
+    gap: 20px;
+  }
+
+  .navLink {
+    font-size: 11px;
+  }
+
+  .startButton {
+    min-width: 165px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+  .headerInner {
+    width: min(100% - 32px, 600px);
+
+    min-height: auto;
+
+    padding: 20px 0;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .startButton {
+    min-width: 160px;
+    height: 42px;
+  }
+
+  .nav {
+    order: 3;
+
+    width: 100%;
+
+    justify-content: flex-start;
+
+    overflow-x: auto;
+
+    gap: 24px;
+
+    padding-bottom: 4px;
+  }
+
+  .navLink {
+    flex: 0 0 auto;
+
+    padding: 8px 0 15px;
+
+    font-size: 11px;
+  }
+
+  .navLink.active::after {
+    bottom: 3px;
+  }
+
+  .learningSection {
+    width: min(100% - 32px, 600px);
+
+    padding: 48px 0 60px;
+  }
+
+  .introduction {
+    margin-bottom: 28px;
+  }
+
+  .introduction h1 {
+    font-size: 43px;
+  }
+
+  .introduction p {
+    font-size: 16px;
+  }
+
+  .moduleGrid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .moduleCard {
+    min-height: 250px;
+
+    padding: 30px 28px;
+  }
+
+  .moduleContent h2 {
+    font-size: 29px;
+  }
+
+  .moduleContent p {
+    margin-bottom: 30px;
+  }
+
+  .footerInner {
+    width: min(100% - 32px, 600px);
+
+    min-height: auto;
+
+    padding: 30px 0;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .startButton {
+    width: 100%;
+  }
+
+  .moduleCard {
+    min-height: 230px;
+
+    padding: 26px 24px;
+  }
+
+  .moduleContent h2 {
+    font-size: 26px;
+  }
+
+  .moduleContent p {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   FINAL COLOR SAFETY OVERRIDES
+   Remove all yellow from the Learn page
+========================================================= */
+
+.page .navLink.active::after {
+  background: #ffffff !important;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35) !important;
+}
+
+.page .startButton {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.page .startButton span {
+  color: #ffffff !important;
+}
+
+.page .startButton:hover {
+  background: #ffffff !important;
+  color: #02070d !important;
+}
+
+.page .startButton:hover span {
+  color: #02070d !important;
+}
+
+.page .introduction h1 span {
+  color: #ffffff !important;
+}
+
+.page .moduleNumber {
+  color: #ffffff !important;
+}
