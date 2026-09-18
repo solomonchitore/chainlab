@@ -7650,3 +7650,2603 @@ header .start-learning:hover,
     margin-top: 50px !important;
   }
 }
+
+/* =========================================================
+   CHAINLAB — CHAT / FONT / THEME / MOBILE NAVIGATION
+   ========================================================= */
+
+/* =========================================================
+   FONT SCALE
+   ========================================================= */
+
+html {
+  --cl-font-scale: 1;
+}
+
+body {
+  font-size: calc(16px * var(--cl-font-scale));
+}
+
+
+/* =========================================================
+   FLOATING CHAINLAB TOOLS
+   ========================================================= */
+
+.chainlab-tools {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9998;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chainlab-tool-button,
+.chainlab-chat-button {
+  height: 48px;
+  min-width: 48px;
+  padding: 0 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+
+  background: rgba(2, 5, 10, 0.94);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(18px);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.chainlab-tool-button:hover,
+.chainlab-chat-button:hover {
+  background: #ffffff;
+  color: #02050a;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.chainlab-chat-button {
+  min-width: 68px;
+}
+
+
+/* =========================================================
+   FONT CONTROL
+   ========================================================= */
+
+.font-control-wrapper {
+  position: relative;
+}
+
+.font-control-panel {
+  position: absolute;
+  right: 0;
+  bottom: 58px;
+
+  display: flex;
+  gap: 6px;
+
+  padding: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+
+  background: rgba(2, 5, 10, 0.96);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.font-control-panel button {
+  width: 40px;
+  height: 38px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+
+  background: transparent;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.font-control-panel button:hover,
+.font-control-panel button.active {
+  background: #00d9ff;
+  border-color: #00d9ff;
+  color: #02050a;
+}
+
+
+/* =========================================================
+   CHAT OVERLAY
+   ========================================================= */
+
+.chainlab-chat-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  padding: 24px;
+
+  background: rgba(0, 0, 0, 0.22);
+
+  backdrop-filter: blur(3px);
+}
+
+.chainlab-chatbox {
+  width: min(420px, calc(100vw - 32px));
+  height: min(680px, calc(100vh - 48px));
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+
+  background: #02050a;
+  color: #ffffff;
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   CHAT HEADER
+   ========================================================= */
+
+.chainlab-chat-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 24px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chainlab-chat-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #00d9ff;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.chainlab-chat-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.chainlab-chat-close {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+
+  background: transparent;
+  color: #ffffff;
+
+  font-size: 24px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.chainlab-chat-close:hover {
+  background: #ffffff;
+  color: #02050a;
+}
+
+
+/* =========================================================
+   CHAT MESSAGES
+   ========================================================= */
+
+.chainlab-chat-messages {
+  flex: 1;
+
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  padding: 24px;
+}
+
+.chainlab-message {
+  max-width: 88%;
+
+  padding: 14px 16px;
+
+  border-radius: 14px;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.chainlab-message.chainlab-message {
+  align-self: flex-start;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.chainlab-message.user-message {
+  align-self: flex-end;
+
+  background: #00d9ff;
+  color: #02050a;
+}
+
+
+/* =========================================================
+   QUICK CHAT QUESTIONS
+   ========================================================= */
+
+.chainlab-chat-quick {
+  display: flex;
+  gap: 8px;
+
+  padding: 0 20px 16px;
+
+  overflow-x: auto;
+}
+
+.chainlab-chat-quick button {
+  flex: 0 0 auto;
+
+  padding: 9px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+
+  font-family: inherit;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.chainlab-chat-quick button:hover {
+  border-color: #00d9ff;
+  color: #00d9ff;
+}
+
+
+/* =========================================================
+   CHAT INPUT
+   ========================================================= */
+
+.chainlab-chat-input {
+  display: flex;
+  gap: 8px;
+
+  padding: 16px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chainlab-chat-input input {
+  min-width: 0;
+  flex: 1;
+
+  height: 48px;
+
+  padding: 0 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.chainlab-chat-input input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.chainlab-chat-input input:focus {
+  border-color: #00d9ff;
+}
+
+.chainlab-chat-input button {
+  width: 48px;
+  height: 48px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: #00d9ff;
+  color: #02050a;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.chainlab-chat-input button:hover {
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION BUTTON
+   ========================================================= */
+
+.mobile-menu-button {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.mobile-menu-button span {
+  display: block;
+
+  width: 19px;
+  height: 1px;
+
+  margin: 4px auto;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.mobile-menu-button.open span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.mobile-menu-button.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-button.open span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION PANEL
+   ========================================================= */
+
+.mobile-navigation {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9997;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+
+  background: #02050a;
+  color: #ffffff;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-20px);
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease;
+}
+
+.mobile-navigation-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-navigation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 30px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-navigation-brand {
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.mobile-navigation-close {
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+
+  background: transparent;
+  color: #ffffff;
+
+  font-size: 25px;
+
+  cursor: pointer;
+}
+
+.mobile-navigation-links {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 35px;
+}
+
+.mobile-navigation-links a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: #ffffff;
+
+  font-size: clamp(28px, 8vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.mobile-navigation-links a span {
+  width: 30px;
+
+  color: #00d9ff;
+
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.mobile-navigation-links a:hover {
+  padding-left: 8px;
+  color: #00d9ff;
+}
+
+.mobile-navigation-start {
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #02050a;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+}
+
+.mobile-navigation-start span {
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+   ========================================================= */
+
+html[data-theme="light"] body {
+  background: #f5f7fa !important;
+  color: #10141a !important;
+}
+
+/* Header */
+
+html[data-theme="light"] .site-header {
+  background: rgba(245, 247, 250, 0.94) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="light"] .site-header .brand,
+html[data-theme="light"] .main-nav a {
+  color: #10141a !important;
+}
+
+html[data-theme="light"] .site-header .nav-button {
+  color: #10141a !important;
+  border-color: #10141a !important;
+  background: transparent !important;
+}
+
+html[data-theme="light"] .site-header .nav-button:hover {
+  background: #10141a !important;
+  color: #ffffff !important;
+}
+
+/* Main sections */
+
+html[data-theme="light"] .hero-section,
+html[data-theme="light"] .about-section,
+html[data-theme="light"] .mission-section,
+html[data-theme="light"] .paths-section,
+html[data-theme="light"] .process-section,
+html[data-theme="light"] .testimonials-section,
+html[data-theme="light"] .faq-section,
+html[data-theme="light"] .site-footer {
+  background: #f5f7fa !important;
+  color: #10141a !important;
+}
+
+/* Main headings */
+
+html[data-theme="light"] .hero-content h1,
+html[data-theme="light"] .mission-heading h2,
+html[data-theme="light"] .paths-section h2,
+html[data-theme="light"] .process-section h2,
+html[data-theme="light"] .testimonials-section h2,
+html[data-theme="light"] .faq-section h2 {
+  color: #10141a !important;
+}
+
+/* Paragraphs */
+
+html[data-theme="light"] .hero-description,
+html[data-theme="light"] .hero-note,
+html[data-theme="light"] .mission-heading p,
+html[data-theme="light"] .mission-grid p,
+html[data-theme="light"] .process-step p,
+html[data-theme="light"] .testimonial-card p,
+html[data-theme="light"] .faq-list p {
+  color: rgba(16, 20, 26, 0.68) !important;
+}
+
+/* Audience */
+
+html[data-theme="light"] .audience-section {
+  background: #f5f7fa !important;
+  color: #10141a !important;
+}
+
+html[data-theme="light"] .audience-heading h2,
+html[data-theme="light"] .audience-card h3 {
+  color: #10141a !important;
+}
+
+html[data-theme="light"] .audience-heading p,
+html[data-theme="light"] .audience-card p {
+  color: rgba(16, 20, 26, 0.65) !important;
+}
+
+html[data-theme="light"] .audience-grid,
+html[data-theme="light"] .audience-card {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Path cards */
+
+html[data-theme="light"] .path-card {
+  background: #ffffff !important;
+  color: #10141a !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="light"] .path-card h3 {
+  color: #10141a !important;
+}
+
+html[data-theme="light"] .path-card p {
+  color: rgba(16, 20, 26, 0.65) !important;
+}
+
+/* Process */
+
+html[data-theme="light"] .process-step {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html[data-theme="light"] .process-step h3 {
+  color: #10141a !important;
+}
+
+/* Security */
+
+html[data-theme="light"] .security-section {
+  background: #e9eef4 !important;
+  color: #10141a !important;
+}
+
+html[data-theme="light"] .security-content h2 {
+  color: #00a8c7 !important;
+}
+
+html[data-theme="light"] .security-content p {
+  color: rgba(16, 20, 26, 0.68) !important;
+}
+
+/* FAQ */
+
+html[data-theme="light"] .faq-list details {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html[data-theme="light"] .faq-list summary {
+  color: #10141a !important;
+}
+
+/* Footer */
+
+html[data-theme="light"] .site-footer {
+  border-top-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="light"] .site-footer,
+html[data-theme="light"] .site-footer a,
+html[data-theme="light"] .site-footer span {
+  color: #10141a !important;
+}
+
+/* Final CTA */
+
+html[data-theme="light"] .final-section {
+  background: #f5f7fa !important;
+}
+
+/* Floating controls */
+
+html[data-theme="light"] .chainlab-tool-button,
+html[data-theme="light"] .chainlab-chat-button {
+  background: #ffffff;
+  color: #10141a;
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+html[data-theme="light"] .chainlab-tool-button:hover,
+html[data-theme="light"] .chainlab-chat-button:hover {
+  background: #10141a;
+  color: #ffffff;
+  border-color: #10141a;
+}
+
+html[data-theme="light"] .font-control-panel {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+html[data-theme="light"] .font-control-panel button {
+  color: #10141a;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile navigation */
+
+html[data-theme="light"] .mobile-navigation {
+  background: #f5f7fa;
+  color: #10141a;
+}
+
+html[data-theme="light"] .mobile-navigation-brand,
+html[data-theme="light"] .mobile-navigation-links a {
+  color: #10141a;
+}
+
+html[data-theme="light"] .mobile-navigation-header,
+html[data-theme="light"] .mobile-navigation-links a {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .mobile-navigation-close {
+  color: #10141a;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   MOBILE BREAKPOINT
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .site-header .main-nav,
+  .site-header .nav-button {
+    display: none !important;
+  }
+
+  .site-header .nav-inner {
+    position: relative;
+  }
+
+  .mobile-menu-button {
+    display: block;
+    margin-left: auto;
+
+    position: relative;
+    z-index: 10000;
+  }
+}
+
+
+@media (min-width: 1001px) {
+  .mobile-navigation {
+    display: none !important;
+  }
+
+  .mobile-menu-button {
+    display: none !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .chainlab-tools {
+    right: 14px;
+    bottom: 14px;
+    gap: 7px;
+  }
+
+  .chainlab-tool-button,
+  .chainlab-chat-button {
+    height: 44px;
+    min-width: 44px;
+    padding: 0 11px;
+  }
+
+  .chainlab-chat-button {
+    min-width: 58px;
+  }
+
+  .chainlab-chat-overlay {
+    padding: 0;
+  }
+
+  .chainlab-chatbox {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+
+    border-radius: 0;
+  }
+
+  .mobile-navigation {
+    padding: 20px;
+  }
+
+  .mobile-navigation-links a {
+    font-size: 28px;
+    padding: 18px 0;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .chainlab-tool-button,
+  .chainlab-chat-button,
+  .mobile-navigation,
+  .mobile-navigation-links a,
+  .mobile-menu-button span {
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   CHAINLAB — LIGHT MODE TEXT VISIBILITY FIX
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   MAIN LIGHT MODE TEXT
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .hero-content h1,
+html[data-theme="light"] .mission-heading h2,
+html[data-theme="light"] .process-section h2,
+html[data-theme="light"] .paths-section h2,
+html[data-theme="light"] .testimonials-section h2,
+html[data-theme="light"] .faq-heading h2,
+html[data-theme="light"] .audience-heading h2,
+html[data-theme="light"] .company-content h2 {
+  color: #111820 !important;
+}
+
+
+/* ---------------------------------------------------------
+   WHITE TEXT THAT WAS DESIGNED FOR DARK MODE
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .hero-content h1,
+html[data-theme="light"] .hero-content h1 span,
+html[data-theme="light"] .mission-heading h2,
+html[data-theme="light"] .mission-heading h2 span,
+html[data-theme="light"] .process-section h2,
+html[data-theme="light"] .process-section h2 span,
+html[data-theme="light"] .paths-section h2,
+html[data-theme="light"] .paths-section h2 span,
+html[data-theme="light"] .testimonials-section h2,
+html[data-theme="light"] .testimonials-section h2 span,
+html[data-theme="light"] .faq-heading h2,
+html[data-theme="light"] .faq-heading h2 span,
+html[data-theme="light"] .audience-heading h2,
+html[data-theme="light"] .audience-heading h2 span,
+html[data-theme="light"] .company-content h2,
+html[data-theme="light"] .company-content h2 span {
+  color: #111820 !important;
+}
+
+
+/* ---------------------------------------------------------
+   BLUE ACCENT TEXT
+   Use a darker blue in light mode so it remains readable.
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .hero-content .eyebrow,
+html[data-theme="light"] .hero-content h1 span,
+html[data-theme="light"] .section-label,
+html[data-theme="light"] .audience-heading h2 span,
+html[data-theme="light"] .audience-card .number,
+html[data-theme="light"] .mission-heading h2 span,
+html[data-theme="light"] .process-section h2 span,
+html[data-theme="light"] .process-step .step-number,
+html[data-theme="light"] .path-number,
+html[data-theme="light"] .feature-icon,
+html[data-theme="light"] .security-content h2,
+html[data-theme="light"] .security-content h2 span {
+  color: #007fa3 !important;
+}
+
+
+/* ---------------------------------------------------------
+   HERO DESCRIPTION
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .hero-content .hero-description {
+  color: #3f4b57 !important;
+}
+
+html[data-theme="light"] .hero-content .hero-note {
+  color: #5b6672 !important;
+}
+
+
+/* ---------------------------------------------------------
+   MISSION / WHY CHAINLAB
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .mission-heading p,
+html[data-theme="light"] .mission-grid p {
+  color: #46515c !important;
+}
+
+html[data-theme="light"] .mission-grid h3 {
+  color: #111820 !important;
+}
+
+
+/* ---------------------------------------------------------
+   AUDIENCE
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .audience-heading p,
+html[data-theme="light"] .audience-card p {
+  color: #46515c !important;
+}
+
+html[data-theme="light"] .audience-card h3 {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .audience-tag {
+  color: #596570 !important;
+}
+
+
+/* ---------------------------------------------------------
+   COMPANY / ABOUT
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .company-content p {
+  color: #46515c !important;
+}
+
+html[data-theme="light"] .company-content .section-label {
+  color: #007fa3 !important;
+}
+
+
+/* ---------------------------------------------------------
+   LEARNING PATHS
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .path-card h3 {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .path-card p {
+  color: #46515c !important;
+}
+
+html[data-theme="light"] .path-card strong {
+  color: #007fa3 !important;
+}
+
+
+/* ---------------------------------------------------------
+   PROCESS
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .process-step h3 {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .process-step p {
+  color: #46515c !important;
+}
+
+
+/* ---------------------------------------------------------
+   SECURITY
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .security-content h2,
+html[data-theme="light"] .security-content h2 span {
+  color: #007fa3 !important;
+}
+
+html[data-theme="light"] .security-content p {
+  color: #46515c !important;
+}
+
+html[data-theme="light"] .security-content .secondary-button {
+  color: #111820 !important;
+  border-color: rgba(17, 24, 32, 0.35) !important;
+}
+
+html[data-theme="light"] .security-content .secondary-button:hover {
+  background: #111820 !important;
+  color: #ffffff !important;
+  border-color: #111820 !important;
+}
+
+
+/* ---------------------------------------------------------
+   LEARNING EXPERIENCE
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .testimonial-card p {
+  color: #46515c !important;
+}
+
+html[data-theme="light"] .testimonial-author strong {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .testimonial-author span {
+  color: #596570 !important;
+}
+
+html[data-theme="light"] .testimonial-card .quote {
+  color: #007fa3 !important;
+}
+
+
+/* ---------------------------------------------------------
+   FAQ
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .faq-heading h2,
+html[data-theme="light"] .faq-heading h2 span {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .faq-list summary {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .faq-list summary span {
+  color: #007fa3 !important;
+}
+
+html[data-theme="light"] .faq-list p {
+  color: #46515c !important;
+}
+
+
+/* ---------------------------------------------------------
+   TEXT LINKS
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .text-link {
+  color: #007fa3 !important;
+}
+
+html[data-theme="light"] .text-link:hover {
+  color: #005d78 !important;
+}
+
+
+/* ---------------------------------------------------------
+   BIGGER PICTURE
+   Keep this section WHITE because the text sits on an image.
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .featured-card .featured-content h2,
+html[data-theme="light"] .featured-card .featured-content h2 span,
+html[data-theme="light"] .featured-card .featured-content p,
+html[data-theme="light"] .featured-card .featured-content .section-label,
+html[data-theme="light"] .featured-card .featured-label {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .featured-card .featured-location {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL CTA
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .final-inner .section-label,
+html[data-theme="light"] .final-inner h2,
+html[data-theme="light"] .final-inner h2 span,
+html[data-theme="light"] .final-inner p {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .final-inner .large-button {
+  background: #111820 !important;
+  color: #ffffff !important;
+  border-color: #111820 !important;
+}
+
+html[data-theme="light"] .final-inner .large-button span {
+  color: #ffffff !important;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .site-footer h4 {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .site-footer p {
+  color: #46515c !important;
+}
+
+html[data-theme="light"] .site-footer a,
+html[data-theme="light"] .site-footer span {
+  color: #46515c !important;
+}
+
+html[data-theme="light"] .site-footer .brand {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .footer-tagline {
+  color: #007fa3 !important;
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .site-header .brand,
+html[data-theme="light"] .site-header .main-nav a {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .site-header .nav-button {
+  color: #111820 !important;
+  border-color: #111820 !important;
+}
+
+html[data-theme="light"] .site-header .nav-button span {
+  color: #111820 !important;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE NAVIGATION
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .mobile-menu-button {
+  border-color: rgba(17, 24, 32, 0.2) !important;
+}
+
+html[data-theme="light"] .mobile-menu-button span {
+  background: #111820 !important;
+}
+
+html[data-theme="light"] .mobile-navigation-brand,
+html[data-theme="light"] .mobile-navigation-links a {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .mobile-navigation-links a span {
+  color: #007fa3 !important;
+}
+
+html[data-theme="light"] .mobile-navigation-close {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .mobile-navigation-start {
+  background: #111820 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .mobile-navigation-start span {
+  color: #ffffff !important;
+}
+
+
+/* ---------------------------------------------------------
+   CHATBOX
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .chainlab-chatbox {
+  background: #ffffff !important;
+  color: #111820 !important;
+  border-color: rgba(17, 24, 32, 0.12) !important;
+}
+
+html[data-theme="light"] .chainlab-chat-header {
+  border-color: rgba(17, 24, 32, 0.1) !important;
+}
+
+html[data-theme="light"] .chainlab-chat-header h2 {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .chainlab-chat-label {
+  color: #007fa3 !important;
+}
+
+html[data-theme="light"] .chainlab-chat-close {
+  color: #111820 !important;
+  border-color: rgba(17, 24, 32, 0.12) !important;
+}
+
+html[data-theme="light"] .chainlab-message.chainlab-message {
+  background: #eef2f5 !important;
+  color: #27323d !important;
+}
+
+html[data-theme="light"] .chainlab-chat-quick button {
+  color: #46515c !important;
+  border-color: rgba(17, 24, 32, 0.12) !important;
+}
+
+html[data-theme="light"] .chainlab-chat-input {
+  border-color: rgba(17, 24, 32, 0.1) !important;
+}
+
+html[data-theme="light"] .chainlab-chat-input input {
+  background: #f4f6f8 !important;
+  color: #111820 !important;
+  border-color: rgba(17, 24, 32, 0.12) !important;
+}
+
+html[data-theme="light"] .chainlab-chat-input input::placeholder {
+  color: #7a858f !important;
+}
+
+
+/* ---------------------------------------------------------
+   FLOATING CONTROLS
+   --------------------------------------------------------- */
+
+html[data-theme="light"] .chainlab-tool-button,
+html[data-theme="light"] .chainlab-chat-button {
+  color: #111820 !important;
+  background: #ffffff !important;
+  border-color: rgba(17, 24, 32, 0.14) !important;
+}
+
+html[data-theme="light"] .font-control-panel {
+  background: #ffffff !important;
+  border-color: rgba(17, 24, 32, 0.12) !important;
+}
+
+html[data-theme="light"] .font-control-panel button {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .font-control-panel button.active {
+  background: #007fa3 !important;
+  border-color: #007fa3 !important;
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   CHAINLAB — MOBILE NAVIGATION / COOKIE / PROGRESS / LOADING
+   ========================================================= */
+
+
+/* =========================================================
+   READING PROGRESS
+   ========================================================= */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  z-index: 10050;
+
+  pointer-events: none;
+
+  background: transparent;
+}
+
+.reading-progress-bar {
+  height: 100%;
+  width: 0;
+
+  background: #00d9ff;
+
+  transition: width 0.08s linear;
+
+  box-shadow:
+    0 0 10px rgba(0, 217, 255, 0.55);
+}
+
+
+/* =========================================================
+   COOKIE CONSENT
+   ========================================================= */
+
+.cookie-consent {
+  position: fixed;
+
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+
+  z-index: 10020;
+
+  padding: 22px 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+
+  background: rgba(2, 5, 10, 0.96);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  animation:
+    cookie-consent-enter
+    0.45s ease both;
+}
+
+.cookie-consent-content {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.cookie-consent-text {
+  max-width: 760px;
+}
+
+.cookie-consent-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #00d9ff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.cookie-consent-text h2 {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cookie-consent-text p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.cookie-consent-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+.cookie-button {
+  min-width: 110px;
+
+  padding: 13px 18px;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cookie-button:hover {
+  transform: translateY(-2px);
+}
+
+.cookie-button-primary {
+  border: 1px solid #00d9ff;
+
+  background: #00d9ff;
+  color: #02050a;
+}
+
+.cookie-button-primary:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.cookie-button-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  background: transparent;
+  color: #ffffff;
+}
+
+.cookie-button-secondary:hover {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: #02050a;
+}
+
+@keyframes cookie-consent-enter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   PAGE TRANSITION
+   ========================================================= */
+
+.page-transition {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10040;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #02050a;
+
+  color: #ffffff;
+
+  pointer-events: none;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.page-transition-active {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: all;
+}
+
+.page-transition-content {
+  width: min(520px, 80%);
+
+  text-align: center;
+}
+
+.page-transition-brand {
+  margin-bottom: 25px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 900;
+
+  letter-spacing: 0.1em;
+}
+
+.page-transition-line {
+  width: 100%;
+  height: 2px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.page-transition-line span {
+  display: block;
+
+  width: 35%;
+  height: 100%;
+
+  background: #00d9ff;
+
+  animation:
+    page-transition-loading
+    0.9s ease-in-out infinite;
+}
+
+.page-transition-label {
+  margin-top: 15px;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+@keyframes page-transition-loading {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  50% {
+    transform: translateX(180%);
+  }
+
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION — GLOBAL BUTTON
+   ========================================================= */
+
+.mobile-menu-button {
+  display: none;
+
+  position: fixed;
+
+  top: 18px;
+  right: 20px;
+
+  z-index: 10001;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+
+  background: rgba(2, 5, 10, 0.9);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  cursor: pointer;
+}
+
+.mobile-menu-button span {
+  display: block;
+
+  width: 19px;
+  height: 1px;
+
+  margin: 4px auto;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.mobile-menu-button.open span:nth-child(1) {
+  transform:
+    translateY(5px)
+    rotate(45deg);
+}
+
+.mobile-menu-button.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-button.open span:nth-child(3) {
+  transform:
+    translateY(-5px)
+    rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION PANEL
+   ========================================================= */
+
+.mobile-navigation {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+
+  background: #02050a;
+  color: #ffffff;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-20px);
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease;
+}
+
+.mobile-navigation-open {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+.mobile-navigation-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 30px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-navigation-brand {
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+}
+
+.mobile-navigation-close {
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 25px;
+
+  cursor: pointer;
+}
+
+.mobile-navigation-links {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 35px;
+}
+
+.mobile-navigation-links a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: #ffffff;
+
+  font-size: clamp(28px, 8vw, 52px);
+
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.mobile-navigation-links a span {
+  width: 30px;
+
+  color: #00d9ff;
+
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+}
+
+.mobile-navigation-links a:hover {
+  padding-left: 8px;
+
+  color: #00d9ff;
+}
+
+.mobile-navigation-start {
+  margin-top: auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: #02050a;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+}
+
+.mobile-navigation-start span {
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   LIGHT MODE — NEW SYSTEMS
+   ========================================================= */
+
+html[data-theme="light"] .cookie-consent {
+  background: rgba(255, 255, 255, 0.97);
+
+  color: #10141a;
+
+  border-color: rgba(0, 0, 0, 0.12);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="light"] .cookie-consent-text h2 {
+  color: #10141a;
+}
+
+html[data-theme="light"] .cookie-consent-text p {
+  color: rgba(16, 20, 26, 0.68);
+}
+
+html[data-theme="light"] .cookie-button-secondary {
+  border-color: rgba(0, 0, 0, 0.15);
+
+  color: #10141a;
+}
+
+html[data-theme="light"] .cookie-button-secondary:hover {
+  background: #10141a;
+
+  border-color: #10141a;
+
+  color: #ffffff;
+}
+
+html[data-theme="light"] .mobile-menu-button {
+  background: rgba(255, 255, 255, 0.94);
+
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+html[data-theme="light"] .mobile-menu-button span {
+  background: #10141a;
+}
+
+html[data-theme="light"] .mobile-navigation {
+  background: #f5f7fa;
+
+  color: #10141a;
+}
+
+html[data-theme="light"] .mobile-navigation-header {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .mobile-navigation-brand,
+html[data-theme="light"] .mobile-navigation-links a {
+  color: #10141a;
+}
+
+html[data-theme="light"] .mobile-navigation-links a {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .mobile-navigation-links a span {
+  color: #007fa3;
+}
+
+html[data-theme="light"] .mobile-navigation-close {
+  color: #10141a;
+
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+html[data-theme="light"] .mobile-navigation-start {
+  background: #10141a;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .site-header .main-nav,
+  .site-header .nav-button {
+    display: none !important;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+}
+
+@media (min-width: 1001px) {
+  .mobile-navigation {
+    display: none !important;
+  }
+
+  .mobile-menu-button {
+    display: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .cookie-consent {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+
+    padding: 20px;
+  }
+
+  .cookie-consent-content {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 20px;
+  }
+
+  .cookie-consent-actions {
+    width: 100%;
+  }
+
+  .cookie-button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-navigation {
+    padding: 20px;
+  }
+
+  .mobile-navigation-links a {
+    font-size: 28px;
+
+    padding: 18px 0;
+  }
+
+  .page-transition-content {
+    width: 80%;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-consent,
+  .page-transition,
+  .mobile-navigation,
+  .mobile-navigation-links a,
+  .mobile-menu-button span,
+  .page-transition-line span {
+    animation: none !important;
+
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   CHAINLAB MOBILE NAVIGATION + READING PROGRESS FINAL FIX
+   ========================================================= */
+
+/* READING PROGRESS */
+
+.reading-progress {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+
+  width: 100vw !important;
+  height: 4px !important;
+
+  z-index: 2147483647 !important;
+
+  display: block !important;
+
+  background: rgba(255, 255, 255, 0.12) !important;
+
+  pointer-events: none !important;
+}
+
+.reading-progress-bar {
+  display: block !important;
+
+  height: 100% !important;
+
+  min-width: 0 !important;
+
+  background: #00d9ff !important;
+
+  box-shadow:
+    0 0 12px rgba(0, 217, 255, 0.8) !important;
+
+  transition: width 0.08s linear !important;
+}
+
+
+/* =========================================================
+   MOBILE HAMBURGER
+   ========================================================= */
+
+.mobile-menu-button {
+  display: none !important;
+
+  position: fixed !important;
+
+  top: 18px !important;
+  right: 18px !important;
+
+  z-index: 2147483646 !important;
+
+  width: 48px !important;
+  height: 48px !important;
+
+  padding: 0 !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+
+  background: #02050a !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.25) !important;
+
+  border-radius: 10px !important;
+
+  cursor: pointer !important;
+}
+
+.mobile-menu-button span {
+  display: block !important;
+
+  width: 21px !important;
+  height: 2px !important;
+
+  margin: 3px 0 !important;
+
+  background: #ffffff !important;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION PANEL
+   ========================================================= */
+
+.mobile-navigation {
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  z-index: 2147483645 !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  padding: 24px !important;
+
+  background: #02050a !important;
+
+  opacity: 0 !important;
+
+  visibility: hidden !important;
+
+  pointer-events: none !important;
+
+  transform: translateY(-10px) !important;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease !important;
+}
+
+.mobile-navigation-open {
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  pointer-events: auto !important;
+
+  transform: translateY(0) !important;
+}
+
+
+/* =========================================================
+   MOBILE MENU HEADER
+   ========================================================= */
+
+.mobile-navigation-header {
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  padding-bottom: 28px !important;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.mobile-navigation-brand {
+  color: #ffffff !important;
+
+  font-size: 16px !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing: 0.08em !important;
+
+  text-decoration: none !important;
+}
+
+.mobile-navigation-close {
+  width: 44px !important;
+  height: 44px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.2) !important;
+
+  border-radius: 10px !important;
+
+  background: transparent !important;
+
+  color: #ffffff !important;
+
+  font-size: 26px !important;
+
+  cursor: pointer !important;
+}
+
+
+/* =========================================================
+   MOBILE MENU LINKS
+   ========================================================= */
+
+.mobile-navigation-links {
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  margin-top: 30px !important;
+}
+
+.mobile-navigation-links a {
+  display: flex !important;
+
+  align-items: center !important;
+
+  gap: 18px !important;
+
+  padding: 22px 0 !important;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.1) !important;
+
+  color: #ffffff !important;
+
+  font-size: clamp(26px, 8vw, 50px) !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing: -0.04em !important;
+
+  text-decoration: none !important;
+}
+
+.mobile-navigation-links a span {
+  width: 28px !important;
+
+  flex-shrink: 0 !important;
+
+  color: #00d9ff !important;
+
+  font-size: 10px !important;
+
+  letter-spacing: 0.12em !important;
+}
+
+.mobile-navigation-start {
+  margin-top: auto !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  padding: 18px 20px !important;
+
+  border-radius: 12px !important;
+
+  background: #ffffff !important;
+
+  color: #02050a !important;
+
+  font-size: 13px !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing: 0.08em !important;
+
+  text-decoration: none !important;
+}
+
+.mobile-navigation-start span {
+  color: #02050a !important;
+
+  font-size: 20px !important;
+}
+
+
+/* =========================================================
+   MOBILE SCREEN
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .site-header .main-nav,
+  .site-header .nav-button {
+    display: none !important;
+  }
+
+  .mobile-menu-button {
+    display: flex !important;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1001px) {
+  .mobile-menu-button {
+    display: none !important;
+  }
+
+  .mobile-navigation {
+    display: none !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .mobile-menu-button {
+    top: 14px !important;
+    right: 14px !important;
+
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .mobile-navigation {
+    padding: 20px !important;
+  }
+
+  .mobile-navigation-links a {
+    padding: 18px 0 !important;
+
+    font-size: 28px !important;
+  }
+}
+
+
+/* =========================================================
+   LIGHT MODE
+   ========================================================= */
+
+html[data-theme="light"] .mobile-menu-button {
+  background: #ffffff !important;
+
+  border-color:
+    rgba(0, 0, 0, 0.15) !important;
+}
+
+html[data-theme="light"] .mobile-menu-button span {
+  background: #111820 !important;
+}
+
+html[data-theme="light"] .mobile-navigation {
+  background: #f5f7fa !important;
+
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .mobile-navigation-brand,
+html[data-theme="light"] .mobile-navigation-links a {
+  color: #111820 !important;
+}
+
+html[data-theme="light"] .mobile-navigation-links a span {
+  color: #007fa3 !important;
+}
+
+html[data-theme="light"] .mobile-navigation-header,
+html[data-theme="light"] .mobile-navigation-links a {
+  border-color:
+    rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="light"] .mobile-navigation-close {
+  color: #111820 !important;
+
+  border-color:
+    rgba(0, 0, 0, 0.15) !important;
+}
+
+html[data-theme="light"] .mobile-navigation-start {
+  background: #111820 !important;
+
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .mobile-navigation-start span {
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   LEARN PAGE READING PROGRESS
+   ========================================================= */
+
+.reading-progress {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 5px !important;
+  z-index: 999999 !important;
+  pointer-events: none !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.reading-progress-bar {
+  height: 100% !important;
+  background: #00d9ff !important;
+  box-shadow:
+    0 0 8px rgba(0, 217, 255, 0.9),
+    0 0 20px rgba(0, 217, 255, 0.6) !important;
+  transition: width 0.08s linear !important;
+}
+
+/* =========================================================
+   CHAINLAB DEVICE PREVIEW
+   ========================================================= */
+
+.device-preview-control {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 999999;
+  font-family: inherit;
+}
+
+.device-preview-button {
+  height: 44px;
+  min-width: 118px;
+  padding: 0 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+
+  background: rgba(10, 17, 28, 0.96);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.device-preview-button:hover,
+.device-preview-button-open {
+  background: #111b2a;
+  border-color: rgba(0, 217, 255, 0.45);
+}
+
+.device-preview-button:hover {
+  transform: translateY(-1px);
+}
+
+.device-preview-icon {
+  font-size: 15px;
+  color: #00d9ff;
+}
+
+.device-preview-chevron {
+  margin-left: 2px;
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.device-preview-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+
+  width: 245px;
+
+  padding: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+
+  background: rgba(8, 13, 21, 0.98);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(0, 217, 255, 0.04);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.device-preview-option {
+  width: 100%;
+  min-height: 46px;
+
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #b8c4d3;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.device-preview-option:hover {
+  background: rgba(0, 217, 255, 0.07);
+  color: #ffffff;
+}
+
+.device-preview-option-active {
+  background: rgba(0, 217, 255, 0.1);
+  color: #ffffff;
+}
+
+.device-option-icon {
+  width: 22px;
+
+  display: inline-flex;
+  justify-content: center;
+
+  color: #00d9ff;
+  font-size: 17px;
+}
+
+/* =========================================================
+   DEVICE PREVIEW SIZES
+   ========================================================= */
+
+/*
+   Current screen size
+   Normal website behavior.
+*/
+
+html[data-device-preview="current"] body {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/*
+   Mobile
+   390px phone-style viewport.
+*/
+
+html[data-device-preview="mobile"] body {
+  width: 390px;
+  max-width: 390px;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  overflow-x: hidden;
+
+  border-left: 1px solid rgba(0, 217, 255, 0.18);
+  border-right: 1px solid rgba(0, 217, 255, 0.18);
+
+  box-shadow:
+    0 0 60px rgba(0, 217, 255, 0.08);
+}
+
+/*
+   Tablet
+   768px tablet-style viewport.
+*/
+
+html[data-device-preview="tablet"] body {
+  width: 768px;
+  max-width: 768px;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  overflow-x: hidden;
+
+  border-left: 1px solid rgba(0, 217, 255, 0.18);
+  border-right: 1px solid rgba(0, 217, 255, 0.18);
+
+  box-shadow:
+    0 0 60px rgba(0, 217, 255, 0.08);
+}
+
+/*
+   Preview background outside the device.
+*/
+
+html[data-device-preview="mobile"],
+html[data-device-preview="tablet"] {
+  background: #010308;
+}
+
+html[data-device-preview="mobile"] body,
+html[data-device-preview="tablet"] body {
+  background: #02050a;
+}
+
+/*
+   Keep the preview usable on small computer screens.
+*/
+
+@media (max-width: 820px) {
+  html[data-device-preview="tablet"] body {
+    width: 100%;
+    max-width: 768px;
+  }
+}
+
+@media (max-width: 430px) {
+  html[data-device-preview="mobile"] body {
+    width: 100%;
+    max-width: 390px;
+  }
+}
+
+/*
+   Device control remains outside the simulated viewport.
+*/
+
+html[data-device-preview="mobile"] .device-preview-control,
+html[data-device-preview="tablet"] .device-preview-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}

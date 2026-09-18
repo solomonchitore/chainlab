@@ -989,3 +989,622 @@
     border-radius: 24px !important;
   }
 }
+
+/* =========================================================
+   SECURITY LEARNING SYSTEM
+   ========================================================= */
+
+.learningTools {
+  width: min(1420px, 90vw);
+  margin: 0 auto;
+  padding: 80px 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.progressPanel,
+.searchPanel {
+  padding: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #faf6f0;
+}
+
+.progressHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.toolEyebrow,
+.searchLabel {
+  margin: 0 0 12px;
+
+  color: #000000;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.progressHeader h2 {
+  margin: 0;
+
+  color: #000000;
+
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.progressHeader h2 span {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 18px;
+}
+
+.progressHeader > strong {
+  color: #000000;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 5px;
+  margin-top: 25px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.progressFill {
+  height: 100%;
+  background: #000000;
+  transition: width 0.35s ease;
+}
+
+.progressText {
+  margin: 12px 0 22px;
+
+  color: rgba(0, 0, 0, 0.55);
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.progressItems {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.progressItem {
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.progressItem > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.progressItem > div > span {
+  color: #000000;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.progressItem strong {
+  color: #000000;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.progressItem button {
+  padding: 7px 11px;
+
+  border: 1px solid #000000;
+
+  background: transparent;
+  color: #000000;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.progressItem button:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.progressItemCompleted {
+  background: rgba(0, 0, 0, 0.035);
+}
+
+.progressItemCompleted button {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.searchPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchBox {
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 15px;
+
+  border: 1px solid rgba(0, 0, 0, 0.22);
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.searchBox:focus-within {
+  border-color: #000000;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+.searchIcon {
+  color: #000000;
+  font-size: 24px;
+}
+
+.searchInput {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: #000000;
+
+  font-size: 14px;
+}
+
+.searchInput::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.searchInput::-webkit-search-cancel-button {
+  display: none;
+}
+
+.searchClear {
+  border: 0;
+
+  background: transparent;
+  color: #000000;
+
+  font-size: 21px;
+
+  cursor: pointer;
+}
+
+.searchResultText {
+  margin: 10px 0 15px;
+
+  color: rgba(0, 0, 0, 0.5);
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.searchResults {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.searchResult {
+  min-height: 64px;
+
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  color: #000000 !important;
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    padding 0.2s ease;
+}
+
+.searchResult:hover {
+  padding-left: 8px;
+  padding-right: 8px;
+
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.searchResult > span:first-child {
+  color: #000000 !important;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.searchResult strong {
+  display: block;
+
+  color: #000000 !important;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.searchResult p {
+  margin: 4px 0 0;
+
+  color: rgba(0, 0, 0, 0.5) !important;
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.searchArrow {
+  color: #000000 !important;
+  font-size: 16px;
+  text-align: right;
+}
+
+.searchNoResults {
+  padding: 25px 0;
+
+  color: rgba(0, 0, 0, 0.5);
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   MINI QUIZ
+   ========================================================= */
+
+.quizCard {
+  max-width: 1000px;
+
+  margin: 65px auto 0;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  background: #faf6f0;
+
+  text-align: left;
+}
+
+.quizQuestion {
+  padding: 32px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.quizQuestionTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 18px;
+}
+
+.quizQuestionTop > span:first-child {
+  color: #000000;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.quizQuestion h3 {
+  margin: 0 0 22px;
+
+  color: #000000;
+
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+.quizOptions {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+.quizOption {
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 14px;
+
+  border: 1px solid rgba(0, 0, 0, 0.16);
+
+  background: #ffffff;
+  color: #000000;
+
+  font-size: 12px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.quizOption:hover:not(:disabled) {
+  border-color: #000000;
+  background: #f1eee8;
+}
+
+.quizOption:disabled {
+  cursor: default;
+}
+
+.quizOptionLetter {
+  width: 25px;
+  height: 25px;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 0, 0, 0.3);
+
+  color: #000000;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.quizOptionSelected {
+  border-color: #000000;
+  background: #eeeeee;
+}
+
+.quizOptionCorrect {
+  border-color: #000000;
+  background: #e4e4e4;
+}
+
+.quizOptionWrong {
+  border-color: rgba(0, 0, 0, 0.12);
+  background: #f5f5f5;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.quizCorrect,
+.quizIncorrect {
+  color: #000000 !important;
+
+  font-size: 8px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em;
+}
+
+.quizExplanation {
+  margin-top: 20px;
+
+  padding: 15px 18px;
+
+  border-left: 2px solid #000000;
+
+  background: rgba(0, 0, 0, 0.035);
+}
+
+.quizExplanation span {
+  color: #000000 !important;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.quizExplanation p {
+  margin: 7px 0 0;
+
+  color: rgba(0, 0, 0, 0.6) !important;
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.quizFooter {
+  padding: 28px 32px;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+
+  background: #ffffff;
+}
+
+.quizSubmit {
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #000000;
+
+  background: #000000;
+
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+.quizSubmit span {
+  margin-left: 10px;
+}
+
+.quizSubmit:hover:not(:disabled) {
+  background: #222222;
+}
+
+.quizSubmit:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.quizResult {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.quizResult > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quizResult > div span {
+  color: #000000 !important;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.quizResult > div strong {
+  color: #000000 !important;
+
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.quizReset {
+  min-height: 44px;
+
+  padding: 0 18px;
+
+  border: 1px solid #000000;
+
+  background: #ffffff;
+
+  color: #000000;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+.quizReset:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .learningTools {
+    width: calc(100% - 40px);
+
+    grid-template-columns: 1fr;
+
+    padding: 60px 0;
+  }
+
+  .quizOptions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .learningTools {
+    width: calc(100% - 40px);
+  }
+
+  .progressPanel,
+  .searchPanel {
+    padding: 24px;
+  }
+
+  .progressItem {
+    padding: 9px 0;
+  }
+
+  .progressItem > div {
+    min-width: 0;
+  }
+
+  .progressItem strong {
+    line-height: 1.3;
+  }
+
+  .quizQuestion {
+    padding: 24px 20px;
+  }
+
+  .quizFooter {
+    padding: 24px 20px;
+  }
+
+  .quizResult {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .quizReset,
+  .quizSubmit {
+    width: 100%;
+  }
+}

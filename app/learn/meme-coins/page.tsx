@@ -1,43 +1,304 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+
 import styles from "./meme-coins.module.css";
 
+const learningSections = [
+  {
+    number: "01",
+    title: "THE FOUNDATION",
+    description: "Understand what meme coins are and how they relate to blockchain.",
+    href: "#foundation",
+  },
+  {
+    number: "02",
+    title: "CORE CONCEPTS",
+    description: "Learn about tokens, supply, liquidity, communities, tokenomics and market cap.",
+    href: "#core-concepts",
+  },
+  {
+    number: "03",
+    title: "HOW IT WORKS",
+    description: "Follow a meme coin from creation through distribution, liquidity and market activity.",
+    href: "#mechanics",
+  },
+  {
+    number: "04",
+    title: "TOKENOMICS",
+    description: "Understand supply, distribution, circulating supply and liquidity.",
+    href: "#tokenomics",
+  },
+  {
+    number: "05",
+    title: "RISK PROTOCOL",
+    description: "Learn about volatility, scams, rug pulls, concentration and FOMO.",
+    href: "#risks",
+  },
+  {
+    number: "06",
+    title: "RESEARCH",
+    description: "Learn what to investigate before interacting with a token.",
+    href: "#research",
+  },
+  {
+    number: "07",
+    title: "KNOWLEDGE CHECK",
+    description: "Test your understanding of meme coins and token research.",
+    href: "#knowledge-check",
+  },
+];
+
+const quizQuestions = [
+  {
+    question: "What is a meme coin?",
+    options: [
+      "A cryptocurrency strongly influenced by internet culture and communities",
+      "A type of blockchain validator",
+      "A private blockchain database",
+      "A wallet recovery phrase",
+    ],
+    answer: 0,
+    explanation:
+      "A meme coin is a cryptocurrency or token strongly influenced by internet culture, memes, communities, trends and social attention.",
+  },
+  {
+    question: "Why does liquidity matter?",
+    options: [
+      "It determines someone's wallet password",
+      "It allows users to buy and sell tokens",
+      "It creates a private key",
+      "It removes market volatility",
+    ],
+    answer: 1,
+    explanation:
+      "Liquidity allows people to buy and sell tokens. Limited liquidity can make prices move dramatically.",
+  },
+  {
+    question: "What does tokenomics describe?",
+    options: [
+      "The economic design of a token",
+      "A blockchain's internet connection",
+      "A wallet's password",
+      "A social-media account",
+    ],
+    answer: 0,
+    explanation:
+      "Tokenomics describes the economic design of a token, including supply, distribution, incentives and utility.",
+  },
+  {
+    question: "What is one risk of highly concentrated token ownership?",
+    options: [
+      "The blockchain becomes invisible",
+      "A small number of wallets can significantly influence the market",
+      "Users cannot create wallets",
+      "The token automatically becomes safer",
+    ],
+    answer: 1,
+    explanation:
+      "When a small number of wallets control a large supply, their actions can significantly affect the market.",
+  },
+  {
+    question: "What should you verify before interacting with a token?",
+    options: [
+      "Only its social-media followers",
+      "Only its logo",
+      "The contract, liquidity, holders and reliable information sources",
+      "Only the token's name",
+    ],
+    answer: 2,
+    explanation:
+      "Research should include verifying the contract, examining liquidity and holders, and checking information across reliable sources.",
+  },
+];
+
 export default function MemeCoinsPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [completedSections, setCompletedSections] = useState<string[]>([]);
+  const [quizAnswers, setQuizAnswers] = useState<
+    Record<number, number>
+  >({});
+  const [quizSubmitted, setQuizSubmitted] = useState(false);
+
+  /*
+   * LOAD SAVED PROGRESS
+   */
+  useEffect(() => {
+    const savedProgress = localStorage.getItem(
+      "chainlab-meme-coins-progress"
+    );
+
+    if (savedProgress) {
+      try {
+        const parsed = JSON.parse(savedProgress);
+
+        if (Array.isArray(parsed)) {
+          setCompletedSections(parsed);
+        }
+      } catch {
+        localStorage.removeItem(
+          "chainlab-meme-coins-progress"
+        );
+      }
+    }
+  }, []);
+
+  /*
+   * SAVE PROGRESS
+   */
+  useEffect(() => {
+    localStorage.setItem(
+      "chainlab-meme-coins-progress",
+      JSON.stringify(completedSections)
+    );
+  }, [completedSections]);
+
+  /*
+   * SEARCH
+   */
+  const filteredSections = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
+    if (!query) {
+      return learningSections;
+    }
+
+    return learningSections.filter(
+      (section) =>
+        section.number.toLowerCase().includes(query) ||
+        section.title.toLowerCase().includes(query) ||
+        section.description.toLowerCase().includes(query)
+    );
+  }, [searchTerm]);
+
+  /*
+   * TOGGLE LESSON COMPLETION
+   */
+  function toggleSectionComplete(number: string) {
+    setCompletedSections((current) => {
+      if (current.includes(number)) {
+        return current.filter((item) => item !== number);
+      }
+
+      return [...current, number];
+    });
+  }
+
+  /*
+   * SELECT QUIZ ANSWER
+   */
+  function selectQuizAnswer(
+    questionIndex: number,
+    answerIndex: number
+  ) {
+    if (quizSubmitted) {
+      return;
+    }
+
+    setQuizAnswers((current) => ({
+      ...current,
+      [questionIndex]: answerIndex,
+    }));
+  }
+
+  /*
+   * SUBMIT QUIZ
+   */
+  function submitQuiz() {
+    if (
+      Object.keys(quizAnswers).length !==
+      quizQuestions.length
+    ) {
+      return;
+    }
+
+    setQuizSubmitted(true);
+  }
+
+  /*
+   * RESET QUIZ
+   */
+  function resetQuiz() {
+    setQuizAnswers({});
+    setQuizSubmitted(false);
+  }
+
+  /*
+   * SCORE
+   */
+  const quizScore = quizQuestions.reduce(
+    (score, question, index) => {
+      return (
+        score +
+        (quizAnswers[index] === question.answer ? 1 : 0)
+      );
+    },
+    0
+  );
+
+  /*
+   * COMPLETION %
+   */
+  const completionPercentage = Math.round(
+    (completedSections.length / learningSections.length) *
+      100
+  );
+
   return (
     <main className={styles.page}>
+
       {/* =====================================================
           NAVIGATION
       ====================================================== */}
+
       <header className={styles.header}>
         <div className={styles.navInner}>
+
           <Link href="/" className={styles.logo}>
             [CHAINLAB]
           </Link>
 
           <nav className={styles.nav}>
-            <Link href="/learn/blockchain">BLOCKCHAIN</Link>
-            <Link href="/learn/solana">SOLANA</Link>
+            <Link href="/learn/blockchain">
+              BLOCKCHAIN
+            </Link>
+
+            <Link href="/learn/solana">
+              SOLANA
+            </Link>
+
             <Link
               href="/learn/meme-coins"
               className={styles.active}
             >
               MEME COINS
             </Link>
-            <Link href="/learn/security">SECURITY</Link>
+
+            <Link href="/learn/security">
+              SECURITY
+            </Link>
           </nav>
 
-          <Link href="/learn" className={styles.navButton}>
+          <Link
+            href="/learn"
+            className={styles.navButton}
+          >
             LEARNING HUB <span>→</span>
           </Link>
+
         </div>
       </header>
 
       {/* =====================================================
           HERO
       ====================================================== */}
+
       <section className={styles.hero}>
         <div className={styles.heroGrid}>
-          {/* LEFT SIDE */}
+
           <div className={styles.heroContent}>
+
             <div className={styles.sectionLabel}>
               [ 03 / MEME COINS ]
             </div>
@@ -58,6 +319,7 @@ export default function MemeCoinsPage() {
             </p>
 
             <div className={styles.heroActions}>
+
               <a
                 href="#mechanics"
                 className={styles.primaryButton}
@@ -71,31 +333,246 @@ export default function MemeCoinsPage() {
               >
                 UNDERSTAND THE RISKS
               </a>
+
             </div>
+
           </div>
 
-          {/* RIGHT SIDE — DOWNLOADED IMAGE */}
           <div className={styles.heroVisual}>
             <div className={styles.heroCard}>
+
               <img
                 src="/images/meme-coins-hero.png"
                 alt="Meme coins and blockchain"
                 className={styles.heroCardImage}
               />
+
             </div>
           </div>
+
         </div>
+      </section>
+
+      {/* =====================================================
+          LEARNING TOOLS
+      ====================================================== */}
+
+      <section className={styles.learningTools}>
+
+        {/* PROGRESS */}
+
+        <div className={styles.progressPanel}>
+
+          <div className={styles.progressHeader}>
+
+            <div>
+              <p className={styles.toolEyebrow}>
+                YOUR MEME COINS PROGRESS
+              </p>
+
+              <h2>
+                {completedSections.length}
+                <span>
+                  {" "}
+                  / {learningSections.length}
+                </span>
+              </h2>
+            </div>
+
+            <strong>
+              {completionPercentage}%
+            </strong>
+
+          </div>
+
+          <div className={styles.progressTrack}>
+            <div
+              className={styles.progressFill}
+              style={{
+                width: `${completionPercentage}%`,
+              }}
+            />
+          </div>
+
+          <p className={styles.progressText}>
+            {completedSections.length === 0
+              ? "Start completing sections to track your Meme Coins progress."
+              : completedSections.length ===
+                  learningSections.length
+                ? "Meme Coins learning module complete."
+                : "Your progress is saved automatically in this browser."}
+          </p>
+
+          <div className={styles.progressItems}>
+
+            {learningSections.map((section) => {
+
+              const completed =
+                completedSections.includes(
+                  section.number
+                );
+
+              return (
+                <div
+                  key={section.number}
+                  className={`${styles.progressItem} ${
+                    completed
+                      ? styles.progressItemCompleted
+                      : ""
+                  }`}
+                >
+
+                  <div>
+
+                    <span>
+                      {section.number}
+                    </span>
+
+                    <strong>
+                      {section.title}
+                    </strong>
+
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      toggleSectionComplete(
+                        section.number
+                      )
+                    }
+                  >
+                    {completed
+                      ? "✓ DONE"
+                      : "COMPLETE"}
+                  </button>
+
+                </div>
+              );
+            })}
+
+          </div>
+
+        </div>
+
+        {/* SEARCH */}
+
+        <div className={styles.searchPanel}>
+
+          <label
+            htmlFor="meme-coins-search"
+            className={styles.searchLabel}
+          >
+            SEARCH MEME COINS LESSONS
+          </label>
+
+          <div className={styles.searchBox}>
+
+            <span className={styles.searchIcon}>
+              ⌕
+            </span>
+
+            <input
+              id="meme-coins-search"
+              type="search"
+              value={searchTerm}
+              onChange={(event) =>
+                setSearchTerm(event.target.value)
+              }
+              placeholder="Search meme coin topics..."
+              className={styles.searchInput}
+            />
+
+            {searchTerm && (
+              <button
+                type="button"
+                className={styles.searchClear}
+                onClick={() => setSearchTerm("")}
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            )}
+
+          </div>
+
+          <p className={styles.searchResultText}>
+            {searchTerm
+              ? `${filteredSections.length} section${
+                  filteredSections.length === 1
+                    ? ""
+                    : "s"
+                } found`
+              : "Search tokenomics, liquidity, risks, research and more."}
+          </p>
+
+          <div className={styles.searchResults}>
+
+            {filteredSections.map((section) => (
+
+              <Link
+                href={section.href}
+                key={section.number}
+                className={styles.searchResult}
+                onClick={() => setSearchTerm("")}
+              >
+
+                <span>
+                  {section.number}
+                </span>
+
+                <div>
+
+                  <strong>
+                    {section.title}
+                  </strong>
+
+                  <p>
+                    {section.description}
+                  </p>
+
+                </div>
+
+                <span
+                  className={styles.searchArrow}
+                >
+                  →
+                </span>
+
+              </Link>
+
+            ))}
+
+          </div>
+
+          {searchTerm &&
+            filteredSections.length === 0 && (
+              <div
+                className={styles.searchNoResults}
+              >
+                NO RESULTS
+              </div>
+            )}
+
+        </div>
+
       </section>
 
       {/* =====================================================
           INTRODUCTION
       ====================================================== */}
-      <section className={styles.introduction}>
+
+      <section
+        className={styles.introduction}
+        id="foundation"
+      >
+
         <div className={styles.sectionLabel}>
           [ THE FOUNDATION ]
         </div>
 
         <div className={styles.introductionGrid}>
+
           <div>
             <h2>
               WHAT IS A
@@ -104,7 +581,10 @@ export default function MemeCoinsPage() {
             </h2>
           </div>
 
-          <div className={styles.introductionContent}>
+          <div
+            className={styles.introductionContent}
+          >
+
             <p>
               A meme coin is a cryptocurrency or token that is
               strongly influenced by internet culture, memes,
@@ -124,27 +604,38 @@ export default function MemeCoinsPage() {
               Understanding the underlying mechanics is therefore
               essential.
             </p>
+
           </div>
+
         </div>
+
       </section>
 
       {/* =====================================================
           CORE CONCEPTS
       ====================================================== */}
-      <section className={styles.concepts}>
+
+      <section
+        className={styles.concepts}
+        id="core-concepts"
+      >
+
         <div className={styles.sectionLabel}>
           [ CORE CONCEPTS ]
         </div>
 
         <div className={styles.sectionHeading}>
+
           <h2>
             UNDERSTAND WHAT
             <br />
             <span>DRIVES A TOKEN.</span>
           </h2>
+
         </div>
 
         <div className={styles.conceptGrid}>
+
           <article className={styles.conceptCard}>
             <span>01</span>
 
@@ -212,21 +703,26 @@ export default function MemeCoinsPage() {
               circulation.
             </p>
           </article>
+
         </div>
+
       </section>
 
       {/* =====================================================
           HOW MEME COINS WORK
       ====================================================== */}
+
       <section
         className={styles.mechanics}
         id="mechanics"
       >
+
         <div className={styles.sectionLabel}>
           [ HOW IT WORKS ]
         </div>
 
         <div className={styles.mechanicsHeader}>
+
           <h2>
             FROM CREATION
             <br />
@@ -237,98 +733,79 @@ export default function MemeCoinsPage() {
             A meme coin can move through several stages from
             creation to community adoption and market activity.
           </p>
+
         </div>
 
         <div className={styles.processList}>
-          <div className={styles.processRow}>
-            <div className={styles.processNumber}>01</div>
 
-            <div className={styles.processTitle}>
-              <h3>CREATE</h3>
+          {[
+            [
+              "01",
+              "CREATE",
+              "A token is created on a blockchain network using the network's token standards or smart-contract functionality.",
+            ],
+            [
+              "02",
+              "DISTRIBUTE",
+              "Tokens can be distributed through different mechanisms depending on how the project is structured.",
+            ],
+            [
+              "03",
+              "LIQUIDITY",
+              "Liquidity can be provided to markets so users can trade the token.",
+            ],
+            [
+              "04",
+              "COMMUNITY",
+              "Communities can drive awareness, discussion, participation, culture and attention around a token.",
+            ],
+            [
+              "05",
+              "MARKET",
+              "Once trading activity develops, supply, demand, liquidity, sentiment and market conditions can influence price.",
+            ],
+          ].map(([number, title, text]) => (
+
+            <div
+              className={styles.processRow}
+              key={number}
+            >
+
+              <div className={styles.processNumber}>
+                {number}
+              </div>
+
+              <div className={styles.processTitle}>
+                <h3>{title}</h3>
+              </div>
+
+              <div className={styles.processContent}>
+                <p>{text}</p>
+              </div>
+
             </div>
 
-            <div className={styles.processContent}>
-              <p>
-                A token is created on a blockchain network using
-                the network's token standards or smart-contract
-                functionality.
-              </p>
-            </div>
-          </div>
+          ))}
 
-          <div className={styles.processRow}>
-            <div className={styles.processNumber}>02</div>
-
-            <div className={styles.processTitle}>
-              <h3>DISTRIBUTE</h3>
-            </div>
-
-            <div className={styles.processContent}>
-              <p>
-                Tokens can be distributed through different
-                mechanisms depending on how the project is
-                structured.
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.processRow}>
-            <div className={styles.processNumber}>03</div>
-
-            <div className={styles.processTitle}>
-              <h3>LIQUIDITY</h3>
-            </div>
-
-            <div className={styles.processContent}>
-              <p>
-                Liquidity can be provided to markets so users can
-                trade the token.
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.processRow}>
-            <div className={styles.processNumber}>04</div>
-
-            <div className={styles.processTitle}>
-              <h3>COMMUNITY</h3>
-            </div>
-
-            <div className={styles.processContent}>
-              <p>
-                Communities can drive awareness, discussion,
-                participation, culture and attention around a token.
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.processRow}>
-            <div className={styles.processNumber}>05</div>
-
-            <div className={styles.processTitle}>
-              <h3>MARKET</h3>
-            </div>
-
-            <div className={styles.processContent}>
-              <p>
-                Once trading activity develops, supply, demand,
-                liquidity, sentiment and market conditions can
-                influence price.
-              </p>
-            </div>
-          </div>
         </div>
+
       </section>
 
       {/* =====================================================
           TOKENOMICS
       ====================================================== */}
-      <section className={styles.tokenomics}>
+
+      <section
+        className={styles.tokenomics}
+        id="tokenomics"
+      >
+
         <div className={styles.sectionLabel}>
           [ TOKENOMICS ]
         </div>
 
         <div className={styles.tokenomicsHeader}>
+
           <h2>
             FOLLOW THE
             <br />
@@ -339,9 +816,11 @@ export default function MemeCoinsPage() {
             Understanding token supply and distribution can help
             provide important context when researching a meme coin.
           </p>
+
         </div>
 
         <div className={styles.metricsGrid}>
+
           <div className={styles.metric}>
             <span>01</span>
 
@@ -385,21 +864,26 @@ export default function MemeCoinsPage() {
               easily participants can enter or exit positions.
             </p>
           </div>
+
         </div>
+
       </section>
 
       {/* =====================================================
           RISKS
       ====================================================== */}
+
       <section
         className={styles.risks}
         id="risks"
       >
+
         <div className={styles.sectionLabel}>
           [ RISK PROTOCOL ]
         </div>
 
         <div className={styles.riskHeader}>
+
           <h2>
             UNDERSTAND THE
             <br />
@@ -411,86 +895,78 @@ export default function MemeCoinsPage() {
             Learning how to identify common risks is an important
             part of responsible participation.
           </p>
+
         </div>
 
         <div className={styles.riskGrid}>
-          <article className={styles.riskCard}>
-            <span>01</span>
 
-            <h3>VOLATILITY</h3>
+          {[
+            [
+              "01",
+              "VOLATILITY",
+              "Prices can move rapidly because of speculation, sentiment, liquidity and changing market conditions.",
+            ],
+            [
+              "02",
+              "SCAMS",
+              "Fraudulent projects, fake websites, impersonation and misleading information can put users at risk.",
+            ],
+            [
+              "03",
+              "RUG PULLS",
+              "Some projects can be structured in ways that allow insiders to remove liquidity or exploit participants.",
+            ],
+            [
+              "04",
+              "CONCENTRATION",
+              "If a small number of wallets control a large supply, their actions can significantly affect the market.",
+            ],
+            [
+              "05",
+              "FOMO",
+              "Fear of missing out can encourage impulsive decisions without adequate research.",
+            ],
+            [
+              "06",
+              "DYOR",
+              "Do your own research. Verify information before trusting a project, contract, community or promotion.",
+            ],
+          ].map(([number, title, text]) => (
 
-            <p>
-              Prices can move rapidly because of speculation,
-              sentiment, liquidity and changing market conditions.
-            </p>
-          </article>
+            <article
+              className={styles.riskCard}
+              key={number}
+            >
 
-          <article className={styles.riskCard}>
-            <span>02</span>
+              <span>{number}</span>
 
-            <h3>SCAMS</h3>
+              <h3>{title}</h3>
 
-            <p>
-              Fraudulent projects, fake websites, impersonation and
-              misleading information can put users at risk.
-            </p>
-          </article>
+              <p>{text}</p>
 
-          <article className={styles.riskCard}>
-            <span>03</span>
+            </article>
 
-            <h3>RUG PULLS</h3>
+          ))}
 
-            <p>
-              Some projects can be structured in ways that allow
-              insiders to remove liquidity or exploit participants.
-            </p>
-          </article>
-
-          <article className={styles.riskCard}>
-            <span>04</span>
-
-            <h3>CONCENTRATION</h3>
-
-            <p>
-              If a small number of wallets control a large supply,
-              their actions can significantly affect the market.
-            </p>
-          </article>
-
-          <article className={styles.riskCard}>
-            <span>05</span>
-
-            <h3>FOMO</h3>
-
-            <p>
-              Fear of missing out can encourage impulsive decisions
-              without adequate research.
-            </p>
-          </article>
-
-          <article className={styles.riskCard}>
-            <span>06</span>
-
-            <h3>DYOR</h3>
-
-            <p>
-              Do your own research. Verify information before
-              trusting a project, contract, community or promotion.
-            </p>
-          </article>
         </div>
+
       </section>
 
       {/* =====================================================
           RESEARCH
       ====================================================== */}
-      <section className={styles.research}>
+
+      <section
+        className={styles.research}
+        id="research"
+      >
+
         <div className={styles.sectionLabel}>
           [ RESEARCH BEFORE PARTICIPATING ]
         </div>
 
         <div className={styles.researchBox}>
+
           <h2>
             DON'T FOLLOW
             <br />
@@ -503,9 +979,12 @@ export default function MemeCoinsPage() {
           </p>
 
           <div className={styles.researchGrid}>
+
             <div>
               <span>01</span>
+
               <h3>CONTRACT</h3>
+
               <p>
                 Verify the token contract address and make sure you
                 are interacting with the intended asset.
@@ -514,7 +993,9 @@ export default function MemeCoinsPage() {
 
             <div>
               <span>02</span>
+
               <h3>LIQUIDITY</h3>
+
               <p>
                 Consider whether sufficient liquidity exists and
                 understand where it is held.
@@ -523,7 +1004,9 @@ export default function MemeCoinsPage() {
 
             <div>
               <span>03</span>
+
               <h3>HOLDERS</h3>
+
               <p>
                 Examine token distribution and whether ownership
                 appears heavily concentrated.
@@ -532,20 +1015,30 @@ export default function MemeCoinsPage() {
 
             <div>
               <span>04</span>
+
               <h3>SOURCES</h3>
+
               <p>
                 Check information across reliable sources rather
                 than relying on a single social-media post.
               </p>
             </div>
+
           </div>
+
         </div>
+
       </section>
 
       {/* =====================================================
-          KNOWLEDGE CHECK
+          KNOWLEDGE CHECK / MINI QUIZ
       ====================================================== */}
-      <section className={styles.knowledge}>
+
+      <section
+        className={styles.knowledge}
+        id="knowledge-check"
+      >
+
         <div className={styles.sectionLabel}>
           [ KNOWLEDGE CHECK ]
         </div>
@@ -557,80 +1050,220 @@ export default function MemeCoinsPage() {
         </h2>
 
         <p>
-          Before moving forward, make sure you understand the
-          relationship between tokens, liquidity, communities,
-          tokenomics and risk.
+          Test your understanding of tokens, liquidity,
+          communities, tokenomics and risk.
         </p>
 
-        <div className={styles.checkList}>
-          <div className={styles.checkItem}>
-            <span>01</span>
+        <div className={styles.quizCard}>
 
-            <div>
-              <h3>
-                Does popularity guarantee that a meme coin is
-                valuable?
-              </h3>
+          {quizQuestions.map(
+            (question, questionIndex) => {
 
-              <p>
-                No. Popularity and market attention do not
-                automatically establish long-term value or safety.
-              </p>
-            </div>
+              const selectedAnswer =
+                quizAnswers[questionIndex];
+
+              const isCorrect =
+                selectedAnswer === question.answer;
+
+              return (
+                <div
+                  className={styles.quizQuestion}
+                  key={questionIndex}
+                >
+
+                  <div
+                    className={
+                      styles.quizQuestionTop
+                    }
+                  >
+
+                    <span>
+                      QUESTION{" "}
+                      {String(
+                        questionIndex + 1
+                      ).padStart(2, "0")}
+                    </span>
+
+                    {quizSubmitted && (
+                      <span
+                        className={
+                          isCorrect
+                            ? styles.quizCorrect
+                            : styles.quizIncorrect
+                        }
+                      >
+                        {isCorrect
+                          ? "✓ CORRECT"
+                          : "✕ INCORRECT"}
+                      </span>
+                    )}
+
+                  </div>
+
+                  <h3>
+                    {question.question}
+                  </h3>
+
+                  <div
+                    className={
+                      styles.quizOptions
+                    }
+                  >
+
+                    {question.options.map(
+                      (
+                        option,
+                        optionIndex
+                      ) => {
+
+                        const selected =
+                          selectedAnswer ===
+                          optionIndex;
+
+                        const correct =
+                          question.answer ===
+                          optionIndex;
+
+                        let optionClass =
+                          styles.quizOption;
+
+                        if (selected) {
+                          optionClass += ` ${styles.quizOptionSelected}`;
+                        }
+
+                        if (
+                          quizSubmitted &&
+                          correct
+                        ) {
+                          optionClass += ` ${styles.quizOptionCorrect}`;
+                        }
+
+                        if (
+                          quizSubmitted &&
+                          selected &&
+                          !correct
+                        ) {
+                          optionClass += ` ${styles.quizOptionWrong}`;
+                        }
+
+                        return (
+                          <button
+                            type="button"
+                            key={optionIndex}
+                            className={
+                              optionClass
+                            }
+                            onClick={() =>
+                              selectQuizAnswer(
+                                questionIndex,
+                                optionIndex
+                              )
+                            }
+                            disabled={
+                              quizSubmitted
+                            }
+                          >
+
+                            <span
+                              className={
+                                styles.quizOptionLetter
+                              }
+                            >
+                              {String.fromCharCode(
+                                65 +
+                                  optionIndex
+                              )}
+                            </span>
+
+                            <span>
+                              {option}
+                            </span>
+
+                          </button>
+                        );
+                      }
+                    )}
+
+                  </div>
+
+                  {quizSubmitted && (
+                    <div
+                      className={
+                        styles.quizExplanation
+                      }
+                    >
+
+                      <span>
+                        EXPLANATION
+                      </span>
+
+                      <p>
+                        {question.explanation}
+                      </p>
+
+                    </div>
+                  )}
+
+                </div>
+              );
+            }
+          )}
+
+          <div className={styles.quizFooter}>
+
+            {!quizSubmitted ? (
+
+              <button
+                type="button"
+                className={styles.quizSubmit}
+                onClick={submitQuiz}
+                disabled={
+                  Object.keys(quizAnswers)
+                    .length !==
+                  quizQuestions.length
+                }
+              >
+                SUBMIT QUIZ
+                <span>→</span>
+              </button>
+
+            ) : (
+
+              <div className={styles.quizResult}>
+
+                <div>
+                  <span>YOUR SCORE</span>
+
+                  <strong>
+                    {quizScore} /{" "}
+                    {quizQuestions.length}
+                  </strong>
+                </div>
+
+                <button
+                  type="button"
+                  className={styles.quizReset}
+                  onClick={resetQuiz}
+                >
+                  RETAKE QUIZ
+                </button>
+
+              </div>
+
+            )}
+
           </div>
 
-          <div className={styles.checkItem}>
-            <span>02</span>
-
-            <div>
-              <h3>
-                Why does liquidity matter?
-              </h3>
-
-              <p>
-                Liquidity affects how easily participants can trade
-                an asset and how strongly trades can influence price.
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.checkItem}>
-            <span>03</span>
-
-            <div>
-              <h3>
-                Why should token distribution be researched?
-              </h3>
-
-              <p>
-                Concentrated ownership can create additional risks
-                because a small number of wallets may have
-                significant influence over the market.
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.checkItem}>
-            <span>04</span>
-
-            <div>
-              <h3>
-                What should you do before interacting with a token?
-              </h3>
-
-              <p>
-                Verify the contract, research liquidity and holders,
-                check reliable sources and understand the risks.
-              </p>
-            </div>
-          </div>
         </div>
+
       </section>
 
       {/* =====================================================
           NEXT MODULE
       ====================================================== */}
+
       <section className={styles.nextModule}>
+
         <div className={styles.sectionLabel}>
           [ NEXT MODULE ]
         </div>
@@ -653,23 +1286,32 @@ export default function MemeCoinsPage() {
         >
           LEARN WEB3 SECURITY <span>→</span>
         </Link>
+
       </section>
 
       {/* =====================================================
           FOOTER
       ====================================================== */}
+
       <footer className={styles.footer}>
+
         <div className={styles.footerBrand}>
-          <Link href="/" className={styles.logo}>
+
+          <Link
+            href="/"
+            className={styles.logo}
+          >
             [CHAINLAB]
           </Link>
 
           <span>
             Learn. Understand. Explore.
           </span>
+
         </div>
 
         <div className={styles.footerLinks}>
+
           <Link href="/learn/blockchain">
             BLOCKCHAIN
           </Link>
@@ -685,12 +1327,15 @@ export default function MemeCoinsPage() {
           <Link href="/learn/security">
             SECURITY
           </Link>
+
         </div>
 
         <p>
           © 2026 CHAINLAB — EDUCATIONAL PROJECT
         </p>
+
       </footer>
+
     </main>
   );
 }

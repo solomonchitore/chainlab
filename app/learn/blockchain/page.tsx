@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+
 import styles from "./blockchain.module.css";
 
 const lessons = [
@@ -60,10 +64,168 @@ const lessons = [
   },
 ];
 
+const quizQuestions = [
+  {
+    question: "What is a blockchain?",
+    options: [
+      "A centralized private database",
+      "A distributed digital record shared across a network",
+      "A programming language",
+      "A cryptocurrency wallet",
+    ],
+    answer: 1,
+    explanation:
+      "A blockchain is a distributed digital record that can be shared and verified across network participants.",
+  },
+  {
+    question: "What can transactions be grouped into?",
+    options: [
+      "Passwords",
+      "Wallets",
+      "Blocks",
+      "Websites",
+    ],
+    answer: 2,
+    explanation:
+      "Transactions can be collected and organized into blocks that become part of the blockchain record.",
+  },
+  {
+    question: "What does decentralization describe?",
+    options: [
+      "Control being distributed across participants",
+      "One company controlling the entire network",
+      "Deleting blockchain records",
+      "Creating a private password",
+    ],
+    answer: 0,
+    explanation:
+      "Decentralization distributes control and responsibility across multiple participants rather than one central authority.",
+  },
+  {
+    question: "What is the purpose of consensus mechanisms?",
+    options: [
+      "To design websites",
+      "To create usernames",
+      "To help network participants agree on valid activity",
+      "To replace wallets",
+    ],
+    answer: 2,
+    explanation:
+      "Consensus mechanisms provide rules that help independent network participants coordinate and agree on the state of the blockchain.",
+  },
+  {
+    question: "What are smart contracts?",
+    options: [
+      "Programs deployed to blockchain networks",
+      "Physical contracts printed on paper",
+      "Passwords used by wallets",
+      "Centralized databases",
+    ],
+    answer: 0,
+    explanation:
+      "Smart contracts are programs deployed to blockchain networks that can execute predefined logic.",
+  },
+];
+
 export default function BlockchainPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+  const [quizAnswers, setQuizAnswers] = useState<Record<number, number>>({});
+  const [quizSubmitted, setQuizSubmitted] = useState(false);
+
+  useEffect(() => {
+    const savedProgress = localStorage.getItem(
+      "chainlab-blockchain-progress"
+    );
+
+    if (savedProgress) {
+      try {
+        const parsed = JSON.parse(savedProgress);
+
+        if (Array.isArray(parsed)) {
+          setCompletedLessons(parsed);
+        }
+      } catch {
+        localStorage.removeItem("chainlab-blockchain-progress");
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "chainlab-blockchain-progress",
+      JSON.stringify(completedLessons)
+    );
+  }, [completedLessons]);
+
+  const filteredLessons = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
+    if (!query) {
+      return lessons;
+    }
+
+    return lessons.filter(
+      (lesson) =>
+        lesson.number.toLowerCase().includes(query) ||
+        lesson.title.toLowerCase().includes(query) ||
+        lesson.description.toLowerCase().includes(query)
+    );
+  }, [searchTerm]);
+
+  function toggleLessonComplete(lessonNumber: string) {
+    setCompletedLessons((current) => {
+      if (current.includes(lessonNumber)) {
+        return current.filter((number) => number !== lessonNumber);
+      }
+
+      return [...current, lessonNumber];
+    });
+  }
+
+  function selectQuizAnswer(
+    questionIndex: number,
+    answerIndex: number
+  ) {
+    if (quizSubmitted) {
+      return;
+    }
+
+    setQuizAnswers((current) => ({
+      ...current,
+      [questionIndex]: answerIndex,
+    }));
+  }
+
+  function submitQuiz() {
+    if (Object.keys(quizAnswers).length !== quizQuestions.length) {
+      return;
+    }
+
+    setQuizSubmitted(true);
+  }
+
+  function resetQuiz() {
+    setQuizAnswers({});
+    setQuizSubmitted(false);
+  }
+
+  const quizScore = quizQuestions.reduce(
+    (score, question, index) =>
+      score + (quizAnswers[index] === question.answer ? 1 : 0),
+    0
+  );
+
+  const completionPercentage = Math.round(
+    (completedLessons.length / lessons.length) * 100
+  );
+
   return (
     <main className={styles.page}>
-      {/* NAVIGATION */}
+      {/* =====================================================
+          NAVIGATION
+          ===================================================== */}
+
       <header className={styles.nav}>
         <Link href="/" className={styles.logo}>
           <span>[</span>CHAINLAB<span>]</span>
@@ -72,9 +234,14 @@ export default function BlockchainPage() {
         <nav className={styles.navLinks}>
           <Link href="/">HOME</Link>
           <Link href="/learn">LEARN</Link>
-          <Link href="/learn/blockchain" className={styles.active}>
+
+          <Link
+            href="/learn/blockchain"
+            className={styles.active}
+          >
             BLOCKCHAIN
           </Link>
+
           <Link href="/learn/solana">SOLANA</Link>
           <Link href="/learn/meme-coins">MEME COINS</Link>
           <Link href="/learn/security">SECURITY</Link>
@@ -85,77 +252,224 @@ export default function BlockchainPage() {
         </Link>
       </header>
 
-      {/* HERO */}
+      {/* =====================================================
+          HERO
+          ===================================================== */}
+
       <section className={styles.hero}>
         <div className={styles.heroLeft}>
-          <p className={styles.eyebrow}>LEARN / BLOCKCHAIN</p>
+          <p className={styles.eyebrow}>
+            LEARN / BLOCKCHAIN
+          </p>
 
           <h1>
             BLOCKCHAIN<span>.</span>
           </h1>
 
           <p className={styles.heroText}>
-            Understand the technology that powers decentralized systems,
-            digital assets, programmable applications, and a new generation
-            of online infrastructure.
+            Understand the technology that powers decentralized
+            systems, digital assets, programmable applications,
+            and a new generation of online infrastructure.
           </p>
         </div>
 
         <div className={styles.heroCard}>
           <span className={styles.heroNumber}>01</span>
 
-          <p className={styles.heroLabel}>FOUNDATION MODULE</p>
+          <p className={styles.heroLabel}>
+            FOUNDATION MODULE
+          </p>
 
           <p className={styles.heroCardText}>
-            Start here to understand the core concepts behind blockchain
-            technology before moving into more advanced Web3 topics.
+            Start here to understand the core concepts behind
+            blockchain technology before moving into more
+            advanced Web3 topics.
           </p>
         </div>
       </section>
 
-      {/* LESSONS */}
-      <section className={styles.lessonsSection}>
-        <div className={styles.sectionHeader}>
-          <div>
-            <p className={styles.eyebrow}>BLOCKCHAIN FUNDAMENTALS</p>
+      {/* =====================================================
+          LEARNING DASHBOARD
+          ===================================================== */}
 
-            <h2>
-              BUILD THE
-              <br />
-              <span>FOUNDATION.</span>
-            </h2>
+      <section className={styles.learningDashboard}>
+        {/* LEFT — PROGRESS */}
+
+        <div className={styles.progressPanel}>
+          <div className={styles.progressHeader}>
+            <div>
+              <p className={styles.toolEyebrow}>
+                YOUR BLOCKCHAIN PROGRESS
+              </p>
+
+              <h2>
+                {completedLessons.length}
+                <span> / {lessons.length}</span>
+              </h2>
+            </div>
+
+            <strong>{completionPercentage}%</strong>
           </div>
 
-          <p className={styles.sectionIntro}>
-            Work through the modules in order. Each lesson introduces a
-            fundamental concept and prepares you for the next stage of the
-            learning journey.
+          <div className={styles.progressTrack}>
+            <div
+              className={styles.progressFill}
+              style={{
+                width: `${completionPercentage}%`,
+              }}
+            />
+          </div>
+
+          <p className={styles.progressText}>
+            {completedLessons.length === 0
+              ? "Start completing sections to track your Blockchain progress."
+              : completedLessons.length === lessons.length
+              ? "Blockchain foundation complete."
+              : "Keep going. Your progress is saved automatically."}
           </p>
+
+          <div className={styles.progressLessonList}>
+            {lessons.map((lesson) => {
+              const isCompleted = completedLessons.includes(
+                lesson.number
+              );
+
+              return (
+                <div
+                  key={lesson.number}
+                  className={`${styles.progressLesson} ${
+                    isCompleted
+                      ? styles.progressLessonCompleted
+                      : ""
+                  }`}
+                >
+                  <span className={styles.progressLessonNumber}>
+                    {lesson.number}
+                  </span>
+
+                  <span className={styles.progressLessonTitle}>
+                    {lesson.title}
+                  </span>
+
+                  <button
+                    type="button"
+                    className={styles.progressCompleteButton}
+                    onClick={() =>
+                      toggleLessonComplete(lesson.number)
+                    }
+                  >
+                    {isCompleted
+                      ? "✓ COMPLETED"
+                      : "COMPLETE"}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        <div className={styles.lessonGrid}>
-          {lessons.map((lesson) => (
-            <article className={styles.lessonCard} key={lesson.number}>
-              <div className={styles.lessonTop}>
-                <span>{lesson.number}</span>
-              </div>
+        {/* RIGHT — SEARCH */}
 
-              <div className={styles.lessonContent}>
-                <h3>{lesson.title}</h3>
+        <div className={styles.searchPanel}>
+          <label
+            htmlFor="blockchain-search"
+            className={styles.searchLabel}
+          >
+            SEARCH BLOCKCHAIN LESSONS
+          </label>
 
-                <p>{lesson.description}</p>
+          <div className={styles.searchBox}>
+            <span className={styles.searchIcon}>⌕</span>
 
-                <a href={lesson.href} className={styles.lessonLink}>
-                  READ LESSON <span>→</span>
-                </a>
-              </div>
-            </article>
-          ))}
+            <input
+              id="blockchain-search"
+              type="search"
+              value={searchTerm}
+              onChange={(event) =>
+                setSearchTerm(event.target.value)
+              }
+              placeholder="Search blockchain topics..."
+              className={styles.searchInput}
+            />
+
+            {searchTerm && (
+              <button
+                type="button"
+                className={styles.searchClear}
+                onClick={() => setSearchTerm("")}
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            )}
+          </div>
+
+          <p className={styles.searchResultText}>
+            {searchTerm
+              ? `${filteredLessons.length} lesson${
+                  filteredLessons.length === 1
+                    ? ""
+                    : "s"
+                } found`
+              : "Search blockchain, wallets, smart contracts, consensus and more."}
+          </p>
+
+          <div className={styles.searchLessonList}>
+            {filteredLessons.map((lesson) => (
+              <a
+                key={lesson.number}
+                href={lesson.href}
+                className={styles.searchLesson}
+              >
+                <span className={styles.searchLessonNumber}>
+                  {lesson.number}
+                </span>
+
+                <div className={styles.searchLessonContent}>
+                  <strong>{lesson.title}</strong>
+
+                  <p>{lesson.description}</p>
+                </div>
+
+                <span className={styles.searchLessonArrow}>
+                  →
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {filteredLessons.length === 0 && (
+            <div className={styles.noResults}>
+              <span>NO RESULTS</span>
+
+              <h3>No blockchain lessons found.</h3>
+
+              <p>
+                Try searching for blockchain, wallets,
+                smart contracts, consensus, or another
+                lesson topic.
+              </p>
+
+              <button
+                type="button"
+                onClick={() => setSearchTerm("")}
+                className={styles.resetSearch}
+              >
+                CLEAR SEARCH
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* WHAT IS BLOCKCHAIN */}
-      <section id="what-is-blockchain" className={styles.contentSection}>
+      {/* =====================================================
+          WHAT IS BLOCKCHAIN
+          ===================================================== */}
+
+      <section
+        id="what-is-blockchain"
+        className={styles.contentSection}
+      >
         <div className={styles.contentNumber}>01</div>
 
         <div className={styles.contentBody}>
@@ -164,30 +478,38 @@ export default function BlockchainPage() {
           <h2>WHAT IS BLOCKCHAIN?</h2>
 
           <p>
-            A blockchain is a distributed digital record that allows
-            information to be recorded and shared across a network of
-            participants.
+            A blockchain is a distributed digital record that
+            allows information to be recorded and shared across
+            a network of participants.
           </p>
 
           <p>
-            Instead of relying on one central database, blockchain networks
-            distribute records across multiple computers. This structure can
-            make records easier to verify and can reduce dependence on a
+            Instead of relying on one central database,
+            blockchain networks distribute records across
+            multiple computers. This structure can make records
+            easier to verify and can reduce dependence on a
             single controlling authority.
           </p>
 
           <div className={styles.definitionBox}>
             <span>KEY IDEA</span>
+
             <p>
-              Blockchain provides a shared system for recording and verifying
-              information across a network.
+              Blockchain provides a shared system for recording
+              and verifying information across a network.
             </p>
           </div>
         </div>
       </section>
 
-      {/* BLOCKS AND TRANSACTIONS */}
-      <section id="blocks-transactions" className={styles.contentSection}>
+      {/* =====================================================
+          BLOCKS AND TRANSACTIONS
+          ===================================================== */}
+
+      <section
+        id="blocks-transactions"
+        className={styles.contentSection}
+      >
         <div className={styles.contentNumber}>02</div>
 
         <div className={styles.contentBody}>
@@ -196,14 +518,14 @@ export default function BlockchainPage() {
           <h2>BLOCKS AND TRANSACTIONS</h2>
 
           <p>
-            Transactions represent actions that users or applications want
-            the network to process.
+            Transactions represent actions that users or
+            applications want the network to process.
           </p>
 
           <p>
-            These transactions can be collected into blocks. Once a block is
-            accepted by the network, it becomes part of the blockchain's
-            growing record.
+            These transactions can be collected into blocks.
+            Once a block is accepted by the network, it becomes
+            part of the blockchain&apos;s growing record.
           </p>
 
           <div className={styles.steps}>
@@ -222,20 +544,30 @@ export default function BlockchainPage() {
             <div>
               <span>03</span>
               <strong>GROUP</strong>
-              <p>Transactions are organized into a block.</p>
+              <p>
+                Transactions are organized into a block.
+              </p>
             </div>
 
             <div>
               <span>04</span>
               <strong>RECORD</strong>
-              <p>The block becomes part of the chain.</p>
+              <p>
+                The block becomes part of the chain.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* DECENTRALIZATION */}
-      <section id="decentralization" className={styles.contentSection}>
+      {/* =====================================================
+          DECENTRALIZATION
+          ===================================================== */}
+
+      <section
+        id="decentralization"
+        className={styles.contentSection}
+      >
         <div className={styles.contentNumber}>03</div>
 
         <div className={styles.contentBody}>
@@ -244,59 +576,80 @@ export default function BlockchainPage() {
           <h2>DECENTRALIZATION</h2>
 
           <p>
-            Decentralization means that control and responsibility are
-            distributed across multiple participants instead of being held by
-            a single central authority.
+            Decentralization means that control and
+            responsibility are distributed across multiple
+            participants instead of being held by a single
+            central authority.
           </p>
 
           <p>
-            Different blockchain networks use different architectures and
-            governance models, but the underlying goal is to create systems
-            where participants can independently verify activity.
+            Different blockchain networks use different
+            architectures and governance models, but the
+            underlying goal is to create systems where
+            participants can independently verify activity.
           </p>
 
           <div className={styles.definitionBox}>
             <span>KEY IDEA</span>
+
             <p>
-              More distributed participation can reduce dependence on a
-              single point of control or failure.
+              More distributed participation can reduce
+              dependence on a single point of control or
+              failure.
             </p>
           </div>
         </div>
       </section>
 
-      {/* VALIDATION */}
-      <section id="validation" className={styles.contentSection}>
+      {/* =====================================================
+          VALIDATION
+          ===================================================== */}
+
+      <section
+        id="validation"
+        className={styles.contentSection}
+      >
         <div className={styles.contentNumber}>04</div>
 
         <div className={styles.contentBody}>
-          <p className={styles.eyebrow}>NETWORK AGREEMENT</p>
+          <p className={styles.eyebrow}>
+            NETWORK AGREEMENT
+          </p>
 
           <h2>VALIDATION AND CONSENSUS</h2>
 
           <p>
-            Blockchain networks need a way for participants to agree on which
-            transactions should become part of the shared record.
+            Blockchain networks need a way for participants to
+            agree on which transactions should become part of
+            the shared record.
           </p>
 
           <p>
-            Consensus mechanisms provide the rules that networks use to
-            coordinate participants, validate activity, and maintain a
-            consistent state.
+            Consensus mechanisms provide the rules that
+            networks use to coordinate participants, validate
+            activity, and maintain a consistent state.
           </p>
 
           <div className={styles.definitionBox}>
             <span>KEY IDEA</span>
+
             <p>
-              Consensus allows independent participants to coordinate around
-              a shared version of the blockchain.
+              Consensus allows independent participants to
+              coordinate around a shared version of the
+              blockchain.
             </p>
           </div>
         </div>
       </section>
 
-      {/* WALLETS */}
-      <section id="wallets" className={styles.contentSection}>
+      {/* =====================================================
+          WALLETS
+          ===================================================== */}
+
+      <section
+        id="wallets"
+        className={styles.contentSection}
+      >
         <div className={styles.contentNumber}>05</div>
 
         <div className={styles.contentBody}>
@@ -305,58 +658,79 @@ export default function BlockchainPage() {
           <h2>WALLETS</h2>
 
           <p>
-            A blockchain wallet is an interface that allows users to interact
-            with blockchain networks and manage the credentials used to
-            authorize transactions.
+            A blockchain wallet is an interface that allows
+            users to interact with blockchain networks and
+            manage the credentials used to authorize
+            transactions.
           </p>
 
           <p>
-            Wallets are an important part of Web3 because users are often
-            responsible for controlling their own access credentials.
+            Wallets are an important part of Web3 because users
+            are often responsible for controlling their own
+            access credentials.
           </p>
 
           <div className={styles.warningBox}>
             <span>SECURITY PRINCIPLE</span>
+
             <p>
-              Never share your private keys or recovery phrase with another
-              person or website.
+              Never share your private keys or recovery phrase
+              with another person or website.
             </p>
           </div>
         </div>
       </section>
 
-      {/* SMART CONTRACTS */}
-      <section id="smart-contracts" className={styles.contentSection}>
+      {/* =====================================================
+          SMART CONTRACTS
+          ===================================================== */}
+
+      <section
+        id="smart-contracts"
+        className={styles.contentSection}
+      >
         <div className={styles.contentNumber}>06</div>
 
         <div className={styles.contentBody}>
-          <p className={styles.eyebrow}>PROGRAMMABLE BLOCKCHAINS</p>
+          <p className={styles.eyebrow}>
+            PROGRAMMABLE BLOCKCHAINS
+          </p>
 
           <h2>SMART CONTRACTS</h2>
 
           <p>
-            Smart contracts are programs deployed to blockchain networks that
-            can execute predefined logic when their conditions are met.
+            Smart contracts are programs deployed to blockchain
+            networks that can execute predefined logic when
+            their conditions are met.
           </p>
 
           <p>
-            They can support applications such as decentralized finance,
-            token systems, digital ownership, marketplaces, and many other
-            blockchain-based services.
+            They can support applications such as decentralized
+            finance, token systems, digital ownership,
+            marketplaces, and many other blockchain-based
+            services.
           </p>
 
           <div className={styles.definitionBox}>
             <span>KEY IDEA</span>
+
             <p>
-              Smart contracts allow blockchain networks to support
-              programmable applications rather than simple record keeping.
+              Smart contracts allow blockchain networks to
+              support programmable applications rather than
+              simple record keeping.
             </p>
           </div>
         </div>
       </section>
 
-      {/* USE CASES */}
-      <section id="use-cases" className={styles.contentSection}>
+      {/* =====================================================
+          REAL-WORLD USE CASES
+          ===================================================== */}
+
+      <section
+        id="use-cases"
+        className={styles.contentSection}
+      >
         <div className={styles.contentNumber}>07</div>
 
         <div className={styles.contentBody}>
@@ -365,43 +739,236 @@ export default function BlockchainPage() {
           <h2>REAL-WORLD USE CASES</h2>
 
           <p>
-            Blockchain technology can be used in many different areas where
-            shared records, digital ownership, programmable transactions, or
-            transparent verification are useful.
+            Blockchain technology can be used in many different
+            areas where shared records, digital ownership,
+            programmable transactions, or transparent
+            verification are useful.
           </p>
 
           <div className={styles.useCases}>
             <div>
               <span>01</span>
               <strong>DIGITAL ASSETS</strong>
-              <p>Represent and transfer digital assets.</p>
+              <p>
+                Represent and transfer digital assets.
+              </p>
             </div>
 
             <div>
               <span>02</span>
               <strong>FINANCE</strong>
-              <p>Support programmable financial applications.</p>
+              <p>
+                Support programmable financial applications.
+              </p>
             </div>
 
             <div>
               <span>03</span>
               <strong>IDENTITY</strong>
-              <p>Explore new approaches to digital identity.</p>
+              <p>
+                Explore new approaches to digital identity.
+              </p>
             </div>
 
             <div>
               <span>04</span>
               <strong>SUPPLY CHAINS</strong>
-              <p>Track information across multiple participants.</p>
+              <p>
+                Track information across multiple
+                participants.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* KEY TAKEAWAYS */}
-      <section id="key-takeaways" className={styles.takeaways}>
+      {/* =====================================================
+          KNOWLEDGE CHECK
+          ===================================================== */}
+
+      <section
+        id="blockchain-quiz"
+        className={styles.quizSection}
+      >
+        <div className={styles.quizHeader}>
+          <div>
+            <p className={styles.eyebrow}>
+              KNOWLEDGE CHECK
+            </p>
+
+            <h2>
+              TEST YOUR
+              <br />
+              <span>KNOWLEDGE.</span>
+            </h2>
+          </div>
+
+          <p className={styles.quizIntro}>
+            Test your understanding of the blockchain
+            fundamentals covered in this module.
+          </p>
+        </div>
+
+        <div className={styles.quizCard}>
+          {quizQuestions.map((question, questionIndex) => {
+            const selectedAnswer =
+              quizAnswers[questionIndex];
+
+            const isCorrect =
+              selectedAnswer === question.answer;
+
+            return (
+              <div
+                className={styles.quizQuestion}
+                key={questionIndex}
+              >
+                <div className={styles.quizQuestionTop}>
+                  <span>
+                    QUESTION{" "}
+                    {String(questionIndex + 1).padStart(
+                      2,
+                      "0"
+                    )}
+                  </span>
+
+                  {quizSubmitted && (
+                    <span
+                      className={
+                        isCorrect
+                          ? styles.quizCorrect
+                          : styles.quizIncorrect
+                      }
+                    >
+                      {isCorrect
+                        ? "✓ CORRECT"
+                        : "✕ INCORRECT"}
+                    </span>
+                  )}
+                </div>
+
+                <h3>{question.question}</h3>
+
+                <div className={styles.quizOptions}>
+                  {question.options.map(
+                    (option, optionIndex) => {
+                      const selected =
+                        selectedAnswer === optionIndex;
+
+                      const correct =
+                        question.answer === optionIndex;
+
+                      let optionClass =
+                        styles.quizOption;
+
+                      if (selected) {
+                        optionClass += ` ${styles.quizOptionSelected}`;
+                      }
+
+                      if (quizSubmitted && correct) {
+                        optionClass += ` ${styles.quizOptionCorrect}`;
+                      }
+
+                      if (
+                        quizSubmitted &&
+                        selected &&
+                        !correct
+                      ) {
+                        optionClass += ` ${styles.quizOptionWrong}`;
+                      }
+
+                      return (
+                        <button
+                          type="button"
+                          key={optionIndex}
+                          className={optionClass}
+                          onClick={() =>
+                            selectQuizAnswer(
+                              questionIndex,
+                              optionIndex
+                            )
+                          }
+                          disabled={quizSubmitted}
+                        >
+                          <span
+                            className={
+                              styles.quizOptionLetter
+                            }
+                          >
+                            {String.fromCharCode(
+                              65 + optionIndex
+                            )}
+                          </span>
+
+                          <span>{option}</span>
+                        </button>
+                      );
+                    }
+                  )}
+                </div>
+
+                {quizSubmitted && (
+                  <div
+                    className={
+                      styles.quizExplanation
+                    }
+                  >
+                    <span>EXPLANATION</span>
+
+                    <p>{question.explanation}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          <div className={styles.quizFooter}>
+            {!quizSubmitted ? (
+              <button
+                type="button"
+                className={styles.quizSubmit}
+                onClick={submitQuiz}
+                disabled={
+                  Object.keys(quizAnswers).length !==
+                  quizQuestions.length
+                }
+              >
+                SUBMIT QUIZ <span>→</span>
+              </button>
+            ) : (
+              <div className={styles.quizResult}>
+                <div>
+                  <span>YOUR SCORE</span>
+
+                  <strong>
+                    {quizScore} / {quizQuestions.length}
+                  </strong>
+                </div>
+
+                <button
+                  type="button"
+                  className={styles.quizReset}
+                  onClick={resetQuiz}
+                >
+                  RETAKE QUIZ
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          KEY TAKEAWAYS
+          ===================================================== */}
+
+      <section
+        id="key-takeaways"
+        className={styles.takeaways}
+      >
         <div>
-          <p className={styles.eyebrow}>MODULE COMPLETE</p>
+          <p className={styles.eyebrow}>
+            MODULE COMPLETE
+          </p>
 
           <h2>
             KEY
@@ -413,59 +980,79 @@ export default function BlockchainPage() {
         <div className={styles.takeawayList}>
           <p>
             <span>01</span>
-            Blockchain creates a shared digital record across a network.
+            Blockchain creates a shared digital record across
+            a network.
           </p>
 
           <p>
             <span>02</span>
-            Transactions can be grouped into blocks and added to the chain.
+            Transactions can be grouped into blocks and added
+            to the chain.
           </p>
 
           <p>
             <span>03</span>
-            Decentralization distributes participation across network members.
+            Decentralization distributes participation across
+            network members.
           </p>
 
           <p>
             <span>04</span>
-            Consensus mechanisms help networks agree on valid activity.
+            Consensus mechanisms help networks agree on valid
+            activity.
           </p>
 
           <p>
             <span>05</span>
-            Wallets provide an interface for interacting with blockchain
-            networks.
+            Wallets provide an interface for interacting with
+            blockchain networks.
           </p>
 
           <p>
             <span>06</span>
-            Smart contracts make blockchain systems programmable.
+            Smart contracts make blockchain systems
+            programmable.
           </p>
         </div>
       </section>
 
-      {/* NEXT MODULE */}
+      {/* =====================================================
+          NEXT MODULE
+          ===================================================== */}
+
       <section className={styles.nextModule}>
         <div>
-          <p className={styles.nextLabel}>NEXT MODULE</p>
+          <p className={styles.nextLabel}>
+            NEXT MODULE
+          </p>
 
           <h2>EXPLORE SOLANA</h2>
 
           <p>
-            Now that you understand the foundations of blockchain, move into
-            the Solana ecosystem and explore how its architecture works.
+            Now that you understand the foundations of
+            blockchain, move into the Solana ecosystem and
+            explore how its architecture works.
           </p>
         </div>
 
-        <Link href="/learn/solana" className={styles.nextButton}>
+        <Link
+          href="/learn/solana"
+          className={styles.nextButton}
+        >
           GO TO SOLANA <span>→</span>
         </Link>
       </section>
 
-      {/* FOOTER */}
+      {/* =====================================================
+          FOOTER
+          ===================================================== */}
+
       <footer className={styles.footer}>
         <div>
-          <Link href="/" className={styles.footerLogo}>
+          <Link
+            href="/"
+            className={styles.footerLogo}
+          >
             [CHAINLAB]
           </Link>
 

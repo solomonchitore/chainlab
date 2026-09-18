@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+
 import styles from "./solana.module.css";
 
 const concepts = [
@@ -115,10 +119,262 @@ const keyTerms = [
   ["TRANSACTION", "A signed request containing instructions for the network."],
 ];
 
+/*
+ * SOLANA LEARNING SECTIONS
+ *
+ * These are used by the new progress system and search system.
+ * The existing page sections remain unchanged.
+ */
+const learningSections = [
+  {
+    number: "01",
+    title: "SOLANA FUNDAMENTALS",
+    description: "Understand what Solana is and what SOL does.",
+    href: "#fundamentals",
+  },
+  {
+    number: "02",
+    title: "CORE CONCEPTS",
+    description: "Learn accounts, programs, transactions, validators and consensus.",
+    href: "#core-concepts",
+  },
+  {
+    number: "03",
+    title: "HOW SOLANA WORKS",
+    description: "Follow the transaction lifecycle from creation to network update.",
+    href: "#how-solana-works",
+  },
+  {
+    number: "04",
+    title: "TRANSACTION FLOW",
+    description: "Understand the path from a wallet through RPC and validators.",
+    href: "#transaction-flow",
+  },
+  {
+    number: "05",
+    title: "SOLANA ECOSYSTEM",
+    description: "Explore tokens, DeFi, NFTs, games, meme coins and dApps.",
+    href: "#ecosystem",
+  },
+  {
+    number: "06",
+    title: "STRENGTHS & LIMITATIONS",
+    description: "Understand important characteristics and considerations.",
+    href: "#perspective",
+  },
+  {
+    number: "07",
+    title: "KEY TERMS",
+    description: "Build your Solana vocabulary.",
+    href: "#key-terms",
+  },
+  {
+    number: "08",
+    title: "KNOWLEDGE CHECK",
+    description: "Test your understanding of the Solana module.",
+    href: "#knowledge-check",
+  },
+];
+
+const quizQuestions = [
+  {
+    question: "What is SOL?",
+    options: [
+      "A Solana programming language",
+      "The native asset of the Solana network",
+      "A type of validator",
+      "An RPC provider",
+    ],
+    answer: 1,
+    explanation:
+      "SOL is the native asset of the Solana network and is used for transactions and other network activities.",
+  },
+  {
+    question: "What are programs on Solana?",
+    options: [
+      "On-chain executable logic",
+      "Physical servers",
+      "User passwords",
+      "Wallet recovery phrases",
+    ],
+    answer: 0,
+    explanation:
+      "Programs are Solana's term for on-chain executable logic that applications can interact with.",
+  },
+  {
+    question: "What role do validators play?",
+    options: [
+      "They design websites",
+      "They store user passwords",
+      "They participate in transaction processing and consensus",
+      "They create recovery phrases",
+    ],
+    answer: 2,
+    explanation:
+      "Validators participate in processing transactions, maintaining network state and helping the network reach agreement.",
+  },
+  {
+    question: "What does Proof of History help establish?",
+    options: [
+      "The price of SOL",
+      "The order and passage of events",
+      "A user's wallet password",
+      "The identity of every user",
+    ],
+    answer: 1,
+    explanation:
+      "Proof of History provides a cryptographic way of establishing the order and passage of events within the network.",
+  },
+  {
+    question: "What does RPC infrastructure allow applications to do?",
+    options: [
+      "Communicate with Solana",
+      "Replace validators",
+      "Create physical hardware",
+      "Remove blockchain transactions",
+    ],
+    answer: 0,
+    explanation:
+      "RPC infrastructure provides a communication layer that allows applications to interact with the Solana network.",
+  },
+];
+
 export default function SolanaPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [completedSections, setCompletedSections] = useState<string[]>([]);
+  const [quizAnswers, setQuizAnswers] = useState<
+    Record<number, number>
+  >({});
+  const [quizSubmitted, setQuizSubmitted] = useState(false);
+
+  /*
+   * LOAD SAVED SOLANA PROGRESS
+   */
+  useEffect(() => {
+    const savedProgress = localStorage.getItem(
+      "chainlab-solana-progress"
+    );
+
+    if (savedProgress) {
+      try {
+        const parsed = JSON.parse(savedProgress);
+
+        if (Array.isArray(parsed)) {
+          setCompletedSections(parsed);
+        }
+      } catch {
+        localStorage.removeItem(
+          "chainlab-solana-progress"
+        );
+      }
+    }
+  }, []);
+
+  /*
+   * SAVE SOLANA PROGRESS
+   */
+  useEffect(() => {
+    localStorage.setItem(
+      "chainlab-solana-progress",
+      JSON.stringify(completedSections)
+    );
+  }, [completedSections]);
+
+  /*
+   * SEARCH
+   */
+  const filteredSections = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
+    if (!query) {
+      return learningSections;
+    }
+
+    return learningSections.filter(
+      (section) =>
+        section.number.toLowerCase().includes(query) ||
+        section.title.toLowerCase().includes(query) ||
+        section.description.toLowerCase().includes(query)
+    );
+  }, [searchTerm]);
+
+  /*
+   * TOGGLE COMPLETION
+   */
+  function toggleSectionComplete(number: string) {
+    setCompletedSections((current) => {
+      if (current.includes(number)) {
+        return current.filter((item) => item !== number);
+      }
+
+      return [...current, number];
+    });
+  }
+
+  /*
+   * QUIZ ANSWER
+   */
+  function selectQuizAnswer(
+    questionIndex: number,
+    answerIndex: number
+  ) {
+    if (quizSubmitted) {
+      return;
+    }
+
+    setQuizAnswers((current) => ({
+      ...current,
+      [questionIndex]: answerIndex,
+    }));
+  }
+
+  /*
+   * SUBMIT QUIZ
+   */
+  function submitQuiz() {
+    if (
+      Object.keys(quizAnswers).length !==
+      quizQuestions.length
+    ) {
+      return;
+    }
+
+    setQuizSubmitted(true);
+  }
+
+  /*
+   * RESET QUIZ
+   */
+  function resetQuiz() {
+    setQuizAnswers({});
+    setQuizSubmitted(false);
+  }
+
+  /*
+   * QUIZ SCORE
+   */
+  const quizScore = quizQuestions.reduce(
+    (score, question, index) => {
+      return (
+        score +
+        (quizAnswers[index] === question.answer ? 1 : 0)
+      );
+    },
+    0
+  );
+
+  /*
+   * COMPLETION %
+   */
+  const completionPercentage = Math.round(
+    (completedSections.length / learningSections.length) *
+      100
+  );
+
   return (
     <main className={styles.page}>
       {/* NAVIGATION */}
+
       <header className={styles.nav}>
         <Link href="/" className={styles.logo}>
           <span>[</span>CHAINLAB<span>]</span>
@@ -126,8 +382,12 @@ export default function SolanaPage() {
 
         <nav className={styles.navLinks}>
           <Link href="/">HOME</Link>
+
           <Link href="/learn">LEARN</Link>
-          <Link href="/learn/blockchain">BLOCKCHAIN</Link>
+
+          <Link href="/learn/blockchain">
+            BLOCKCHAIN
+          </Link>
 
           <Link
             href="/learn/solana"
@@ -136,8 +396,13 @@ export default function SolanaPage() {
             SOLANA
           </Link>
 
-          <Link href="/learn/meme-coins">MEME COINS</Link>
-          <Link href="/learn/security">SECURITY</Link>
+          <Link href="/learn/meme-coins">
+            MEME COINS
+          </Link>
+
+          <Link href="/learn/security">
+            SECURITY
+          </Link>
         </nav>
 
         <Link href="/learn" className={styles.navButton}>
@@ -146,9 +411,12 @@ export default function SolanaPage() {
       </header>
 
       {/* HERO */}
+
       <section className={styles.hero}>
         <div className={styles.heroTop}>
-          <p className={styles.eyebrow}>[ 02 / SOLANA ]</p>
+          <p className={styles.eyebrow}>
+            [ 02 / SOLANA ]
+          </p>
 
           <p className={styles.heroIndex}>
             CHAINLAB
@@ -170,17 +438,23 @@ export default function SolanaPage() {
 
           <div className={styles.heroDescription}>
             <p>
-              Solana is a blockchain designed for high-performance
-              applications and digital assets.
+              Solana is a blockchain designed for
+              high-performance applications and
+              digital assets.
             </p>
 
             <p>
-              In this module, we move beyond the basic blockchain
-              architecture and explore how Solana organizes accounts,
-              programs, transactions, validators, and network activity.
+              In this module, we move beyond the
+              basic blockchain architecture and
+              explore how Solana organizes accounts,
+              programs, transactions, validators,
+              and network activity.
             </p>
 
-            <Link href="#fundamentals" className={styles.heroButton}>
+            <Link
+              href="#fundamentals"
+              className={styles.heroButton}
+            >
               START THE MODULE <span>↓</span>
             </Link>
           </div>
@@ -190,21 +464,191 @@ export default function SolanaPage() {
           <span>THE IDEA</span>
 
           <p>
-            Solana combines a blockchain architecture with a time-ordering
-            mechanism designed to help the network coordinate activity at
+            Solana combines a blockchain architecture
+            with a time-ordering mechanism designed
+            to help the network coordinate activity at
             scale.
           </p>
         </div>
       </section>
 
+      {/* NEW: LEARNING TOOLS */}
+
+      <section className={styles.learningTools}>
+        <div className={styles.progressPanel}>
+          <div className={styles.progressHeader}>
+            <div>
+              <p className={styles.toolEyebrow}>
+                YOUR SOLANA PROGRESS
+              </p>
+
+              <h2>
+                {completedSections.length}
+                <span>
+                  {" "}
+                  / {learningSections.length}
+                </span>
+              </h2>
+            </div>
+
+            <strong>
+              {completionPercentage}%
+            </strong>
+          </div>
+
+          <div className={styles.progressTrack}>
+            <div
+              className={styles.progressFill}
+              style={{
+                width: `${completionPercentage}%`,
+              }}
+            />
+          </div>
+
+          <p className={styles.progressText}>
+            {completedSections.length === 0
+              ? "Start completing sections to track your Solana progress."
+              : completedSections.length ===
+                  learningSections.length
+                ? "Solana learning module complete."
+                : "Your progress is saved automatically in this browser."}
+          </p>
+
+          <div className={styles.progressItems}>
+            {learningSections.map((section) => {
+              const completed =
+                completedSections.includes(
+                  section.number
+                );
+
+              return (
+                <div
+                  key={section.number}
+                  className={`${styles.progressItem} ${
+                    completed
+                      ? styles.progressItemCompleted
+                      : ""
+                  }`}
+                >
+                  <div>
+                    <span>{section.number}</span>
+
+                    <strong>
+                      {section.title}
+                    </strong>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      toggleSectionComplete(
+                        section.number
+                      )
+                    }
+                  >
+                    {completed
+                      ? "✓ DONE"
+                      : "COMPLETE"}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className={styles.searchPanel}>
+          <label
+            htmlFor="solana-search"
+            className={styles.searchLabel}
+          >
+            SEARCH SOLANA LESSONS
+          </label>
+
+          <div className={styles.searchBox}>
+            <span className={styles.searchIcon}>
+              ⌕
+            </span>
+
+            <input
+              id="solana-search"
+              type="search"
+              value={searchTerm}
+              onChange={(event) =>
+                setSearchTerm(event.target.value)
+              }
+              placeholder="Search Solana topics..."
+              className={styles.searchInput}
+            />
+
+            {searchTerm && (
+              <button
+                type="button"
+                className={styles.searchClear}
+                onClick={() => setSearchTerm("")}
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            )}
+          </div>
+
+          <p className={styles.searchResultText}>
+            {searchTerm
+              ? `${filteredSections.length} section${
+                  filteredSections.length === 1
+                    ? ""
+                    : "s"
+                } found`
+              : "Search accounts, programs, transactions, validators, ecosystem and more."}
+          </p>
+
+          <div className={styles.searchResults}>
+            {filteredSections.map((section) => (
+              <Link
+                href={section.href}
+                key={section.number}
+                className={styles.searchResult}
+                onClick={() => setSearchTerm("")}
+              >
+                <span>{section.number}</span>
+
+                <div>
+                  <strong>
+                    {section.title}
+                  </strong>
+
+                  <p>
+                    {section.description}
+                  </p>
+                </div>
+
+                <span className={styles.searchArrow}>
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          {searchTerm &&
+            filteredSections.length === 0 && (
+              <div className={styles.searchNoResults}>
+                NO RESULTS
+              </div>
+            )}
+        </div>
+      </section>
+
       {/* FUNDAMENTALS */}
+
       <section
         id="fundamentals"
         className={styles.fundamentals}
       >
         <div className={styles.sectionHeading}>
           <div>
-            <p className={styles.eyebrow}>01 / FUNDAMENTALS</p>
+            <p className={styles.eyebrow}>
+              01 / FUNDAMENTALS
+            </p>
 
             <h2>
               WHAT IS
@@ -214,9 +658,10 @@ export default function SolanaPage() {
           </div>
 
           <p>
-            Solana is a blockchain network built to support decentralized
-            applications, digital assets, financial systems, and other
-            programmable services.
+            Solana is a blockchain network built to
+            support decentralized applications,
+            digital assets, financial systems, and
+            other programmable services.
           </p>
         </div>
 
@@ -227,9 +672,10 @@ export default function SolanaPage() {
             <h3>WHAT IS SOLANA?</h3>
 
             <p>
-              Solana provides infrastructure where users and applications
-              can create, transfer, and interact with digital assets and
-              on-chain programs.
+              Solana provides infrastructure where
+              users and applications can create,
+              transfer, and interact with digital
+              assets and on-chain programs.
             </p>
           </article>
 
@@ -239,8 +685,9 @@ export default function SolanaPage() {
             <h3>WHAT IS SOL?</h3>
 
             <p>
-              SOL is the native asset of the Solana network. It is used
-              within the network for transactions and other network
+              SOL is the native asset of the Solana
+              network. It is used within the network
+              for transactions and other network
               activities.
             </p>
           </article>
@@ -251,8 +698,9 @@ export default function SolanaPage() {
             <h3>WHY DOES IT MATTER?</h3>
 
             <p>
-              Solana's architecture is designed around high throughput,
-              low transaction costs, and an ecosystem for programmable
+              Solana's architecture is designed
+              around high throughput, low transaction
+              costs, and an ecosystem for programmable
               applications.
             </p>
           </article>
@@ -260,10 +708,16 @@ export default function SolanaPage() {
       </section>
 
       {/* CORE CONCEPTS */}
-      <section className={styles.conceptsSection}>
+
+      <section
+        id="core-concepts"
+        className={styles.conceptsSection}
+      >
         <div className={styles.sectionHeading}>
           <div>
-            <p className={styles.eyebrow}>02 / ARCHITECTURE</p>
+            <p className={styles.eyebrow}>
+              02 / ARCHITECTURE
+            </p>
 
             <h2>
               THE CORE
@@ -273,8 +727,9 @@ export default function SolanaPage() {
           </div>
 
           <p>
-            Before using Solana applications, it is important to understand
-            the components that make the network operate.
+            Before using Solana applications, it is
+            important to understand the components
+            that make the network operate.
           </p>
         </div>
 
@@ -284,7 +739,9 @@ export default function SolanaPage() {
               key={concept.number}
               className={styles.conceptCard}
             >
-              <span className={styles.conceptNumber}>
+              <span
+                className={styles.conceptNumber}
+              >
                 {concept.number}
               </span>
 
@@ -299,10 +756,16 @@ export default function SolanaPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className={styles.processSection}>
+
+      <section
+        id="how-solana-works"
+        className={styles.processSection}
+      >
         <div className={styles.processHeader}>
           <div>
-            <p className={styles.eyebrow}>03 / PROCESS</p>
+            <p className={styles.eyebrow}>
+              03 / PROCESS
+            </p>
 
             <h2>
               HOW SOLANA
@@ -312,8 +775,9 @@ export default function SolanaPage() {
           </div>
 
           <p>
-            A Solana transaction follows a sequence from creation through
-            execution and confirmation.
+            A Solana transaction follows a sequence
+            from creation through execution and
+            confirmation.
           </p>
         </div>
 
@@ -334,9 +798,15 @@ export default function SolanaPage() {
       </section>
 
       {/* TRANSACTION FLOW */}
-      <section className={styles.transactionSection}>
+
+      <section
+        id="transaction-flow"
+        className={styles.transactionSection}
+      >
         <div className={styles.transactionIntro}>
-          <p className={styles.eyebrow}>04 / TRANSACTION FLOW</p>
+          <p className={styles.eyebrow}>
+            04 / TRANSACTION FLOW
+          </p>
 
           <h2>
             FROM WALLET
@@ -345,8 +815,9 @@ export default function SolanaPage() {
           </h2>
 
           <p>
-            Understanding the transaction path helps explain what happens
-            when a user interacts with a Solana application.
+            Understanding the transaction path helps
+            explain what happens when a user
+            interacts with a Solana application.
           </p>
         </div>
 
@@ -359,42 +830,57 @@ export default function SolanaPage() {
             </p>
           </div>
 
-          <div className={styles.flowArrow}>→</div>
+          <div className={styles.flowArrow}>
+            →
+          </div>
 
           <div>
             <span>02</span>
             <strong>RPC</strong>
             <p>
-              The transaction is submitted to network infrastructure.
+              The transaction is submitted to network
+              infrastructure.
             </p>
           </div>
 
-          <div className={styles.flowArrow}>→</div>
+          <div className={styles.flowArrow}>
+            →
+          </div>
 
           <div>
             <span>03</span>
             <strong>VALIDATORS</strong>
             <p>
-              Network participants process and verify the transaction.
+              Network participants process and verify
+              the transaction.
             </p>
           </div>
 
-          <div className={styles.flowArrow}>→</div>
+          <div className={styles.flowArrow}>
+            →
+          </div>
 
           <div>
             <span>04</span>
             <strong>CONFIRM</strong>
             <p>
-              The transaction reaches the required network state.
+              The transaction reaches the required
+              network state.
             </p>
           </div>
         </div>
       </section>
 
       {/* ECOSYSTEM */}
-      <section className={styles.ecosystemSection}>
+
+      <section
+        id="ecosystem"
+        className={styles.ecosystemSection}
+      >
         <div className={styles.ecosystemHeader}>
-          <p className={styles.eyebrow}>05 / ECOSYSTEM</p>
+          <p className={styles.eyebrow}>
+            05 / ECOSYSTEM
+          </p>
 
           <h2>
             BUILT FOR
@@ -403,9 +889,11 @@ export default function SolanaPage() {
           </h2>
 
           <p>
-            Solana supports a broad ecosystem of applications and digital
-            assets. These categories represent some of the areas users can
-            encounter when exploring the network.
+            Solana supports a broad ecosystem of
+            applications and digital assets. These
+            categories represent some of the areas
+            users can encounter when exploring the
+            network.
           </p>
         </div>
 
@@ -430,10 +918,16 @@ export default function SolanaPage() {
       </section>
 
       {/* STRENGTHS AND LIMITATIONS */}
-      <section className={styles.comparisonSection}>
+
+      <section
+        id="perspective"
+        className={styles.comparisonSection}
+      >
         <div className={styles.sectionHeading}>
           <div>
-            <p className={styles.eyebrow}>06 / PERSPECTIVE</p>
+            <p className={styles.eyebrow}>
+              06 / PERSPECTIVE
+            </p>
 
             <h2>
               STRENGTHS
@@ -443,8 +937,9 @@ export default function SolanaPage() {
           </div>
 
           <p>
-            Understanding a technology means looking at both what it does
-            well and what users need to consider when interacting with it.
+            Understanding a technology means looking
+            at both what it does well and what users
+            need to consider when interacting with it.
           </p>
         </div>
 
@@ -461,6 +956,7 @@ export default function SolanaPage() {
 
                 <div>
                   <h3>{item.title}</h3>
+
                   <p>{item.text}</p>
                 </div>
               </article>
@@ -479,6 +975,7 @@ export default function SolanaPage() {
 
                 <div>
                   <h3>{item.title}</h3>
+
                   <p>{item.text}</p>
                 </div>
               </article>
@@ -488,9 +985,15 @@ export default function SolanaPage() {
       </section>
 
       {/* KEY TERMS */}
-      <section className={styles.termsSection}>
+
+      <section
+        id="key-terms"
+        className={styles.termsSection}
+      >
         <div className={styles.termsHeading}>
-          <p className={styles.eyebrow}>07 / GLOSSARY</p>
+          <p className={styles.eyebrow}>
+            07 / GLOSSARY
+          </p>
 
           <h2>
             KNOW THE
@@ -513,59 +1016,207 @@ export default function SolanaPage() {
         </div>
       </section>
 
-      {/* KNOWLEDGE CHECK */}
-      <section className={styles.checkSection}>
-        <div className={styles.checkBox}>
+      {/* MINI QUIZ */}
+
+      <section
+        id="knowledge-check"
+        className={styles.quizSection}
+      >
+        <div className={styles.quizHeader}>
           <div>
             <p className={styles.eyebrow}>
               08 / KNOWLEDGE CHECK
             </p>
 
             <h2>
-              READY TO TEST
+              TEST YOUR
               <br />
-              <span>YOUR KNOWLEDGE?</span>
+              <span>KNOWLEDGE.</span>
             </h2>
           </div>
 
-          <div className={styles.questions}>
-            <div>
-              <span>01</span>
-              <p>
-                What is SOL used for within the Solana network?
-              </p>
-            </div>
-
-            <div>
-              <span>02</span>
-              <p>
-                What role do validators play?
-              </p>
-            </div>
-
-            <div>
-              <span>03</span>
-              <p>
-                What is the difference between an account and a program?
-              </p>
-            </div>
-
-            <div>
-              <span>04</span>
-              <p>
-                What happens between signing and confirming a transaction?
-              </p>
-            </div>
-          </div>
-
-          <p className={styles.checkHint}>
-            If you can explain these concepts in your own words, you are
-            ready for the next module.
+          <p className={styles.quizIntro}>
+            Test your understanding of the Solana
+            concepts covered throughout this module.
           </p>
+        </div>
+
+        <div className={styles.quizCard}>
+          {quizQuestions.map(
+            (question, questionIndex) => {
+              const selectedAnswer =
+                quizAnswers[questionIndex];
+
+              const isCorrect =
+                selectedAnswer === question.answer;
+
+              return (
+                <div
+                  className={styles.quizQuestion}
+                  key={questionIndex}
+                >
+                  <div
+                    className={
+                      styles.quizQuestionTop
+                    }
+                  >
+                    <span>
+                      QUESTION{" "}
+                      {String(
+                        questionIndex + 1
+                      ).padStart(2, "0")}
+                    </span>
+
+                    {quizSubmitted && (
+                      <span
+                        className={
+                          isCorrect
+                            ? styles.quizCorrect
+                            : styles.quizIncorrect
+                        }
+                      >
+                        {isCorrect
+                          ? "✓ CORRECT"
+                          : "✕ INCORRECT"}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3>{question.question}</h3>
+
+                  <div
+                    className={styles.quizOptions}
+                  >
+                    {question.options.map(
+                      (option, optionIndex) => {
+                        const selected =
+                          selectedAnswer ===
+                          optionIndex;
+
+                        const correct =
+                          question.answer ===
+                          optionIndex;
+
+                        let optionClass =
+                          styles.quizOption;
+
+                        if (selected) {
+                          optionClass += ` ${styles.quizOptionSelected}`;
+                        }
+
+                        if (
+                          quizSubmitted &&
+                          correct
+                        ) {
+                          optionClass += ` ${styles.quizOptionCorrect}`;
+                        }
+
+                        if (
+                          quizSubmitted &&
+                          selected &&
+                          !correct
+                        ) {
+                          optionClass += ` ${styles.quizOptionWrong}`;
+                        }
+
+                        return (
+                          <button
+                            type="button"
+                            key={optionIndex}
+                            className={
+                              optionClass
+                            }
+                            onClick={() =>
+                              selectQuizAnswer(
+                                questionIndex,
+                                optionIndex
+                              )
+                            }
+                            disabled={
+                              quizSubmitted
+                            }
+                          >
+                            <span
+                              className={
+                                styles.quizOptionLetter
+                              }
+                            >
+                              {String.fromCharCode(
+                                65 +
+                                  optionIndex
+                              )}
+                            </span>
+
+                            <span>
+                              {option}
+                            </span>
+                          </button>
+                        );
+                      }
+                    )}
+                  </div>
+
+                  {quizSubmitted && (
+                    <div
+                      className={
+                        styles.quizExplanation
+                      }
+                    >
+                      <span>
+                        EXPLANATION
+                      </span>
+
+                      <p>
+                        {question.explanation}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+          )}
+
+          <div className={styles.quizFooter}>
+            {!quizSubmitted ? (
+              <button
+                type="button"
+                className={styles.quizSubmit}
+                onClick={submitQuiz}
+                disabled={
+                  Object.keys(quizAnswers)
+                    .length !==
+                  quizQuestions.length
+                }
+              >
+                SUBMIT QUIZ
+                <span>→</span>
+              </button>
+            ) : (
+              <div className={styles.quizResult}>
+                <div>
+                  <span>YOUR SCORE</span>
+
+                  <strong>
+                    {quizScore} /{" "}
+                    {quizQuestions.length}
+                  </strong>
+                </div>
+
+                <button
+                  type="button"
+                  className={styles.quizReset}
+                  onClick={resetQuiz}
+                >
+                  RETAKE QUIZ
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
       {/* NEXT MODULE */}
+
       <section className={styles.nextModule}>
         <div>
           <p className={styles.nextLabel}>
@@ -579,8 +1230,9 @@ export default function SolanaPage() {
           </h2>
 
           <p>
-            Explore tokens, communities, liquidity, tokenomics, market
-            dynamics, and the risks surrounding meme coins.
+            Explore tokens, communities,
+            liquidity, tokenomics, market dynamics,
+            and the risks surrounding meme coins.
           </p>
         </div>
 
@@ -588,11 +1240,13 @@ export default function SolanaPage() {
           href="/learn/meme-coins"
           className={styles.nextButton}
         >
-          CONTINUE TO MEME COINS <span>→</span>
+          CONTINUE TO MEME COINS{" "}
+          <span>→</span>
         </Link>
       </section>
 
       {/* FOOTER */}
+
       <footer className={styles.footer}>
         <div>
           <Link
@@ -608,10 +1262,21 @@ export default function SolanaPage() {
         </div>
 
         <div className={styles.footerLinks}>
-          <Link href="/learn">LEARN</Link>
-          <Link href="/learn/blockchain">BLOCKCHAIN</Link>
-          <Link href="/learn/meme-coins">MEME COINS</Link>
-          <Link href="/learn/security">SECURITY</Link>
+          <Link href="/learn">
+            LEARN
+          </Link>
+
+          <Link href="/learn/blockchain">
+            BLOCKCHAIN
+          </Link>
+
+          <Link href="/learn/meme-coins">
+            MEME COINS
+          </Link>
+
+          <Link href="/learn/security">
+            SECURITY
+          </Link>
         </div>
 
         <p>

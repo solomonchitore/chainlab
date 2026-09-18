@@ -71,13 +71,10 @@
   color: #ffffff;
 }
 
-/* No yellow active underline */
 .navLinks .active::after {
   display: none;
   content: none;
 }
-
-/* BACK TO LEARN BUTTON */
 
 .navButton {
   border: 1px solid #00d9ff;
@@ -151,22 +148,17 @@
 
 .heroCard {
   min-height: 245px;
-
   border: 1px solid rgba(0, 200, 255, 0.42);
-
   background:
     linear-gradient(
       145deg,
       rgba(0, 200, 255, 0.055),
       rgba(0, 20, 35, 0.35)
     );
-
   padding: 32px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   box-shadow:
     inset 0 0 40px rgba(0, 183, 255, 0.025),
     0 0 45px rgba(0, 183, 255, 0.035);
@@ -194,123 +186,435 @@
 }
 
 /* =========================================================
-   LESSONS
+   LEARNING DASHBOARD
+   Matches the reference learning interface
    ========================================================= */
 
-.lessonsSection {
-  width: min(1180px, calc(100% - 80px));
+.learningDashboard {
+  width: min(1640px, calc(100% - 120px));
   margin: 0 auto;
-  padding: 55px 0 110px;
-}
+  padding: 0 0 75px;
 
-.sectionHeader {
   display: grid;
-  grid-template-columns: 1fr 0.8fr;
-  gap: 80px;
-  align-items: end;
-  margin-bottom: 55px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
-.sectionHeader h2,
-.takeaways h2 {
-  margin: 0;
-  font-size: clamp(48px, 6vw, 82px);
-  line-height: 0.92;
-  letter-spacing: -3px;
-  font-weight: 950;
-}
+/* =========================================================
+   LEFT PROGRESS PANEL
+   ========================================================= */
 
-.sectionHeader h2 span,
-.takeaways h2 span {
-  color: #00d9ff;
-}
+.learningDashboard .progressPanel {
+  min-height: 750px;
 
-.sectionIntro {
-  margin: 0;
-  color: #8192a8;
-  font-size: 16px;
-  line-height: 1.8;
-}
+  border: 1px solid rgba(255, 255, 255, 0.18);
 
-.lessonGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
+  /* MATCH PAGE BACKGROUND */
+  background: #02070d;
 
-.lessonCard {
-  min-height: 310px;
-
-  border: 1px solid rgba(0, 183, 255, 0.2);
-
-  background:
-    radial-gradient(
-      circle at 100% 100%,
-      rgba(0, 183, 255, 0.09),
-      transparent 35%
-    ),
-    #030a12;
-
-  padding: 30px;
+  padding: 38px;
 
   display: flex;
   flex-direction: column;
+}
+
+.progressHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.toolEyebrow {
+  margin: 0 0 18px;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.progressHeader h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -2px;
+  font-weight: 950;
+}
+
+.progressHeader h2 span {
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.progressHeader strong {
+  color: #ffffff;
+
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 6px;
+
+  margin-top: 36px;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+
+  background: #00d9ff;
+
+  box-shadow:
+    0 0 12px rgba(0, 217, 255, 0.7);
+
+  transition: width 0.35s ease;
+}
+
+.progressText {
+  margin: 18px 0 28px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   PROGRESS LESSON LIST
+   ========================================================= */
+
+.progressLessonList {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.progressLesson {
+  min-height: 78px;
+
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.progressLessonNumber {
+  color: #00d9ff;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.progressLessonTitle {
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.progressCompleteButton {
+  min-width: 73px;
+
+  padding: 9px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  background: transparent;
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+
+  cursor: pointer;
 
   transition:
-    border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.lessonCard:hover {
-  border-color: rgba(0, 200, 255, 0.7);
-  transform: translateY(-4px);
-  box-shadow: 0 15px 45px rgba(0, 183, 255, 0.08);
+.progressCompleteButton:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
 }
 
-.lessonTop span {
+.progressLessonCompleted {
+  background: rgba(0, 217, 255, 0.025);
+}
+
+.progressLessonCompleted .progressLessonTitle {
   color: #00d9ff;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 1px;
 }
 
-.lessonContent {
-  margin-top: auto;
+.progressLessonCompleted .progressCompleteButton {
+  border-color: #00d9ff;
+  color: #00d9ff;
 }
 
-.lessonContent h3 {
+/* =========================================================
+   RIGHT SEARCH PANEL
+   ========================================================= */
+
+.learningDashboard .searchPanel {
+  min-height: 750px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  /* MATCH PAGE BACKGROUND */
+  background: #02070d;
+
+  padding: 38px;
+}
+
+.learningDashboard .searchLabel {
+  display: block;
+
   margin: 0 0 16px;
-  font-size: 25px;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
-}
 
-.lessonContent p {
-  max-width: 520px;
-  margin: 0;
-  color: #8799af;
-  font-size: 15px;
-  line-height: 1.7;
-}
+  color: #ffffff;
 
-.lessonLink {
-  display: inline-block;
-  margin-top: 28px;
-  color: #00c8ff;
-  text-decoration: none;
   font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.learningDashboard .searchBox {
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  /* MATCH PAGE BACKGROUND */
+  background: #02070d;
+
+  padding: 0 18px;
+}
+
+.learningDashboard .searchBox:focus-within {
+  border-color: #00d9ff;
+
+  box-shadow:
+    0 0 0 1px rgba(0, 217, 255, 0.12);
+}
+
+.learningDashboard .searchIcon {
+  color: #ffffff;
+
+  font-size: 27px;
+  line-height: 1;
+}
+
+.learningDashboard .searchInput {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.learningDashboard .searchInput::placeholder {
+  color: #66717d;
+}
+
+.learningDashboard .searchInput::-webkit-search-cancel-button {
+  display: none;
+}
+
+.learningDashboard .searchClear {
+  width: 28px;
+  height: 28px;
+
+  flex-shrink: 0;
+
+  border: 0;
+
+  background: transparent;
+  color: #ffffff;
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.learningDashboard .searchResultText {
+  margin: 12px 0 20px;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* =========================================================
+   SEARCH LESSONS
+   ========================================================= */
+
+.searchLessonList {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.searchLesson {
+  min-height: 92px;
+
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 30px;
+  align-items: center;
+  gap: 15px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    padding 0.2s ease;
+}
+
+.searchLesson:hover {
+  background: rgba(255, 255, 255, 0.025);
+  padding-left: 8px;
+}
+
+.searchLessonNumber {
+  color: #00d9ff;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.searchLessonContent {
+  min-width: 0;
+}
+
+.searchLessonContent strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.searchLessonContent p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.searchLessonArrow {
+  color: #ffffff;
+
+  font-size: 18px;
+  text-align: right;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.searchLesson:hover .searchLessonArrow {
+  color: #00d9ff;
+  transform: translateX(5px);
+}
+
+/* =========================================================
+   NO RESULTS
+   ========================================================= */
+
+.noResults {
+  margin-top: 20px;
+
+  padding: 45px 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* MATCH PAGE BACKGROUND */
+  background: #02070d;
+
+  text-align: center;
+}
+
+.noResults > span {
+  color: #00d9ff;
+
+  font-size: 10px;
   font-weight: 900;
   letter-spacing: 1.5px;
 }
 
-.lessonLink span {
-  margin-left: 7px;
-  transition: margin 0.2s ease;
+.noResults h3 {
+  margin: 15px 0 8px;
+
+  color: #ffffff;
+
+  font-size: 24px;
 }
 
-.lessonLink:hover span {
-  margin-left: 13px;
+.noResults p {
+  max-width: 500px;
+
+  margin: 0 auto;
+
+  color: #71849a;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.resetSearch {
+  margin-top: 22px;
+
+  border: 1px solid #00d9ff;
+
+  background: transparent;
+  color: #00d9ff;
+
+  padding: 12px 18px;
+
+  font-family: inherit;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+}
+
+.resetSearch:hover {
+  background: #00d9ff;
+  color: #02070d;
 }
 
 /* =========================================================
@@ -377,6 +681,7 @@
 .definitionBox span,
 .warningBox span {
   color: #00c8ff;
+
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 1.5px;
@@ -389,7 +694,9 @@
 .definitionBox p,
 .warningBox p {
   margin: 10px 0 0;
+
   color: #d4deea;
+
   font-size: 16px;
   line-height: 1.7;
 }
@@ -420,16 +727,21 @@
 .steps span,
 .useCases span {
   display: block;
+
   color: #00d9ff;
+
   font-size: 12px;
   font-weight: 900;
+
   margin-bottom: 28px;
 }
 
 .steps strong,
 .useCases strong {
   display: block;
+
   color: #f4f7fb;
+
   font-size: 12px;
   letter-spacing: 1px;
 }
@@ -437,8 +749,10 @@
 .steps p,
 .useCases p {
   color: #8192a8;
+
   font-size: 13px;
   line-height: 1.6;
+
   margin: 10px 0 0;
 }
 
@@ -466,6 +780,315 @@
 }
 
 /* =========================================================
+   QUIZ
+   ========================================================= */
+
+.quizSection {
+  width: min(1180px, calc(100% - 80px));
+  margin: 0 auto;
+
+  padding: 115px 0;
+
+  border-top: 1px solid rgba(0, 183, 255, 0.14);
+}
+
+.quizHeader {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 90px;
+  align-items: end;
+
+  margin-bottom: 55px;
+}
+
+.quizHeader h2 {
+  margin: 0;
+
+  color: #f4f7fb;
+
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.92;
+
+  letter-spacing: -3px;
+  font-weight: 950;
+}
+
+.quizHeader h2 span {
+  color: #00d9ff;
+}
+
+.quizIntro {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: #8192a8;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.quizCard {
+  border: 1px solid rgba(0, 183, 255, 0.2);
+
+  background: #030a12;
+}
+
+.quizQuestion {
+  padding: 32px;
+
+  border-bottom: 1px solid rgba(0, 183, 255, 0.14);
+}
+
+.quizQuestionTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 20px;
+}
+
+.quizQuestionTop > span:first-child {
+  color: #00d9ff;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.quizQuestion h3 {
+  margin: 0 0 22px;
+
+  color: #f4f7fb;
+
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.quizOptions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.quizOption {
+  min-height: 55px;
+
+  padding: 12px 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid rgba(0, 183, 255, 0.16);
+
+  background: #02070d;
+  color: #9daabd;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.quizOption:hover:not(:disabled) {
+  border-color: rgba(0, 217, 255, 0.55);
+
+  background: rgba(0, 217, 255, 0.04);
+
+  color: #ffffff;
+}
+
+.quizOption:disabled {
+  cursor: default;
+}
+
+.quizOptionLetter {
+  width: 26px;
+  height: 26px;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 217, 255, 0.3);
+
+  color: #00d9ff;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.quizOptionSelected {
+  border-color: #00d9ff;
+
+  background: rgba(0, 217, 255, 0.08);
+
+  color: #ffffff;
+}
+
+.quizOptionCorrect {
+  border-color: #00d9ff;
+
+  background: rgba(0, 217, 255, 0.12);
+
+  color: #ffffff;
+}
+
+.quizOptionWrong {
+  border-color: rgba(255, 255, 255, 0.2);
+
+  background: rgba(255, 255, 255, 0.03);
+
+  color: #7d8b9b;
+}
+
+.quizCorrect {
+  color: #00d9ff !important;
+
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+}
+
+.quizIncorrect {
+  color: #9daabd !important;
+
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+}
+
+.quizExplanation {
+  margin-top: 22px;
+
+  border-left: 2px solid #00d9ff;
+
+  padding: 15px 18px;
+
+  background: rgba(0, 217, 255, 0.035);
+}
+
+.quizExplanation span {
+  color: #00d9ff;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+.quizExplanation p {
+  margin: 7px 0 0;
+
+  color: #9daabd;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.quizFooter {
+  padding: 28px 32px;
+}
+
+.quizSubmit {
+  border: 1px solid #00d9ff;
+
+  padding: 15px 22px;
+
+  background: #00d9ff;
+  color: #02070d;
+
+  font-family: inherit;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.quizSubmit span {
+  margin-left: 8px;
+
+  font-size: 15px;
+}
+
+.quizSubmit:hover:not(:disabled) {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.quizSubmit:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.quizResult {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.quizResult > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.quizResult > div span {
+  color: #00d9ff;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.quizResult > div strong {
+  color: #ffffff;
+
+  font-size: 30px;
+  line-height: 1;
+}
+
+.quizReset {
+  border: 1px solid rgba(0, 217, 255, 0.5);
+
+  padding: 13px 18px;
+
+  background: transparent;
+  color: #00d9ff;
+
+  font-family: inherit;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+}
+
+.quizReset:hover {
+  background: #00d9ff;
+  color: #02070d;
+}
+
+/* =========================================================
    TAKEAWAYS
    ========================================================= */
 
@@ -481,25 +1104,44 @@
   gap: 90px;
 }
 
+.takeaways h2 {
+  margin: 0;
+
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.92;
+
+  letter-spacing: -3px;
+  font-weight: 950;
+}
+
+.takeaways h2 span {
+  color: #00d9ff;
+}
+
 .takeawayList {
   border-top: 1px solid rgba(0, 183, 255, 0.2);
 }
 
 .takeawayList p {
   margin: 0;
+
   padding: 22px 0;
 
   border-bottom: 1px solid rgba(0, 183, 255, 0.16);
 
   color: #a7b6c9;
+
   font-size: 15px;
   line-height: 1.6;
 }
 
 .takeawayList span {
   display: inline-block;
+
   width: 48px;
+
   color: #00d9ff;
+
   font-weight: 900;
 }
 
@@ -509,9 +1151,9 @@
 
 .nextModule {
   width: min(1180px, calc(100% - 80px));
+
   margin: 0 auto 100px;
 
-  /* CYAN — NO YELLOW */
   border: 1px solid rgba(0, 174, 255, 0.35);
 
   padding: 38px;
@@ -519,6 +1161,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 50px;
 
   background:
@@ -531,7 +1174,9 @@
 
 .nextLabel {
   margin: 0 0 10px;
+
   color: #00d9ff;
+
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 1.8px;
@@ -539,23 +1184,25 @@
 
 .nextModule h2 {
   margin: 0 0 10px;
+
   font-size: 34px;
+
   letter-spacing: -1px;
 }
 
 .nextModule p:not(.nextLabel) {
   max-width: 680px;
+
   margin: 0;
+
   color: #8799af;
+
   line-height: 1.7;
 }
-
-/* GO TO SOLANA */
 
 .nextButton {
   flex-shrink: 0;
 
-  /* CYAN — NO YELLOW */
   border: 1px solid #00d9ff;
 
   color: #00d9ff;
@@ -580,7 +1227,9 @@
 
 .nextButton:hover {
   background: #00d9ff;
+
   border-color: #00d9ff;
+
   color: #02070d;
 }
 
@@ -600,12 +1249,15 @@
   gap: 30px;
 
   color: #64768c;
+
   font-size: 12px;
 }
 
 .footerLogo {
   color: #f4f7fb;
+
   text-decoration: none;
+
   font-size: 16px;
   font-weight: 900;
 }
@@ -615,116 +1267,7 @@
 }
 
 /* =========================================================
-   RESPONSIVE — TABLET
-   ========================================================= */
-
-@media (max-width: 900px) {
-  .nav {
-    padding: 0 22px;
-  }
-
-  .navLinks {
-    display: none;
-  }
-
-  .hero,
-  .lessonsSection,
-  .contentSection,
-  .takeaways,
-  .nextModule {
-    width: min(100% - 40px, 700px);
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 45px;
-    padding-top: 65px;
-  }
-
-  .sectionHeader {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .lessonGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .contentSection {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .steps {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .takeaways {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-
-  .nextModule {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer {
-    padding: 35px 22px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-/* =========================================================
-   RESPONSIVE — MOBILE
-   ========================================================= */
-
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 64px;
-    letter-spacing: -4px;
-  }
-
-  .heroText {
-    font-size: 16px;
-  }
-
-  .sectionHeader h2,
-  .takeaways h2 {
-    font-size: 48px;
-  }
-
-  .contentBody h2 {
-    font-size: 38px;
-  }
-
-  .steps,
-  .useCases {
-    grid-template-columns: 1fr;
-  }
-
-  .lessonCard {
-    min-height: 270px;
-  }
-
-  .navButton {
-    padding: 12px 14px;
-    font-size: 9px;
-  }
-
-  .nextModule {
-    padding: 27px;
-  }
-
-  .nextModule h2 {
-    font-size: 28px;
-  }
-}
-
-/* =========================================================
-   FINAL COLOR SAFETY OVERRIDES
-   Ensures no yellow/orange remains on this page
+   FINAL COLOR SAFETY
    ========================================================= */
 
 .navButton,
@@ -742,7 +1285,9 @@
 
 .navLinks .active::after {
   display: none !important;
+
   background: transparent !important;
+
   box-shadow: none !important;
 }
 
@@ -760,4 +1305,199 @@
 
 .nextModule p {
   color: #8799af !important;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .learningDashboard {
+    width: min(100% - 60px, 850px);
+
+    grid-template-columns: 1fr;
+  }
+
+  .learningDashboard .progressPanel,
+  .learningDashboard .searchPanel {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    padding: 0 22px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .hero,
+  .contentSection,
+  .takeaways,
+  .nextModule {
+    width: min(100% - 40px, 700px);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+
+    padding-top: 65px;
+  }
+
+  .contentSection {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .takeaways {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .nextModule {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .footer {
+    padding: 35px 22px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .quizHeader {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .quizOptions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .learningDashboard {
+    width: calc(100% - 30px);
+
+    gap: 15px;
+
+    padding-bottom: 50px;
+  }
+
+  .learningDashboard .progressPanel,
+  .learningDashboard .searchPanel {
+    padding: 22px;
+  }
+
+  .learningDashboard .progressHeader h2 {
+    font-size: 40px;
+  }
+
+  .learningDashboard .progressHeader strong {
+    font-size: 20px;
+  }
+
+  .progressLesson {
+    grid-template-columns: 25px minmax(0, 1fr);
+
+    padding: 14px 0;
+  }
+
+  .progressCompleteButton {
+    grid-column: 2;
+
+    justify-self: start;
+  }
+
+  .searchLesson {
+    grid-template-columns: 30px minmax(0, 1fr) 20px;
+  }
+
+  .searchLessonContent p {
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-size: 64px;
+
+    letter-spacing: -4px;
+  }
+
+  .heroText {
+    font-size: 16px;
+  }
+
+  .contentBody h2 {
+    font-size: 38px;
+  }
+
+  .steps,
+  .useCases {
+    grid-template-columns: 1fr;
+  }
+
+  .quizSection {
+    width: min(100% - 40px, 700px);
+
+    padding: 80px 0;
+  }
+
+  .quizQuestion {
+    padding: 24px;
+  }
+
+  .quizFooter {
+    padding: 24px;
+  }
+
+  .quizResult {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .nextModule {
+    padding: 27px;
+  }
+
+  .nextModule h2 {
+    font-size: 28px;
+  }
+
+  .footer {
+    padding: 30px 20px;
+  }
+}
+
+/* =========================================================
+   DASHBOARD — USE EXACT PAGE BACKGROUND
+   ========================================================= */
+
+.learningDashboard {
+  background: transparent !important;
+}
+
+.learningDashboard .progressPanel,
+.learningDashboard .searchPanel,
+.learningDashboard .searchBox,
+.learningDashboard .noResults {
+  background: transparent !important;
 }
