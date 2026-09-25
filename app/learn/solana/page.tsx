@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 import styles from "./solana.module.css";
+import SolanaTransactionSimulator from "@/components/SolanaTransactionSimulator";
 
 const concepts = [
   {
@@ -870,6 +871,10 @@ export default function SolanaPage() {
           </div>
         </div>
       </section>
+
+      {/* INTERACTIVE TRANSACTION SIMULATOR */}
+
+      <SolanaTransactionSimulator />
 
       {/* ECOSYSTEM */}
 

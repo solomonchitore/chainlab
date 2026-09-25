@@ -1,6 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Home() {
+  const { t } = useLanguage();
+
+  const tx = (key: string, fallback: string) => {
+    const translated = t(key);
+    return translated === key ? fallback : translated;
+  };
+
   return (
     <main>
       {/* =========================
@@ -13,14 +23,14 @@ export default function Home() {
           </Link>
 
           <nav className="main-nav">
-            <Link href="/learn/blockchain">BLOCKCHAIN</Link>
-            <Link href="/learn/solana">SOLANA</Link>
-            <Link href="/learn/meme-coins">MEME COINS</Link>
-            <Link href="/learn/security">SECURITY</Link>
+            <Link href="/learn/blockchain">{tx("nav.blockchain", "BLOCKCHAIN")}</Link>
+            <Link href="/learn/solana">{tx("nav.solana", "SOLANA")}</Link>
+            <Link href="/learn/meme-coins">{tx("nav.memeCoins", "MEME COINS")}</Link>
+            <Link href="/learn/security">{tx("nav.security", "SECURITY")}</Link>
           </nav>
 
           <Link href="/learn" className="nav-button">
-            START LEARNING <span>→</span>
+            {t("home.hero.startLearning")} <span>→</span>
           </Link>
         </div>
       </header>
@@ -33,24 +43,21 @@ export default function Home() {
           {/* LEFT — HERO CONTENT */}
           <div className="hero-content">
             <div className="eyebrow">
-              WEB3 EDUCATION FOR EVERYONE
+              {t("home.hero.eyebrow")}
             </div>
 
             <h1>
-              LEARN.
+              {t("home.hero.learn")}
               <br />
-              BUILD.
+              {t("home.hero.build")}
               <br />
-              OWN THE
+              {t("home.hero.ownThe")}
               <br />
-              <span>FUTURE.</span>
+              <span>{t("home.hero.future")}</span>
             </h1>
 
             <p className="hero-description">
-              ChainLab is a free educational platform designed to
-              make blockchain, Solana, meme coins, tokenomics, and
-              Web3 security easier to understand through practical,
-              structured lessons.
+              {t("home.hero.description")}
             </p>
 
             <div className="hero-actions">
@@ -58,23 +65,117 @@ export default function Home() {
                 href="/learn"
                 className="primary-button"
               >
-                START LEARNING <span>→</span>
+                {t("home.hero.startLearning")} <span>→</span>
               </Link>
 
               <a
                 href="#learning-paths"
                 className="secondary-button"
               >
-                EXPLORE TOPICS
+                {t("home.hero.exploreTopics")}
               </a>
             </div>
 
             <p className="hero-note">
-              An educational resource created by Birthday Messaging,
-              built to make Web3 knowledge more accessible.
+              {t("home.hero.note")}
             </p>
           </div>
         </div>
+
+        {/* =========================
+            INTRODUCTION / LEARNING OVERVIEW
+        ========================== */}
+        <section className="hero-learning-overview" aria-labelledby="overview-heading">
+          <div className="overview-heading-group">
+            <p className="overview-kicker">{t("home.overview.kicker")}</p>
+            <h2 id="overview-heading">{tx("home.overview.title", "Build Understanding, One Concept at a Time.")}</h2>
+            <p className="overview-intro">
+              {t("home.overview.intro")}
+            </p>
+          </div>
+
+          {/* =========================
+              FIVE CORE LEARNING TOPICS
+          ========================== */}
+          <div className="overview-topics-heading">
+            <p className="overview-kicker">{t("home.topics.kicker")}</p>
+            <p className="overview-intro">
+              {t("home.topics.intro")}
+            </p>
+          </div>
+
+          <div className="overview-content-grid">
+            <article className="overview-card">
+              <span className="overview-number">{t("home.topic.blockchain.number")}</span>
+              <h3>{t("home.topic.blockchain.title")}</h3>
+              <p>
+                {t("home.topic.blockchain.description")}
+              </p>
+              <Link href="/learn/blockchain" className="overview-text-link">{t("home.topic.blockchain.link")} <span>→</span></Link>
+            </article>
+            <article className="overview-card">
+              <span className="overview-number">{t("home.topic.solana.number")}</span>
+              <h3>{t("home.topic.solana.title")}</h3>
+              <p>
+                {t("home.topic.solana.description")}
+              </p>
+              <Link href="/learn/solana" className="overview-text-link">{t("home.topic.solana.link")} <span>→</span></Link>
+            </article>
+            <article className="overview-card">
+              <span className="overview-number">{t("home.topic.memeCoins.number")}</span>
+              <h3>{t("home.topic.memeCoins.title")}</h3>
+              <p>
+                {t("home.topic.memeCoins.description")}
+              </p>
+              <Link href="/learn/meme-coins" className="overview-text-link">{t("home.topic.memeCoins.link")} <span>→</span></Link>
+            </article>
+            <article className="overview-card">
+              <span className="overview-number">{t("home.topic.security.number")}</span>
+              <h3>{t("home.topic.security.title")}</h3>
+              <p>
+                {t("home.topic.security.description")}
+              </p>
+              <Link href="/learn/security" className="overview-text-link">{t("home.topic.security.link")} <span>→</span></Link>
+            </article>
+            <article className="overview-card">
+              <span className="overview-number">{t("home.topic.dapps.number")}</span>
+              <h3>{t("home.topic.dapps.title")}</h3>
+              <p>
+                {t("home.topic.dapps.description")}
+              </p>
+              <Link href="/learn" className="overview-text-link">{t("home.bottom.browse")} <span>→</span></Link>
+            </article>
+          </div>
+
+          <div className="overview-content-grid">
+            <article className="overview-card">
+              <span className="overview-number">{t("home.understand.number")}</span>
+              <h3>{t("home.understand.title")}</h3>
+              <p>
+                {tx("home.understand.description", "Discover what a blockchain is, how distributed networks record information, and how blocks, transactions, consensus, and validators relate to one another.")}
+              </p>
+            </article>
+            <article className="overview-card">
+              <span className="overview-number">{t("home.explore.number")}</span>
+              <h3>{t("home.explore.title")}</h3>
+              <p>
+                {tx("home.explore.description", "Follow the connections between wallets, keys, tokens, smart contracts, decentralized applications, and the networks that support them.")}
+              </p>
+            </article>
+            <article className="overview-card">
+              <span className="overview-number">{t("home.practise.number")}</span>
+              <h3>{t("home.practise.title")}</h3>
+              <p>
+                {tx("home.practise.description", "Use structured explanations and practical examples to reinforce each topic, check your understanding, and build a foundation for further study.")}
+              </p>
+            </article>
+          </div>
+
+          <div className="overview-bottom-line">
+            <p><strong>{t("home.bottom.startCurious")}</strong> {t("home.bottom.description")}</p>
+            <Link href="/learn" className="overview-text-link">BROWSE THE LEARNING LIBRARY <span>→</span></Link>
+          </div>
+        </section>
 
         {/* =========================
             HERO FEATURES
@@ -84,11 +185,10 @@ export default function Home() {
             <div className="feature-icon">◇</div>
 
             <div>
-              <h3>PRACTICAL LEARNING</h3>
+              <h3>{t("home.features.practical.title")}</h3>
 
               <p>
-                Step-by-step lessons designed for beginners and
-                future Web3 builders.
+                {tx("home.features.practical.description", "Step-by-step lessons designed for beginners and future Web3 builders.")}
               </p>
             </div>
           </div>
@@ -97,11 +197,10 @@ export default function Home() {
             <div className="feature-icon">⬡</div>
 
             <div>
-              <h3>WEB3 FOCUSED</h3>
+              <h3>{t("home.features.web3.title")}</h3>
 
               <p>
-                Learn blockchain, Solana, meme coins, tokenomics,
-                and decentralized technologies.
+                {tx("home.features.web3.description", "Learn blockchain, Solana, meme coins, tokenomics, and decentralized technologies.")}
               </p>
             </div>
           </div>
@@ -110,11 +209,10 @@ export default function Home() {
             <div className="feature-icon">◈</div>
 
             <div>
-              <h3>SECURITY FIRST</h3>
+              <h3>{t("home.features.security.title")}</h3>
 
               <p>
-                Understand Web3 risks and learn how to protect
-                yourself in the decentralized world.
+                {tx("home.features.security.description", "Understand Web3 risks and learn how to protect yourself in the decentralized world.")}
               </p>
             </div>
           </div>
@@ -123,11 +221,10 @@ export default function Home() {
             <div className="feature-icon">◎</div>
 
             <div>
-              <h3>COMMUNITY DRIVEN</h3>
+              <h3>{t("home.features.community.title")}</h3>
 
               <p>
-                Build knowledge that can help you participate in
-                the evolving Web3 ecosystem.
+                {tx("home.features.community.description", "Build knowledge that can help you participate in the evolving Web3 ecosystem.")}
               </p>
             </div>
           </div>
@@ -139,17 +236,17 @@ export default function Home() {
         <div className="stats-grid">
           <div className="stat">
             <strong>05</strong>
-            <span>CORE TOPICS</span>
+            <span>{t("home.stats.coreTopics")}</span>
           </div>
 
           <div className="stat">
             <strong>04</strong>
-            <span>LEARNING PATHS</span>
+            <span>{t("home.stats.learningPaths")}</span>
           </div>
 
           <div className="stat">
             <strong>24/7</strong>
-            <span>ACCESS</span>
+            <span>{t("home.stats.access")}</span>
           </div>
 
           <div className="stat">
@@ -182,49 +279,41 @@ export default function Home() {
 
           <div className="company-content">
             <div className="section-label">
-              [ THE COMPANY BEHIND CHAINLAB ]
+              {t("home.about.label")}
             </div>
 
             <h2>
-              The Company
+              {tx("home.about.title", "The Company")}
               <br />
-              <span>Behind ChainLab.</span>
+              <span>{tx("home.about.titleSpan", "Behind ChainLab.")}</span>
             </h2>
 
             <p>
-              ChainLab is an educational initiative created by
-              Birthday Messaging to make blockchain and Web3
-              technology easier to understand.
+              {tx("home.about.description", "ChainLab is an educational initiative created by Birthday Messaging to make blockchain and Web3 technology easier to understand.")}
             </p>
 
             <p>
-              As emerging technologies continue to change the way
-              people build, communicate, transact, and participate
-              online, understanding the technology behind them
-              becomes increasingly important.
+              {tx("home.about.description2", "As emerging technologies continue to change the way people build, communicate, transact, and participate online, understanding the technology behind them becomes increasingly important.")}
             </p>
 
             <p>
-              Birthday Messaging created ChainLab as a learning
-              environment where people can explore these concepts
-              progressively — starting with the fundamentals and
-              moving toward more advanced Web3 topics.
+              {tx("home.about.description3", "Birthday Messaging created ChainLab as a learning environment where people can explore these concepts progressively — starting with the fundamentals and moving toward more advanced Web3 topics.")}
             </p>
 
             <Link
               href="/learn"
               className="primary-button company-button"
             >
-              EXPLORE CHAINLAB <span>→</span>
+              {tx("home.about.button", "EXPLORE CHAINLAB")} <span>→</span>
             </Link>
           </div>
 
           <div className="company-label">
-            BIRTHDAY MESSAGING / CHAINLAB
+            {tx("home.about.companyLabel", "BIRTHDAY MESSAGING / CHAINLAB")}
           </div>
 
           <div className="company-location">
-            EDUCATION / TECHNOLOGY / WEB3
+            {tx("home.about.location", "EDUCATION / TECHNOLOGY / WEB3")}
           </div>
         </div>
 
@@ -263,11 +352,10 @@ export default function Home() {
 
             <span>01</span>
 
-            <h3>INNOVATION</h3>
+            <h3>{t("home.values.innovation.title")}</h3>
 
             <p>
-              Exploring emerging technologies and the ideas
-              shaping the digital future.
+              {tx("home.values.innovation.description", "Exploring emerging technologies and the ideas shaping the digital future.")}
             </p>
           </div>
 
@@ -318,11 +406,10 @@ export default function Home() {
 
             <span>02</span>
 
-            <h3>EDUCATION</h3>
+            <h3>{t("home.values.education.title")}</h3>
 
             <p>
-              Turning complex technical concepts into practical
-              knowledge people can understand.
+              {tx("home.values.education.description", "Turning complex technical concepts into practical knowledge people can understand.")}
             </p>
           </div>
 
@@ -372,11 +459,10 @@ export default function Home() {
 
             <span>03</span>
 
-            <h3>ACCESS</h3>
+            <h3>{t("home.values.access.title")}</h3>
 
             <p>
-              Making foundational Web3 education available without
-              unnecessary barriers.
+              {tx("home.values.access.description", "Making foundational Web3 education available without unnecessary barriers.")}
             </p>
           </div>
         </div>
@@ -387,21 +473,18 @@ export default function Home() {
       ====================================================== */}
       <section className="mission-section">
         <div className="section-label">
-          [ WHY CHAINLAB ]
+          {t("home.mission.label")}
         </div>
 
         <div className="mission-heading">
           <h2>
-            Web3 Is Changing.
+            {tx("home.about.whyTitle", "Web3 Is Changing.")}
             <br />
             <span>Understanding It Matters.</span>
           </h2>
 
           <p>
-            Blockchain technology is more than cryptocurrency.
-            It introduces new ways of thinking about ownership,
-            digital assets, applications, identity, communities,
-            and online coordination.
+            {tx("home.about.whyIntro", "Blockchain technology is more than cryptocurrency. It introduces new ways of thinking about ownership, digital assets, applications, identity, communities, and online coordination.")}
           </p>
         </div>
 
@@ -409,44 +492,40 @@ export default function Home() {
           <article>
             <span className="number">01</span>
 
-            <h3>START WITH THE FUNDAMENTALS</h3>
+            <h3>{t("home.mission.fundamentals.title")}</h3>
 
             <p>
-              Build a strong understanding of blockchain before
-              moving into more specialized technologies.
+              {tx("home.mission.fundamentals.description", "Build a strong understanding of blockchain before moving into more specialized technologies.")}
             </p>
           </article>
 
           <article>
             <span className="number">02</span>
 
-            <h3>LEARN BY CONNECTION</h3>
+            <h3>{t("home.mission.connection.title")}</h3>
 
             <p>
-              Understand how wallets, networks, transactions,
-              tokens, applications, and users fit together.
+              {tx("home.mission.connection.description", "Understand how wallets, networks, transactions, tokens, applications, and users fit together.")}
             </p>
           </article>
 
           <article>
             <span className="number">03</span>
 
-            <h3>UNDERSTAND THE RISKS</h3>
+            <h3>{t("home.mission.risks.title")}</h3>
 
             <p>
-              Learn why security, verification, responsible
-              research, and user awareness matter in Web3.
+              {tx("home.mission.risks.description", "Learn why security, verification, responsible research, and user awareness matter in Web3.")}
             </p>
           </article>
 
           <article>
             <span className="number">04</span>
 
-            <h3>THINK LIKE A BUILDER</h3>
+            <h3>{t("home.mission.builder.title")}</h3>
 
             <p>
-              Move beyond simply using technology and develop the
-              knowledge required to understand how it works.
+              {tx("home.mission.builder.description", "Move beyond simply using technology and develop the knowledge required to understand how it works.")}
             </p>
           </article>
         </div>
@@ -462,13 +541,13 @@ export default function Home() {
         <div className="section-heading-row">
           <div>
             <div className="section-label">
-              [ EXPLORE OUR LEARNING PATHS ]
+              {t("home.paths.label")}
             </div>
 
             <h2>
-              Choose a Topic.
+              {tx("home.paths.chooseTopic", "Choose a Topic.")}
               <br />
-              <span>Start Your Journey.</span>
+              <span>{tx("home.paths.startJourney", "Start Your Journey.")}</span>
             </h2>
           </div>
 
@@ -476,7 +555,7 @@ export default function Home() {
             href="/learn"
             className="text-link"
           >
-            VIEW ALL MODULES →
+            {t("home.paths.viewAll")}
           </Link>
         </div>
 
@@ -497,16 +576,14 @@ export default function Home() {
               01
             </div>
 
-            <h3>BLOCKCHAIN</h3>
+            <h3>{t("home.paths.blockchain.title")}</h3>
 
             <p>
-              Learn the fundamentals of blockchain technology,
-              decentralized networks, transactions, blocks,
-              and validation.
+              {tx("home.paths.blockchain.description", "Learn the fundamentals of blockchain technology, decentralized networks, transactions, blocks, and validation.")}
             </p>
 
             <strong>
-              START MODULE →
+              {t("home.paths.startModule")}
             </strong>
           </Link>
 
@@ -526,15 +603,14 @@ export default function Home() {
               02
             </div>
 
-            <h3>SOLANA</h3>
+            <h3>{t("home.paths.solana.title")}</h3>
 
             <p>
-              Explore Solana, its architecture, accounts,
-              programs, transactions, validators, and ecosystem.
+              {tx("home.paths.solana.description", "Explore Solana, its architecture, accounts, programs, transactions, validators, and ecosystem.")}
             </p>
 
             <strong>
-              START MODULE →
+              {t("home.paths.startModule")}
             </strong>
           </Link>
 
@@ -554,15 +630,14 @@ export default function Home() {
               03
             </div>
 
-            <h3>MEME COINS</h3>
+            <h3>{t("home.paths.memeCoins.title")}</h3>
 
             <p>
-              Understand tokens, communities, liquidity,
-              tokenomics, market dynamics, and risk.
+              {tx("home.paths.memeCoins.description", "Understand tokens, communities, liquidity, tokenomics, market dynamics, and risk.")}
             </p>
 
             <strong>
-              START MODULE →
+              {t("home.paths.startModule")}
             </strong>
           </Link>
 
@@ -582,15 +657,14 @@ export default function Home() {
               04
             </div>
 
-            <h3>WEB3 SECURITY</h3>
+            <h3>{t("home.paths.security.title")}</h3>
 
             <p>
-              Learn how wallets, private keys, scams, phishing,
-              smart contracts, and user responsibility connect.
+              {tx("home.paths.security.description", "Learn how wallets, private keys, scams, phishing, smart contracts, and user responsibility connect.")}
             </p>
 
             <strong>
-              START MODULE →
+              {t("home.paths.startModule")}
             </strong>
           </Link>
 
@@ -607,16 +681,14 @@ export default function Home() {
               05
             </div>
 
-            <h3>TOKENOMICS</h3>
+            <h3>{t("home.paths.tokenomics.title")}</h3>
 
             <p>
-              Discover how token supply, distribution, utility,
-              incentives, and market participation influence
-              digital assets.
+              {tx("home.paths.tokenomics.description", "Discover how token supply, distribution, utility, incentives, and market participation influence digital assets.")}
             </p>
 
             <strong>
-              COMING SOON →
+              {t("home.paths.comingSoon")}
             </strong>
           </div>
         </div>
@@ -627,13 +699,13 @@ export default function Home() {
       ====================================================== */}
       <section className="process-section">
         <div className="section-label">
-          [ HOW CHAINLAB WORKS ]
+          {t("home.process.label")}
         </div>
 
         <h2>
-          A Simple Path to
+          {tx("home.process.title", "A Simple Path to")}
           <br />
-          <span>Web3 Knowledge.</span>
+          <span>{tx("home.process.titleSpan", "Web3 Knowledge.")}</span>
         </h2>
 
         <div className="process-grid">
@@ -642,11 +714,10 @@ export default function Home() {
               01
             </div>
 
-            <h3>CHOOSE A TOPIC</h3>
+            <h3>{t("home.process.choose.title")}</h3>
 
             <p>
-              Pick a subject that interests you and start with
-              the fundamentals.
+              {tx("home.process.choose.description", "Pick a subject that interests you and start with the fundamentals.")}
             </p>
           </div>
 
@@ -655,11 +726,10 @@ export default function Home() {
               02
             </div>
 
-            <h3>FOLLOW THE LESSONS</h3>
+            <h3>{t("home.process.follow.title")}</h3>
 
             <p>
-              Learn through structured explanations designed to
-              make difficult concepts easier to follow.
+              {tx("home.process.follow.description", "Learn through structured explanations designed to make difficult concepts easier to follow.")}
             </p>
           </div>
 
@@ -668,11 +738,10 @@ export default function Home() {
               03
             </div>
 
-            <h3>CONNECT THE CONCEPTS</h3>
+            <h3>{t("home.process.connect.title")}</h3>
 
             <p>
-              Understand how different parts of Web3 technology
-              work together.
+              {tx("home.process.connect.description", "Understand how different parts of Web3 technology work together.")}
             </p>
           </div>
 
@@ -681,11 +750,10 @@ export default function Home() {
               04
             </div>
 
-            <h3>KEEP EXPLORING</h3>
+            <h3>{t("home.process.keep.title")}</h3>
 
             <p>
-              Continue developing your knowledge as blockchain
-              technology evolves.
+              {tx("home.process.keep.description", "Continue developing your knowledge as blockchain technology evolves.")}
             </p>
           </div>
         </div>
@@ -709,40 +777,36 @@ export default function Home() {
 
           <div className="featured-content">
             <div className="section-label">
-              [ THE BIGGER PICTURE ]
+              {t("home.biggerPicture.label")}
             </div>
 
             <h2>
-              A More
+              {tx("home.biggerPicture.title1", "A More")}
               <br />
-              Open,
+              {tx("home.biggerPicture.title2", "Open,")}
               <br />
-              <span>Educated</span>
+              <span>{tx("home.biggerPicture.title3", "Educated")}</span>
               <br />
-              <span>Web3</span>
+              <span>{tx("home.biggerPicture.title4", "Web3")}</span>
               <br />
-              <span>Future.</span>
+              <span>{tx("home.biggerPicture.title5", "Future.")}</span>
             </h2>
 
             <p>
-              We believe people should be able to understand the
-              technologies they interact with.
+              {tx("home.biggerPicture.description", "We believe people should be able to understand the technologies they interact with.")}
             </p>
 
             <p>
-              Whether you are completely new to blockchain, exploring
-              Solana, researching meme coins, or learning how to
-              protect your digital assets, ChainLab provides a place
-              to build your foundation.
+              {tx("home.biggerPicture.description2", "Whether you are completely new to blockchain, exploring Solana, researching meme coins, or learning how to protect your digital assets, ChainLab provides a place to build your foundation.")}
             </p>
           </div>
 
           <div className="featured-label">
-            CHAINLAB / THE BIGGER PICTURE
+            {t("home.biggerPicture.labelBottom")}
           </div>
 
           <div className="featured-location">
-            EXPLORE / LEARN / BUILD
+            {t("home.biggerPicture.location")}
           </div>
         </div>
       </section>
@@ -753,32 +817,28 @@ export default function Home() {
       <section className="security-section">
         <div className="security-content">
           <div className="section-label">
-            [ SECURITY FIRST ]
+            {t("home.security.label")}
           </div>
 
           <h2>
-            Knowledge Is Part
+            {tx("home.security.title", "Knowledge Is Part")}
             <br />
-            <span>of Your Security.</span>
+            <span>{tx("home.security.titleSpan", "of Your Security.")}</span>
           </h2>
 
           <p>
-            Web3 gives users greater control, but greater control
-            also means greater responsibility.
+            {tx("home.security.description", "Web3 gives users greater control, but greater control also means greater responsibility.")}
           </p>
 
           <p>
-            Understanding wallets, private keys, transactions,
-            phishing attempts, malicious contracts, scams, and
-            common social-engineering techniques can help users
-            make better decisions.
+            {tx("home.security.description2", "Understanding wallets, private keys, transactions, phishing attempts, malicious contracts, scams, and common social-engineering techniques can help users make better decisions.")}
           </p>
 
           <Link
             href="/learn/security"
             className="secondary-button"
           >
-            LEARN WEB3 SECURITY →
+            {t("home.security.button")}
           </Link>
         </div>
 
@@ -792,7 +852,7 @@ export default function Home() {
           <div className="security-image-overlay" />
 
           <div className="security-image-label">
-            VERIFY / BEFORE YOU TRUST
+            {t("home.security.imageLabel")}
           </div>
         </div>
       </section>
@@ -804,13 +864,13 @@ export default function Home() {
         <div className="section-heading-row">
           <div>
             <div className="section-label">
-              [ THE LEARNING EXPERIENCE ]
+              {t("home.learning.label")}
             </div>
 
             <h2>
-              Built for Curious
+              {tx("home.learning.title", "Built for Curious")}
               <br />
-              <span>Learners.</span>
+              <span>{tx("home.learning.titleSpan", "Learners.")}</span>
             </h2>
           </div>
         </div>
@@ -822,18 +882,16 @@ export default function Home() {
             </div>
 
             <p>
-              ChainLab focuses on explaining the concepts instead
-              of assuming the learner already understands the
-              technology.
+              {tx("home.testimonial.beginner.description", "ChainLab focuses on explaining the concepts instead of assuming the learner already understands the technology.")}
             </p>
 
             <div className="testimonial-author">
               <strong>
-                THE BEGINNER
+                {t("home.testimonial.beginner.title")}
               </strong>
 
               <span>
-                Starting the Web3 journey
+                {t("home.testimonial.beginner.subtitle")}
               </span>
             </div>
           </article>
@@ -844,18 +902,16 @@ export default function Home() {
             </div>
 
             <p>
-              The structured approach makes it easier to connect
-              blockchain fundamentals with technologies such as
-              Solana and token ecosystems.
+              {tx("home.testimonial.explorer.description", "The structured approach makes it easier to connect blockchain fundamentals with technologies such as Solana and token ecosystems.")}
             </p>
 
             <div className="testimonial-author">
               <strong>
-                THE EXPLORER
+                {t("home.testimonial.explorer.title")}
               </strong>
 
               <span>
-                Going deeper into Web3
+                {t("home.testimonial.explorer.subtitle")}
               </span>
             </div>
           </article>
@@ -866,18 +922,16 @@ export default function Home() {
             </div>
 
             <p>
-              Security is treated as part of the learning journey,
-              not something that should only be considered after
-              using Web3 applications.
+              {tx("home.testimonial.builder.description", "Security is treated as part of the learning journey, not something that should only be considered after using Web3 applications.")}
             </p>
 
             <div className="testimonial-author">
               <strong>
-                THE BUILDER
+                {t("home.testimonial.builder.title")}
               </strong>
 
               <span>
-                Learning to think technically
+                {t("home.testimonial.builder.subtitle")}
               </span>
             </div>
           </article>
@@ -893,79 +947,69 @@ export default function Home() {
       >
         <div className="faq-heading">
           <div className="section-label">
-            [ FREQUENTLY ASKED QUESTIONS ]
+            {t("home.faq.label")}
           </div>
 
           <h2>
-            Got Questions?
+            {tx("home.faq.title", "Got Questions?")}
             <br />
-            <span>We've Got Answers.</span>
+            <span>{tx("home.faq.titleSpan", "We've Got Answers.")}</span>
           </h2>
         </div>
 
         <div className="faq-list">
           <details>
             <summary>
-              Is ChainLab free?
+              {t("home.faq.free.question")}
               <span>+</span>
             </summary>
 
             <p>
-              ChainLab is designed as a free educational resource
-              for people who want to learn about blockchain and
-              Web3 technologies.
+              {tx("home.faq.free.answer", "ChainLab is designed as a free educational resource for people who want to learn about blockchain and Web3 technologies.")}
             </p>
           </details>
 
           <details>
             <summary>
-              Do I need previous blockchain experience?
+              {t("home.faq.experience.question")}
               <span>+</span>
             </summary>
 
             <p>
-              No. The learning path starts with foundational
-              concepts and progressively introduces more
-              specialized Web3 topics.
+              {tx("home.faq.experience.answer", "No. The learning path starts with foundational concepts and progressively introduces more specialized Web3 topics.")}
             </p>
           </details>
 
           <details>
             <summary>
-              What can I learn on ChainLab?
+              {t("home.faq.learn.question")}
               <span>+</span>
             </summary>
 
             <p>
-              Current learning areas include blockchain,
-              Solana, meme coins, and Web3 security, with
-              additional topics planned as the learning system
-              expands.
+              {tx("home.faq.learn.answer", "Current learning areas include blockchain, Solana, meme coins, and Web3 security, with additional topics planned as the learning system expands.")}
             </p>
           </details>
 
           <details>
             <summary>
-              Is ChainLab an investment platform?
+              {t("home.faq.investment.question")}
               <span>+</span>
             </summary>
 
             <p>
-              No. ChainLab is an educational website. Its purpose
-              is to provide learning material and help users
-              understand Web3 concepts.
+              {tx("home.faq.investment.answer", "No. ChainLab is an educational website. Its purpose is to provide learning material and help users understand Web3 concepts.")}
             </p>
           </details>
 
           <details>
             <summary>
-              Who created ChainLab?
+              {t("home.faq.creator.question")}
               <span>+</span>
             </summary>
 
             <p>
-              ChainLab is an educational initiative created by
-              Birthday Messaging.
+              {tx("home.faq.creator.answer", "ChainLab is an educational initiative created by Birthday Messaging.")}
             </p>
           </details>
         </div>
@@ -977,25 +1021,24 @@ export default function Home() {
       <section className="final-section">
         <div className="final-inner">
           <div className="section-label">
-            [ READY TO START? ]
+            {t("home.final.label")}
           </div>
 
           <h2>
-            Your Web3
+            {tx("home.final.title", "Your Web3")}
             <br />
-            <span>Learning Journey Starts Here.</span>
+            <span>{tx("home.final.titleSpan", "Learning Journey Starts Here.")}</span>
           </h2>
 
           <p>
-            Start with the fundamentals. Build your knowledge.
-            Understand the technology.
+            {tx("home.final.description", "Start with the fundamentals. Build your knowledge. Understand the technology.")}
           </p>
 
           <Link
             href="/learn"
             className="primary-button large-button"
           >
-            START LEARNING <span>→</span>
+            {t("home.hero.startLearning")} <span>→</span>
           </Link>
         </div>
       </section>
@@ -1014,82 +1057,81 @@ export default function Home() {
             </Link>
 
             <p>
-              An educational platform created by Birthday
-              Messaging to make blockchain and Web3 easier
-              to understand.
+              {tx("footer.description", "An educational platform created by Birthday Messaging to make blockchain and Web3 easier to understand.")}
             </p>
 
             <span className="footer-tagline">
-              LEARN. PRACTICE. BUILD. SUCCEED.
+              {tx("footer.tagline", "LEARN. PRACTICE. BUILD. SUCCEED.")}
             </span>
           </div>
 
           <div className="footer-column">
-            <h4>LEARNING</h4>
+            <h4>{tx("footer.learning", "LEARNING")}</h4>
 
             <Link href="/learn">
-              Learn
+              {tx("footer.learn", "Learn")}
             </Link>
 
             <Link href="/learn/blockchain">
-              Blockchain
+              {tx("footer.blockchain", "Blockchain")}
             </Link>
 
             <Link href="/learn/solana">
-              Solana
+              {tx("footer.solana", "Solana")}
             </Link>
 
             <Link href="/learn/meme-coins">
-              Meme Coins
+              {tx("footer.memeCoins", "Meme Coins")}
             </Link>
 
             <Link href="/learn/security">
-              Security
+              {tx("footer.security", "Security")}
             </Link>
           </div>
 
           <div className="footer-column">
-            <h4>CHAINLAB</h4>
+            <h4>{tx("footer.chainlab", "CHAINLAB")}</h4>
 
             <a href="#learning-paths">
-              Learning Paths
+              {tx("footer.learningPaths", "Learning Paths")}
             </a>
 
             <a href="#about">
-              About
+              {tx("footer.about", "About")}
             </a>
 
             <a href="#faq">
-              FAQ
+              {tx("footer.faq", "FAQ")}
             </a>
           </div>
 
           <div className="footer-column">
-            <h4>COMPANY</h4>
+            <h4>{tx("footer.company", "COMPANY")}</h4>
 
             <span>
-              Birthday Messaging
+              {tx("footer.birthdayMessaging", "Birthday Messaging")}
             </span>
 
             <span>
-              Educational Initiative
+              {tx("footer.educationalInitiative", "Educational Initiative")}
             </span>
 
             <span>
-              Web3 Education
+              {tx("footer.web3Education", "Web3 Education")}
             </span>
           </div>
         </div>
 
         <div className="footer-bottom">
           <span>
-            © 2026 Birthday Messaging. All rights reserved.
+            {tx("footer.copyright", "© 2026 Birthday Messaging. All rights reserved.")}
           </span>
 
           <span>
-            CHAINLAB — WEB3 EDUCATION
+            {tx("footer.bottomTagline", "CHAINLAB — WEB3 EDUCATION")}
           </span>
         </div>
+
       </footer>
     </main>
   );
