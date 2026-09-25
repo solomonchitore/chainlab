@@ -1,47 +1,39 @@
+/* ChainLab Learn page — Lumen Edge-inspired dashboard */
+
 .page {
   min-height: 100vh;
-  background:
-    radial-gradient(
-      circle at 70% 40%,
-      rgba(0, 102, 153, 0.08),
-      transparent 35%
-    ),
-    #02070d;
   color: #f4f7fb;
+  background:
+    radial-gradient(circle at 73% 24%, rgba(0, 114, 163, .07), transparent 32%),
+    #030910;
+  overflow: hidden;
 }
-
-/* =========================
-   HEADER
-========================= */
 
 .header {
   width: 100%;
-  border-bottom: 1px solid rgba(0, 191, 255, 0.16);
-  background: rgba(2, 7, 13, 0.96);
   position: relative;
   z-index: 20;
+  border-bottom: 1px solid rgba(111, 145, 180, .19);
+  background: rgba(3, 9, 16, .97);
 }
 
 .headerInner {
-  width: min(1280px, calc(100% - 64px));
+  width: min(1370px, calc(100% - 80px));
   min-height: 78px;
   margin: 0 auto;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  gap: 40px;
+  gap: 34px;
 }
 
-.logo {
+.logo,
+.footerLogo {
   color: #f4f7fb;
   text-decoration: none;
-
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-
+  font-size: calc(21px * var(--cl-font-scale, 1));
+  font-weight: 850;
+  letter-spacing: -.045em;
   white-space: nowrap;
 }
 
@@ -49,590 +41,1028 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  gap: 34px;
+  gap: clamp(18px, 3vw, 43px);
   flex: 1;
 }
 
 .navLink {
   position: relative;
-
-  color: #a7b3c2;
+  color: #a7b6c8;
   text-decoration: none;
-
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-
-  padding: 30px 0 26px;
-
-  transition:
-    color 0.2s ease,
-    text-shadow 0.2s ease;
+  font-size: calc(12px * var(--cl-font-scale, 1));
+  font-weight: 750;
+  letter-spacing: .025em;
+  padding: 31px 0 27px;
+  transition: color .2s ease;
+  white-space: nowrap;
 }
 
-.navLink:hover {
-  color: #ffffff;
-}
+.navLink:hover,
+.navLink.active { color: #fff; }
 
-.navLink.active {
-  color: #ffffff;
-}
-
-/* Active navigation underline — WHITE */
 .navLink.active::after {
   content: "";
-
   position: absolute;
   left: 50%;
   bottom: 12px;
-
   width: 30px;
   height: 3px;
-
   transform: translateX(-50%);
-
-  background: #ffffff;
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
+  background: #fff;
+  box-shadow: 0 0 13px rgba(255,255,255,.28);
 }
 
-/* =========================
-   START BUTTON
-========================= */
-
 .startButton {
-  min-width: 190px;
-  height: 46px;
-
+  min-width: 184px;
+  height: 44px;
+  padding: 0 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 12px;
-
-  border: 1px solid #ffffff;
+  border: 1px solid #e7edf5;
   border-radius: 8px;
-
-  color: #ffffff;
+  color: #fff;
   background: transparent;
-
   text-decoration: none;
-
-  font-size: 12px;
+  font-size: calc(12px * var(--cl-font-scale, 1));
   font-weight: 800;
-  letter-spacing: 0.02em;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+  letter-spacing: .025em;
+  white-space: nowrap;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
 }
 
-.startButton span {
-  font-size: 17px;
-  line-height: 1;
-  color: #ffffff;
+.startButton span { font-size: 20px; line-height: 1; }
+.startButton:hover { color: #07101a; background: #f4f7fb; transform: translateY(-1px); }
+.startButton:hover span { color: #07101a; }
+
+.progressTrack {
+  height: 6px;
+  width: 100%;
+  background: #17212c;
+  overflow: hidden;
 }
-
-.startButton:hover {
-  background: #ffffff;
-  color: #02070d;
-
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.12);
-
-  transform: translateY(-1px);
+.progressBar {
+  height: 100%;
+  min-width: 3%;
+  background: #00d9ff;
+  box-shadow: 0 0 10px #00d9ff, 0 0 20px rgba(0,217,255,.55);
+  transition: width .15s linear;
 }
-
-.startButton:hover span {
-  color: #02070d;
-}
-
-/* =========================
-   LEARNING SECTION
-========================= */
 
 .learningSection {
-  width: min(1280px, calc(100% - 64px));
+  width: min(1370px, calc(100% - 80px));
   margin: 0 auto;
-
-  padding: 62px 0 78px;
+  padding: 44px 0 58px;
 }
 
-.introduction {
-  margin-bottom: 36px;
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(420px, .9fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 90px);
+  margin-bottom: 18px;
 }
 
+.introduction { min-width: 0; }
 .breadcrumb {
-  margin-bottom: 12px;
-
-  color: #7c9bb6;
-
-  font-size: 14px;
+  margin-bottom: 18px;
+  color: #8da8c2;
+  font-size: calc(12px * var(--cl-font-scale, 1));
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: .12em;
 }
 
 .introduction h1 {
   margin: 0;
-
-  color: #f4f7fb;
-
-  font-size: clamp(42px, 4vw, 58px);
-  line-height: 1;
-
-  font-weight: 800;
-  letter-spacing: -0.045em;
+  color: #f5f7fb;
+  font-size: clamp(calc(50px * var(--cl-font-scale, 1)), 5.2vw, calc(78px * var(--cl-font-scale, 1)));
+  line-height: .99;
+  font-weight: 850;
+  letter-spacing: -.055em;
 }
-
-/* START LEARNING period — WHITE */
-.introduction h1 span {
-  color: #ffffff;
-}
-
+.introduction h1 span { color: #9caec3; }
 .introduction p {
-  margin: 14px 0 0;
-
-  color: #86a4bf;
-
-  font-size: 18px;
-  line-height: 1.6;
+  max-width: 570px;
+  margin: 20px 0 0;
+  color: #a8bbcf;
+  font-size: calc(16px * var(--cl-font-scale, 1));
+  line-height: 1.55;
 }
 
-/* =========================
-   MODULE GRID
-========================= */
+.progressPanel {
+  padding: 24px;
+  border: 1px solid rgba(113, 147, 181, .27);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 90% 100%, rgba(0, 142, 190, .07), transparent 44%),
+    rgba(8, 17, 28, .84);
+  box-shadow: 0 15px 45px rgba(0,0,0,.13), inset 0 1px rgba(255,255,255,.015);
+}
+
+.panelEyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: #8eabc6;
+  font-size: calc(11px * var(--cl-font-scale, 1));
+  font-weight: 750;
+  letter-spacing: .12em;
+}
+.keepGoing {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #d5e4f1;
+  letter-spacing: 0;
+  font-size: calc(12px * var(--cl-font-scale, 1));
+  white-space: nowrap;
+}
+.keepGoing i {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #56d99b;
+  box-shadow: 0 0 10px rgba(86,217,155,.3);
+}
+.progressPanel h2 {
+  margin: 23px 0 7px;
+  color: #f4f7fb;
+  font-size: calc(24px * var(--cl-font-scale, 1));
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+.progressPanel > p {
+  margin: 0;
+  color: #a8bbcf;
+  font-size: calc(14px * var(--cl-font-scale, 1));
+  line-height: 1.55;
+}
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  color: #c5d9ed;
+  font-size: calc(12px * var(--cl-font-scale, 1));
+  white-space: nowrap;
+}
+.panelTrack {
+  height: 12px;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #1c2a3a;
+}
+.panelBar {
+  height: 100%;
+  min-width: 5%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #9dbfe5, #e2edf8);
+  box-shadow: 0 0 14px rgba(182,213,245,.15);
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 19px;
+}
+.stats > div {
+  min-height: 72px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid rgba(111, 145, 180, .14);
+  border-radius: 9px;
+  background: rgba(18, 30, 44, .62);
+}
+.stats strong {
+  color: #f2f6fb;
+  font-size: calc(20px * var(--cl-font-scale, 1));
+  line-height: 1;
+}
+.stats span {
+  color: #aabdd1;
+  font-size: calc(12px * var(--cl-font-scale, 1));
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 1.05fr) minmax(150px, .4fr);
+  align-items: end;
+  gap: 38px;
+  margin: 0 0 22px;
+  padding: 21px;
+  border: 1px solid rgba(111, 145, 180, .25);
+  border-radius: 13px;
+  background: rgba(9, 17, 27, .76);
+}
+.controls label {
+  display: block;
+  margin-bottom: 11px;
+  color: #91abc4;
+  font-size: calc(10px * var(--cl-font-scale, 1));
+  font-weight: 750;
+  letter-spacing: .12em;
+}
+.filterGroup {
+  min-width: 0;
+  padding-right: 24px;
+  border-right: 1px solid rgba(153, 174, 198, .65);
+}
+.topicButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.topicButton {
+  min-height: 40px;
+  padding: 0 17px;
+  border: 1px solid rgba(111, 145, 180, .28);
+  border-radius: 9px;
+  color: #bdcddd;
+  background: #0b1521;
+  font: inherit;
+  font-size: calc(12px * var(--cl-font-scale, 1));
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+.topicButton:hover { border-color: #7893af; color: #fff; }
+.topicButton.selected {
+  color: #07101a;
+  background: #eef4fa;
+  border-color: #eef4fa;
+}
+.searchBox {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 13px;
+  border: 1px solid rgba(111, 145, 180, .31);
+  border-radius: 9px;
+  background: #0b1521;
+}
+.searchBox svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: #d8e4ef;
+  stroke-width: 1.8;
+}
+.searchBox input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: #eaf1f8;
+  background: transparent;
+  font: inherit;
+  font-size: calc(12px * var(--cl-font-scale, 1));
+}
+.searchBox input::placeholder { color: #7f94aa; opacity: 1; }
+.searchBox:focus-within { border-color: #8aa6c3; box-shadow: 0 0 0 2px rgba(138,166,195,.08); }
+.sortGroup select {
+  width: 100%;
+  height: 42px;
+  padding: 0 13px;
+  border: 1px solid rgba(111, 145, 180, .31);
+  border-radius: 9px;
+  color: #edf3f9;
+  background: #0b1521;
+  font: inherit;
+  font-size: calc(12px * var(--cl-font-scale, 1));
+  cursor: pointer;
+}
+.sortGroup select:focus { outline: 1px solid #8aa6c3; }
 
 .moduleGrid {
   display: grid;
-
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
-
 .moduleCard {
   position: relative;
-
-  min-height: 295px;
-  padding: 40px 38px;
-
+  min-width: 0;
+  min-height: 342px;
+  padding: 20px 20px 17px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
   overflow: hidden;
-
-  border: 1px solid rgba(0, 153, 220, 0.22);
-  border-radius: 2px;
-
+  border: 1px solid rgba(111, 145, 180, .27);
+  border-radius: 14px;
+  color: inherit;
   background:
-    radial-gradient(
-      circle at 85% 100%,
-      rgba(0, 157, 226, 0.08),
-      transparent 32%
-    ),
-    #030910;
-
+    radial-gradient(circle at 85% 25%, rgba(85, 116, 153, .09), transparent 40%),
+    linear-gradient(145deg, rgba(13, 23, 36, .95), rgba(6, 13, 22, .98));
   text-decoration: none;
-
-  transition:
-    border-color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
 }
-
-.moduleCard::before {
-  content: "";
-
-  position: absolute;
-  left: 0;
-  bottom: 0;
-
-  width: 100%;
-  height: 1px;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 191, 255, 0.22),
-    transparent
-  );
-
-  opacity: 0;
-
-  transition: opacity 0.25s ease;
-}
-
 .moduleCard:hover {
-  border-color: rgba(0, 191, 255, 0.55);
-
-  background:
-    radial-gradient(
-      circle at 85% 100%,
-      rgba(0, 157, 226, 0.13),
-      transparent 35%
-    ),
-    #040c14;
-
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.25),
-    0 0 30px rgba(0, 157, 226, 0.04);
+  transform: translateY(-4px);
+  border-color: rgba(144, 177, 211, .62);
+  box-shadow: 0 18px 42px rgba(0,0,0,.22), 0 0 25px rgba(87,139,190,.06);
 }
-
-.moduleCard:hover::before {
-  opacity: 1;
-}
-
-/* =========================
-   MODULE NUMBER
-========================= */
-
 .moduleNumber {
-  color: #ffffff;
-
-  font-size: 14px;
-  line-height: 1;
-
+  position: relative;
+  z-index: 2;
+  color: #f0f5fa;
+  font-size: calc(12px * var(--cl-font-scale, 1));
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: .04em;
 }
-
-/* =========================
-   MODULE CONTENT
-========================= */
-
+.artwork {
+  position: absolute;
+  top: 16px;
+  right: 3px;
+  width: 88%;
+  height: 174px;
+  opacity: .82;
+  filter: drop-shadow(0 12px 14px rgba(0,0,0,.2));
+  pointer-events: none;
+}
 .moduleContent {
+  position: relative;
+  z-index: 1;
   margin-top: auto;
+  padding-top: 150px;
 }
-
 .moduleContent h2 {
-  margin: 0 0 12px;
-
-  color: #f4f7fb;
-
-  font-size: clamp(27px, 2.4vw, 35px);
-  line-height: 1;
-
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  margin: 0 0 10px;
+  color: #f3f6fa;
+  font-size: clamp(calc(19px * var(--cl-font-scale, 1)), 1.55vw, calc(23px * var(--cl-font-scale, 1)));
+  line-height: 1.05;
+  font-weight: 850;
+  letter-spacing: -.035em;
 }
-
 .moduleContent p {
-  max-width: 520px;
-
-  margin: 0 0 42px;
-
-  color: #83a0ba;
-
-  font-size: 15px;
-  line-height: 1.6;
+  min-height: 60px;
+  margin: 0 0 18px;
+  color: #a7bbcf;
+  font-size: calc(12px * var(--cl-font-scale, 1));
+  line-height: 1.5;
 }
-
-/* EXPLORE remains CYAN */
-.explore {
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.lessonCount {
   display: inline-flex;
   align-items: center;
-
-  gap: 9px;
-
-  color: #00bfff;
-
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-
-  transition:
-    color 0.2s ease,
-    gap 0.2s ease;
+  gap: 8px;
+  color: #d3dfeb;
+  font-size: calc(11px * var(--cl-font-scale, 1));
+  white-space: nowrap;
 }
-
-.explore span {
-  font-size: 16px;
-  line-height: 1;
-  color: #00bfff;
+.lessonCount svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: #d3dfeb;
+  stroke-width: 1.3;
 }
-
-.moduleCard:hover .explore {
-  color: #55d5ff;
-  gap: 13px;
+.level {
+  margin-left: auto;
+  padding: 6px 11px;
+  border: 1px solid rgba(111,145,180,.2);
+  border-radius: 20px;
+  color: #c4d3e2;
+  background: rgba(30,45,62,.55);
+  font-size: calc(10px * var(--cl-font-scale, 1));
+  white-space: nowrap;
 }
-
-.moduleCard:hover .explore span {
-  color: #55d5ff;
-}
-
-/* =========================
-   FEATURED CARD
-========================= */
-
-.featured {
-  border-color: rgba(0, 191, 255, 0.48);
-
-  background:
-    radial-gradient(
-      circle at 80% 90%,
-      rgba(0, 157, 226, 0.12),
-      transparent 35%
-    ),
-    #030910;
-}
-
-.featured:hover {
-  border-color: #00bfff;
-}
-
-/* =========================
-   FEATURED DOT
-========================= */
-
-.featureDot {
-  position: absolute;
-
-  top: 25px;
-  right: 23px;
-
-  width: 6px;
-  height: 6px;
-
+.cardArrow {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: grid;
+  place-items: center;
+  margin-left: 4px;
+  border: 1px solid #dce7f1;
   border-radius: 50%;
-
-  background: #ffffff;
-
-  box-shadow:
-    0 0 8px rgba(255, 255, 255, 0.7),
-    0 0 18px rgba(0, 191, 255, 0.25);
+  color: #f5f8fb;
+  font-size: 21px;
+  line-height: 1;
+  transition: color .2s ease, background .2s ease;
 }
+.moduleCard:hover .cardArrow { color: #08111b; background: #f5f8fb; }
 
-/* =========================
-   FOOTER
-========================= */
+.emptyState {
+  grid-column: 1 / -1;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px dashed rgba(111,145,180,.35);
+  border-radius: 12px;
+  color: #a8bbcf;
+}
+.emptyState strong { color: #edf3f9; }
 
 .footer {
-  width: 100%;
-
-  border-top: 1px solid rgba(0, 191, 255, 0.15);
-
-  background: #02070d;
+  border-top: 1px solid rgba(111, 145, 180, .18);
+  background: rgba(3, 9, 16, .9);
 }
-
 .footerInner {
-  width: min(1280px, calc(100% - 64px));
-  min-height: 118px;
-
+  width: min(1370px, calc(100% - 80px));
+  min-height: 96px;
   margin: 0 auto;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 30px;
 }
-
-.footerLogo {
-  color: #f4f7fb;
-
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-}
-
+.footerLogo { font-size: calc(14px * var(--cl-font-scale, 1)); }
 .footerTagline {
-  margin: 7px 0 0;
-
-  color: #718ba3;
-
-  font-size: 13px;
+  margin: 6px 0 0;
+  color: #829bb4;
+  font-size: calc(12px * var(--cl-font-scale, 1));
 }
-
+.footerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 9px;
+}
+.socials { display: flex; align-items: center; gap: 24px; color: #a9bbce; }
+.socials span { font-size: 14px; font-weight: 700; }
 .copyright {
   margin: 0;
-
-  color: #718ba3;
-
-  font-size: 13px;
+  color: #829bb4;
+  font-size: calc(12px * var(--cl-font-scale, 1));
 }
 
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1050px) {
-  .nav {
-    gap: 20px;
-  }
-
-  .navLink {
-    font-size: 11px;
-  }
-
-  .startButton {
-    min-width: 165px;
-  }
+@media (max-width: 1150px) {
+  .headerInner, .learningSection, .footerInner { width: min(100% - 48px, 1000px); }
+  .nav { gap: 18px; }
+  .navLink { font-size: calc(10px * var(--cl-font-scale, 1)); }
+  .startButton { min-width: 155px; padding: 0 12px; }
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(350px, .9fr); gap: 30px; }
+  .controls { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .filterGroup { grid-column: 1 / -1; padding: 0 0 18px; border-right: 0; border-bottom: 1px solid rgba(153,174,198,.3); }
+  .moduleGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .moduleCard { min-height: 330px; }
+  .moduleContent h2 { font-size: calc(25px * var(--cl-font-scale, 1)); }
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
+@media (max-width: 760px) {
   .headerInner {
-    width: min(100% - 32px, 600px);
-
+    width: calc(100% - 32px);
+    padding: 18px 0 12px;
     min-height: auto;
-
-    padding: 20px 0;
-
     flex-wrap: wrap;
-
-    gap: 20px;
+    gap: 15px;
   }
-
-  .logo {
-    font-size: 20px;
-  }
-
-  .startButton {
-    min-width: 160px;
-    height: 42px;
-  }
-
+  .logo { font-size: calc(19px * var(--cl-font-scale, 1)); }
+  .startButton { min-width: 0; height: 40px; font-size: calc(10px * var(--cl-font-scale, 1)); }
   .nav {
     order: 3;
-
     width: 100%;
-
     justify-content: flex-start;
-
     overflow-x: auto;
-
     gap: 24px;
-
-    padding-bottom: 4px;
+    padding: 0 0 3px;
   }
-
-  .navLink {
-    flex: 0 0 auto;
-
-    padding: 8px 0 15px;
-
-    font-size: 11px;
-  }
-
-  .navLink.active::after {
-    bottom: 3px;
-  }
-
-  .learningSection {
-    width: min(100% - 32px, 600px);
-
-    padding: 48px 0 60px;
-  }
-
-  .introduction {
-    margin-bottom: 28px;
-  }
-
-  .introduction h1 {
-    font-size: 43px;
-  }
-
-  .introduction p {
-    font-size: 16px;
-  }
-
-  .moduleGrid {
-    grid-template-columns: 1fr;
-
-    gap: 16px;
-  }
-
-  .moduleCard {
-    min-height: 250px;
-
-    padding: 30px 28px;
-  }
-
-  .moduleContent h2 {
-    font-size: 29px;
-  }
-
-  .moduleContent p {
-    margin-bottom: 30px;
-  }
-
+  .navLink { flex: 0 0 auto; padding: 9px 0 14px; font-size: calc(10px * var(--cl-font-scale, 1)); }
+  .navLink.active::after { bottom: 3px; }
+  .learningSection { width: calc(100% - 32px); padding: 36px 0 44px; }
+  .hero { grid-template-columns: 1fr; gap: 27px; margin-bottom: 26px; }
+  .introduction h1 { font-size: clamp(44px, 12vw, 64px); }
+  .introduction p { font-size: calc(14px * var(--cl-font-scale, 1)); }
+  .progressPanel { padding: 20px; }
+  .progressPanel h2 { font-size: calc(21px * var(--cl-font-scale, 1)); }
+  .desktopBreak { display: none; }
+  .controls { grid-template-columns: 1fr; gap: 18px; padding: 16px; }
+  .filterGroup { grid-column: auto; padding: 0 0 17px; }
+  .topicButtons { gap: 7px; }
+  .topicButton { min-height: 38px; padding: 0 12px; }
+  .moduleGrid { grid-template-columns: 1fr; gap: 14px; }
+  .moduleCard { min-height: 310px; padding: 19px; }
+  .artwork { width: 78%; right: 6px; }
+  .moduleContent { padding-top: 130px; }
+  .moduleContent h2 { font-size: calc(25px * var(--cl-font-scale, 1)); }
+  .moduleContent p { min-height: 0; }
   .footerInner {
-    width: min(100% - 32px, 600px);
-
-    min-height: auto;
-
-    padding: 30px 0;
-
-    flex-direction: column;
-
+    width: calc(100% - 32px);
+    padding: 25px 0;
     align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
   }
+  .footerRight { align-items: flex-start; }
 }
 
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 480px) {
-  .startButton {
-    width: 100%;
-  }
-
-  .moduleCard {
-    min-height: 230px;
-
-    padding: 26px 24px;
-  }
-
-  .moduleContent h2 {
-    font-size: 26px;
-  }
-
-  .moduleContent p {
-    font-size: 14px;
-  }
+@media (max-width: 420px) {
+  .startButton { padding: 0 10px; gap: 6px; }
+  .stats { gap: 8px; }
+  .stats > div { min-height: 66px; padding: 9px 3px; }
+  .stats span { font-size: calc(10px * var(--cl-font-scale, 1)); }
+  .panelEyebrow { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .cardMeta { gap: 7px; }
+  .level { padding: 5px 8px; }
+  .cardArrow { width: 34px; height: 34px; flex-basis: 34px; }
 }
+
 
 /* =========================================================
-   FINAL COLOR SAFETY OVERRIDES
-   Remove all yellow from the Learn page
-========================================================= */
+   LIGHT THEME OVERRIDES
+   Works with common theme toggles: data-theme="light",
+   .light on html/body, or .light-mode on html/body.
+   ========================================================= */
 
-.page .navLink.active::after {
-  background: #ffffff !important;
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35) !important;
+:global(html[data-theme="light"]) .page,
+:global(body[data-theme="light"]) .page,
+:global(html.light) .page,
+:global(body.light) .page,
+:global(html.light-mode) .page,
+:global(body.light-mode) .page {
+  color: #172536;
+  background:
+    radial-gradient(circle at 73% 24%, rgba(0, 132, 190, .07), transparent 32%),
+    #f3f6fa;
 }
 
-.page .startButton {
-  border-color: #ffffff !important;
-  color: #ffffff !important;
+:global(html[data-theme="light"]) .header,
+:global(body[data-theme="light"]) .header,
+:global(html.light) .header,
+:global(body.light) .header,
+:global(html.light-mode) .header,
+:global(body.light-mode) .header {
+  border-bottom-color: #d6e0eb;
+  background: rgba(250, 252, 255, .97);
 }
 
-.page .startButton span {
-  color: #ffffff !important;
+:global(html[data-theme="light"]) .logo,
+:global(body[data-theme="light"]) .logo,
+:global(html.light) .logo,
+:global(body.light) .logo,
+:global(html.light-mode) .logo,
+:global(body.light-mode) .logo,
+:global(html[data-theme="light"]) .footerLogo,
+:global(body[data-theme="light"]) .footerLogo,
+:global(html.light) .footerLogo,
+:global(body.light) .footerLogo,
+:global(html.light-mode) .footerLogo,
+:global(body.light-mode) .footerLogo {
+  color: #172536;
 }
 
-.page .startButton:hover {
-  background: #ffffff !important;
-  color: #02070d !important;
+:global(html[data-theme="light"]) .navLink,
+:global(body[data-theme="light"]) .navLink,
+:global(html.light) .navLink,
+:global(body.light) .navLink,
+:global(html.light-mode) .navLink,
+:global(body.light-mode) .navLink {
+  color: #52667c;
 }
 
-.page .startButton:hover span {
-  color: #02070d !important;
+:global(html[data-theme="light"]) .navLink:hover,
+:global(body[data-theme="light"]) .navLink:hover,
+:global(html.light) .navLink:hover,
+:global(body.light) .navLink:hover,
+:global(html.light-mode) .navLink:hover,
+:global(body.light-mode) .navLink:hover,
+:global(html[data-theme="light"]) .navLink.active,
+:global(body[data-theme="light"]) .navLink.active,
+:global(html.light) .navLink.active,
+:global(body.light) .navLink.active,
+:global(html.light-mode) .navLink.active,
+:global(body.light-mode) .navLink.active {
+  color: #102033;
 }
 
-.page .introduction h1 span {
-  color: #ffffff !important;
+:global(html[data-theme="light"]) .navLink.active::after,
+:global(body[data-theme="light"]) .navLink.active::after,
+:global(html.light) .navLink.active::after,
+:global(body.light) .navLink.active::after,
+:global(html.light-mode) .navLink.active::after,
+:global(body.light-mode) .navLink.active::after {
+  background: #172536;
+  box-shadow: none;
 }
 
-.page .moduleNumber {
-  color: #ffffff !important;
+:global(html[data-theme="light"]) .startButton,
+:global(body[data-theme="light"]) .startButton,
+:global(html.light) .startButton,
+:global(body.light) .startButton,
+:global(html.light-mode) .startButton,
+:global(body.light-mode) .startButton {
+  border-color: #52667c;
+  color: #172536;
+}
+
+:global(html[data-theme="light"]) .startButton:hover,
+:global(body[data-theme="light"]) .startButton:hover,
+:global(html.light) .startButton:hover,
+:global(body.light) .startButton:hover,
+:global(html.light-mode) .startButton:hover,
+:global(body.light-mode) .startButton:hover {
+  border-color: #172536;
+  color: #fff;
+  background: #172536;
+}
+
+:global(html[data-theme="light"]) .startButton:hover span,
+:global(body[data-theme="light"]) .startButton:hover span,
+:global(html.light) .startButton:hover span,
+:global(body.light) .startButton:hover span,
+:global(html.light-mode) .startButton:hover span,
+:global(body.light-mode) .startButton:hover span {
+  color: #fff;
+}
+
+:global(html[data-theme="light"]) .progressTrack,
+:global(body[data-theme="light"]) .progressTrack,
+:global(html.light) .progressTrack,
+:global(body.light) .progressTrack,
+:global(html.light-mode) .progressTrack,
+:global(body.light-mode) .progressTrack {
+  background: #dce5ee;
+}
+
+:global(html[data-theme="light"]) .learningSection .breadcrumb,
+:global(body[data-theme="light"]) .learningSection .breadcrumb,
+:global(html.light) .learningSection .breadcrumb,
+:global(body.light) .learningSection .breadcrumb,
+:global(html.light-mode) .learningSection .breadcrumb,
+:global(body.light-mode) .learningSection .breadcrumb {
+  color: #536b84;
+}
+
+:global(html[data-theme="light"]) .introduction h1,
+:global(body[data-theme="light"]) .introduction h1,
+:global(html.light) .introduction h1,
+:global(body.light) .introduction h1,
+:global(html.light-mode) .introduction h1,
+:global(body.light-mode) .introduction h1 {
+  color: #101e2e;
+}
+
+:global(html[data-theme="light"]) .introduction h1 span,
+:global(body[data-theme="light"]) .introduction h1 span,
+:global(html.light) .introduction h1 span,
+:global(body.light) .introduction h1 span,
+:global(html.light-mode) .introduction h1 span,
+:global(body.light-mode) .introduction h1 span {
+  color: #657b92;
+}
+
+:global(html[data-theme="light"]) .introduction p,
+:global(body[data-theme="light"]) .introduction p,
+:global(html.light) .introduction p,
+:global(body.light) .introduction p,
+:global(html.light-mode) .introduction p,
+:global(body.light-mode) .introduction p,
+:global(html[data-theme="light"]) .progressPanel > p,
+:global(body[data-theme="light"]) .progressPanel > p,
+:global(html.light) .progressPanel > p,
+:global(body.light) .progressPanel > p,
+:global(html.light-mode) .progressPanel > p,
+:global(body.light-mode) .progressPanel > p {
+  color: #52677e;
+}
+
+:global(html[data-theme="light"]) .progressPanel,
+:global(body[data-theme="light"]) .progressPanel,
+:global(html.light) .progressPanel,
+:global(body.light) .progressPanel,
+:global(html.light-mode) .progressPanel,
+:global(body.light-mode) .progressPanel {
+  border-color: #d5e0eb;
+  background: linear-gradient(145deg, #fff, #f5f8fc);
+  box-shadow: 0 12px 35px rgba(25, 48, 73, .08);
+}
+
+:global(html[data-theme="light"]) .panelEyebrow,
+:global(body[data-theme="light"]) .panelEyebrow,
+:global(html.light) .panelEyebrow,
+:global(body.light) .panelEyebrow,
+:global(html.light-mode) .panelEyebrow,
+:global(body.light-mode) .panelEyebrow {
+  color: #617991;
+}
+
+:global(html[data-theme="light"]) .keepGoing,
+:global(body[data-theme="light"]) .keepGoing,
+:global(html.light) .keepGoing,
+:global(body.light) .keepGoing,
+:global(html.light-mode) .keepGoing,
+:global(body.light-mode) .keepGoing,
+:global(html[data-theme="light"]) .progressPanel h2,
+:global(body[data-theme="light"]) .progressPanel h2,
+:global(html.light) .progressPanel h2,
+:global(body.light) .progressPanel h2,
+:global(html.light-mode) .progressPanel h2,
+:global(body.light-mode) .progressPanel h2 {
+  color: #172536;
+}
+
+:global(html[data-theme="light"]) .progressRow,
+:global(body[data-theme="light"]) .progressRow,
+:global(html.light) .progressRow,
+:global(body.light) .progressRow,
+:global(html.light-mode) .progressRow,
+:global(body.light-mode) .progressRow {
+  color: #425970;
+}
+
+:global(html[data-theme="light"]) .panelTrack,
+:global(body[data-theme="light"]) .panelTrack,
+:global(html.light) .panelTrack,
+:global(body.light) .panelTrack,
+:global(html.light-mode) .panelTrack,
+:global(body.light-mode) .panelTrack {
+  background: #dce5ef;
+}
+
+:global(html[data-theme="light"]) .panelBar,
+:global(body[data-theme="light"]) .panelBar,
+:global(html.light) .panelBar,
+:global(body.light) .panelBar,
+:global(html.light-mode) .panelBar,
+:global(body.light-mode) .panelBar {
+  background: linear-gradient(90deg, #6f8eaf, #315a82);
+}
+
+:global(html[data-theme="light"]) .stats > div,
+:global(body[data-theme="light"]) .stats > div,
+:global(html.light) .stats > div,
+:global(body.light) .stats > div,
+:global(html.light-mode) .stats > div,
+:global(body.light-mode) .stats > div {
+  border-color: #dce5ee;
+  background: #edf2f8;
+}
+
+:global(html[data-theme="light"]) .stats strong,
+:global(body[data-theme="light"]) .stats strong,
+:global(html.light) .stats strong,
+:global(body.light) .stats strong,
+:global(html.light-mode) .stats strong,
+:global(body.light-mode) .stats strong {
+  color: #172536;
+}
+
+:global(html[data-theme="light"]) .stats span,
+:global(body[data-theme="light"]) .stats span,
+:global(html.light) .stats span,
+:global(body.light) .stats span,
+:global(html.light-mode) .stats span,
+:global(body.light-mode) .stats span {
+  color: #5c7188;
+}
+
+:global(html[data-theme="light"]) .controls,
+:global(body[data-theme="light"]) .controls,
+:global(html.light) .controls,
+:global(body.light) .controls,
+:global(html.light-mode) .controls,
+:global(body.light-mode) .controls {
+  border-color: #d5e0eb;
+  background: rgba(255, 255, 255, .88);
+}
+
+:global(html[data-theme="light"]) .controls label,
+:global(body[data-theme="light"]) .controls label,
+:global(html.light) .controls label,
+:global(body.light) .controls label,
+:global(html.light-mode) .controls label,
+:global(body.light-mode) .controls label {
+  color: #536b84;
+}
+
+:global(html[data-theme="light"]) .topicButton,
+:global(body[data-theme="light"]) .topicButton,
+:global(html.light) .topicButton,
+:global(body.light) .topicButton,
+:global(html.light-mode) .topicButton,
+:global(body.light-mode) .topicButton,
+:global(html[data-theme="light"]) .searchBox,
+:global(body[data-theme="light"]) .searchBox,
+:global(html.light) .searchBox,
+:global(body.light) .searchBox,
+:global(html.light-mode) .searchBox,
+:global(body.light-mode) .searchBox,
+:global(html[data-theme="light"]) .sortGroup select,
+:global(body[data-theme="light"]) .sortGroup select,
+:global(html.light) .sortGroup select,
+:global(body.light) .sortGroup select,
+:global(html.light-mode) .sortGroup select,
+:global(body.light-mode) .sortGroup select {
+  border-color: #d0dce8;
+  color: #263b51;
+  background: #f6f9fc;
+}
+
+:global(html[data-theme="light"]) .topicButton.selected,
+:global(body[data-theme="light"]) .topicButton.selected,
+:global(html.light) .topicButton.selected,
+:global(body.light) .topicButton.selected,
+:global(html.light-mode) .topicButton.selected,
+:global(body.light-mode) .topicButton.selected {
+  border-color: #1d344b;
+  color: #fff;
+  background: #1d344b;
+}
+
+:global(html[data-theme="light"]) .topicButton:hover,
+:global(body[data-theme="light"]) .topicButton:hover,
+:global(html.light) .topicButton:hover,
+:global(body.light) .topicButton:hover,
+:global(html.light-mode) .topicButton:hover,
+:global(body.light-mode) .topicButton:hover {
+  border-color: #7189a2;
+  color: #172536;
+}
+
+:global(html[data-theme="light"]) .searchBox input,
+:global(body[data-theme="light"]) .searchBox input,
+:global(html.light) .searchBox input,
+:global(body.light) .searchBox input,
+:global(html.light-mode) .searchBox input,
+:global(body.light-mode) .searchBox input {
+  color: #172536;
+}
+
+:global(html[data-theme="light"]) .searchBox input::placeholder,
+:global(body[data-theme="light"]) .searchBox input::placeholder,
+:global(html.light) .searchBox input::placeholder,
+:global(body.light) .searchBox input::placeholder,
+:global(html.light-mode) .searchBox input::placeholder,
+:global(body.light-mode) .searchBox input::placeholder {
+  color: #71849a;
+}
+
+:global(html[data-theme="light"]) .searchBox svg,
+:global(body[data-theme="light"]) .searchBox svg,
+:global(html.light) .searchBox svg,
+:global(body.light) .searchBox svg,
+:global(html.light-mode) .searchBox svg,
+:global(body.light-mode) .searchBox svg {
+  stroke: #526a82;
+}
+
+:global(html[data-theme="light"]) .moduleCard,
+:global(body[data-theme="light"]) .moduleCard,
+:global(html.light) .moduleCard,
+:global(body.light) .moduleCard,
+:global(html.light-mode) .moduleCard,
+:global(body.light-mode) .moduleCard {
+  border-color: #d3deea;
+  background:
+    radial-gradient(circle at 85% 25%, rgba(80, 119, 160, .07), transparent 40%),
+    linear-gradient(145deg, #fff, #f3f7fb);
+  box-shadow: 0 8px 24px rgba(25, 48, 73, .045);
+}
+
+:global(html[data-theme="light"]) .moduleCard:hover,
+:global(body[data-theme="light"]) .moduleCard:hover,
+:global(html.light) .moduleCard:hover,
+:global(body.light) .moduleCard:hover,
+:global(html.light-mode) .moduleCard:hover,
+:global(body.light-mode) .moduleCard:hover {
+  border-color: #8199b2;
+  box-shadow: 0 15px 35px rgba(25, 48, 73, .1);
+}
+
+:global(html[data-theme="light"]) .moduleNumber,
+:global(body[data-theme="light"]) .moduleNumber,
+:global(html.light) .moduleNumber,
+:global(body.light) .moduleNumber,
+:global(html.light-mode) .moduleNumber,
+:global(body.light-mode) .moduleNumber,
+:global(html[data-theme="light"]) .moduleContent h2,
+:global(body[data-theme="light"]) .moduleContent h2,
+:global(html.light) .moduleContent h2,
+:global(body.light) .moduleContent h2,
+:global(html.light-mode) .moduleContent h2,
+:global(body.light-mode) .moduleContent h2 {
+  color: #172536;
+}
+
+:global(html[data-theme="light"]) .moduleContent p,
+:global(body[data-theme="light"]) .moduleContent p,
+:global(html.light) .moduleContent p,
+:global(body.light) .moduleContent p,
+:global(html.light-mode) .moduleContent p,
+:global(body.light-mode) .moduleContent p {
+  color: #52677e;
+}
+
+:global(html[data-theme="light"]) .lessonCount,
+:global(body[data-theme="light"]) .lessonCount,
+:global(html.light) .lessonCount,
+:global(body.light) .lessonCount,
+:global(html.light-mode) .lessonCount,
+:global(body.light-mode) .lessonCount,
+:global(html[data-theme="light"]) .lessonCount svg,
+:global(body[data-theme="light"]) .lessonCount svg,
+:global(html.light) .lessonCount svg,
+:global(body.light) .lessonCount svg,
+:global(html.light-mode) .lessonCount svg,
+:global(body.light-mode) .lessonCount svg {
+  color: #425970;
+  stroke: #526a82;
+}
+
+:global(html[data-theme="light"]) .level,
+:global(body[data-theme="light"]) .level,
+:global(html.light) .level,
+:global(body.light) .level,
+:global(html.light-mode) .level,
+:global(body.light-mode) .level {
+  border-color: #d6e1ec;
+  color: #52677e;
+  background: #eaf0f6;
+}
+
+:global(html[data-theme="light"]) .cardArrow,
+:global(body[data-theme="light"]) .cardArrow,
+:global(html.light) .cardArrow,
+:global(body.light) .cardArrow,
+:global(html.light-mode) .cardArrow,
+:global(body.light-mode) .cardArrow {
+  border-color: #8298ad;
+  color: #20374d;
+}
+
+:global(html[data-theme="light"]) .moduleCard:hover .cardArrow,
+:global(body[data-theme="light"]) .moduleCard:hover .cardArrow,
+:global(html.light) .moduleCard:hover .cardArrow,
+:global(body.light) .moduleCard:hover .cardArrow,
+:global(html.light-mode) .moduleCard:hover .cardArrow,
+:global(body.light-mode) .moduleCard:hover .cardArrow {
+  border-color: #1d344b;
+  color: #fff;
+  background: #1d344b;
+}
+
+:global(html[data-theme="light"]) .emptyState,
+:global(body[data-theme="light"]) .emptyState,
+:global(html.light) .emptyState,
+:global(body.light) .emptyState,
+:global(html.light-mode) .emptyState,
+:global(body.light-mode) .emptyState {
+  border-color: #bdccdc;
+  color: #52677e;
+}
+
+:global(html[data-theme="light"]) .emptyState strong,
+:global(body[data-theme="light"]) .emptyState strong,
+:global(html.light) .emptyState strong,
+:global(body.light) .emptyState strong,
+:global(html.light-mode) .emptyState strong,
+:global(body.light-mode) .emptyState strong {
+  color: #172536;
+}
+
+:global(html[data-theme="light"]) .footer,
+:global(body[data-theme="light"]) .footer,
+:global(html.light) .footer,
+:global(body.light) .footer,
+:global(html.light-mode) .footer,
+:global(body.light-mode) .footer {
+  border-top-color: #d5e0eb;
+  background: #f8fafd;
+}
+
+:global(html[data-theme="light"]) .footerTagline,
+:global(body[data-theme="light"]) .footerTagline,
+:global(html.light) .footerTagline,
+:global(body.light) .footerTagline,
+:global(html.light-mode) .footerTagline,
+:global(body.light-mode) .footerTagline,
+:global(html[data-theme="light"]) .copyright,
+:global(body[data-theme="light"]) .copyright,
+:global(html.light) .copyright,
+:global(body.light) .copyright,
+:global(html.light-mode) .copyright,
+:global(body.light-mode) .copyright,
+:global(html[data-theme="light"]) .socials,
+:global(body[data-theme="light"]) .socials,
+:global(html.light) .socials,
+:global(body.light) .socials,
+:global(html.light-mode) .socials,
+:global(body.light-mode) .socials {
+  color: #61768d;
+}
+
+:global(html[data-theme="light"]) .artwork,
+:global(body[data-theme="light"]) .artwork,
+:global(html.light) .artwork,
+:global(body.light) .artwork,
+:global(html.light-mode) .artwork,
+:global(body.light-mode) .artwork {
+  opacity: .94;
+  filter: drop-shadow(0 8px 12px rgba(28, 49, 72, .13));
 }

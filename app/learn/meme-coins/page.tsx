@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 import styles from "./meme-coins.module.css";
+import TokenomicsCalculator from "@/components/TokenomicsCalculator";
 
 const learningSections = [
   {
@@ -866,6 +867,48 @@ export default function MemeCoinsPage() {
           </div>
 
         </div>
+
+        {/* =====================================================
+            INTERACTIVE TOKENOMICS LAB
+        ====================================================== */}
+
+        <div
+          style={{
+            marginTop: "3rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <p className={styles.sectionLabel}>
+            [ INTERACTIVE TOKENOMICS LAB ]
+          </p>
+
+          <h3
+            style={{
+              margin: "0.5rem 0 0",
+              fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
+              lineHeight: 0.95,
+              letterSpacing: "-0.04em",
+              textTransform: "uppercase",
+            }}
+          >
+            BUILD THE MODEL.
+          </h3>
+
+          <p
+            style={{
+              maxWidth: 760,
+              marginTop: "1rem",
+              color: "rgba(255,255,255,0.68)",
+              lineHeight: 1.65,
+            }}
+          >
+            Experiment with supply, price, circulating supply and allocation
+            to see how tokenomics variables affect market capitalization and
+            fully diluted valuation.
+          </p>
+        </div>
+
+        <TokenomicsCalculator />
 
       </section>
 

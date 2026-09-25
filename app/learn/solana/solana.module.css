@@ -54,7 +54,7 @@
   flex-shrink: 0;
   color: var(--black);
   text-decoration: none;
-  font-size: 21px;
+  font-size: calc((21px) * var(--cl-font-scale, 1));
   font-weight: 900;
   letter-spacing: -0.8px;
 }
@@ -74,7 +74,7 @@
   position: relative;
   color: #343a3f;
   text-decoration: none;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.7px;
   transition: color 0.2s ease;
@@ -111,7 +111,7 @@
   color: var(--black);
 
   text-decoration: none;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 900;
   letter-spacing: 0.7px;
 
@@ -176,7 +176,7 @@
   text-align: right;
   color: var(--muted-light);
   font-family: "Space Mono", monospace;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.3px;
   line-height: 1.7;
@@ -186,7 +186,7 @@
   margin: 0 0 18px;
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.8px;
   line-height: 1.5;
@@ -207,7 +207,7 @@
   max-width: 950px;
 
   color: var(--black);
-  font-size: clamp(64px, 8.2vw, 126px);
+  font-size: calc((clamp(64px, 8.2vw, 126px)) * var(--cl-font-scale, 1));
   line-height: 0.86;
   letter-spacing: -0.075em;
   font-weight: 900;
@@ -228,7 +228,7 @@
   max-width: 500px;
 
   color: #3e474e;
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
   line-height: 1.75;
 }
 
@@ -249,7 +249,7 @@
 
   text-decoration: none;
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.8px;
 
@@ -282,7 +282,7 @@
 .heroStatement > span {
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.6px;
 }
@@ -292,7 +292,7 @@
   margin: 0;
 
   color: #3f484f;
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
   line-height: 1.8;
 }
 
@@ -318,7 +318,7 @@
   margin: 0;
 
   color: var(--black);
-  font-size: clamp(45px, 5.7vw, 76px);
+  font-size: calc((clamp(45px, 5.7vw, 76px)) * var(--cl-font-scale, 1));
   line-height: 0.9;
   letter-spacing: -0.065em;
   font-weight: 900;
@@ -339,7 +339,7 @@
 .transactionIntro > p {
   margin: 0;
   color: #4d565d;
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
   line-height: 1.8;
 }
 
@@ -393,14 +393,14 @@
 .foundationCard > span {
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
 .foundationCard h3 {
   margin: auto 0 15px;
   color: var(--black);
-  font-size: 22px;
+  font-size: calc((22px) * var(--cl-font-scale, 1));
   line-height: 1;
   letter-spacing: -0.7px;
   font-weight: 900;
@@ -409,7 +409,7 @@
 .foundationCard p {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
   line-height: 1.8;
 }
 
@@ -469,14 +469,14 @@
 .conceptNumber {
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
 .conceptCard h3 {
   margin: 0 0 14px;
   color: var(--black);
-  font-size: 21px;
+  font-size: calc((21px) * var(--cl-font-scale, 1));
   line-height: 1;
   letter-spacing: -0.5px;
   font-weight: 900;
@@ -485,7 +485,7 @@
 .conceptCard p {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
   line-height: 1.8;
 }
 
@@ -534,14 +534,14 @@
 .processStep > span {
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
 .processStep h3 {
   margin: 72px 0 12px;
   color: var(--black);
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
   letter-spacing: 0.8px;
   font-weight: 900;
 }
@@ -549,7 +549,7 @@
 .processStep p {
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -605,13 +605,13 @@
 
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
 .transactionFlow strong {
   color: var(--black);
-  font-size: 13px;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
   letter-spacing: 0.8px;
   font-weight: 900;
 }
@@ -619,7 +619,7 @@
 .transactionFlow p {
   margin: 13px 0 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -629,7 +629,7 @@
   justify-content: center;
 
   color: var(--blue);
-  font-size: 19px;
+  font-size: calc((19px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
@@ -697,13 +697,13 @@
 .ecosystemItem > span {
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
 .ecosystemItem strong {
   color: var(--black);
-  font-size: 23px;
+  font-size: calc((23px) * var(--cl-font-scale, 1));
   line-height: 1;
   letter-spacing: -0.6px;
   font-weight: 900;
@@ -712,7 +712,7 @@
 .ecosystemItem small {
   color: var(--muted-light);
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.2px;
 }
@@ -759,14 +759,14 @@
 
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.5px;
 }
 
 .columnTitle span {
   margin-right: 10px;
-  font-size: 17px;
+  font-size: calc((17px) * var(--cl-font-scale, 1));
 }
 
 .comparisonGrid article {
@@ -787,21 +787,21 @@
 .comparisonGrid article > span {
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 17px;
+  font-size: calc((17px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
 .comparisonGrid h3 {
   margin: 0 0 10px;
   color: var(--black);
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
   font-weight: 900;
 }
 
 .comparisonGrid article p {
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -844,7 +844,7 @@
 .term strong {
   color: var(--black);
   font-family: "Space Mono", monospace;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   letter-spacing: 1px;
   font-weight: 700;
 }
@@ -852,7 +852,7 @@
 .term p {
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -918,21 +918,21 @@
 .questions span {
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
 .questions p {
   margin: 0;
   color: #3f484f;
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
 .checkHint {
   margin: 30px 0 0;
   color: var(--muted-light);
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -960,7 +960,7 @@
   margin: 0 0 10px;
   color: var(--blue);
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.7px;
 }
@@ -968,7 +968,7 @@
 .nextModule h2 {
   margin: 0 0 18px;
   color: var(--black);
-  font-size: clamp(34px, 4vw, 52px);
+  font-size: calc((clamp(34px, 4vw, 52px)) * var(--cl-font-scale, 1));
   line-height: 0.95;
   letter-spacing: -0.055em;
   font-weight: 900;
@@ -982,7 +982,7 @@
   max-width: 680px;
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
   line-height: 1.8;
 }
 
@@ -1004,7 +1004,7 @@
 
   text-decoration: none;
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.8px;
 
@@ -1040,13 +1040,13 @@
 
   background: #ffffff;
   color: var(--muted-light);
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
 }
 
 .footerLogo {
   color: var(--black);
   text-decoration: none;
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
   font-weight: 900;
 }
 
@@ -1069,7 +1069,7 @@
 .footerLinks a {
   color: #4f5961;
   text-decoration: none;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
@@ -1264,7 +1264,7 @@
   }
 
   .heroTitle h1 {
-    font-size: clamp(58px, 15vw, 88px);
+    font-size: calc((clamp(58px, 15vw, 88px)) * var(--cl-font-scale, 1));
     letter-spacing: -0.075em;
   }
 
@@ -1273,7 +1273,7 @@
   }
 
   .heroDescription p {
-    font-size: 15px;
+    font-size: calc((15px) * var(--cl-font-scale, 1));
   }
 
   .heroStatement {
@@ -1293,7 +1293,7 @@
   .ecosystemHeader h2,
   .termsHeading h2,
   .checkBox h2 {
-    font-size: clamp(42px, 12vw, 62px);
+    font-size: calc((clamp(42px, 12vw, 62px)) * var(--cl-font-scale, 1));
   }
 
   .foundationGrid,
@@ -1453,7 +1453,7 @@
   color: var(--blue);
 
   font-family: "Space Mono", monospace;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.5px;
 }
@@ -1463,7 +1463,7 @@
 
   color: var(--black);
 
-  font-size: 36px;
+  font-size: calc((36px) * var(--cl-font-scale, 1));
   line-height: 1;
   letter-spacing: -1.5px;
   font-weight: 900;
@@ -1471,14 +1471,14 @@
 
 .progressHeader h2 span {
   color: var(--muted-light);
-  font-size: 17px;
+  font-size: calc((17px) * var(--cl-font-scale, 1));
 }
 
 .progressHeader > strong {
   color: var(--blue);
 
   font-family: "Space Mono", monospace;
-  font-size: 22px;
+  font-size: calc((22px) * var(--cl-font-scale, 1));
 }
 
 .progressTrack {
@@ -1508,7 +1508,7 @@
 
   color: var(--muted);
 
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   line-height: 1.6;
 }
 
@@ -1541,14 +1541,14 @@
   color: var(--blue);
 
   font-family: "Space Mono", monospace;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
 .progressItem strong {
   color: var(--black);
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.2px;
 }
@@ -1564,7 +1564,7 @@
   color: var(--muted);
 
   font-family: "Space Mono", monospace;
-  font-size: 7px;
+  font-size: calc((7px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.7px;
 
@@ -1636,7 +1636,7 @@
 .searchIcon {
   color: var(--blue);
 
-  font-size: 25px;
+  font-size: calc((25px) * var(--cl-font-scale, 1));
   line-height: 1;
 }
 
@@ -1651,7 +1651,7 @@
   color: var(--black);
 
   font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
 }
 
 .searchInput::placeholder {
@@ -1677,7 +1677,7 @@
   background: transparent;
   color: var(--muted-light);
 
-  font-size: 21px;
+  font-size: calc((21px) * var(--cl-font-scale, 1));
   line-height: 1;
 
   cursor: pointer;
@@ -1693,7 +1693,7 @@
   color: var(--muted-light);
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   line-height: 1.6;
 }
 
@@ -1731,7 +1731,7 @@
   color: var(--blue);
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
@@ -1740,7 +1740,7 @@
 
   color: var(--black);
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 900;
   letter-spacing: 0.3px;
 }
@@ -1750,14 +1750,14 @@
 
   color: var(--muted-light);
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   line-height: 1.45;
 }
 
 .searchArrow {
   color: var(--blue);
 
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
   text-align: right;
 }
 
@@ -1767,7 +1767,7 @@
   color: var(--muted-light);
 
   font-family: "Space Mono", monospace;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -1805,7 +1805,7 @@
 
   color: var(--black);
 
-  font-size: clamp(45px, 5.7vw, 76px);
+  font-size: calc((clamp(45px, 5.7vw, 76px)) * var(--cl-font-scale, 1));
   line-height: 0.9;
 
   letter-spacing: -0.065em;
@@ -1821,7 +1821,7 @@
 
   color: #4d565d;
 
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
   line-height: 1.8;
 }
 
@@ -1857,7 +1857,7 @@
   color: var(--blue);
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.4px;
 }
@@ -1867,7 +1867,7 @@
 
   color: var(--black);
 
-  font-size: 20px;
+  font-size: calc((20px) * var(--cl-font-scale, 1));
   line-height: 1.35;
   font-weight: 900;
 }
@@ -1896,7 +1896,7 @@
   color: #505a62;
 
   font-family: "Inter", Arial, sans-serif;
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
 
   text-align: left;
 
@@ -1935,7 +1935,7 @@
   color: var(--blue);
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
@@ -1961,7 +1961,7 @@
   color: var(--blue) !important;
 
   font-family: "Space Mono", monospace;
-  font-size: 8px !important;
+  font-size: calc((8px !important) * var(--cl-font-scale, 1));
   font-weight: 700 !important;
   letter-spacing: 1px;
 }
@@ -1970,7 +1970,7 @@
   color: #7a848b !important;
 
   font-family: "Space Mono", monospace;
-  font-size: 8px !important;
+  font-size: calc((8px !important) * var(--cl-font-scale, 1));
   font-weight: 700 !important;
   letter-spacing: 1px;
 }
@@ -1989,7 +1989,7 @@
   color: var(--blue);
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.3px;
 }
@@ -1999,7 +1999,7 @@
 
   color: var(--muted);
 
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -2027,7 +2027,7 @@
   color: #ffffff;
 
   font-family: "Space Mono", monospace;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.8px;
 
@@ -2043,7 +2043,7 @@
 
   color: var(--blue);
 
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
 }
 
 .quizSubmit:hover:not(:disabled) {
@@ -2074,7 +2074,7 @@
   color: var(--blue);
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.4px;
 }
@@ -2082,7 +2082,7 @@
 .quizResult > div strong {
   color: var(--black);
 
-  font-size: 30px;
+  font-size: calc((30px) * var(--cl-font-scale, 1));
   line-height: 1;
   font-weight: 900;
 }
@@ -2099,7 +2099,7 @@
   color: var(--black);
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.8px;
 
@@ -2147,7 +2147,7 @@
   }
 
   .progressItem strong {
-    font-size: 9px;
+    font-size: calc((9px) * var(--cl-font-scale, 1));
   }
 
   .quizSection {
@@ -2183,4 +2183,252 @@
   .quizReset {
     width: 100%;
   }
+}
+
+/* =========================================================
+   SOLANA — GLOBAL LIGHT MODE OVERRIDES
+   ========================================================= */
+
+:global(html[data-theme="light"]) .page {
+  background: #f5f7fa !important;
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page .header,
+:global(html[data-theme="light"]) .page .hero,
+:global(html[data-theme="light"]) .page .lessonsSection,
+:global(html[data-theme="light"]) .page .contentSection,
+:global(html[data-theme="light"]) .page .takeaways,
+:global(html[data-theme="light"]) .page .nextModule,
+:global(html[data-theme="light"]) .page .footer {
+  background: #f5f7fa !important;
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page h1,
+:global(html[data-theme="light"]) .page h2,
+:global(html[data-theme="light"]) .page h3,
+:global(html[data-theme="light"]) .page h4,
+:global(html[data-theme="light"]) .page h5,
+:global(html[data-theme="light"]) .page h6,
+:global(html[data-theme="light"]) .page p,
+:global(html[data-theme="light"]) .page li,
+:global(html[data-theme="light"]) .page strong,
+:global(html[data-theme="light"]) .page label {
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page .heroCard,
+:global(html[data-theme="light"]) .page .lessonCard,
+:global(html[data-theme="light"]) .page .contentCard,
+:global(html[data-theme="light"]) .page .progressPanel,
+:global(html[data-theme="light"]) .page .searchPanel,
+:global(html[data-theme="light"]) .page .quizCard {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: rgba(17, 24, 39, 0.15) !important;
+}
+
+:global(html[data-theme="light"]) .page input,
+:global(html[data-theme="light"]) .page textarea {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: rgba(17, 24, 39, 0.2) !important;
+}
+
+:global(html[data-theme="light"]) .page a {
+  color: #007f9e;
+}
+
+/* =========================================================
+   SOLANA PAGE — DARK THEME FIX
+   Keep the existing layout and switch the page's surfaces,
+   typography, borders, inputs, and learning tools for dark mode.
+   ========================================================= */
+
+:global(html[data-theme="dark"]) .page {
+  --black: #f8fafc;
+  --black-soft: #e2e8f0;
+  --blue: #22d3ee;
+  --blue-dark: #67e8f9;
+  --blue-soft: rgba(34, 211, 238, 0.12);
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.22);
+  --muted: #b6c2cf;
+  --muted-light: #8b9aaa;
+  --card: #0d1420;
+  --soft: #080d16;
+
+  background: #05070d !important;
+  color: #f8fafc !important;
+}
+
+:global(html[data-theme="dark"]) .page .nav,
+:global(html[data-theme="dark"]) .page .hero,
+:global(html[data-theme="dark"]) .page .fundamentals,
+:global(html[data-theme="dark"]) .page .conceptsSection,
+:global(html[data-theme="dark"]) .page .processSection,
+:global(html[data-theme="dark"]) .page .transactionSection,
+:global(html[data-theme="dark"]) .page .ecosystemSection,
+:global(html[data-theme="dark"]) .page .comparisonSection,
+:global(html[data-theme="dark"]) .page .termsSection,
+:global(html[data-theme="dark"]) .page .checkSection,
+:global(html[data-theme="dark"]) .page .nextModule,
+:global(html[data-theme="dark"]) .page .quizSection,
+:global(html[data-theme="dark"]) .page .footer {
+  background-color: #05070d !important;
+  color: #f8fafc !important;
+  border-color: var(--line) !important;
+}
+
+:global(html[data-theme="dark"]) .page .nav {
+  background: rgba(5, 7, 13, 0.94) !important;
+}
+
+:global(html[data-theme="dark"]) .page .hero {
+  background:
+    radial-gradient(circle at 82% 42%, rgba(34, 211, 238, 0.09), transparent 31%),
+    #080d16 !important;
+}
+
+:global(html[data-theme="dark"]) .page .conceptsSection,
+:global(html[data-theme="dark"]) .page .transactionSection,
+:global(html[data-theme="dark"]) .page .comparisonSection,
+:global(html[data-theme="dark"]) .page .checkSection,
+:global(html[data-theme="dark"]) .page .quizSection {
+  background: #080d16 !important;
+}
+
+:global(html[data-theme="dark"]) .page .foundationCard,
+:global(html[data-theme="dark"]) .page .conceptGrid,
+:global(html[data-theme="dark"]) .page .conceptCard,
+:global(html[data-theme="dark"]) .page .processTrack,
+:global(html[data-theme="dark"]) .page .processStep,
+:global(html[data-theme="dark"]) .page .transactionFlow,
+:global(html[data-theme="dark"]) .page .ecosystemItem,
+:global(html[data-theme="dark"]) .page .comparisonGrid,
+:global(html[data-theme="dark"]) .page .checkBox,
+:global(html[data-theme="dark"]) .page .questions > div,
+:global(html[data-theme="dark"]) .page .progressPanel,
+:global(html[data-theme="dark"]) .page .searchPanel,
+:global(html[data-theme="dark"]) .page .quizCard,
+:global(html[data-theme="dark"]) .page .quizQuestion,
+:global(html[data-theme="dark"]) .page .quizFooter {
+  background: #0d1420 !important;
+  color: #f8fafc !important;
+  border-color: var(--line) !important;
+}
+
+:global(html[data-theme="dark"]) .page h1,
+:global(html[data-theme="dark"]) .page h2,
+:global(html[data-theme="dark"]) .page h3,
+:global(html[data-theme="dark"]) .page h4,
+:global(html[data-theme="dark"]) .page h5,
+:global(html[data-theme="dark"]) .page h6,
+:global(html[data-theme="dark"]) .page p,
+:global(html[data-theme="dark"]) .page strong,
+:global(html[data-theme="dark"]) .page li,
+:global(html[data-theme="dark"]) .page label,
+:global(html[data-theme="dark"]) .page .logo,
+:global(html[data-theme="dark"]) .page .navLinks a,
+:global(html[data-theme="dark"]) .page .navButton,
+:global(html[data-theme="dark"]) .page .footerLogo,
+:global(html[data-theme="dark"]) .page .footerLinks a {
+  color: #e5edf5 !important;
+}
+
+:global(html[data-theme="dark"]) .page .eyebrow,
+:global(html[data-theme="dark"]) .page .heroStatement > span,
+:global(html[data-theme="dark"]) .page .foundationCard > span,
+:global(html[data-theme="dark"]) .page .conceptNumber,
+:global(html[data-theme="dark"]) .page .processStep > span,
+:global(html[data-theme="dark"]) .page .transactionFlow span,
+:global(html[data-theme="dark"]) .page .ecosystemItem > span,
+:global(html[data-theme="dark"]) .page .columnTitle,
+:global(html[data-theme="dark"]) .page .comparisonGrid article > span,
+:global(html[data-theme="dark"]) .page .toolEyebrow,
+:global(html[data-theme="dark"]) .page .searchLabel,
+:global(html[data-theme="dark"]) .page .progressHeader > strong,
+:global(html[data-theme="dark"]) .page .searchIcon,
+:global(html[data-theme="dark"]) .page .searchArrow,
+:global(html[data-theme="dark"]) .page .quizQuestionTop > span:first-child {
+  color: #22d3ee !important;
+}
+
+:global(html[data-theme="dark"]) .page .heroDescription p,
+:global(html[data-theme="dark"]) .page .heroStatement p,
+:global(html[data-theme="dark"]) .page .sectionHeading > p,
+:global(html[data-theme="dark"]) .page .processHeader > p,
+:global(html[data-theme="dark"]) .page .ecosystemHeader > p,
+:global(html[data-theme="dark"]) .page .transactionIntro > p,
+:global(html[data-theme="dark"]) .page .foundationCard p,
+:global(html[data-theme="dark"]) .page .conceptCard p,
+:global(html[data-theme="dark"]) .page .processStep p,
+:global(html[data-theme="dark"]) .page .transactionFlow p,
+:global(html[data-theme="dark"]) .page .comparisonGrid article p,
+:global(html[data-theme="dark"]) .page .term p,
+:global(html[data-theme="dark"]) .page .checkHint,
+:global(html[data-theme="dark"]) .page .progressText,
+:global(html[data-theme="dark"]) .page .searchResult p,
+:global(html[data-theme="dark"]) .page .quizIntro,
+:global(html[data-theme="dark"]) .page .quizExplanation p,
+:global(html[data-theme="dark"]) .page .footer > div > p {
+  color: #b6c2cf !important;
+}
+
+:global(html[data-theme="dark"]) .page input,
+:global(html[data-theme="dark"]) .page textarea,
+:global(html[data-theme="dark"]) .page select,
+:global(html[data-theme="dark"]) .page .searchBox,
+:global(html[data-theme="dark"]) .page .quizOption,
+:global(html[data-theme="dark"]) .page .quizReset,
+:global(html[data-theme="dark"]) .page .progressItem button {
+  background: #080d16 !important;
+  color: #e5edf5 !important;
+  border-color: var(--line-strong) !important;
+}
+
+:global(html[data-theme="dark"]) .page input::placeholder,
+:global(html[data-theme="dark"]) .page textarea::placeholder,
+:global(html[data-theme="dark"]) .page .searchInput::placeholder {
+  color: #8b9aaa !important;
+}
+
+:global(html[data-theme="dark"]) .page .progressTrack {
+  background: #263244 !important;
+}
+
+:global(html[data-theme="dark"]) .page .progressFill {
+  background: #22d3ee !important;
+}
+
+:global(html[data-theme="dark"]) .page .progressItemCompleted,
+:global(html[data-theme="dark"]) .page .quizOptionSelected,
+:global(html[data-theme="dark"]) .page .quizOptionCorrect,
+:global(html[data-theme="dark"]) .page .quizExplanation {
+  background: #152334 !important;
+}
+
+:global(html[data-theme="dark"]) .page .navButton,
+:global(html[data-theme="dark"]) .page .heroButton,
+:global(html[data-theme="dark"]) .page .nextButton,
+:global(html[data-theme="dark"]) .page .quizSubmit {
+  background: #22d3ee !important;
+  color: #041018 !important;
+  border-color: #22d3ee !important;
+}
+
+:global(html[data-theme="dark"]) .page .navButton span,
+:global(html[data-theme="dark"]) .page .heroButton span,
+:global(html[data-theme="dark"]) .page .nextButton span,
+:global(html[data-theme="dark"]) .page .quizSubmit span {
+  color: #041018 !important;
+}
+
+:global(html[data-theme="dark"]) .page .navButton:hover,
+:global(html[data-theme="dark"]) .page .heroButton:hover,
+:global(html[data-theme="dark"]) .page .nextButton:hover,
+:global(html[data-theme="dark"]) .page .quizSubmit:hover:not(:disabled) {
+  background: #67e8f9 !important;
+  color: #041018 !important;
 }

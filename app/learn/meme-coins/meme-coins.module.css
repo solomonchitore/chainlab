@@ -48,7 +48,7 @@
 
 .logo {
   color: #ffffff;
-  font-size: 22px;
+  font-size: calc((22px) * var(--cl-font-scale, 1));
   font-weight: 900;
   letter-spacing: -1px;
   white-space: nowrap;
@@ -64,7 +64,7 @@
   position: relative;
 
   color: #91a1b3;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 900;
   letter-spacing: 0.8px;
 
@@ -109,7 +109,7 @@
 
   color: #00c8ff;
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 900;
   letter-spacing: 0.8px;
 
@@ -120,7 +120,7 @@
 }
 
 .navButton span {
-  font-size: 17px;
+  font-size: calc((17px) * var(--cl-font-scale, 1));
 }
 
 .navButton:hover {
@@ -136,7 +136,7 @@
 .sectionLabel {
   color: #00c8ff;
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -198,7 +198,7 @@
 .heroContent h1 {
   margin: 0;
 
-  font-size: clamp(76px, 9vw, 145px);
+  font-size: calc((clamp(76px, 9vw, 145px)) * var(--cl-font-scale, 1));
 
   line-height: 0.82;
 
@@ -221,7 +221,7 @@
 
   color: #ffffff;
 
-  font-size: 17px;
+  font-size: calc((17px) * var(--cl-font-scale, 1));
 
   line-height: 1.85;
 }
@@ -243,7 +243,7 @@
   justify-content: center;
   gap: 15px;
 
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 900;
   letter-spacing: 0.7px;
 
@@ -265,7 +265,7 @@
 }
 
 .primaryButton span {
-  font-size: 20px;
+  font-size: calc((20px) * var(--cl-font-scale, 1));
 }
 
 .primaryButton:hover {
@@ -392,7 +392,7 @@
 .introductionGrid h2 {
   margin: 0;
 
-  font-size: clamp(50px, 6vw, 88px);
+  font-size: calc((clamp(50px, 6vw, 88px)) * var(--cl-font-scale, 1));
 
   line-height: 0.9;
 
@@ -414,7 +414,7 @@
 
   color: #ffffff;
 
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
 
   line-height: 1.85;
 }
@@ -442,7 +442,7 @@
 .sectionHeading h2 {
   margin: 0;
 
-  font-size: clamp(52px, 6vw, 92px);
+  font-size: calc((clamp(52px, 6vw, 92px)) * var(--cl-font-scale, 1));
 
   line-height: 0.9;
 
@@ -493,7 +493,7 @@
 .conceptCard > span {
   color: #00c8ff;
 
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 
@@ -503,7 +503,7 @@
 .conceptCard h3 {
   margin: 65px 0 15px;
 
-  font-size: 17px;
+  font-size: calc((17px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 
@@ -515,7 +515,7 @@
 
   color: #ffffff;
 
-  font-size: 13px;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
 
   line-height: 1.75;
 }
@@ -549,7 +549,7 @@
 .mechanicsHeader h2 {
   margin: 0;
 
-  font-size: clamp(55px, 6vw, 92px);
+  font-size: calc((clamp(55px, 6vw, 92px)) * var(--cl-font-scale, 1));
 
   line-height: 0.9;
 
@@ -567,7 +567,7 @@
 
   color: #ffffff;
 
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
 
   line-height: 1.8;
 }
@@ -597,7 +597,7 @@
 .processNumber {
   color: #00c8ff;
 
-  font-size: 30px;
+  font-size: calc((30px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 
@@ -607,7 +607,7 @@
 .processTitle h3 {
   margin: 0;
 
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 
@@ -621,7 +621,7 @@
 
   color: #ffffff;
 
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
 
   line-height: 1.8;
 }
@@ -661,7 +661,7 @@
 .tokenomicsHeader h2 {
   margin: 0;
 
-  font-size: clamp(55px, 6vw, 92px);
+  font-size: calc((clamp(55px, 6vw, 92px)) * var(--cl-font-scale, 1));
 
   line-height: 0.9;
 
@@ -679,7 +679,7 @@
 
   color: #ffffff;
 
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
 
   line-height: 1.8;
 }
@@ -709,7 +709,7 @@
 .metric > span {
   color: #00c8ff;
 
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 
@@ -719,7 +719,7 @@
 .metric h3 {
   margin: 70px 0 15px;
 
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 }
@@ -729,7 +729,7 @@
 
   color: #ffffff;
 
-  font-size: 13px;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
 
   line-height: 1.75;
 }
@@ -761,7 +761,7 @@
 .riskHeader h2 {
   margin: 0;
 
-  font-size: clamp(55px, 6vw, 92px);
+  font-size: calc((clamp(55px, 6vw, 92px)) * var(--cl-font-scale, 1));
 
   line-height: 0.9;
 
@@ -779,7 +779,7 @@
 
   color: #ffffff;
 
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
 
   line-height: 1.8;
 }
@@ -820,7 +820,7 @@
 .riskCard > span {
   color: #00c8ff;
 
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 }
@@ -828,7 +828,7 @@
 .riskCard h3 {
   margin: 55px 0 15px;
 
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 }
@@ -838,7 +838,7 @@
 
   color: #ffffff;
 
-  font-size: 13px;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
 
   line-height: 1.75;
 }
@@ -870,7 +870,7 @@
 .researchBox > h2 {
   margin: 0;
 
-  font-size: clamp(52px, 6vw, 88px);
+  font-size: calc((clamp(52px, 6vw, 88px)) * var(--cl-font-scale, 1));
 
   line-height: 0.9;
 
@@ -890,7 +890,7 @@
 
   color: #ffffff;
 
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
 
   line-height: 1.8;
 }
@@ -922,7 +922,7 @@
 .researchGrid span {
   color: #00c8ff;
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 }
@@ -930,7 +930,7 @@
 .researchGrid h3 {
   margin: 45px 0 12px;
 
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 }
@@ -940,7 +940,7 @@
 
   color: #ffffff;
 
-  font-size: 13px;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
 
   line-height: 1.75;
 }
@@ -962,7 +962,7 @@
 .knowledge h2 {
   margin: 35px 0 0;
 
-  font-size: clamp(55px, 6vw, 92px);
+  font-size: calc((clamp(55px, 6vw, 92px)) * var(--cl-font-scale, 1));
 
   line-height: 0.9;
 
@@ -982,7 +982,7 @@
 
   color: #ffffff;
 
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
 
   line-height: 1.8;
 }
@@ -1008,7 +1008,7 @@
 .checkItem > span {
   color: #00c8ff;
 
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 }
@@ -1016,7 +1016,7 @@
 .checkItem h3 {
   margin: 0 0 12px;
 
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 
@@ -1030,7 +1030,7 @@
 
   color: #ffffff;
 
-  font-size: 13px;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
 
   line-height: 1.75;
 }
@@ -1058,7 +1058,7 @@
 .nextModule h2 {
   margin: 35px 0 0;
 
-  font-size: clamp(65px, 9vw, 125px);
+  font-size: calc((clamp(65px, 9vw, 125px)) * var(--cl-font-scale, 1));
 
   line-height: 0.84;
 
@@ -1078,7 +1078,7 @@
 
   color: #ffffff;
 
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
 
   line-height: 1.8;
 }
@@ -1114,13 +1114,13 @@
 }
 
 .footerBrand .logo {
-  font-size: 18px;
+  font-size: calc((18px) * var(--cl-font-scale, 1));
 }
 
 .footerBrand span {
   color: #718296;
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
 }
 
 .footerLinks {
@@ -1132,7 +1132,7 @@
 .footerLinks a {
   color: #718296;
 
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
 
   font-weight: 900;
 
@@ -1150,7 +1150,7 @@
 
   color: #4f6072;
 
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
 
   letter-spacing: 0.5px;
 }
@@ -1178,7 +1178,7 @@
   }
 
   .heroContent h1 {
-    font-size: clamp(70px, 8vw, 110px);
+    font-size: calc((clamp(70px, 8vw, 110px)) * var(--cl-font-scale, 1));
   }
 
   .heroCard {
@@ -1228,7 +1228,7 @@
 
     padding: 0 15px;
 
-    font-size: 9px;
+    font-size: calc((9px) * var(--cl-font-scale, 1));
   }
 
   .hero {
@@ -1246,13 +1246,13 @@
   }
 
   .heroContent h1 {
-    font-size: clamp(65px, 17vw, 100px);
+    font-size: calc((clamp(65px, 17vw, 100px)) * var(--cl-font-scale, 1));
 
     letter-spacing: -5px;
   }
 
   .heroText {
-    font-size: 15px;
+    font-size: calc((15px) * var(--cl-font-scale, 1));
 
     line-height: 1.8;
   }
@@ -1300,7 +1300,7 @@
   .tokenomicsHeader h2,
   .riskHeader h2,
   .knowledge h2 {
-    font-size: 52px;
+    font-size: calc((52px) * var(--cl-font-scale, 1));
 
     letter-spacing: -3px;
   }
@@ -1358,7 +1358,7 @@
   }
 
   .researchBox > h2 {
-    font-size: 52px;
+    font-size: calc((52px) * var(--cl-font-scale, 1));
 
     letter-spacing: -3px;
   }
@@ -1378,7 +1378,7 @@
   }
 
   .nextModule h2 {
-    font-size: 70px;
+    font-size: calc((70px) * var(--cl-font-scale, 1));
 
     letter-spacing: -4px;
   }
@@ -1406,7 +1406,7 @@
 
 @media (max-width: 560px) {
   .logo {
-    font-size: 18px;
+    font-size: calc((18px) * var(--cl-font-scale, 1));
   }
 
   .navButton {
@@ -1418,13 +1418,13 @@
   }
 
   .heroContent h1 {
-    font-size: 68px;
+    font-size: calc((68px) * var(--cl-font-scale, 1));
 
     letter-spacing: -4px;
   }
 
   .heroText {
-    font-size: 14px;
+    font-size: calc((14px) * var(--cl-font-scale, 1));
   }
 
   .heroCard {
@@ -1441,7 +1441,7 @@
   .tokenomicsHeader h2,
   .riskHeader h2,
   .knowledge h2 {
-    font-size: 46px;
+    font-size: calc((46px) * var(--cl-font-scale, 1));
 
     letter-spacing: -3px;
   }
@@ -1468,11 +1468,11 @@
   }
 
   .processNumber {
-    font-size: 24px;
+    font-size: calc((24px) * var(--cl-font-scale, 1));
   }
 
   .researchBox > h2 {
-    font-size: 45px;
+    font-size: calc((45px) * var(--cl-font-scale, 1));
   }
 
   .researchGrid > div {
@@ -1480,13 +1480,13 @@
   }
 
   .nextModule h2 {
-    font-size: 60px;
+    font-size: calc((60px) * var(--cl-font-scale, 1));
 
     letter-spacing: -4px;
   }
 
   .nextModule p {
-    font-size: 14px;
+    font-size: calc((14px) * var(--cl-font-scale, 1));
   }
 
   .primaryButton,
@@ -1495,7 +1495,7 @@
 
     padding: 0 20px;
 
-    font-size: 10px;
+    font-size: calc((10px) * var(--cl-font-scale, 1));
   }
 }
 
@@ -1672,7 +1672,7 @@
   color: #ffffff;
 
   font-family: "Space Mono", monospace;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.5px;
 }
@@ -1682,21 +1682,21 @@
 
   color: #ffffff;
 
-  font-size: 36px;
+  font-size: calc((36px) * var(--cl-font-scale, 1));
   line-height: 1;
   font-weight: 900;
 }
 
 .progressHeader h2 span {
   color: rgba(255, 255, 255, 0.45);
-  font-size: 17px;
+  font-size: calc((17px) * var(--cl-font-scale, 1));
 }
 
 .progressHeader > strong {
   color: #ffffff;
 
   font-family: "Space Mono", monospace;
-  font-size: 22px;
+  font-size: calc((22px) * var(--cl-font-scale, 1));
 }
 
 .progressTrack {
@@ -1723,7 +1723,7 @@
 
   color: rgba(255, 255, 255, 0.55);
 
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   line-height: 1.6;
 }
 
@@ -1753,14 +1753,14 @@
   color: #ffffff;
 
   font-family: "Space Mono", monospace;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
 .progressItem strong {
   color: #ffffff;
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
@@ -1775,7 +1775,7 @@
   color: #ffffff;
 
   font-family: "Space Mono", monospace;
-  font-size: 7px;
+  font-size: calc((7px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.7px;
 
@@ -1840,7 +1840,7 @@
 .searchIcon {
   color: #ffffff;
 
-  font-size: 25px;
+  font-size: calc((25px) * var(--cl-font-scale, 1));
 }
 
 .searchInput {
@@ -1854,7 +1854,7 @@
   color: #ffffff;
 
   font-family: "Inter", Arial, sans-serif;
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
 }
 
 .searchInput::placeholder {
@@ -1878,7 +1878,7 @@
   background: transparent;
   color: #ffffff;
 
-  font-size: 21px;
+  font-size: calc((21px) * var(--cl-font-scale, 1));
 
   cursor: pointer;
 }
@@ -1889,7 +1889,7 @@
   color: rgba(255, 255, 255, 0.45);
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
 }
 
 .searchResults {
@@ -1926,7 +1926,7 @@
   color: #ffffff;
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
 }
 
 .searchResult strong {
@@ -1934,7 +1934,7 @@
 
   color: #ffffff;
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 900;
 }
 
@@ -1943,14 +1943,14 @@
 
   color: rgba(255, 255, 255, 0.45);
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   line-height: 1.45;
 }
 
 .searchArrow {
   color: #ffffff;
 
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
   text-align: right;
 }
 
@@ -1960,7 +1960,7 @@
   color: rgba(255, 255, 255, 0.5);
 
   font-family: "Space Mono", monospace;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
 }
 
 /* =========================================================
@@ -1999,7 +1999,7 @@
   color: #ffffff;
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 1.4px;
 }
@@ -2009,7 +2009,7 @@
 
   color: #ffffff;
 
-  font-size: 20px;
+  font-size: calc((20px) * var(--cl-font-scale, 1));
   line-height: 1.35;
   font-weight: 900;
 }
@@ -2038,7 +2038,7 @@
   color: rgba(255, 255, 255, 0.7);
 
   font-family: "Inter", Arial, sans-serif;
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
 
   text-align: left;
 
@@ -2075,7 +2075,7 @@
   color: #ffffff;
 
   font-family: "Space Mono", monospace;
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
 }
 
 .quizOptionSelected {
@@ -2108,7 +2108,7 @@
 
   font-family: "Space Mono", monospace;
 
-  font-size: 8px !important;
+  font-size: calc((8px) * var(--cl-font-scale, 1)) !important;
 
   font-weight: 700 !important;
 
@@ -2130,7 +2130,7 @@
 
   font-family: "Space Mono", monospace;
 
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
 
   font-weight: 700;
 
@@ -2142,7 +2142,7 @@
 
   color: rgba(255, 255, 255, 0.6);
 
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
 
   line-height: 1.7;
 }
@@ -2172,7 +2172,7 @@
 
   font-family: "Space Mono", monospace;
 
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
 
   font-weight: 700;
 
@@ -2218,7 +2218,7 @@
 
   font-family: "Space Mono", monospace;
 
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
 
   font-weight: 700;
 
@@ -2228,7 +2228,7 @@
 .quizResult > div strong {
   color: #ffffff;
 
-  font-size: 30px;
+  font-size: calc((30px) * var(--cl-font-scale, 1));
 
   line-height: 1;
 
@@ -2248,7 +2248,7 @@
 
   font-family: "Space Mono", monospace;
 
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
 
   font-weight: 700;
 
@@ -2299,4 +2299,244 @@
   .quizReset {
     width: 100%;
   }
+}
+
+/* =========================================================
+   MEME COINS — GLOBAL LIGHT MODE OVERRIDES
+   ========================================================= */
+
+:global(html[data-theme="light"]) .page {
+  background: #f5f7fa !important;
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page .header,
+:global(html[data-theme="light"]) .page .hero,
+:global(html[data-theme="light"]) .page .introduction,
+:global(html[data-theme="light"]) .page .concepts,
+:global(html[data-theme="light"]) .page .mechanics,
+:global(html[data-theme="light"]) .page .tokenomics,
+:global(html[data-theme="light"]) .page .risks,
+:global(html[data-theme="light"]) .page .research,
+:global(html[data-theme="light"]) .page .knowledge,
+:global(html[data-theme="light"]) .page .nextModule,
+:global(html[data-theme="light"]) .page .footer {
+  background: #f5f7fa !important;
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page,
+:global(html[data-theme="light"]) .page h1,
+:global(html[data-theme="light"]) .page h2,
+:global(html[data-theme="light"]) .page h3,
+:global(html[data-theme="light"]) .page h4,
+:global(html[data-theme="light"]) .page h5,
+:global(html[data-theme="light"]) .page h6,
+:global(html[data-theme="light"]) .page p,
+:global(html[data-theme="light"]) .page span,
+:global(html[data-theme="light"]) .page a,
+:global(html[data-theme="light"]) .page strong,
+:global(html[data-theme="light"]) .page em,
+:global(html[data-theme="light"]) .page small,
+:global(html[data-theme="light"]) .page li {
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page .heroCard,
+:global(html[data-theme="light"]) .page .conceptCard,
+:global(html[data-theme="light"]) .page .metric,
+:global(html[data-theme="light"]) .page .riskCard,
+:global(html[data-theme="light"]) .page .researchBox,
+:global(html[data-theme="light"]) .page .researchGrid > div {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: rgba(17, 24, 39, 0.15) !important;
+}
+
+:global(html[data-theme="light"]) .page input,
+:global(html[data-theme="light"]) .page textarea,
+:global(html[data-theme="light"]) .page select {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: rgba(17, 24, 39, 0.2) !important;
+}
+
+:global(html[data-theme="light"]) .page .primaryButton,
+:global(html[data-theme="light"]) .page .secondaryButton,
+:global(html[data-theme="light"]) .page .navButton {
+  background: #111827 !important;
+  color: #ffffff !important;
+  border-color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page .primaryButton span,
+:global(html[data-theme="light"]) .page .secondaryButton span,
+:global(html[data-theme="light"]) .page .navButton span {
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   MEME COINS — LIGHT MODE READABILITY FIX
+   Dark mode keeps the existing black-and-white design above.
+   ========================================================= */
+
+:global(html[data-theme="light"]) .page {
+  background: #f4f6f9 !important;
+  color: #172033 !important;
+  font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+}
+
+:global(html[data-theme="light"]) .page .header,
+:global(html[data-theme="light"]) .page .hero,
+:global(html[data-theme="light"]) .page .introduction,
+:global(html[data-theme="light"]) .page .concepts,
+:global(html[data-theme="light"]) .page .mechanics,
+:global(html[data-theme="light"]) .page .tokenomics,
+:global(html[data-theme="light"]) .page .risks,
+:global(html[data-theme="light"]) .page .research,
+:global(html[data-theme="light"]) .page .knowledge,
+:global(html[data-theme="light"]) .page .nextModule,
+:global(html[data-theme="light"]) .page .footer {
+  background: #f4f6f9 !important;
+  color: #172033 !important;
+}
+
+:global(html[data-theme="light"]) .page .header {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: #d9e0e9 !important;
+}
+
+:global(html[data-theme="light"]) .page .page,
+:global(html[data-theme="light"]) .page *,
+:global(html[data-theme="light"]) .page h1,
+:global(html[data-theme="light"]) .page h2,
+:global(html[data-theme="light"]) .page h3,
+:global(html[data-theme="light"]) .page h4,
+:global(html[data-theme="light"]) .page h5,
+:global(html[data-theme="light"]) .page h6,
+:global(html[data-theme="light"]) .page p,
+:global(html[data-theme="light"]) .page span,
+:global(html[data-theme="light"]) .page a,
+:global(html[data-theme="light"]) .page strong,
+:global(html[data-theme="light"]) .page em,
+:global(html[data-theme="light"]) .page small,
+:global(html[data-theme="light"]) .page li,
+:global(html[data-theme="light"]) .page button {
+  color: #172033 !important;
+}
+
+:global(html[data-theme="light"]) .page .heroContent h1 span,
+:global(html[data-theme="light"]) .page .introductionGrid h2 span,
+:global(html[data-theme="light"]) .page .sectionHeading h2 span,
+:global(html[data-theme="light"]) .page .mechanicsHeader h2 span,
+:global(html[data-theme="light"]) .page .tokenomicsHeader h2 span,
+:global(html[data-theme="light"]) .page .riskHeader h2 span,
+:global(html[data-theme="light"]) .page .researchBox > h2 span,
+:global(html[data-theme="light"]) .page .knowledge h2 span,
+:global(html[data-theme="light"]) .page .nextModule h2 span,
+:global(html[data-theme="light"]) .page .sectionLabel,
+:global(html[data-theme="light"]) .page .conceptCard > span,
+:global(html[data-theme="light"]) .page .processNumber,
+:global(html[data-theme="light"]) .page .metric > span,
+:global(html[data-theme="light"]) .page .riskCard > span,
+:global(html[data-theme="light"]) .page .researchGrid span,
+:global(html[data-theme="light"]) .page .checkItem > span {
+  color: #6d28d9 !important;
+  text-shadow: none !important;
+}
+
+:global(html[data-theme="light"]) .page .conceptCard,
+:global(html[data-theme="light"]) .page .metric,
+:global(html[data-theme="light"]) .page .riskCard,
+:global(html[data-theme="light"]) .page .researchBox,
+:global(html[data-theme="light"]) .page .researchGrid > div,
+:global(html[data-theme="light"]) .page .progressPanel,
+:global(html[data-theme="light"]) .page .searchPanel,
+:global(html[data-theme="light"]) .page .quizCard {
+  background: #ffffff !important;
+  color: #172033 !important;
+  border-color: #d7dee8 !important;
+}
+
+:global(html[data-theme="light"]) .page .heroCard {
+  background: #e8edf4 !important;
+}
+
+:global(html[data-theme="light"]) .page .progressTrack {
+  background: #e1e6ee !important;
+}
+
+:global(html[data-theme="light"]) .page .progressFill {
+  background: #6d28d9 !important;
+  box-shadow: none !important;
+}
+
+:global(html[data-theme="light"]) .page .searchBox,
+:global(html[data-theme="light"]) .page .quizOption,
+:global(html[data-theme="light"]) .page .quizFooter,
+:global(html[data-theme="light"]) .page .quizReset {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+:global(html[data-theme="light"]) .page .searchInput,
+:global(html[data-theme="light"]) .page input,
+:global(html[data-theme="light"]) .page textarea,
+:global(html[data-theme="light"]) .page select {
+  background: transparent !important;
+  color: #172033 !important;
+}
+
+:global(html[data-theme="light"]) .page .searchInput::placeholder {
+  color: #64748b !important;
+}
+
+:global(html[data-theme="light"]) .page .progressText,
+:global(html[data-theme="light"]) .page .searchResult p,
+:global(html[data-theme="light"]) .page .quizExplanation p,
+:global(html[data-theme="light"]) .page .searchNoResults,
+:global(html[data-theme="light"]) .page .footerBrand span,
+:global(html[data-theme="light"]) .page .footer > p {
+  color: #475569 !important;
+}
+
+:global(html[data-theme="light"]) .page .primaryButton,
+:global(html[data-theme="light"]) .page .secondaryButton,
+:global(html[data-theme="light"]) .page .navButton,
+:global(html[data-theme="light"]) .page .quizSubmit,
+:global(html[data-theme="light"]) .page .progressItem button {
+  background: #172033 !important;
+  color: #ffffff !important;
+  border-color: #172033 !important;
+}
+
+:global(html[data-theme="light"]) .page .primaryButton span,
+:global(html[data-theme="light"]) .page .navButton span {
+  color: #ffffff !important;
+}
+
+:global(html[data-theme="light"]) .page .quizOptionSelected,
+:global(html[data-theme="light"]) .page .quizOptionCorrect {
+  background: #ede9fe !important;
+  border-color: #7c3aed !important;
+  color: #3b0764 !important;
+}
+
+:global(html[data-theme="light"]) .page .quizOptionWrong {
+  background: #f1f5f9 !important;
+  color: #64748b !important;
+}
+
+:global(html[data-theme="light"]) .page .quizExplanation {
+  background: #f8fafc !important;
+  border-left-color: #7c3aed !important;
+}
+
+:global(html[data-theme="light"]) .page .progressItemCompleted {
+  background: #f1f5f9 !important;
+}
+
+:global(html[data-theme="light"]) .page .conceptCard:hover,
+:global(html[data-theme="light"]) .page .riskCard:hover {
+  background: #f8fafc !important;
 }

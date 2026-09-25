@@ -25,7 +25,7 @@
 .logo {
   color: #ffffff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.08em;
 }
@@ -40,7 +40,7 @@
 .homeLink {
   color: #ffffff;
   text-decoration: none;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.1em;
   transition: color 0.2s ease;
@@ -60,7 +60,7 @@
 
 .homeLink span {
   color: #22d3ee;
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
 }
 
 /* HERO */
@@ -95,7 +95,7 @@
   display: flex;
   justify-content: space-between;
   color: #22d3ee;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.15em;
 }
@@ -109,14 +109,14 @@
 .eyebrow {
   margin-bottom: 28px;
   color: #22d3ee;
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.18em;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(72px, 14vw, 190px);
+  font-size: calc((clamp(72px, 14vw, 190px)) * var(--cl-font-scale, 1));
   line-height: 0.82;
   letter-spacing: -0.075em;
   font-weight: 800;
@@ -130,7 +130,7 @@
   max-width: 700px;
   margin-top: 60px;
   color: #ffffff;
-  font-size: 18px;
+  font-size: calc((18px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -141,7 +141,7 @@
   align-items: center;
   gap: 18px;
   color: #22d3ee;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.15em;
 }
@@ -177,7 +177,7 @@
 .checklistHeader h2,
 .knowledge h2 {
   margin: 0 0 50px;
-  font-size: clamp(50px, 7vw, 105px);
+  font-size: calc((clamp(50px, 7vw, 105px)) * var(--cl-font-scale, 1));
   line-height: 0.88;
   letter-spacing: -0.065em;
 }
@@ -186,7 +186,7 @@
   max-width: 760px;
   margin: 0 0 28px;
   color: #ffffff;
-  font-size: 20px;
+  font-size: calc((20px) * var(--cl-font-scale, 1));
   line-height: 1.8;
 }
 
@@ -201,13 +201,13 @@
   display: block;
   margin-bottom: 15px;
   color: #22d3ee;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.15em;
 }
 
 .definitionBox strong {
-  font-size: clamp(18px, 2.5vw, 30px);
+  font-size: calc((clamp(18px, 2.5vw, 30px)) * var(--cl-font-scale, 1));
   letter-spacing: -0.02em;
 }
 
@@ -240,7 +240,7 @@
 .checklistHeader p {
   margin: 0;
   color: #ffffff;
-  font-size: 18px;
+  font-size: calc((18px) * var(--cl-font-scale, 1));
   line-height: 1.75;
 }
 
@@ -265,13 +265,13 @@
 
 .securityCard > span {
   color: #22d3ee;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
 .securityCard h3 {
   margin: 70px 0 20px;
-  font-size: 30px;
+  font-size: calc((30px) * var(--cl-font-scale, 1));
   letter-spacing: -0.03em;
 }
 
@@ -279,7 +279,7 @@
   max-width: 500px;
   margin: 0;
   color: #ffffff;
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
   line-height: 1.75;
 }
 
@@ -299,13 +299,13 @@
 
 .number {
   color: #22d3ee;
-  font-size: 13px;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
 .transactionRow h3 {
   margin: 0 0 18px;
-  font-size: 30px;
+  font-size: calc((30px) * var(--cl-font-scale, 1));
   letter-spacing: -0.03em;
 }
 
@@ -313,7 +313,7 @@
   max-width: 700px;
   margin: 0;
   color: #ffffff;
-  font-size: 17px;
+  font-size: calc((17px) * var(--cl-font-scale, 1));
   line-height: 1.75;
 }
 
@@ -334,20 +334,20 @@
 
 .threatCard > span {
   color: #22d3ee;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.12em;
 }
 
 .threatCard h3 {
   margin: 65px 0 18px;
-  font-size: 24px;
+  font-size: calc((24px) * var(--cl-font-scale, 1));
 }
 
 .threatCard p {
   margin: 0;
   color: #ffffff;
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
   line-height: 1.75;
 }
 
@@ -368,13 +368,13 @@
 
 .contractPoint > span {
   color: #22d3ee;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
 .contractPoint h3 {
   margin: 60px 0 18px;
-  font-size: 24px;
+  font-size: calc((24px) * var(--cl-font-scale, 1));
 }
 
 .contractPoint p {
@@ -402,20 +402,20 @@
 
 .checkItem > span {
   color: #22d3ee;
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
 .checkItem h3 {
   margin: 0 0 12px;
-  font-size: 20px;
+  font-size: calc((20px) * var(--cl-font-scale, 1));
 }
 
 .checkItem p {
   max-width: 700px;
   margin: 0;
   color: #ffffff;
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -433,7 +433,7 @@
   max-width: 680px;
   margin: 0 auto 80px;
   color: #ffffff;
-  font-size: 18px;
+  font-size: calc((18px) * var(--cl-font-scale, 1));
   line-height: 1.75;
 }
 
@@ -455,21 +455,21 @@
 
 .questions span {
   color: #22d3ee;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.12em;
 }
 
 .questions h3 {
   margin: 55px 0 18px;
-  font-size: 20px;
+  font-size: calc((20px) * var(--cl-font-scale, 1));
   line-height: 1.35;
 }
 
 .questions p {
   margin: 0;
   color: #ffffff;
-  font-size: 15px;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -514,7 +514,7 @@
 
 .finalCta h2 {
   margin: 70px 0 35px;
-  font-size: clamp(65px, 11vw, 150px);
+  font-size: calc((clamp(65px, 11vw, 150px)) * var(--cl-font-scale, 1));
   line-height: 0.82;
   letter-spacing: -0.075em;
 }
@@ -527,7 +527,7 @@
   max-width: 680px;
   margin: 0 auto;
   color: #ffffff;
-  font-size: 18px;
+  font-size: calc((18px) * var(--cl-font-scale, 1));
   line-height: 1.75;
 }
 
@@ -541,7 +541,7 @@
   color: #ffffff;
   text-decoration: none;
   border: 1px solid #22d3ee;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.1em;
   transition: all 0.25s ease;
@@ -549,7 +549,7 @@
 
 .finalCtaButton span {
   color: #22d3ee;
-  font-size: 18px;
+  font-size: calc((18px) * var(--cl-font-scale, 1));
 }
 
 .finalCtaButton:hover {
@@ -579,14 +579,14 @@
 }
 
 .footerBrand strong {
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
   letter-spacing: 0.08em;
 }
 
 .footerBrand span,
 .footer p {
   color: #ffffff;
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
 }
 
 .footer p {
@@ -601,7 +601,7 @@
 .footerLinks a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 700;
   letter-spacing: 0.08em;
 }
@@ -674,12 +674,12 @@
   }
 
   .heroTop {
-    font-size: 8px;
+    font-size: calc((8px) * var(--cl-font-scale, 1));
   }
 
   .heroText {
     margin-top: 45px;
-    font-size: 16px;
+    font-size: calc((16px) * var(--cl-font-scale, 1));
   }
 
   .introductionContent,
@@ -1024,7 +1024,7 @@
 
   color: #000000;
 
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.14em;
 }
@@ -1034,19 +1034,19 @@
 
   color: #000000;
 
-  font-size: 38px;
+  font-size: calc((38px) * var(--cl-font-scale, 1));
   line-height: 1;
   font-weight: 900;
 }
 
 .progressHeader h2 span {
   color: rgba(0, 0, 0, 0.4);
-  font-size: 18px;
+  font-size: calc((18px) * var(--cl-font-scale, 1));
 }
 
 .progressHeader > strong {
   color: #000000;
-  font-size: 22px;
+  font-size: calc((22px) * var(--cl-font-scale, 1));
   font-weight: 900;
 }
 
@@ -1068,7 +1068,7 @@
 
   color: rgba(0, 0, 0, 0.55);
 
-  font-size: 11px;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
   line-height: 1.6;
 }
 
@@ -1096,13 +1096,13 @@
 
 .progressItem > div > span {
   color: #000000;
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
 .progressItem strong {
   color: #000000;
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
@@ -1114,7 +1114,7 @@
   background: transparent;
   color: #000000;
 
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.06em;
 
@@ -1175,7 +1175,7 @@
 
 .searchIcon {
   color: #000000;
-  font-size: 24px;
+  font-size: calc((24px) * var(--cl-font-scale, 1));
 }
 
 .searchInput {
@@ -1188,7 +1188,7 @@
   background: transparent;
   color: #000000;
 
-  font-size: 14px;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
 }
 
 .searchInput::placeholder {
@@ -1205,7 +1205,7 @@
   background: transparent;
   color: #000000;
 
-  font-size: 21px;
+  font-size: calc((21px) * var(--cl-font-scale, 1));
 
   cursor: pointer;
 }
@@ -1215,7 +1215,7 @@
 
   color: rgba(0, 0, 0, 0.5);
 
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 700;
 }
 
@@ -1253,7 +1253,7 @@
 .searchResult > span:first-child {
   color: #000000 !important;
 
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
@@ -1262,7 +1262,7 @@
 
   color: #000000 !important;
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   font-weight: 900;
 }
 
@@ -1271,13 +1271,13 @@
 
   color: rgba(0, 0, 0, 0.5) !important;
 
-  font-size: 10px;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
   line-height: 1.45;
 }
 
 .searchArrow {
   color: #000000 !important;
-  font-size: 16px;
+  font-size: calc((16px) * var(--cl-font-scale, 1));
   text-align: right;
 }
 
@@ -1286,7 +1286,7 @@
 
   color: rgba(0, 0, 0, 0.5);
 
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
@@ -1325,7 +1325,7 @@
 .quizQuestionTop > span:first-child {
   color: #000000;
 
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.12em;
 }
@@ -1335,7 +1335,7 @@
 
   color: #000000;
 
-  font-size: 20px;
+  font-size: calc((20px) * var(--cl-font-scale, 1));
   line-height: 1.4;
   font-weight: 900;
 }
@@ -1363,7 +1363,7 @@
   background: #ffffff;
   color: #000000;
 
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
 
   text-align: left;
 
@@ -1397,7 +1397,7 @@
 
   color: #000000;
 
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 800;
 }
 
@@ -1421,7 +1421,7 @@
 .quizIncorrect {
   color: #000000 !important;
 
-  font-size: 8px !important;
+  font-size: calc((8px) * var(--cl-font-scale, 1)) !important;
   font-weight: 800 !important;
   letter-spacing: 0.08em;
 }
@@ -1439,7 +1439,7 @@
 .quizExplanation span {
   color: #000000 !important;
 
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.12em;
 }
@@ -1449,7 +1449,7 @@
 
   color: rgba(0, 0, 0, 0.6) !important;
 
-  font-size: 12px;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
   line-height: 1.7;
 }
 
@@ -1476,7 +1476,7 @@
 
   color: #ffffff;
 
-  font-size: 9px;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.08em;
 
@@ -1514,7 +1514,7 @@
 .quizResult > div span {
   color: #000000 !important;
 
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.12em;
 }
@@ -1522,7 +1522,7 @@
 .quizResult > div strong {
   color: #000000 !important;
 
-  font-size: 30px;
+  font-size: calc((30px) * var(--cl-font-scale, 1));
   line-height: 1;
   font-weight: 900;
 }
@@ -1538,7 +1538,7 @@
 
   color: #000000;
 
-  font-size: 8px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
   font-weight: 800;
   letter-spacing: 0.08em;
 
@@ -1607,4 +1607,400 @@
   .quizSubmit {
     width: 100%;
   }
+}
+
+/* =========================================================
+   SECURITY — GLOBAL LIGHT MODE OVERRIDES
+   ========================================================= */
+
+:global(html[data-theme="light"]) .page {
+  background: #f5f7fa !important;
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page section,
+:global(html[data-theme="light"]) .page .hero,
+:global(html[data-theme="light"]) .page .lessonsSection,
+:global(html[data-theme="light"]) .page .contentSection,
+:global(html[data-theme="light"]) .page .takeaways,
+:global(html[data-theme="light"]) .page .nextModule,
+:global(html[data-theme="light"]) .page .footer {
+  background: #f5f7fa !important;
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page h1,
+:global(html[data-theme="light"]) .page h2,
+:global(html[data-theme="light"]) .page h3,
+:global(html[data-theme="light"]) .page h4,
+:global(html[data-theme="light"]) .page h5,
+:global(html[data-theme="light"]) .page h6,
+:global(html[data-theme="light"]) .page p,
+:global(html[data-theme="light"]) .page li,
+:global(html[data-theme="light"]) .page strong,
+:global(html[data-theme="light"]) .page label {
+  color: #111827 !important;
+}
+
+:global(html[data-theme="light"]) .page article,
+:global(html[data-theme="light"]) .page .heroCard,
+:global(html[data-theme="light"]) .page .lessonCard,
+:global(html[data-theme="light"]) .page .progressPanel,
+:global(html[data-theme="light"]) .page .searchPanel,
+:global(html[data-theme="light"]) .page .quizCard {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: rgba(17, 24, 39, 0.15) !important;
+}
+
+:global(html[data-theme="light"]) .page input,
+:global(html[data-theme="light"]) .page textarea,
+:global(html[data-theme="light"]) .page select {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: rgba(17, 24, 39, 0.2) !important;
+}
+
+:global(html[data-theme="light"]) .page a {
+  color: #007f9e;
+}
+
+
+/* =========================================================
+   SECURITY PAGE — DARK THEME FIX
+   These rules intentionally come last to override the
+   earlier light-only editorial colors while preserving layout.
+   ========================================================= */
+
+:global(html[data-theme="dark"]) .page {
+  background: #05070d !important;
+  color: #f8fafc !important;
+}
+
+:global(html[data-theme="dark"]) .page,
+:global(html[data-theme="dark"]) .page * {
+  color: #f8fafc;
+}
+
+:global(html[data-theme="dark"]) .page .nav,
+:global(html[data-theme="dark"]) .page .hero,
+:global(html[data-theme="dark"]) .page .introduction,
+:global(html[data-theme="dark"]) .page .wallet,
+:global(html[data-theme="dark"]) .page .transactions,
+:global(html[data-theme="dark"]) .page .threats,
+:global(html[data-theme="dark"]) .page .contracts,
+:global(html[data-theme="dark"]) .page .checklist,
+:global(html[data-theme="dark"]) .page .knowledge,
+:global(html[data-theme="dark"]) .page .finalCta,
+:global(html[data-theme="dark"]) .page .footer {
+  background-color: #05070d !important;
+  color: #f8fafc !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+:global(html[data-theme="dark"]) .page .nav {
+  background: rgba(5, 7, 13, 0.94) !important;
+}
+
+:global(html[data-theme="dark"]) .page .definitionBox,
+:global(html[data-theme="dark"]) .page .securityCard,
+:global(html[data-theme="dark"]) .page .threatCard,
+:global(html[data-theme="dark"]) .page .contractPoint,
+:global(html[data-theme="dark"]) .page .questions > div,
+:global(html[data-theme="dark"]) .page .progressPanel,
+:global(html[data-theme="dark"]) .page .searchPanel,
+:global(html[data-theme="dark"]) .page .quizCard,
+:global(html[data-theme="dark"]) .page .quizQuestion,
+:global(html[data-theme="dark"]) .page .quizFooter,
+:global(html[data-theme="dark"]) .page .finalCtaInner {
+  background: #0d1420 !important;
+  color: #f8fafc !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+:global(html[data-theme="dark"]) .page .walletGrid,
+:global(html[data-theme="dark"]) .page .threatGrid,
+:global(html[data-theme="dark"]) .page .contractGrid,
+:global(html[data-theme="dark"]) .page .questions,
+:global(html[data-theme="dark"]) .page .transactionSteps,
+:global(html[data-theme="dark"]) .page .checkList,
+:global(html[data-theme="dark"]) .page .progressItems,
+:global(html[data-theme="dark"]) .page .searchResults {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+:global(html[data-theme="dark"]) .page h1,
+:global(html[data-theme="dark"]) .page h2,
+:global(html[data-theme="dark"]) .page h3,
+:global(html[data-theme="dark"]) .page h4,
+:global(html[data-theme="dark"]) .page h5,
+:global(html[data-theme="dark"]) .page h6,
+:global(html[data-theme="dark"]) .page p,
+:global(html[data-theme="dark"]) .page strong,
+:global(html[data-theme="dark"]) .page li,
+:global(html[data-theme="dark"]) .page label,
+:global(html[data-theme="dark"]) .page .logo,
+:global(html[data-theme="dark"]) .page .navLinks a,
+:global(html[data-theme="dark"]) .page .homeLink,
+:global(html[data-theme="dark"]) .page .footerLinks a,
+:global(html[data-theme="dark"]) .page .footerBrand span,
+:global(html[data-theme="dark"]) .page .footer p {
+  color: #e5edf5 !important;
+}
+
+:global(html[data-theme="dark"]) .page .sectionLabel,
+:global(html[data-theme="dark"]) .page .heroTop,
+:global(html[data-theme="dark"]) .page .eyebrow,
+:global(html[data-theme="dark"]) .page .securityCard > span,
+:global(html[data-theme="dark"]) .page .number,
+:global(html[data-theme="dark"]) .page .threatCard > span,
+:global(html[data-theme="dark"]) .page .contractPoint > span,
+:global(html[data-theme="dark"]) .page .checkItem > span,
+:global(html[data-theme="dark"]) .page .questions span,
+:global(html[data-theme="dark"]) .page .toolEyebrow,
+:global(html[data-theme="dark"]) .page .searchLabel {
+  color: #22d3ee !important;
+}
+
+:global(html[data-theme="dark"]) .page input,
+:global(html[data-theme="dark"]) .page textarea,
+:global(html[data-theme="dark"]) .page select,
+:global(html[data-theme="dark"]) .page .searchBox,
+:global(html[data-theme="dark"]) .page .quizOption,
+:global(html[data-theme="dark"]) .page .quizReset {
+  background: #080d16 !important;
+  color: #f8fafc !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+:global(html[data-theme="dark"]) .page input::placeholder,
+:global(html[data-theme="dark"]) .page textarea::placeholder,
+:global(html[data-theme="dark"]) .page .searchInput::placeholder {
+  color: #94a3b8 !important;
+}
+
+:global(html[data-theme="dark"]) .page .progressTrack {
+  background: #263244 !important;
+}
+
+:global(html[data-theme="dark"]) .page .progressFill {
+  background: #22d3ee !important;
+}
+
+:global(html[data-theme="dark"]) .page .progressItemCompleted,
+:global(html[data-theme="dark"]) .page .quizOptionSelected,
+:global(html[data-theme="dark"]) .page .quizOptionCorrect,
+:global(html[data-theme="dark"]) .page .quizOptionWrong,
+:global(html[data-theme="dark"]) .page .quizExplanation {
+  background: #152334 !important;
+}
+
+:global(html[data-theme="dark"]) .page .progressItem button,
+:global(html[data-theme="dark"]) .page .quizSubmit,
+:global(html[data-theme="dark"]) .page .finalCtaButton {
+  background: #22d3ee !important;
+  color: #041018 !important;
+  border-color: #22d3ee !important;
+}
+
+:global(html[data-theme="dark"]) .page .progressItem button *,
+:global(html[data-theme="dark"]) .page .quizSubmit *,
+:global(html[data-theme="dark"]) .page .finalCtaButton * {
+  color: #041018 !important;
+}
+
+:global(html[data-theme="dark"]) .page .finalCtaButton:hover,
+:global(html[data-theme="dark"]) .page .quizSubmit:hover:not(:disabled) {
+  background: #67e8f9 !important;
+  color: #041018 !important;
+}
+
+
+/* =========================================================
+   SECURITY PAGE — LIGHT THEME READABILITY
+   Scoped to light mode so the dark theme remains unchanged.
+   ========================================================= */
+
+:global(html[data-theme="light"]) .page {
+  background: #f4f5f7 !important;
+  color: #171717 !important;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+:global(html[data-theme="light"]) .page .nav,
+:global(html[data-theme="light"]) .page .hero,
+:global(html[data-theme="light"]) .page .introduction,
+:global(html[data-theme="light"]) .page .wallet,
+:global(html[data-theme="light"]) .page .transactions,
+:global(html[data-theme="light"]) .page .threats,
+:global(html[data-theme="light"]) .page .contracts,
+:global(html[data-theme="light"]) .page .checklist,
+:global(html[data-theme="light"]) .page .knowledge,
+:global(html[data-theme="light"]) .page .footer {
+  background: #f4f5f7 !important;
+  color: #171717 !important;
+  border-color: rgba(23, 23, 23, 0.12) !important;
+}
+
+:global(html[data-theme="light"]) .page .nav {
+  background: rgba(244, 245, 247, 0.96) !important;
+}
+
+:global(html[data-theme="light"]) .page h1,
+:global(html[data-theme="light"]) .page h2,
+:global(html[data-theme="light"]) .page h3,
+:global(html[data-theme="light"]) .page p,
+:global(html[data-theme="light"]) .page strong,
+:global(html[data-theme="light"]) .page label,
+:global(html[data-theme="light"]) .page .logo,
+:global(html[data-theme="light"]) .page .navLinks a,
+:global(html[data-theme="light"]) .page .homeLink,
+:global(html[data-theme="light"]) .page .footerLinks a,
+:global(html[data-theme="light"]) .page .footerBrand span,
+:global(html[data-theme="light"]) .page .footer p {
+  color: #171717 !important;
+}
+
+:global(html[data-theme="light"]) .page .sectionLabel,
+:global(html[data-theme="light"]) .page .heroTop,
+:global(html[data-theme="light"]) .page .eyebrow,
+:global(html[data-theme="light"]) .page .securityCard > span,
+:global(html[data-theme="light"]) .page .number,
+:global(html[data-theme="light"]) .page .threatCard > span,
+:global(html[data-theme="light"]) .page .contractPoint > span,
+:global(html[data-theme="light"]) .page .checkItem > span,
+:global(html[data-theme="light"]) .page .toolEyebrow,
+:global(html[data-theme="light"]) .page .searchLabel {
+  color: #6d28d9 !important;
+}
+
+:global(html[data-theme="light"]) .page .sectionLabel span:first-child {
+  color: #171717 !important;
+}
+
+:global(html[data-theme="light"]) .page .definitionBox,
+:global(html[data-theme="light"]) .page .securityCard,
+:global(html[data-theme="light"]) .page .threatCard,
+:global(html[data-theme="light"]) .page .contractPoint,
+:global(html[data-theme="light"]) .page .questions > div,
+:global(html[data-theme="light"]) .page .progressPanel,
+:global(html[data-theme="light"]) .page .searchPanel,
+:global(html[data-theme="light"]) .page .quizCard,
+:global(html[data-theme="light"]) .page .quizQuestion,
+:global(html[data-theme="light"]) .page .quizFooter,
+:global(html[data-theme="light"]) .page .finalCtaInner {
+  background: #ffffff !important;
+  color: #171717 !important;
+  border-color: rgba(23, 23, 23, 0.13) !important;
+}
+
+:global(html[data-theme="light"]) .page .walletGrid,
+:global(html[data-theme="light"]) .page .threatGrid,
+:global(html[data-theme="light"]) .page .contractGrid,
+:global(html[data-theme="light"]) .page .questions,
+:global(html[data-theme="light"]) .page .transactionSteps,
+:global(html[data-theme="light"]) .page .checkList,
+:global(html[data-theme="light"]) .page .progressItems,
+:global(html[data-theme="light"]) .page .searchResults {
+  background: rgba(23, 23, 23, 0.12) !important;
+  border-color: rgba(23, 23, 23, 0.13) !important;
+}
+
+:global(html[data-theme="light"]) .page .heroText,
+:global(html[data-theme="light"]) .page .introductionContent > p,
+:global(html[data-theme="light"]) .page .walletHeader p,
+:global(html[data-theme="light"]) .page .transactionHeader p,
+:global(html[data-theme="light"]) .page .threatHeader p,
+:global(html[data-theme="light"]) .page .contractHeader p,
+:global(html[data-theme="light"]) .page .checklistHeader p,
+:global(html[data-theme="light"]) .page .securityCard p,
+:global(html[data-theme="light"]) .page .threatCard p,
+:global(html[data-theme="light"]) .page .contractPoint p,
+:global(html[data-theme="light"]) .page .questions p,
+:global(html[data-theme="light"]) .page .transactionRow p,
+:global(html[data-theme="light"]) .page .checkItem p,
+:global(html[data-theme="light"]) .page .knowledge > p {
+  color: #404040 !important;
+}
+
+:global(html[data-theme="light"]) .page input,
+:global(html[data-theme="light"]) .page textarea,
+:global(html[data-theme="light"]) .page select,
+:global(html[data-theme="light"]) .page .searchBox,
+:global(html[data-theme="light"]) .page .quizOption,
+:global(html[data-theme="light"]) .page .quizReset {
+  background: #ffffff !important;
+  color: #171717 !important;
+  border-color: rgba(23, 23, 23, 0.2) !important;
+}
+
+:global(html[data-theme="light"]) .page input::placeholder,
+:global(html[data-theme="light"]) .page textarea::placeholder,
+:global(html[data-theme="light"]) .page .searchInput::placeholder {
+  color: #737373 !important;
+}
+
+:global(html[data-theme="light"]) .page .progressText,
+:global(html[data-theme="light"]) .page .progressHeader h2 span,
+:global(html[data-theme="light"]) .page .searchResultText,
+:global(html[data-theme="light"]) .page .searchResult p,
+:global(html[data-theme="light"]) .page .searchNoResults,
+:global(html[data-theme="light"]) .page .quizExplanation p {
+  color: #525252 !important;
+}
+
+:global(html[data-theme="light"]) .page .progressTrack {
+  background: #e5e7eb !important;
+}
+
+:global(html[data-theme="light"]) .page .progressFill {
+  background: #6d28d9 !important;
+}
+
+:global(html[data-theme="light"]) .page .progressItem button,
+:global(html[data-theme="light"]) .page .quizSubmit,
+:global(html[data-theme="light"]) .page .finalCtaButton {
+  background: #171717 !important;
+  color: #ffffff !important;
+  border-color: #171717 !important;
+}
+
+:global(html[data-theme="light"]) .page .progressItem button *,
+:global(html[data-theme="light"]) .page .quizSubmit *,
+:global(html[data-theme="light"]) .page .finalCtaButton * {
+  color: #ffffff !important;
+}
+
+:global(html[data-theme="light"]) .page .progressItemCompleted,
+:global(html[data-theme="light"]) .page .quizOptionSelected,
+:global(html[data-theme="light"]) .page .quizOptionCorrect {
+  background: #ede9fe !important;
+}
+
+:global(html[data-theme="light"]) .page .quizOptionWrong {
+  background: #f3f4f6 !important;
+  color: #525252 !important;
+}
+
+:global(html[data-theme="light"]) .page .quizExplanation {
+  background: #f5f3ff !important;
+  border-left-color: #6d28d9 !important;
+}
+
+:global(html[data-theme="light"]) .page .quizCorrect,
+:global(html[data-theme="light"]) .page .quizIncorrect,
+:global(html[data-theme="light"]) .page .quizExplanation span,
+:global(html[data-theme="light"]) .page .quizResult > div span {
+  color: #6d28d9 !important;
+}
+
+:global(html[data-theme="light"]) .page .quizResult > div strong {
+  color: #171717 !important;
+}
+
+:global(html[data-theme="light"]) .page .finalCtaButton:hover,
+:global(html[data-theme="light"]) .page .quizSubmit:hover:not(:disabled) {
+  background: #404040 !important;
+  color: #ffffff !important;
 }
