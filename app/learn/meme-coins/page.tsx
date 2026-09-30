@@ -250,48 +250,6 @@ export default function MemeCoinsPage() {
     <main className={styles.page}>
 
       {/* =====================================================
-          NAVIGATION
-      ====================================================== */}
-
-      <header className={styles.header}>
-        <div className={styles.navInner}>
-
-          <Link href="/" className={styles.logo}>
-            [CHAINLAB]
-          </Link>
-
-          <nav className={styles.nav}>
-            <Link href="/learn/blockchain">
-              BLOCKCHAIN
-            </Link>
-
-            <Link href="/learn/solana">
-              SOLANA
-            </Link>
-
-            <Link
-              href="/learn/meme-coins"
-              className={styles.active}
-            >
-              MEME COINS
-            </Link>
-
-            <Link href="/learn/security">
-              SECURITY
-            </Link>
-          </nav>
-
-          <Link
-            href="/learn"
-            className={styles.navButton}
-          >
-            LEARNING HUB <span>→</span>
-          </Link>
-
-        </div>
-      </header>
-
-      {/* =====================================================
           HERO
       ====================================================== */}
 

@@ -261,69 +261,66 @@ export default function SecurityPage() {
     <main className={styles.page}>
 
       {/* =====================================================
-          NAVIGATION
-      ====================================================== */}
-
-      <nav className={styles.nav}>
-        <Link href="/" className={styles.logo}>
-          [CHAINLAB]
-        </Link>
-
-        <div className={styles.navLinks}>
-          <Link href="/learn/blockchain">
-            BLOCKCHAIN
-          </Link>
-
-          <Link href="/learn/solana">
-            SOLANA
-          </Link>
-
-          <Link href="/learn/meme-coins">
-            MEME COINS
-          </Link>
-
-          <Link
-            href="/learn/security"
-            className={styles.active}
-          >
-            SECURITY
-          </Link>
-        </div>
-
-        <Link href="/" className={styles.homeLink}>
-          HOME <span>→</span>
-        </Link>
-      </nav>
-
-      {/* =====================================================
-          HERO
+          HERO — SAME VISUAL STRUCTURE AS MEME COINS
       ====================================================== */}
 
       <section className={styles.hero}>
-        <div className={styles.heroTop}>
-          <span>[ 04 / SECURITY ]</span>
-          <span>CHAINLAB EDUCATION</span>
-        </div>
+        <div className={styles.heroGrid}>
 
-        <div className={styles.heroContent}>
-          <p className={styles.eyebrow}>
-            WEB3 SECURITY FUNDAMENTALS
-          </p>
+          <div className={styles.heroContent}>
 
-          <h1>
-            VERIFY.
-            <br />
-            <span>PROTECT.</span>
-          </h1>
+            <div className={styles.sectionLabel}>
+              [ 04 / SECURITY ]
+            </div>
 
-          <p className={styles.heroText}>
-            Blockchain transactions are designed to be
-            difficult to reverse. Security therefore begins
-            before you connect a wallet, sign a transaction,
-            or interact with a smart contract.
-          </p>
+            <h1>
+              VERIFY.
+              <br />
+              <span>PROTECT.</span>
+            </h1>
+
+            <p className={styles.heroText}>
+              Blockchain transactions are designed to be
+              difficult to reverse. Security therefore begins
+              before you connect a wallet, sign a transaction,
+              or interact with a smart contract.
+            </p>
+
+            <div className={styles.heroActions}>
+
+              <a
+                href="#foundations"
+                className={styles.primaryButton}
+              >
+                EXPLORE SECURITY <span>→</span>
+              </a>
+
+              <a
+                href="#security-checklist"
+                className={styles.secondaryButton}
+              >
+                SECURITY CHECKLIST
+              </a>
+
+            </div>
+
+          </div>
+
+          <div className={styles.heroVisual}>
+            <div className={styles.heroCard}>
+
+              <img
+                src="/images/web3-security-4k.png.jpg"
+                alt="Web3 security education"
+                className={styles.heroCardImage}
+              />
+
+            </div>
+          </div>
+
         </div>
       </section>
+
 
       {/* =====================================================
           LEARNING TOOLS

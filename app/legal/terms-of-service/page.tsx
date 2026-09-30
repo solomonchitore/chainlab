@@ -184,7 +184,7 @@ export default function TermsOfServicePage() {
             contact us:
           </p>
           <p>
-            Email: <strong>[Add your official contact email]</strong>
+            Email: <strong>[birthdaymessagingl@gmail.com]</strong>
           </p>
         </section>
       </article>

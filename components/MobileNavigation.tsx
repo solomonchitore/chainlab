@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function MobileNavigation() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] =
+    useState(false);
 
   function closeMenu() {
     setIsOpen(false);
@@ -23,7 +24,9 @@ export default function MobileNavigation() {
   }, [isOpen]);
 
   useEffect(() => {
-    function handleEscape(event: KeyboardEvent) {
+    function handleEscape(
+      event: KeyboardEvent
+    ) {
       if (event.key === "Escape") {
         setIsOpen(false);
       }
@@ -44,14 +47,17 @@ export default function MobileNavigation() {
 
   return (
     <>
-      {/* HAMBURGER BUTTON */}
+      {/* HAMBURGER */}
+
       <button
         type="button"
         className={`mobile-menu-button ${
           isOpen ? "open" : ""
         }`}
         onClick={() =>
-          setIsOpen((current) => !current)
+          setIsOpen(
+            (current) => !current
+          )
         }
         aria-label={
           isOpen
@@ -65,7 +71,9 @@ export default function MobileNavigation() {
         <span />
       </button>
 
+
       {/* MOBILE MENU */}
+
       <div
         className={`mobile-navigation ${
           isOpen
@@ -73,7 +81,9 @@ export default function MobileNavigation() {
             : ""
         }`}
       >
+
         <div className="mobile-navigation-header">
+
           <Link
             href="/"
             className="mobile-navigation-brand"
@@ -90,9 +100,12 @@ export default function MobileNavigation() {
           >
             ×
           </button>
+
         </div>
 
+
         <nav className="mobile-navigation-links">
+
           <Link
             href="/learn/blockchain"
             onClick={closeMenu}
@@ -124,7 +137,18 @@ export default function MobileNavigation() {
             <span>04</span>
             SECURITY
           </Link>
+
         </nav>
+
+
+        <Link
+          href="/login"
+          className="mobile-navigation-login"
+          onClick={closeMenu}
+        >
+          LOG IN
+        </Link>
+
 
         <Link
           href="/learn"
@@ -134,6 +158,7 @@ export default function MobileNavigation() {
           START LEARNING
           <span>→</span>
         </Link>
+
       </div>
     </>
   );

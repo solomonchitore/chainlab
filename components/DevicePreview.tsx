@@ -26,13 +26,14 @@ export default function DevicePreview() {
   const [deviceMode, setDeviceMode] =
     useState<DeviceMode>("current");
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] =
+    useState(false);
 
-  // Load the saved device preference.
   useEffect(() => {
-    const savedMode = localStorage.getItem(
-      "chainlab-device-mode"
-    ) as DeviceMode | null;
+    const savedMode =
+      localStorage.getItem(
+        "chainlab-device-mode"
+      ) as DeviceMode | null;
 
     const validModes: DeviceMode[] = [
       "current",
@@ -41,7 +42,8 @@ export default function DevicePreview() {
     ];
 
     const initialMode: DeviceMode =
-      savedMode && validModes.includes(savedMode)
+      savedMode &&
+      validModes.includes(savedMode)
         ? savedMode
         : "current";
 
@@ -51,13 +53,16 @@ export default function DevicePreview() {
       initialMode;
   }, []);
 
-  // Change the device preview mode.
   function changeDeviceMode(mode: DeviceMode) {
     setDeviceMode(mode);
 
-    document.documentElement.dataset.devicePreview = mode;
+    document.documentElement.dataset.devicePreview =
+      mode;
 
-    localStorage.setItem("chainlab-device-mode", mode);
+    localStorage.setItem(
+      "chainlab-device-mode",
+      mode
+    );
 
     setMenuOpen(false);
   }
@@ -65,19 +70,53 @@ export default function DevicePreview() {
   return (
     <div className="device-preview-control">
 
-      {/* DEVICE BUTTON */}
-
       <button
         type="button"
         className="device-preview-button"
-        onClick={() => setMenuOpen((previous) => !previous)}
+        onClick={() =>
+          setMenuOpen(
+            (previous) => !previous
+          )
+        }
         aria-label="Select device preview"
         aria-expanded={menuOpen}
         aria-haspopup="true"
       >
+
+        {/* DEVICE ICON */}
+
+        <svg
+          className="device-preview-icon"
+          width="21"
+          height="21"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <rect
+            x="5"
+            y="2.5"
+            width="14"
+            height="19"
+            rx="2"
+            stroke="currentColor"
+            strokeWidth="1.7"
+          />
+
+          <path
+            d="M9 18.5H15"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+          />
+        </svg>
+
+
         <span className="device-preview-button-text">
-          DEVICE
+          Device
         </span>
+
 
         <span
           className="device-preview-chevron"
@@ -85,9 +124,9 @@ export default function DevicePreview() {
         >
           {menuOpen ? "⌃" : "⌄"}
         </span>
+
       </button>
 
-      {/* DEVICE SELECTION MENU */}
 
       {menuOpen && (
         <div
@@ -95,18 +134,28 @@ export default function DevicePreview() {
           role="menu"
           aria-label="Device preview options"
         >
+
           {DEVICE_MODES.map((mode) => (
             <button
               key={mode.value}
               type="button"
               role="menuitemradio"
-              aria-checked={deviceMode === mode.value}
+              aria-checked={
+                deviceMode === mode.value
+              }
               className={`device-preview-option ${
-                deviceMode === mode.value ? "active" : ""
+                deviceMode === mode.value
+                  ? "active"
+                  : ""
               }`}
-              onClick={() => changeDeviceMode(mode.value)}
+              onClick={() =>
+                changeDeviceMode(mode.value)
+              }
             >
-              <span>{mode.label}</span>
+
+              <span>
+                {mode.label}
+              </span>
 
               {deviceMode === mode.value && (
                 <span
@@ -116,8 +165,10 @@ export default function DevicePreview() {
                   ✓
                 </span>
               )}
+
             </button>
           ))}
+
         </div>
       )}
 
