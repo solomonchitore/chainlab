@@ -182,37 +182,14 @@ export default function LearnPage() {
 
   return (
     <main className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.logo}>[CHAINLAB]</Link>
-
-          <nav className={styles.nav} aria-label="Main navigation">
-            <Link href="/" className={styles.navLink}>HOME</Link>
-            <Link href="/learn" className={`${styles.navLink} ${styles.active}`}>LEARN</Link>
-            <Link href="/learn/blockchain" className={styles.navLink}>BLOCKCHAIN</Link>
-            <Link href="/learn/solana" className={styles.navLink}>SOLANA</Link>
-            <Link href="/learn/meme-coins" className={styles.navLink}>MEME COINS</Link>
-            <Link href="/learn/security" className={styles.navLink}>SECURITY</Link>
-          </nav>
-
-          <Link href="/learn/blockchain" className={styles.startButton}>
-            START LEARNING <span>→</span>
-          </Link>
-        </div>
-        <div className={styles.progressTrack}>
-          <div className={styles.progressBar} style={{ width: `${progress}%` }} />
-        </div>
-      </header>
 
       <section className={styles.learningSection}>
         <div className={styles.hero}>
           <div className={styles.introduction}>
             <div className={styles.breadcrumb}>LEARN&nbsp; • &nbsp;BUILD&nbsp; • &nbsp;GROW</div>
-            <h1>ChainLab<br /><span>Learning.</span></h1>
+            <h1>START LEARNING.</h1>
             <p>
-              A modern, structured way to learn blockchain, Solana, meme coins,
-              and Web3 security. Practical lessons, real examples, and hands-on
-              guides for the next generation.
+              Explore blockchain, Solana, meme coins, and Web3 security.
             </p>
           </div>
 
@@ -288,12 +265,7 @@ export default function LearnPage() {
                 <h2>{module.title}</h2>
                 <p>{module.description}</p>
                 <div className={styles.cardMeta}>
-                  <span className={styles.lessonCount}>
-                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 2.5h8l4 4V17a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z" /><path d="M12 2.5v4h4" /></svg>
-                    {module.lessons} lessons
-                  </span>
-                  <span className={styles.level}>{module.level}</span>
-                  <span className={styles.cardArrow} aria-hidden="true">→</span>
+                  <span className={styles.cardExplore}>EXPLORE <span aria-hidden="true">→</span></span>
                 </div>
               </div>
             </Link>

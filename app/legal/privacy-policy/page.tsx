@@ -169,7 +169,7 @@ export default function PrivacyPolicyPage() {
             information is handled, contact us:
           </p>
           <p>
-            Email: <strong>[Add your official contact email]</strong>
+            Email: <strong>[birthdaymessagingl@gmail.com]</strong>
           </p>
         </section>
       </article>

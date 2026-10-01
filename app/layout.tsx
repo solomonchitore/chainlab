@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
-
 import Link from "next/link";
-
 import "./globals.css";
 
 import ChainLabControls from "@/components/ChainLabControls";
@@ -17,10 +15,8 @@ export const metadata: Metadata = {
     default: "CHAINLAB — Web3 Education",
     template: "%s | CHAINLAB",
   },
-
   description:
     "CHAINLAB is a free educational platform for learning blockchain, Solana, meme coins, tokenomics, and Web3 security.",
-
   keywords: [
     "blockchain",
     "Solana",
@@ -33,16 +29,13 @@ export const metadata: Metadata = {
     "Solana education",
     "blockchain learning",
   ],
-
   authors: [{ name: "Birthday Messaging" }],
   creator: "Birthday Messaging",
   publisher: "Birthday Messaging",
-
   robots: {
     index: true,
     follow: true,
   },
-
   applicationName: "CHAINLAB",
   category: "education",
 };
@@ -50,7 +43,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#02050a",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -62,86 +55,92 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LanguageProvider>
-          {/* FIXED TOP TOOLBAR */}
-          <div className="chainlab-utility-bar">
-            <div className="chainlab-utility-inner">
-              {/* FONT SIZE, THEME, AND LANGUAGE CONTROLS */}
-              <div className="chainlab-toolbar-center">
+          <header className="chainlab-header">
+            <div className="chainlab-header-inner">
+              <div className="header-controls">
                 <ChainLabControls />
-                <LanguageSelector />
               </div>
 
-              {/* SHARED CHAINLAB NAVIGATION */}
-              <header className="site-header">
-                <div className="nav-inner">
-                  <Link href="/" className="brand">
-                    [CHAINLAB]
-                  </Link>
+              <span className="header-divider" aria-hidden="true" />
 
-                  <nav
-                    className="main-nav"
-                    aria-label="Main navigation"
+              <LanguageSelector />
+
+              <span className="header-divider" aria-hidden="true" />
+
+              <Link href="/" className="brand">
+                [CHAINLAB]
+              </Link>
+
+              <nav className="main-nav" aria-label="Main navigation">
+                <Link href="/">HOME</Link>
+                <Link href="/learn">LEARN</Link>
+                <Link href="/learn/blockchain">BLOCKCHAIN</Link>
+                <Link href="/learn/solana">SOLANA</Link>
+                <Link href="/learn/meme-coins">MEME COINS</Link>
+                <Link href="/learn/security">SECURITY</Link>
+              </nav>
+
+              <div className="nav-actions">
+                <button
+                  type="button"
+                  className="nav-search-button"
+                  aria-label="Search ChainLab"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
-                    <Link href="/learn/blockchain">
-                      BLOCKCHAIN
-                    </Link>
+                    <circle
+                      cx="11"
+                      cy="11"
+                      r="6.5"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                    />
+                    <path
+                      d="M16 16L21 21"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </button>
 
-                    <Link href="/learn/solana">
-                      SOLANA
-                    </Link>
+                <span className="header-divider" aria-hidden="true" />
 
-                    <Link href="/learn/meme-coins">
-                      MEME COINS
-                    </Link>
+                <Link href="/login" className="nav-login-button">
+                  Log In
+                </Link>
 
-                    <Link href="/learn/security">
-                      SECURITY
-                    </Link>
-                  </nav>
+                <Link href="/learn" className="nav-button">
+                  START LEARNING <span aria-hidden="true">→</span>
+                </Link>
 
-                  <Link href="/learn" className="nav-button">
-                    START LEARNING <span>→</span>
-                  </Link>
-                </div>
-              </header>
-
-              {/* DEVICE BUTTON */}
-              <div className="chainlab-toolbar-right">
                 <DevicePreview />
               </div>
             </div>
-          </div>
+          </header>
 
-          {/* WEBSITE CONTENT */}
           <PageTransition>{children}</PageTransition>
 
-          {/* GLOBAL FOOTER LINKS — SINGLE SITE-WIDE ROW */}
           <footer className="chainlab-legal-links">
             <Link href="/extension">Chrome Extension</Link>
             <span aria-hidden="true">|</span>
-
             <Link href="/study-notes">Study Notes</Link>
             <span aria-hidden="true">|</span>
-
             <Link href="/achievements">Achievements</Link>
             <span aria-hidden="true">|</span>
-
-            <Link href="/legal/privacy-policy">
-              Privacy Policy
-            </Link>
+            <Link href="/legal/privacy-policy">Privacy Policy</Link>
             <span aria-hidden="true">|</span>
-
-            <Link href="/legal/terms-of-service">
-              Terms of Service
-            </Link>
+            <Link href="/legal/terms-of-service">Terms of Service</Link>
             <span aria-hidden="true">|</span>
-
-            <Link href="/certificate">
-              Certificate
-            </Link>
+            <Link href="/certificate">Certificate</Link>
           </footer>
 
-          {/* GLOBAL COMPONENTS */}
           <MobileNavigation />
           <CookieConsent />
         </LanguageProvider>

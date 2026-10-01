@@ -1699,3 +1699,1249 @@
 :global([data-theme="light"]) .page .nextModule p {
   color: #435466 !important;
 }
+
+
+/* =========================================================
+   INTERACTIVE SOLANA MEME COIN BLOCKCHAIN SIMULATOR
+   Added without changing existing Blockchain page styles.
+   ========================================================= */
+
+.simulatorSection {
+  width: min(1180px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 115px 0;
+  border-top: 1px solid rgba(0, 183, 255, 0.14);
+}
+
+@media (max-width: 900px) {
+  .simulatorSection {
+    width: min(100% - 40px, 700px);
+    padding: 85px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .simulatorSection {
+    width: calc(100% - 30px);
+    padding: 70px 0;
+  }
+}
+
+/* =========================================================
+   CHAINLAB — ADVANCED BLOCKCHAIN EDUCATION LAB
+   Added without removing existing Blockchain page styles.
+   ========================================================= */
+
+.chainlabBlockchainLab {
+  width: min(1180px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 115px 0 120px;
+  border-top: 1px solid rgba(0, 183, 255, 0.14);
+}
+
+.chainlabBlockchainLabHeader {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 55px;
+}
+
+.chainlabLabEyebrow,
+.chainlabLabKicker,
+.chainlabCardLabel,
+.chainlabWalletBalance span,
+.chainlabAddressBox span,
+.chainlabExplorerTop span,
+.chainlabBlockGrid span,
+.chainlabBlockHeader > div span,
+.chainlabSectionHeading span,
+.chainlabLabStatus,
+.chainlabSecurityCard > span {
+  color: #00d9ff;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+  letter-spacing: 1.6px;
+}
+
+.chainlabLabEyebrow {
+  margin: 0 0 20px;
+}
+
+.chainlabBlockchainLabHeader h2 {
+  margin: 0;
+  font-size: calc((clamp(52px, 7vw, 92px)) * var(--cl-font-scale, 1));
+  line-height: 0.86;
+  letter-spacing: -4px;
+  font-weight: 950;
+}
+
+.chainlabBlockchainLabHeader h2 span {
+  color: #00d9ff;
+}
+
+.chainlabLabIntro > p {
+  max-width: 720px;
+  margin: 0 0 25px;
+  color: #a7b6c9;
+  font-size: calc((17px) * var(--cl-font-scale, 1));
+  line-height: 1.8;
+}
+
+.chainlabLabDisclaimer {
+  display: grid;
+  gap: 8px;
+  border-left: 2px solid #00d9ff;
+  padding: 18px 20px;
+  background: rgba(0, 217, 255, 0.035);
+}
+
+.chainlabLabDisclaimer strong {
+  color: #00d9ff;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  letter-spacing: 1.5px;
+}
+
+.chainlabLabDisclaimer span {
+  color: #8294a9;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
+  line-height: 1.65;
+}
+
+.chainlabLabTabs {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(0, 183, 255, 0.2);
+  border-left: 1px solid rgba(0, 183, 255, 0.2);
+  margin-bottom: 24px;
+}
+
+.chainlabLabTabs button {
+  min-height: 62px;
+  flex: 1 1 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-right: 1px solid rgba(0, 183, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 183, 255, 0.2);
+  background: transparent;
+  color: #8192a8;
+  font-family: inherit;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.chainlabLabTabs button span {
+  color: #00d9ff;
+}
+
+.chainlabLabTabs button:hover,
+.chainlabLabTabs button.active {
+  background: rgba(0, 217, 255, 0.07);
+  color: #ffffff;
+}
+
+.chainlabLabPanel {
+  border: 1px solid rgba(0, 183, 255, 0.2);
+  background: #030a12;
+  padding: 34px;
+}
+
+.chainlabLabPanelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+
+.chainlabLabKicker {
+  margin: 0 0 10px;
+}
+
+.chainlabLabPanelHeader h3 {
+  margin: 0;
+  color: #f4f7fb;
+  font-size: calc((clamp(30px, 4vw, 52px)) * var(--cl-font-scale, 1));
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+
+.chainlabLabStatus {
+  flex-shrink: 0;
+  padding: 9px 12px;
+  border: 1px solid rgba(0, 217, 255, 0.35);
+}
+
+.chainlabLabStatus.complete {
+  background: rgba(0, 217, 255, 0.1);
+}
+
+.chainlabLabGrid {
+  display: grid;
+  gap: 20px;
+}
+
+.chainlabLabGrid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.chainlabLabCard {
+  border: 1px solid rgba(0, 183, 255, 0.15);
+  padding: 28px;
+  background: rgba(2, 7, 13, 0.6);
+}
+
+.chainlabCardLabel {
+  margin: 0 0 22px;
+}
+
+.chainlabLabNote {
+  margin-top: 25px;
+  border-left: 2px solid #00d9ff;
+  padding: 15px 18px;
+  background: rgba(0, 217, 255, 0.035);
+  color: #8799af;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+  line-height: 1.7;
+}
+
+.chainlabLabNote strong {
+  color: #dbe8f4;
+}
+
+.chainlabWalletFlow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px 20px;
+  align-items: center;
+}
+
+.chainlabWalletFlow > div:nth-child(2n) {
+  color: #00d9ff;
+  font-weight: 900;
+}
+
+.chainlabWalletFlow > div:not(:nth-child(2n)) {
+  border: 1px solid rgba(0, 183, 255, 0.16);
+  padding: 17px;
+  display: grid;
+  gap: 6px;
+}
+
+.chainlabWalletFlow strong {
+  color: #f4f7fb;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
+}
+
+.chainlabWalletFlow span {
+  color: #7f90a5;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
+}
+
+.chainlabEmptyState {
+  min-height: 245px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.chainlabEmptyState.compact {
+  min-height: 160px;
+}
+
+.chainlabEmptyState h4 {
+  margin: 12px 0 8px;
+  color: #f4f7fb;
+  font-size: calc((19px) * var(--cl-font-scale, 1));
+}
+
+.chainlabEmptyState p {
+  max-width: 460px;
+  margin: 0 0 20px;
+  color: #8192a8;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
+  line-height: 1.7;
+}
+
+.chainlabWalletIcon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #00d9ff;
+  color: #00d9ff;
+  font-weight: 900;
+}
+
+.chainlabLabCard button,
+.chainlabActionBar button,
+.chainlabButtonRow button {
+  border: 1px solid #00d9ff;
+  background: #00d9ff;
+  color: #02070d;
+  padding: 13px 18px;
+  font-family: inherit;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.chainlabLabCard button:hover,
+.chainlabActionBar button:hover,
+.chainlabButtonRow button:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.chainlabLabCard button:disabled,
+.chainlabActionBar button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.chainlabLabCard button.ghost,
+.chainlabActionBar button.ghost,
+.chainlabButtonRow button.ghost {
+  background: transparent;
+  color: #00d9ff;
+}
+
+.chainlabActionBar button.danger {
+  border-color: rgba(0, 217, 255, 0.55);
+  background: transparent;
+  color: #00d9ff;
+}
+
+.chainlabWalletBalance {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 183, 255, 0.15);
+}
+
+.chainlabWalletBalance strong {
+  color: #ffffff;
+  font-size: calc((27px) * var(--cl-font-scale, 1));
+}
+
+.chainlabAddressBox {
+  margin: 20px 0;
+  display: grid;
+  gap: 8px;
+}
+
+.chainlabAddressBox code {
+  overflow-wrap: anywhere;
+  color: #9edff1;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
+}
+
+.chainlabWalletForm,
+.chainlabFormGrid {
+  display: grid;
+  gap: 15px;
+}
+
+.chainlabWalletForm label,
+.chainlabFormGrid label,
+.chainlabContractAmount,
+.chainlabExplorerTop label {
+  display: grid;
+  gap: 8px;
+  color: #8294a9;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.chainlabWalletForm input,
+.chainlabFormGrid input,
+.chainlabContractAmount input,
+.chainlabExplorerTop input {
+  width: 100%;
+  min-height: 48px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 183, 255, 0.22);
+  outline: none;
+  background: #02070d;
+  color: #ffffff;
+  padding: 0 13px;
+  font-family: inherit;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
+}
+
+.chainlabWalletForm input:focus,
+.chainlabFormGrid input:focus,
+.chainlabContractAmount input:focus,
+.chainlabExplorerTop input:focus {
+  border-color: #00d9ff;
+}
+
+.chainlabWalletForm button {
+  margin-top: 4px;
+}
+
+.chainlabLabMessage {
+  margin: 16px 0 0;
+  color: #8fa2b7;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+  line-height: 1.6;
+}
+
+.chainlabFormGrid {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 20px;
+}
+
+.chainlabFormGrid label.wide {
+  grid-column: 1 / -1;
+}
+
+.chainlabTokenPreview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chainlabTokenSymbol {
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border: 1px solid #00d9ff;
+  color: #00d9ff;
+  font-size: calc((19px) * var(--cl-font-scale, 1));
+  font-weight: 950;
+}
+
+.chainlabTokenPreview h4 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: calc((25px) * var(--cl-font-scale, 1));
+}
+
+.chainlabTokenPreview > strong {
+  color: #00d9ff;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+}
+
+.chainlabTokenPreview > p {
+  margin: 18px 0 0;
+  color: #8192a8;
+  line-height: 1.7;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
+}
+
+.chainlabChainExplainer {
+  border: 1px solid rgba(0, 183, 255, 0.16);
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.chainlabChainExplainer > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.chainlabChainExplainer > div span {
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 217, 255, 0.25);
+  color: #dbe8f4;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+}
+
+.chainlabChainExplainer > div strong {
+  color: #00d9ff;
+}
+
+.chainlabChainExplainer > p {
+  margin: 16px 0 0;
+  color: #8192a8;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+  line-height: 1.6;
+}
+
+.chainlabActionBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.chainlabActionBar button {
+  background: #00d9ff;
+}
+
+.chainlabActionBar button.ghost {
+  background: transparent;
+}
+
+.chainlabActionBar button.danger {
+  background: transparent;
+}
+
+.chainlabPending {
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  padding: 20px;
+}
+
+.chainlabSectionHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.chainlabSectionHeading strong {
+  color: #ffffff;
+}
+
+.chainlabTransactionRow {
+  display: grid;
+  grid-template-columns: 120px 1fr auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-top: 1px solid rgba(0, 183, 255, 0.12);
+  color: #9aaabd;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
+}
+
+.chainlabTransactionRow strong {
+  color: #00d9ff;
+}
+
+.chainlabTransactionRow code {
+  color: #6f8297;
+}
+
+.chainlabChainMessage {
+  margin: 20px 0;
+  border-left: 2px solid #00d9ff;
+  padding: 15px 18px;
+  background: rgba(0, 217, 255, 0.04);
+  color: #c7d5e2;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+  line-height: 1.6;
+}
+
+.chainlabChainMessage.success {
+  color: #00d9ff;
+}
+
+.chainlabChainMessage.error {
+  border-left-color: #ffffff;
+  color: #ffffff;
+}
+
+.chainlabBlockList {
+  display: grid;
+  gap: 14px;
+}
+
+.chainlabBlock {
+  border: 1px solid rgba(0, 183, 255, 0.17);
+  background: rgba(2, 7, 13, 0.55);
+  padding: 22px;
+}
+
+.chainlabBlockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.chainlabBlockHeader > div {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.chainlabBlockHeader > div strong {
+  color: #ffffff;
+  font-size: calc((25px) * var(--cl-font-scale, 1));
+}
+
+.chainlabBlockHeader .sealed,
+.chainlabBlockHeader .unsealed {
+  padding: 7px 10px;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.chainlabBlockHeader .sealed {
+  border: 1px solid rgba(0, 217, 255, 0.4);
+  color: #00d9ff;
+}
+
+.chainlabBlockHeader .unsealed {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #8294a9;
+}
+
+.chainlabBlockGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(0, 183, 255, 0.12);
+  border-left: 1px solid rgba(0, 183, 255, 0.12);
+}
+
+.chainlabBlockGrid > div {
+  min-width: 0;
+  min-height: 88px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 15px;
+  border-right: 1px solid rgba(0, 183, 255, 0.12);
+  border-bottom: 1px solid rgba(0, 183, 255, 0.12);
+}
+
+.chainlabBlockGrid strong {
+  color: #ffffff;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+}
+
+.chainlabBlockGrid code {
+  overflow-wrap: anywhere;
+  color: #91cbd9;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
+}
+
+.chainlabBlockTransactions {
+  margin-top: 15px;
+  display: grid;
+  gap: 7px;
+}
+
+.chainlabBlockTransactions > div {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(0, 183, 255, 0.09);
+  color: #8192a8;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
+}
+
+.chainlabBlockTransactions strong,
+.chainlabBlockTransactions b {
+  color: #00d9ff;
+}
+
+.chainlabContractDiagram {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 25px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.chainlabContractNode {
+  min-height: 135px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(0, 183, 255, 0.18);
+  padding: 25px;
+  text-align: center;
+}
+
+.chainlabContractNode.active {
+  border-color: rgba(0, 217, 255, 0.55);
+  background: rgba(0, 217, 255, 0.045);
+}
+
+.chainlabContractNode span {
+  color: #00d9ff;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.chainlabContractNode strong {
+  color: #ffffff;
+  font-size: calc((21px) * var(--cl-font-scale, 1));
+}
+
+.chainlabContractNode small {
+  color: #8192a8;
+}
+
+.chainlabContractArrow {
+  color: #00d9ff;
+  font-size: calc((28px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+}
+
+.chainlabRule {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 0;
+  border-top: 1px solid rgba(0, 183, 255, 0.12);
+}
+
+.chainlabRule code {
+  color: #00d9ff;
+  font-weight: 900;
+}
+
+.chainlabRule span {
+  color: #8192a8;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+}
+
+.chainlabRule strong {
+  color: #ffffff;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  letter-spacing: 0.7px;
+}
+
+.chainlabContractAmount {
+  margin-top: 22px;
+}
+
+.chainlabButtonRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.chainlabContractLogs {
+  display: grid;
+  gap: 10px;
+}
+
+.chainlabContractLogs > div {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 5px 15px;
+  padding: 15px;
+  border: 1px solid rgba(0, 183, 255, 0.12);
+}
+
+.chainlabContractLogs span {
+  color: #00d9ff;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+}
+
+.chainlabContractLogs strong {
+  color: #ffffff;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+}
+
+.chainlabContractLogs small {
+  grid-column: 1 / -1;
+  color: #8192a8;
+}
+
+.chainlabExplorerTop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.7fr 1.6fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.chainlabExplorerTop > div {
+  min-height: 80px;
+  display: grid;
+  align-content: center;
+  gap: 7px;
+  padding: 15px;
+  border: 1px solid rgba(0, 183, 255, 0.13);
+}
+
+.chainlabExplorerTop strong {
+  color: #ffffff;
+  font-size: calc((13px) * var(--cl-font-scale, 1));
+}
+
+.chainlabExplorerTop label {
+  padding: 15px;
+  border: 1px solid rgba(0, 183, 255, 0.13);
+}
+
+.chainlabExplorerTable {
+  border-top: 1px solid rgba(0, 183, 255, 0.13);
+  border-left: 1px solid rgba(0, 183, 255, 0.13);
+}
+
+.chainlabExplorerTableHeader,
+.chainlabExplorerRow {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1.5fr 1.5fr 0.8fr;
+  gap: 0;
+}
+
+.chainlabExplorerTableHeader {
+  color: #00d9ff;
+  font-size: calc((8px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.chainlabExplorerTableHeader span,
+.chainlabExplorerRow > * {
+  min-width: 0;
+  padding: 15px;
+  border-right: 1px solid rgba(0, 183, 255, 0.13);
+  border-bottom: 1px solid rgba(0, 183, 255, 0.13);
+}
+
+.chainlabExplorerRow {
+  color: #8192a8;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
+}
+
+.chainlabExplorerRow strong {
+  color: #ffffff;
+}
+
+.chainlabExplorerRow code {
+  overflow-wrap: anywhere;
+}
+
+.chainlabExplorerRow .ok {
+  color: #00d9ff;
+  font-weight: 900;
+}
+
+.chainlabExplorerRow .pending {
+  color: #8192a8;
+}
+
+.chainlabSecurityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.chainlabSecurityCard {
+  border: 1px solid rgba(0, 183, 255, 0.15);
+  padding: 24px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.chainlabSecurityCard.done {
+  border-color: rgba(0, 217, 255, 0.45);
+  background: rgba(0, 217, 255, 0.04);
+}
+
+.chainlabSecurityCard > span {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.chainlabSecurityCard h4 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: calc((19px) * var(--cl-font-scale, 1));
+}
+
+.chainlabSecurityCard p {
+  min-height: 70px;
+  margin: 0 0 20px;
+  color: #8192a8;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+  line-height: 1.7;
+}
+
+.chainlabSecurityCard button {
+  background: transparent;
+  color: #00d9ff;
+}
+
+.chainlabSecurityCard.done button {
+  background: #00d9ff;
+  color: #02070d;
+}
+
+.chainlabSecurityWarning {
+  margin-top: 20px;
+  border-left: 2px solid #00d9ff;
+  padding: 18px 20px;
+  background: rgba(0, 217, 255, 0.04);
+  color: #9aacbf;
+  font-size: calc((12px) * var(--cl-font-scale, 1));
+  line-height: 1.7;
+}
+
+.chainlabSecurityWarning strong {
+  color: #00d9ff;
+}
+
+.chainlabChallengeIntro {
+  max-width: 780px;
+  margin: 0 0 30px;
+  color: #8192a8;
+  font-size: calc((14px) * var(--cl-font-scale, 1));
+  line-height: 1.8;
+}
+
+.chainlabChallengeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.chainlabChallengeItem {
+  display: grid;
+  grid-template-columns: 42px 1fr 25px;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  border: 1px solid rgba(0, 183, 255, 0.15);
+  background: transparent;
+  color: inherit;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.chainlabChallengeItem:hover {
+  border-color: rgba(0, 217, 255, 0.45);
+  background: rgba(0, 217, 255, 0.035);
+}
+
+.chainlabChallengeItem > span {
+  color: #00d9ff;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+}
+
+.chainlabChallengeItem strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-size: calc((10px) * var(--cl-font-scale, 1));
+  letter-spacing: 0.5px;
+}
+
+.chainlabChallengeItem p {
+  margin: 0;
+  color: #8192a8;
+  font-size: calc((11px) * var(--cl-font-scale, 1));
+  line-height: 1.5;
+}
+
+.chainlabChallengeItem b {
+  color: #8192a8;
+}
+
+.chainlabChallengeItem.done {
+  border-color: rgba(0, 217, 255, 0.4);
+}
+
+.chainlabChallengeItem.done b {
+  color: #00d9ff;
+}
+
+.chainlabChallengeResult {
+  margin-top: 25px;
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(0, 183, 255, 0.2);
+  padding: 25px;
+  background: rgba(0, 183, 255, 0.035);
+}
+
+.chainlabChallengeResult span {
+  color: #00d9ff;
+  font-size: calc((9px) * var(--cl-font-scale, 1));
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.chainlabChallengeResult strong {
+  color: #d9e5ef;
+  font-size: calc((15px) * var(--cl-font-scale, 1));
+  line-height: 1.7;
+}
+
+.chainlabChallengeResult.complete {
+  border-color: rgba(0, 217, 255, 0.55);
+  background: rgba(0, 217, 255, 0.07);
+}
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+:global([data-theme="light"]) .page .chainlabBlockchainLab {
+  color: #17212b;
+}
+
+:global([data-theme="light"]) .page .chainlabLabIntro > p,
+:global([data-theme="light"]) .page .chainlabLabDisclaimer span,
+:global([data-theme="light"]) .page .chainlabLabNote,
+:global([data-theme="light"]) .page .chainlabEmptyState p,
+:global([data-theme="light"]) .page .chainlabLabMessage,
+:global([data-theme="light"]) .page .chainlabChainExplainer > p,
+:global([data-theme="light"]) .page .chainlabTransactionRow,
+:global([data-theme="light"]) .page .chainlabBlockGrid code,
+:global([data-theme="light"]) .page .chainlabBlockTransactions > div,
+:global([data-theme="light"]) .page .chainlabContractNode small,
+:global([data-theme="light"]) .page .chainlabRule span,
+:global([data-theme="light"]) .page .chainlabContractLogs small,
+:global([data-theme="light"]) .page .chainlabExplorerRow,
+:global([data-theme="light"]) .page .chainlabSecurityCard p,
+:global([data-theme="light"]) .page .chainlabSecurityWarning,
+:global([data-theme="light"]) .page .chainlabChallengeIntro,
+:global([data-theme="light"]) .page .chainlabChallengeItem p {
+  color: #435466;
+}
+
+:global([data-theme="light"]) .page .chainlabLabPanel,
+:global([data-theme="light"]) .page .chainlabLabCard,
+:global([data-theme="light"]) .page .chainlabBlock {
+  background: #ffffff;
+  border-color: #d7e1e8;
+}
+
+:global([data-theme="light"]) .page .chainlabLabPanelHeader h3,
+:global([data-theme="light"]) .page .chainlabWalletFlow strong,
+:global([data-theme="light"]) .page .chainlabEmptyState h4,
+:global([data-theme="light"]) .page .chainlabWalletBalance strong,
+:global([data-theme="light"]) .page .chainlabTokenPreview h4,
+:global([data-theme="light"]) .page .chainlabBlockHeader > div strong,
+:global([data-theme="light"]) .page .chainlabBlockGrid strong,
+:global([data-theme="light"]) .page .chainlabContractNode strong,
+:global([data-theme="light"]) .page .chainlabRule strong,
+:global([data-theme="light"]) .page .chainlabContractLogs strong,
+:global([data-theme="light"]) .page .chainlabExplorerTop strong,
+:global([data-theme="light"]) .page .chainlabExplorerRow strong,
+:global([data-theme="light"]) .page .chainlabSecurityCard h4,
+:global([data-theme="light"]) .page .chainlabChallengeItem strong {
+  color: #17212b;
+}
+
+:global([data-theme="light"]) .page .chainlabLabTabs button {
+  color: #596b7b;
+  border-color: #d7e1e8;
+}
+
+:global([data-theme="light"]) .page .chainlabLabTabs button:hover,
+:global([data-theme="light"]) .page .chainlabLabTabs button.active {
+  color: #075a78;
+  background: #e8f8fc;
+}
+
+:global([data-theme="light"]) .page .chainlabWalletForm input,
+:global([data-theme="light"]) .page .chainlabFormGrid input,
+:global([data-theme="light"]) .page .chainlabContractAmount input,
+:global([data-theme="light"]) .page .chainlabExplorerTop input {
+  background: #f7fafc;
+  color: #17212b;
+  border-color: #c8d5de;
+}
+
+:global([data-theme="light"]) .page .chainlabWalletForm label,
+:global([data-theme="light"]) .page .chainlabFormGrid label,
+:global([data-theme="light"]) .page .chainlabContractAmount,
+:global([data-theme="light"]) .page .chainlabExplorerTop label {
+  color: #526576;
+}
+
+:global([data-theme="light"]) .page .chainlabLabCard button,
+:global([data-theme="light"]) .page .chainlabActionBar button,
+:global([data-theme="light"]) .page .chainlabButtonRow button {
+  background: #007a9e;
+  border-color: #007a9e;
+  color: #ffffff;
+}
+
+:global([data-theme="light"]) .page .chainlabLabCard button:hover,
+:global([data-theme="light"]) .page .chainlabActionBar button:hover,
+:global([data-theme="light"]) .page .chainlabButtonRow button:hover {
+  background: #005b78;
+  border-color: #005b78;
+}
+
+:global([data-theme="light"]) .page .chainlabLabCard button.ghost,
+:global([data-theme="light"]) .page .chainlabActionBar button.ghost,
+:global([data-theme="light"]) .page .chainlabButtonRow button.ghost,
+:global([data-theme="light"]) .page .chainlabActionBar button.danger {
+  background: transparent;
+  color: #00627f;
+  border-color: #0084a8;
+}
+
+:global([data-theme="light"]) .page .chainlabBlockGrid,
+:global([data-theme="light"]) .page .chainlabExplorerTable {
+  border-color: #d7e1e8;
+}
+
+:global([data-theme="light"]) .page .chainlabBlockGrid > div,
+:global([data-theme="light"]) .page .chainlabExplorerTableHeader span,
+:global([data-theme="light"]) .page .chainlabExplorerRow > * {
+  border-color: #d7e1e8;
+}
+
+:global([data-theme="light"]) .page .chainlabSecurityCard,
+:global([data-theme="light"]) .page .chainlabChallengeItem {
+  border-color: #d7e1e8;
+}
+
+:global([data-theme="light"]) .page .chainlabSecurityCard.done,
+:global([data-theme="light"]) .page .chainlabChallengeItem.done,
+:global([data-theme="light"]) .page .chainlabChallengeResult.complete {
+  background: #e8f8fc;
+  border-color: #8fcbdc;
+}
+
+:global([data-theme="light"]) .page .chainlabChallengeResult strong {
+  color: #263746;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .chainlabBlockchainLab {
+    width: min(100% - 40px, 700px);
+    padding: 85px 0;
+  }
+
+  .chainlabBlockchainLabHeader,
+  .chainlabLabGrid.two {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .chainlabBlockchainLabHeader {
+    gap: 35px;
+  }
+
+  .chainlabBlockGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chainlabExplorerTop {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chainlabExplorerTop label {
+    grid-column: 1 / -1;
+  }
+
+  .chainlabSecurityGrid,
+  .chainlabChallengeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .chainlabTransactionRow {
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .chainlabTransactionRow code,
+  .chainlabTransactionRow strong:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .chainlabBlockchainLab {
+    width: calc(100% - 30px);
+    padding: 70px 0;
+  }
+
+  .chainlabLabPanel,
+  .chainlabLabCard {
+    padding: 22px;
+  }
+
+  .chainlabBlockchainLabHeader h2 {
+    font-size: calc((56px) * var(--cl-font-scale, 1));
+    letter-spacing: -3px;
+  }
+
+  .chainlabLabPanelHeader {
+    flex-direction: column;
+  }
+
+  .chainlabLabTabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chainlabLabTabs button {
+    min-height: 58px;
+    flex: none;
+  }
+
+  .chainlabFormGrid,
+  .chainlabBlockGrid,
+  .chainlabExplorerTop {
+    grid-template-columns: 1fr;
+  }
+
+  .chainlabFormGrid label.wide,
+  .chainlabExplorerTop label {
+    grid-column: auto;
+  }
+
+  .chainlabContractDiagram {
+    grid-template-columns: 1fr;
+  }
+
+  .chainlabContractArrow {
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .chainlabRule {
+    grid-template-columns: 45px 1fr;
+  }
+
+  .chainlabRule strong {
+    grid-column: 2;
+  }
+
+  .chainlabExplorerTable {
+    overflow-x: auto;
+  }
+
+  .chainlabExplorerTableHeader,
+  .chainlabExplorerRow {
+    min-width: 720px;
+  }
+
+  .chainlabTransactionRow,
+  .chainlabBlockTransactions > div {
+    grid-template-columns: 1fr auto;
+  }
+
+  .chainlabActionBar,
+  .chainlabButtonRow {
+    flex-direction: column;
+  }
+
+  .chainlabActionBar button,
+  .chainlabButtonRow button {
+    width: 100%;
+  }
+}

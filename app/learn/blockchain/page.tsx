@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 import styles from "./blockchain.module.css";
+import BlockchainSimulator from "@/components/BlockchainSimulator";
+import BlockchainEducationLab from "@/components/BlockchainEducationLab";
 
 const lessons = [
   {
@@ -222,36 +224,6 @@ export default function BlockchainPage() {
 
   return (
     <main className={styles.page}>
-      {/* =====================================================
-          NAVIGATION
-          ===================================================== */}
-
-      <header className={styles.nav}>
-        <Link href="/" className={styles.logo}>
-          <span>[</span>CHAINLAB<span>]</span>
-        </Link>
-
-        <nav className={styles.navLinks}>
-          <Link href="/">HOME</Link>
-          <Link href="/learn">LEARN</Link>
-
-          <Link
-            href="/learn/blockchain"
-            className={styles.active}
-          >
-            BLOCKCHAIN
-          </Link>
-
-          <Link href="/learn/solana">SOLANA</Link>
-          <Link href="/learn/meme-coins">MEME COINS</Link>
-          <Link href="/learn/security">SECURITY</Link>
-        </nav>
-
-        <Link href="/learn" className={styles.navButton}>
-          BACK TO LEARN <span>→</span>
-        </Link>
-      </header>
-
       {/* =====================================================
           HERO
           ===================================================== */}
@@ -1016,6 +988,22 @@ export default function BlockchainPage() {
         </div>
       </section>
 
+
+      {/* =====================================================
+          INTERACTIVE SOLANA MEME COIN BLOCKCHAIN
+          ===================================================== */}
+
+      <section className={styles.simulatorSection}>
+        <BlockchainSimulator />
+      </section>
+
+      {/* =====================================================
+          ADVANCED BLOCKCHAIN EDUCATION LAB
+          Added without removing existing Blockchain content.
+          ===================================================== */}
+
+      <BlockchainEducationLab />
+
       {/* =====================================================
           NEXT MODULE
           ===================================================== */}
@@ -1042,7 +1030,6 @@ export default function BlockchainPage() {
           GO TO SOLANA <span>→</span>
         </Link>
       </section>
-
       {/* =====================================================
           FOOTER
           ===================================================== */}

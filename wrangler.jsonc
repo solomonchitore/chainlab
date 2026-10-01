@@ -1,25 +1,47 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
+
   "main": ".open-next/worker.js",
+
   "name": "chainlab",
+
   "compatibility_date": "2026-09-18",
+
   "compatibility_flags": [
     "global_fetch_strictly_public"
   ],
+
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
       "service": "chainlab"
     }
   ],
+
   "images": {
     "binding": "IMAGES"
   },
+
   "observability": {
     "enabled": true
+  },
+
+  "d1_databases": [
+    {
+      "binding": "chainlab_auth",
+      "database_name": "chainlab-auth",
+      "database_id": "bbc22335-f5eb-407c-88c6-e0c11622ca47"
+    }
+  ],
+
+  "secrets": {
+    "required": [
+      "BETTER_AUTH_SECRET"
+    ]
   }
 }

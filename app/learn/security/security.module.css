@@ -2004,3 +2004,408 @@
   background: #404040 !important;
   color: #ffffff !important;
 }
+
+
+/* ============================================================
+   CHAINLAB MEME COINS — PROFESSIONAL THEME POLISH
+   Added after the existing styles so the original content and
+   functionality remain intact.
+   ============================================================ */
+
+.page {
+  --mc-accent: #176cff;
+  --mc-accent-soft: rgba(23,108,255,.10);
+  --mc-border: rgba(120, 145, 175, .24);
+  --mc-card: rgba(255,255,255,.035);
+  --mc-text: #f7f9fc;
+  --mc-muted: #aab7c8;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(23,108,255,.13), transparent 26%),
+    radial-gradient(circle at 8% 35%, rgba(70,120,255,.07), transparent 25%),
+    #05070d;
+  color: var(--mc-text);
+}
+
+/* Remove any old page-level navigation if one is accidentally retained. */
+.page > .nav,
+.page > header.header,
+.page > header {
+  display: none !important;
+}
+
+.hero,
+.learningTools,
+.contentSection,
+.mechanics,
+.tokenomics,
+.community,
+.risks,
+.quizSection,
+.nextModule,
+.footer {
+  position: relative;
+}
+
+/* Premium section rhythm */
+.hero,
+.learningTools,
+.contentSection,
+.mechanics,
+.tokenomics,
+.community,
+.risks,
+.quizSection,
+.nextModule {
+  border-bottom: 1px solid var(--mc-border);
+}
+
+/* Hero becomes a polished product-style introduction */
+.hero {
+  padding: clamp(72px, 9vw, 128px) 5vw;
+  background:
+    linear-gradient(135deg, rgba(23,108,255,.08), transparent 48%),
+    transparent;
+}
+
+.heroGrid {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  gap: clamp(36px, 6vw, 90px);
+  align-items: center;
+}
+
+.heroContent {
+  max-width: 680px;
+}
+
+.hero h1 {
+  letter-spacing: -.055em;
+  line-height: .9;
+  text-wrap: balance;
+}
+
+.heroText {
+  max-width: 620px;
+  color: var(--mc-muted);
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.8;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primaryButton,
+.secondaryButton {
+  border-radius: 12px !important;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.primaryButton {
+  background: var(--mc-accent) !important;
+  color: #fff !important;
+  border: 1px solid var(--mc-accent) !important;
+  box-shadow: 0 12px 30px rgba(23,108,255,.22);
+}
+
+.secondaryButton {
+  background: rgba(255,255,255,.035) !important;
+  color: var(--mc-text) !important;
+  border: 1px solid var(--mc-border) !important;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.heroCard {
+  border-radius: 24px !important;
+  border: 1px solid var(--mc-border) !important;
+  background: rgba(12,17,27,.72) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+
+/* Put the educational tools into clean cards */
+.learningTools {
+  width: min(1180px, 90vw);
+  margin: 0 auto;
+  padding: 64px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr);
+  gap: 24px;
+}
+
+.progressPanel,
+.searchPanel,
+.quizCard,
+.nextModule {
+  border: 1px solid var(--mc-border) !important;
+  border-radius: 20px !important;
+  background: var(--mc-card) !important;
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
+}
+
+.progressPanel,
+.searchPanel {
+  padding: 26px !important;
+}
+
+.progressItem,
+.searchResult,
+.quizQuestion,
+.checkItem,
+.transactionRow,
+.securityCard,
+.threatCard,
+.contractPoint {
+  border-color: var(--mc-border) !important;
+}
+
+.progressItem,
+.searchResult,
+.quizQuestion {
+  border-radius: 14px !important;
+}
+
+.progressItem:hover,
+.searchResult:hover {
+  background: var(--mc-accent-soft) !important;
+}
+
+.searchInput,
+.searchBox {
+  border-radius: 12px !important;
+}
+
+/* Lesson/content cards */
+.securityCard,
+.threatCard,
+.contractPoint,
+.checkItem {
+  border: 1px solid var(--mc-border) !important;
+  border-radius: 18px !important;
+  background: var(--mc-card) !important;
+  box-shadow: 0 12px 35px rgba(0,0,0,.12);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.securityCard:hover,
+.threatCard:hover,
+.contractPoint:hover,
+.checkItem:hover {
+  transform: translateY(-3px);
+  border-color: rgba(23,108,255,.45) !important;
+  box-shadow: 0 18px 42px rgba(0,0,0,.20);
+}
+
+/* High contrast dark mode */
+:global(html[data-theme="dark"]) .page,
+:global(body[data-theme="dark"]) .page,
+:global(html.dark) .page,
+:global(body.dark) .page,
+:global(html.dark-mode) .page,
+:global(body.dark-mode) .page {
+  color: #f7f9fc !important;
+}
+
+:global(html[data-theme="dark"]) .page p,
+:global(body[data-theme="dark"]) .page p,
+:global(html.dark) .page p,
+:global(body.dark) .page p,
+:global(html.dark-mode) .page p,
+:global(body.dark-mode) .page p {
+  color: #aebbd0;
+}
+
+:global(html[data-theme="dark"]) .page h1,
+:global(html[data-theme="dark"]) .page h2,
+:global(html[data-theme="dark"]) .page h3,
+:global(body[data-theme="dark"]) .page h1,
+:global(body[data-theme="dark"]) .page h2,
+:global(body[data-theme="dark"]) .page h3,
+:global(html.dark) .page h1,
+:global(html.dark) .page h2,
+:global(html.dark) .page h3,
+:global(body.dark) .page h1,
+:global(body.dark) .page h2,
+:global(body.dark) .page h3 {
+  color: #f8fafc !important;
+}
+
+/* High contrast light mode */
+:global(html[data-theme="light"]) .page,
+:global(body[data-theme="light"]) .page,
+:global(html.light) .page,
+:global(body.light) .page,
+:global(html.light-mode) .page,
+:global(body.light-mode) .page {
+  --mc-text: #152235;
+  --mc-muted: #52657a;
+  --mc-border: #d6e0ea;
+  --mc-card: rgba(255,255,255,.92);
+  --mc-accent-soft: rgba(23,108,255,.07);
+  background:
+    radial-gradient(circle at 82% 8%, rgba(23,108,255,.08), transparent 28%),
+    #f5f8fc !important;
+  color: #152235 !important;
+}
+
+:global(html[data-theme="light"]) .page p,
+:global(body[data-theme="light"]) .page p,
+:global(html.light) .page p,
+:global(body.light) .page p,
+:global(html.light-mode) .page p,
+:global(body.light-mode) .page p {
+  color: #52657a !important;
+}
+
+:global(html[data-theme="light"]) .page h1,
+:global(html[data-theme="light"]) .page h2,
+:global(html[data-theme="light"]) .page h3,
+:global(body[data-theme="light"]) .page h1,
+:global(body[data-theme="light"]) .page h2,
+:global(body[data-theme="light"]) .page h3,
+:global(html.light) .page h1,
+:global(html.light) .page h2,
+:global(html.light) .page h3,
+:global(body.light) .page h1,
+:global(body.light) .page h2,
+:global(body.light) .page h3,
+:global(html.light-mode) .page h1,
+:global(html.light-mode) .page h2,
+:global(html.light-mode) .page h3,
+:global(body.light-mode) .page h1,
+:global(body.light-mode) .page h2,
+:global(body.light-mode) .page h3 {
+  color: #152235 !important;
+}
+
+:global(html[data-theme="light"]) .progressPanel,
+:global(html[data-theme="light"]) .searchPanel,
+:global(html[data-theme="light"]) .quizCard,
+:global(html[data-theme="light"]) .nextModule,
+:global(html[data-theme="light"]) .securityCard,
+:global(html[data-theme="light"]) .threatCard,
+:global(html[data-theme="light"]) .contractPoint,
+:global(html[data-theme="light"]) .checkItem,
+:global(body[data-theme="light"]) .progressPanel,
+:global(body[data-theme="light"]) .searchPanel,
+:global(body[data-theme="light"]) .quizCard,
+:global(body[data-theme="light"]) .nextModule,
+:global(body[data-theme="light"]) .securityCard,
+:global(body[data-theme="light"]) .threatCard,
+:global(body[data-theme="light"]) .contractPoint,
+:global(body[data-theme="light"]) .checkItem {
+  background: #ffffff !important;
+  border-color: #d6e0ea !important;
+  box-shadow: 0 16px 40px rgba(38,59,82,.08);
+}
+
+:global(html[data-theme="light"]) .heroCard,
+:global(body[data-theme="light"]) .heroCard {
+  background: #ffffff !important;
+  border-color: #d6e0ea !important;
+  box-shadow: 0 20px 55px rgba(38,59,82,.12);
+}
+
+:global(html[data-theme="light"]) .secondaryButton,
+:global(body[data-theme="light"]) .secondaryButton {
+  color: #152235 !important;
+  background: #ffffff !important;
+  border-color: #b9c8d8 !important;
+}
+
+:global(html[data-theme="light"]) .progressItem,
+:global(body[data-theme="light"]) .progressItem,
+:global(html[data-theme="light"]) .searchResult,
+:global(body[data-theme="light"]) .searchResult {
+  background: #f8fafc !important;
+  color: #152235 !important;
+}
+
+:global(html[data-theme="light"]) .progressItem strong,
+:global(body[data-theme="light"]) .progressItem strong,
+:global(html[data-theme="light"]) .searchResult strong,
+:global(body[data-theme="light"]) .searchResult strong,
+:global(html[data-theme="light"]) .quizOption,
+:global(body[data-theme="light"]) .quizOption {
+  color: #152235 !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .learningTools {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 56px 20px;
+  }
+
+  .learningTools {
+    width: min(100% - 32px, 680px);
+    padding: 40px 0;
+  }
+
+  .progressPanel,
+  .searchPanel {
+    padding: 20px !important;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   SECURITY HERO — MATCH MEME COINS HERO PRESENTATION
+   ========================================================= */
+
+.heroVisual {
+  position: relative;
+  min-width: 0;
+}
+
+.heroCardImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 22px;
+  max-height: 560px;
+}
+
+@media (max-width: 900px) {
+  .heroVisual {
+    margin-top: 10px;
+  }
+
+  .heroCardImage {
+    max-height: 460px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroCardImage {
+    aspect-ratio: 16 / 10;
+    max-height: none;
+  }
+}
