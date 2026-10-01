@@ -4,13 +4,12 @@ import { authServer } from "@/lib/auth";
 
 export const runtime = "nodejs";
 
-async function getAuth() {
+async function getAuth(request: Request) {
   const { env } = await getCloudflareContext({ async: true });
 
   const secret = env.BETTER_AUTH_SECRET;
 
-  const baseURL =
-    process.env.BETTER_AUTH_URL || "http://localhost:3000";
+  const baseURL = new URL(request.url).origin;
 
   if (!secret) {
     throw new Error(
@@ -26,13 +25,13 @@ async function getAuth() {
 }
 
 export async function GET(request: Request) {
-  const auth = await getAuth();
+  const auth = await getAuth(request);
 
   return toNextJsHandler(auth).GET(request);
 }
 
 export async function POST(request: Request) {
-  const auth = await getAuth();
+  const auth = await getAuth(request);
 
   return toNextJsHandler(auth).POST(request);
 }

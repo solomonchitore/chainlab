@@ -31,6 +31,7 @@ export function authServer({
     },
 
     trustedOrigins: [
+      baseURL,
       "http://localhost:3000",
     ],
   });
